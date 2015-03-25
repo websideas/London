@@ -36,9 +36,14 @@ function theme_setup() {
     add_theme_support( 'post-formats', array('gallery', 'link', 'image', 'video') );
     
     /**
+	 * Disable Woo styles (will use customized compiled copy)
+	 */ 
+	add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+    
+    /**
 	 * Enable support for woocommerce
 	 */
-    add_theme_support( 'woocommerce' );
+    //add_theme_support( 'woocommerce' );
     
     /**
 	 * Let WordPress manage the document title.
@@ -111,3 +116,39 @@ if ( ! function_exists( 'themdev_meta_title' ) ) {
 		<?php }  ?></title>
 	<?php }
 }
+
+
+
+/**
+ * Enqueue scripts and styles.
+ *
+ * @since Twenty Fifteen 1.0
+ */
+function london_scripts() {
+
+    wp_enqueue_style( 'london-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'london-bootstrap', THEME_COMPONENTS . 'bootstrap/css/bootstrap.min.css', array());
+    wp_enqueue_style( 'london-font-awesome', THEME_FONTS . 'font-awesome/css/font-awesome.min.css', array());
+    wp_enqueue_style( 'london-mCustomScrollbar', THEME_CSS . 'jquery.mCustomScrollbar.min.css', array());
+    
+    
+	// Load our main stylesheet.
+    wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
+    wp_enqueue_style( 'london-woocommerce', THEME_CSS . 'woocommerce.css', array('london-main'));
+    
+	// Load the Internet Explorer specific stylesheet.
+	wp_enqueue_style( 'london-ie', THEME_CSS . 'ie.css', array( 'london-style' ), '20141010' );
+	wp_style_add_data( 'london-ie', 'conditional', 'lt IE 9' );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+    
+    
+    wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'ktSticky-script', THEME_JS . 'jquery.kt.sticky.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'london-script', THEME_JS . 'functions.js', array( 'jquery' ), null, true );
+	
+}
+add_action( 'wp_enqueue_scripts', 'london_scripts' );

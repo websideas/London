@@ -12,14 +12,16 @@
  */
 
 get_header(); ?>
-    <?php
-	// Start the loop.
-	while ( have_posts() ) : the_post();
-
-		// Include the page content template.
-		get_template_part( 'content', 'page' );
-
-	// End the loop.
-	endwhile;
-	?>
+    <div class="container">
+        <?php
+    	// Start the loop.
+    	while ( have_posts() ) : the_post();
+    
+    		// Include the page content template.
+    		get_template_part( 'content', 'page' );
+    
+    	// End the loop.
+    	endwhile;
+    	?>
+    </div><!-- .container -->
 <?php get_footer(); ?>

@@ -10,9 +10,13 @@ define( 'THEME_DIR', trailingslashit(get_template_directory()));
 define( 'THEME_URL', trailingslashit(get_template_directory_uri()));
 define( 'THEME_LANG', 'london');
 
-define( 'THEME_FONTS', trailingslashit( THEME_URL . 'assets/fonts' ) );
-define( 'THEME_JS', trailingslashit( THEME_URL . 'assets/js' ) );
-define( 'THEME_CSS', trailingslashit( THEME_URL . 'assets/css' ) );
+define( 'THEME_ASSETS', trailingslashit( THEME_URL . 'assets' ) );
+define( 'THEME_COMPONENTS', trailingslashit( THEME_ASSETS . 'components' ) );
+define( 'THEME_FONTS', trailingslashit( THEME_ASSETS . 'fonts' ) );
+define( 'THEME_JS', trailingslashit( THEME_ASSETS . 'js' ) );
+define( 'THEME_CSS', trailingslashit( THEME_ASSETS . 'css' ) );
+define( 'THEME_IMG', trailingslashit( THEME_ASSETS . 'images' ) );
+
 
 define( 'ADMIN_ASSETS', THEME_URL.'/admin/assets/');
 
@@ -24,7 +28,22 @@ define( 'ADMIN_ASSETS', THEME_URL.'/admin/assets/');
  *
  * @since 1.0
  */
-require_once THEME_DIR . 'inc/functions.php';
+require_once THEME_DIR . 'inc/functions-core.php';
+
+/**
+ * Include widgets and register sidebars.
+ *
+ * @since 1.0
+ */
+require_once THEME_DIR . 'inc/widgets.php';
+
+
+/**
+ * Custom & Walker Navigation.
+ *
+ * @since 1.0
+ */
+require_once THEME_DIR . 'inc/nav/nav.php';
 
 
 /**
@@ -35,7 +54,12 @@ require_once THEME_DIR . 'inc/functions.php';
 require_once THEME_DIR . '/inc/template-tags.php';
 
 
-
+/**
+ * Custom woocommerce functions.
+ *
+ * @since 1.0
+ */
+require_once THEME_DIR . 'inc/woocommerce.php';
 
 
 
@@ -77,6 +101,7 @@ if ( class_exists( 'Vc_Manager', false ) ) {
 			wp_enqueue_style( 'js_composer_bridge', ADMIN_ASSETS . 'css/js_composer_bridge.css' );
 		}
 	}
+    
     add_action( 'admin_enqueue_scripts', 'js_composer_bridge_admin', 15 );
     
     if ( function_exists( 'vc_set_shortcodes_templates_dir' ) ) {
