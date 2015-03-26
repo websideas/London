@@ -105,7 +105,6 @@
                     if ($this.data('sticky-options')) {
 						return false;
 					}
-                    console.log($this.prev('.sticky-placeholder').length);
                     
                     if($this.prev('.sticky-placeholder').length == 0){
                         var $placeholder = $("<div/>",{

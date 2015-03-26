@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 //fullwidth, sidebar-left, sidebar-right
-$layout = 'sidebar-left';
+$layout = apply_filters( 'archive_product_layout', 'fullwidth' );
 
 get_header( 'shop' ); ?>
 
@@ -41,7 +41,7 @@ get_header( 'shop' ); ?>
 		<?php do_action( 'woocommerce_archive_description' ); ?>
         <div class="clearfix"></div>
 		<?php if ( have_posts() ) : ?>
-            <div class="row">
+            
 			<?php
 				/**
 				 * woocommerce_before_shop_loop hook
@@ -63,8 +63,8 @@ get_header( 'shop' ); ?>
 				<?php endwhile; // end of the loop. ?>
 
 			<?php woocommerce_product_loop_end(); ?>
-            </div>
-            <div class="content_sortPagiBar">
+            
+            <div class="content_sortPagiBar clearfix">
 			<?php
 				/**
 				 * woocommerce_after_shop_loop hook
@@ -73,7 +73,7 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_after_shop_loop' );
 			?>
-            </div>
+            </div><!-- .content_sortPagiBar -->
 		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
 
 			<?php wc_get_template( 'loop/no-products-found.php' ); ?>

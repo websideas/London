@@ -127,14 +127,14 @@ if ( ! function_exists( 'themdev_meta_title' ) ) {
 function london_scripts() {
 
     wp_enqueue_style( 'london-style', get_stylesheet_uri() );
-    wp_enqueue_style( 'london-bootstrap', THEME_COMPONENTS . 'bootstrap/css/bootstrap.min.css', array());
-    wp_enqueue_style( 'london-font-awesome', THEME_FONTS . 'font-awesome/css/font-awesome.min.css', array());
-    wp_enqueue_style( 'london-mCustomScrollbar', THEME_CSS . 'jquery.mCustomScrollbar.min.css', array());
-    
+    wp_enqueue_style( 'bootstrap-css', THEME_COMPONENTS . 'bootstrap/css/bootstrap.min.css', array());
+    wp_enqueue_style( 'font-awesome-css', THEME_FONTS . 'font-awesome/css/font-awesome.min.css', array());
+    wp_enqueue_style( 'mCustomScrollbar-css', THEME_CSS . 'jquery.mCustomScrollbar.min.css', array());
+    wp_enqueue_style( 'owl-carousel-css', THEME_COMPONENTS . 'owl-carousel/owl.carousel.css', array());
     
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
-    wp_enqueue_style( 'london-woocommerce', THEME_CSS . 'woocommerce.css', array('london-main'));
+    wp_enqueue_style( 'woocommerce-css', THEME_CSS . 'woocommerce.css', array('london-main'));
     
 	// Load the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'london-ie', THEME_CSS . 'ie.css', array( 'london-style' ), '20141010' );
@@ -144,10 +144,13 @@ function london_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
     
+    wp_enqueue_script( 'mCustomScrollbar-script', THEME_JS . 'jquery.mCustomScrollbar.min.js', array( 'jquery' ), null, false );
+    wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, false );
+    wp_enqueue_script( 'customSelect-script', THEME_JS . 'jquery.customSelect.min.js', array( 'jquery' ), null, false );
     
-    wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, true );
-    wp_enqueue_script( 'ktSticky-script', THEME_JS . 'jquery.kt.sticky.js', array( 'jquery' ), null, true );
-    wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'ktSticky-script', THEME_JS . 'jquery.kt.sticky.js', array( 'jquery' ), null, true );    
+    wp_enqueue_script( 'owl-carousel', THEME_COMPONENTS . 'owl-carousel/owl.carousel.min.js', array( 'jquery' ), null, true );
+    
     wp_enqueue_script( 'london-script', THEME_JS . 'functions.js', array( 'jquery' ), null, true );
 	
 }

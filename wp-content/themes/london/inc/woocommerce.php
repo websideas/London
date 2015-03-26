@@ -16,7 +16,8 @@ function woocommerce_get_cart(){
         $output .= '<div class="shopping_cart">';
             $output .= '<a class="cart-contents" href="'.$woocommerce->cart->get_cart_url().'" title="'.__("View my shopping cart", THEME_LANG).'">'.$cart_total.'</a>';
             
-            $output .= '<div class="shopping-bag mCustomScrollbar">';
+            $output .= '<div class="shopping-bag">';
+            $output .= '<div class="shopping-bag-wrapper mCustomScrollbar">';
             $output .= '<div class="shopping-bag-content">';
                 if ( sizeof($woocommerce->cart->cart_contents)>0 ) {
                     $output .= '<div class="bag-products">';
@@ -49,9 +50,14 @@ function woocommerce_get_cart(){
                     $output .= '<a href="'.esc_url( $woocommerce->cart->get_checkout_url() ).'" class="btn btn-default btn-round pull-left">'.__('Checkout', THEME_LANG).'</a>';
                 $output .= '</div><!-- .bag-buttons -->';
             
-            $output .= '</div><!-- .shopping-bag-content -->';    
+            $output .= '</div><!-- .shopping-bag-content -->';
+            $output .= '</div><!-- .shopping-bag-wrapper -->';
             $output .= '</div><!-- .shopping-bag -->';
+            $output .= "<script type='text/javascript'>jQuery('.mCustomScrollbar').mCustomScrollbar();</script>";
         $output .= '</div><!-- .shopping_cart -->';
+        
+        
+        
     }
     return $output;
 }
@@ -63,7 +69,6 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
     $fragments['.shopping_cart'] = woocommerce_get_cart();
 	return $fragments;
 }
-
 
 
 
@@ -113,6 +118,52 @@ function jk_woocommerce_breadcrumbs() {
         
 } 
 
+
+/**
+ * Change number or products per row to 3
+ * 
+ */
+
+add_filter( 'loop_shop_columns', 'london_woo_shop_columns' );
+function london_woo_shop_columns( $columns ) {
+    if(is_shop()){
+        return 4;
+    }elseif(is_product_category()){
+        return 3;
+    }elseif(is_product_tag()){
+        return 3;
+    }
+    return $columns;
+}
+
+/**
+ * Change layout of archive product
+ * 
+ */
+add_filter( 'archive_product_layout', 'london_archive_product_layout' );
+function london_archive_product_layout( $columns ) {
+    //fullwidth, sidebar-left, sidebar-right
+    if(is_shop()){
+        return 'fullwidth';
+    }elseif(is_product_category()){
+        return 'sidebar-left';
+    }elseif(is_product_tag()){
+        return 'sidebar-right';
+    }
+}
+
+
+/**
+ * Change layout of single product
+ * 
+ */
+add_filter( 'single_product_layout', 'london_single_product_layout' );
+function london_single_product_layout( $columns ) {
+    //fullwidth, sidebar-left, sidebar-right
+    return 'fullwidth';
+}
+
+
 /**
  * Change hook of archive-product.php
  * 
@@ -128,13 +179,9 @@ remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_l
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10, 0);
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10, 0);
 
-
-
-
 add_action( 'woocommerce_shop_loop_item_image', 'woocommerce_template_loop_product_thumbnail', 5, 0);
 add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_template_loop_add_to_cart', 5, 0);
 add_action( 'woocommerce_shop_loop_item_action', 'theme_action_add', 10, 0);
-
 
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10, 0);
 add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 20, 0);
@@ -146,38 +193,17 @@ add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_show_product_
 function theme_action_add(){
     echo do_shortcode('[yith_wcwl_add_to_wishlist]');
     echo do_shortcode('[yith_compare_button]');
-    
 }
-
-
-
-
-
-/*
-
-
-remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10, 0);
-add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 10, 0);
-*/
-
 /**
- * Change number or products per row to 3
+ * Change hook of single-product.php
  * 
  */
 
-add_filter('loop_shop_columns', 'woocommerce_loop_columns');
-if (!function_exists('woocommerce_loop_columns')) {
-    function woocommerce_loop_columns() {
-        return 3; // 3 products per row
-    }
-} 
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10, 0);
+add_action( 'woocommerce_after_single_product_content', 'woocommerce_output_product_data_tabs', 10, 0);
 
-// Apply row class to shortcodes
-add_filter('woocommerce_product_loop_start', 'woocommerce_product_loop_start_add_class');
-function woocommerce_product_loop_start_add_class($classes) {
-
-	if( !is_shop() && !is_product_category() && !is_product() && !is_cart() && !is_checkout())
-		$classes .= ' row';
-
-	return $classes;
+add_filter('woocommerce_product_description_heading', 'london_woocommerce_product_description_heading');
+function london_woocommerce_product_description_heading(){
+    return "";
 }
+

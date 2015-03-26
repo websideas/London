@@ -7,4 +7,5 @@
  * @version     2.0.0
  */
 ?>
-<ul class="<?php echo apply_filters('woocommerce_product_loop_start', 'products'); ?>">
+<div class="row">
+    <ul class="<?php echo apply_filters('woocommerce_product_loop_start', 'products'); ?>">
