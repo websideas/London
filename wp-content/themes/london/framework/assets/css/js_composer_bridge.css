@@ -1,0 +1,23 @@
+.wpb_el_type_kt_heading.vc_shortcode-param{
+    background-color: #e6e6e6;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.vc_edit-form-tab .wpb_el_type_kt_heading.vc_shortcode-param:first-child{
+    margin-top: 0;
+}
+.kt_margin_bottom{
+    margin-bottom: 15px;
+}
+.dt_taxonomy_terms{
+    max-height: 100px;
+    overflow: auto;
+}
+
+.dt_taxonomy_terms label{
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}

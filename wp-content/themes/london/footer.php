@@ -62,7 +62,7 @@
     
     <?php
 	/**
-	 * @hooked 
+	 * @hooked theme_after_footer_addscroll 10
 	 */
 	do_action( 'theme_after_footer' ); ?>
     

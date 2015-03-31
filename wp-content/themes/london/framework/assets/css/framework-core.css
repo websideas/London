@@ -1,0 +1,43 @@
+/*==================================
+* Helpers
+===================================*/
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+/*==================================
+* Spinner
+===================================*/
+.kt-spinner{
+    position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 9999999;
+	display: none;
+	background: url(../images/spinner.gif) no-repeat center center;
+}
+
+
+
+
+
+
+/*==================================
+* Responsive
+===================================*/
+@media screen and (max-width:782px){
+    .menu-item-settings input[type="checkbox"]{width:auto;}
+}
+/*==================================
+* END Responsive
+===================================*/

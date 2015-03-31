@@ -67,7 +67,7 @@ function theme_setup() {
         add_image_size( 'screen', 1170);
         add_image_size( 'screen_square', 1170, 1170, true);
         add_image_size( 'haft', 570);
-        add_image_size( 'haft_square', 570, 570, true);
+        add_image_size( 'recent_posts', 570, 380, true);
         add_image_size( 'small', 105, 105, true );
         
     }
@@ -122,15 +122,16 @@ if ( ! function_exists( 'themdev_meta_title' ) ) {
 /**
  * Enqueue scripts and styles.
  *
- * @since Twenty Fifteen 1.0
+ * @since London 1.0
  */
 function london_scripts() {
 
     wp_enqueue_style( 'london-style', get_stylesheet_uri() );
-    wp_enqueue_style( 'bootstrap-css', THEME_COMPONENTS . 'bootstrap/css/bootstrap.min.css', array());
+    wp_enqueue_style( 'bootstrap-css', THEME_LIBS . 'bootstrap/css/bootstrap.min.css', array());
     wp_enqueue_style( 'font-awesome-css', THEME_FONTS . 'font-awesome/css/font-awesome.min.css', array());
     wp_enqueue_style( 'mCustomScrollbar-css', THEME_CSS . 'jquery.mCustomScrollbar.min.css', array());
-    wp_enqueue_style( 'owl-carousel-css', THEME_COMPONENTS . 'owl-carousel/owl.carousel.css', array());
+    wp_enqueue_style( 'owl-carousel-css', THEME_LIBS . 'owl-carousel/owl.carousel.css', array());
+    wp_enqueue_style( 'owl-carousel-theme', THEME_LIBS . 'owl-carousel/owl.theme.css', array());
     
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
@@ -144,14 +145,32 @@ function london_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
     
+    wp_localize_script( 'london-script', 'ajax_frontend', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'security' => wp_create_nonce( 'ajax_frontend' )
+    ));
+    
+    
+    wp_enqueue_script( 'bootstrap-script', THEME_LIBS . 'bootstrap/js/bootstrap.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'mCustomScrollbar-script', THEME_JS . 'jquery.mCustomScrollbar.min.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'customSelect-script', THEME_JS . 'jquery.customSelect.min.js', array( 'jquery' ), null, false );
-    
     wp_enqueue_script( 'ktSticky-script', THEME_JS . 'jquery.kt.sticky.js', array( 'jquery' ), null, true );    
-    wp_enqueue_script( 'owl-carousel', THEME_COMPONENTS . 'owl-carousel/owl.carousel.min.js', array( 'jquery' ), null, true );
-    
-    wp_enqueue_script( 'london-script', THEME_JS . 'functions.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'owl-carousel', THEME_LIBS . 'owl-carousel/owl.carousel.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'london-script', THEME_JS . 'functions.js', array( 'jquery', 'wp-mediaelement' ), null, true );
 	
 }
 add_action( 'wp_enqueue_scripts', 'london_scripts' );
+
+/**
+ * Add scroll to top
+ *
+ * @since London 1.0
+ */
+add_action( 'theme_after_footer', 'theme_after_footer_addscroll' );
+function theme_after_footer_addscroll(){
+    echo "<a href='#top' id='backtotop'></a>";
+}
+
+
+

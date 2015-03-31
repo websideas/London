@@ -15,7 +15,7 @@ global $post, $woocommerce, $product;
 
 ?>
 <div class="images">
-
+    <div class="single-product-main-images owl-carousel" id="sync1">
 	<?php
 		if ( has_post_thumbnail() ) {
 
@@ -27,8 +27,11 @@ global $post, $woocommerce, $product;
 				'alt'	=> $image_title
 				) );
 
-			$attachment_count = count( $product->get_gallery_attachment_ids() );
-
+            //Get attachment IDS
+			$attachment_ids = $product->get_gallery_attachment_ids();
+			$attachment_count   = count( $attachment_ids );
+            
+            
 			if ( $attachment_count > 0 ) {
 				$gallery = '[product-gallery]';
 			} else {
@@ -36,14 +39,38 @@ global $post, $woocommerce, $product;
 			}
 
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a>', $image_link, $image_caption, $image ), $post->ID );
+            
+            
+            // Display Attachment Images as well
+			if( $attachment_count > 0 ) :
+
+				// Loop in attachment	
+				foreach ( $attachment_ids as $attachment_id ) {
+					
+					// Get attachment image URL
+					$image_link = wp_get_attachment_url( $attachment_id );
+
+					$image_title = esc_attr( get_the_title( $attachment_id ) );
+					
+					// If isn't a URL we go to next attachment
+					if ( !$image_link )
+						continue;
+
+					$image = wp_get_attachment_image( $attachment_id, 'shop_single', array(
+						'data-zoom-image' => $image_link
+						) );
+
+					// Display other items
+					echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a>', $image_link, $image_title, $image ), $post->ID );
+				}
+
+			endif;
+            
 
 		} else {
-
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
-
 		}
 	?>
-
+    </div><!-- #sync1.single-product-main-images.owl-carousel -->
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
-
-</div>
+</div><!-- .images -->
