@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+global $product;
+
 ?>
 
 <?php
@@ -33,20 +35,21 @@ if ( ! defined( 'ABSPATH' ) ) {
     
     <div class="product-detail-content">
         <div class="row product-detail-inner">
-            <div class="<?php echo apply_filters('ivan_woo_single_product_thumb_area', 'col-xs-12 col-sm-5 col-md-5'); ?>">
-            	<?php
-            		/**
-            		 * woocommerce_before_single_product_summary hook
-            		 *
-            		 * @hooked woocommerce_show_product_sale_flash - 10
-            		 * @hooked woocommerce_show_product_images - 20
-            		 */
-            		do_action( 'woocommerce_before_single_product_summary' );
-            	?>
+            <div class="<?php echo apply_filters('woocommerce_single_product_thumb_area', 'col-xs-12 col-sm-5 col-md-5'); ?>">
+                <div class="product-detail-thumbarea">
+                	<?php
+                		/**
+                		 * woocommerce_before_single_product_summary hook
+                		 *
+                		 * @hooked woocommerce_show_product_sale_flash - 10
+                		 * @hooked woocommerce_show_product_images - 20
+                		 */
+                		do_action( 'woocommerce_before_single_product_summary' );
+                	?>
+                </div>
             </div>
-            <div class="<?php echo apply_filters('ivan_woo_single_product_summary_area', 'col-xs-12 col-sm-7 col-md-7'); ?>">
+            <div class="<?php echo apply_filters('woocommerce_single_product_summary_area', 'col-xs-12 col-sm-7 col-md-7'); ?>">
             	<div class="summary entry-summary">
-            
             		<?php
             			/**
             			 * woocommerce_single_product_summary hook

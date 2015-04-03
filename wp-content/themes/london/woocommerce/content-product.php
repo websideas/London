@@ -61,25 +61,22 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
         ?>
     
         <a href="<?php the_permalink(); ?>" class="product-thumbnail <?php if($attachment) echo "product-thumbnail-effect"; ?>">
-            
             <?php echo get_the_post_thumbnail( $post->ID, 'shop_catalog', array('class'=>"first-img product-img")) ?>
             <?php echo $attachment; ?>
-            
-            <?php
-    			/**
-    			 * woocommerce_before_shop_loop_item_title hook
-    			 *
-    			 * @hooked woocommerce_template_loop_add_to_cart - 5
-    			 * @hooked woocommerce_show_product_loop_sale_flash - 10
-    			 */
-    			do_action( 'woocommerce_shop_loop_item_after_image' );
-    		?>
-            
-            <div class="functional-buttons">
-                <a href="<?php the_permalink(); ?>" class="product-quick-view" data-id="<?php the_ID() ?>"></a>
-                <?php do_action( 'woocommerce_shop_loop_item_action' ); ?>
-            </div>
         </a>
+        <?php
+			/**
+			 * woocommerce_before_shop_loop_item_title hook
+			 *
+			 * @hooked woocommerce_template_loop_add_to_cart - 5
+			 * @hooked woocommerce_show_product_loop_sale_flash - 10
+			 */
+			do_action( 'woocommerce_shop_loop_item_after_image' );
+		?>
+        <div class="functional-buttons">
+            <a href="<?php the_permalink(); ?>" class="product-quick-view" data-id="<?php the_ID() ?>"></a>
+            <?php do_action( 'woocommerce_shop_loop_item_action' ); ?>
+        </div>
     </div>
     
     

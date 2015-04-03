@@ -40,15 +40,15 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) :
                 $output .= '<div class="owl-carousel-wrapper">';
-                $output .= '<div class="owl-carousel owl-carousel-theme" data-pagination="false" data-theme="owl-carousel-navigation-top" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
+                $output .= '<div class="owl-carousel kt-owl-carousel" data-pagination="false" data-theme="style-navigation-top" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
                 while ( $query->have_posts() ) : $query->the_post();
-                    $output .= '<div class="recent_posts_item">';
+                    $output .= '<div class="recent-posts-item">';
                         $output .= '<a href="'.get_permalink().'">';
                             $output .= get_the_post_thumbnail( $post->ID, 'recent_posts', array('class'=>"first-img product-img"));
                         $output .= '</a>';
                         
                         $output .= '<h5 class="entry-title"><a href="'.get_permalink().'">'.get_the_title().'</a></h5>';
-                        $output .= '<p class="post_content_blog">'.get_the_excerpt().'</p>';
+                        $output .= '<p class="post-content-blog">'.get_the_excerpt().'</p>';
                         $output .= sprintf(
                                         "<p><a href='%s' class='%s'>%s</a></p>",
                                         get_permalink(),
@@ -56,7 +56,7 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
                                         __('Read More', THEME_LANG)
                                     );
                         
-                    $output .= '</div>';
+                    $output .= '</div><!-- .recent-posts-item -->';
                 endwhile; wp_reset_postdata();
                 $output .= '</div>';
                 $output .= '</div>';
@@ -80,7 +80,6 @@ vc_map( array(
             "type" => "textfield",
             "heading" => __( "Title", THEME_LANGUAGE ),
             "param_name" => "title",
-            "description" => __( "Mailchimp title", THEME_LANGUAGE ),
             "admin_label" => true,
         ),
         array(
@@ -97,7 +96,7 @@ vc_map( array(
           "heading" => __("Number Post", THEME_LANGUAGE),
           "param_name" => "number",
           "value" => 10,
-          "description" => __("Enter number of Post", THEME_LANGUAGE)
+          "description" => __("How many Posts you would like to show? ( -1 means unlimited )", THEME_LANGUAGE)
         ),
         array(
           "type" => "kt_heading",

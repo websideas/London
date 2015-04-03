@@ -36,7 +36,7 @@
     	 */
     	do_action( 'theme_before_header' ); ?>
         
-        <div class="header-container">
+        <div class="<?php echo apply_filters('theme_header_class', 'header-container') ?>">
             <header id="header" class="sticky-header">
                 <div class="container">
                     <div id="header-inner">
@@ -61,10 +61,18 @@
                             <div class="header-content display-td">
                                 <div class="header-content-top clearfix">
                                     <?php echo woocommerce_get_cart(); ?>
-                                    <?php wp_nav_menu( array( 'theme_location' => 'top', 'container' => 'nav', 'container_id' => 'top-nav' ) ); ?>
+                                    <?php
+                                        if ( has_nav_menu( 'top' ) ) { 
+                                            wp_nav_menu( array( 'theme_location' => 'top', 'container' => 'nav', 'container_id' => 'top-nav' ) );
+                                        } 
+                                    ?>
                                 </div><!-- .header-content-top -->
                                 <div class="header-content-bottom clearfix">
-                                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav', 'walker' => new KTMegaWalker() ) ); ?>
+                                    <?php
+                                        if ( has_nav_menu( 'primary' ) ) {  
+                                            wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav', 'walker' => new KTMegaWalker() ) );
+                                        }
+                                    ?>
                                     <?php get_search_form(); ?>
                                 </div><!-- .header-content-bottom -->
                             </div><!-- .header-content -->
@@ -76,7 +84,9 @@
         
         <?php
     	/**
-    	 * @hooked 
+    	 * @hooked theme_before_content_add_sideshow 10
+         * @hooked theme_before_content_add_title 20
+         * 
     	 */
     	do_action( 'theme_before_content' ); ?>
         

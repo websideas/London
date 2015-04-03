@@ -24,12 +24,53 @@
 	width: 100%;
 	z-index: 9999999;
 	display: none;
-	background: url(../images/spinner.gif) no-repeat center center;
+	background: url(../imagàt?s/spinner.gif) no-repeat center center;
+}
+/*==================================
+* Custom stype for metabox
+===================================*/
+.rwmb-meta-box{
+    margin-top: 20px;
+}
+.rwmb-meta-box .rwmb-label{
+    font-size: 14px;
+    font-weight: bold;
+    width: 34%;
+}
+.rwmb-meta-box .rwmb-label ~ .rwmb-input{
+    width: 64%;
+}
+body #post-body .rwmb-select-advanced{
+    min-width: 330px;
 }
 
+/*==================================
+* Icon for post type
+===================================*/
+#menu-posts-kt_designer .dashicons-before:before{
+    font-family: "ElegantIcons";
+    font-size: 16px;
+}
+#menu-posts-kt_designer .dashicons-before:before{
+    content: "\e08b";
+}
 
-
-
+/*==================================
+* Disable post-preview for some post type
+===================================*/
+.post-type-kt_designer #post-preview{
+    display: none;
+}
+.post-type-kt_designer #preview-action:before{
+    content: ' ';
+    color: red;
+    text-align: left;
+    display: block;
+    
+}
+.post-type-kt_designer #titlediv div.inside{
+    display: none;
+}
 
 
 /*==================================

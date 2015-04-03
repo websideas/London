@@ -32,19 +32,31 @@ function themedev_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                 <div class="megamenu-layout-depth-0">
                     <p class="field-columns description description-wide">
                         <label for="menu-item-columns-<?php echo $item_id; ?>">
-                            <?php _e( 'Mega Menu Number of Columns', THEME_LANGUAGE); ?><br />
+                            <?php _e( 'Mega Menu number of columns', THEME_LANGUAGE); ?><br />
                             <select id="menu-item-columns-<?php echo $item_id; ?>" name="menu-item-megamenu-columns[<?php echo $item_id; ?>]" class="widefat edit-menu-item-columns">
-                                <option <?php selected($item->columns, 'auto'); ?> value="auto"><?php _e('Auto', THEME_LANGUAGE); ?></option>
-                                <?php for($i=1; $i<5; $i++){ ?>
+                                <?php for($i=4; $i>1; $i--){ ?>
                                     <option <?php selected($item->columns, $i); ?> value="<?php echo $i ?>"><?php echo $i; ?></option>    
                                 <?php } ?>
                             </select>
                         </label>
                     </p>
-                    <p class="field-fullwidth description description-wide">
-                        <label for="menu-item-fullwidth-<?php echo $item_id; ?>">
-                            <input type="checkbox" <?php checked($item->fullwidth, 'enabled'); ?> id="menu-item-fullwidth-<?php echo $item_id; ?>" class="widefat edit-menu-item-fullwidth" name="menu-item-megamenu-fullwidth[<?php echo $item_id; ?>]" value="enabled"/>
-                            <?php _e( 'Full Width Mega Menu', THEME_LANGUAGE); ?>
+                    <p class="field-layout description description-wide">
+                        <label for="menu-item-layout-<?php echo $item_id; ?>">
+                            <?php _e( 'Mega Menu layout', THEME_LANGUAGE); ?><br />
+                            <select id="menu-item-layout-<?php echo $item_id; ?>" name="menu-item-megamenu-layout[<?php echo $item_id; ?>]" class="widefat edit-menu-item-layout">
+                                <option <?php selected($item->layout, 'default'); ?> value="default"><?php _e('Default', THEME_LANGUAGE); ?></option>
+                                <option <?php selected($item->layout, 'table'); ?> value="table"><?php _e('Table + Border', THEME_LANGUAGE); ?></option>
+                            </select>
+                        </label>
+                    </p>
+                    <p class="field-width description description-wide">
+                        <label for="menu-item-width-<?php echo $item_id; ?>">
+                            <?php _e( 'Mega Menu width', THEME_LANGUAGE); ?><br />
+                            <select id="menu-item-width-<?php echo $item_id; ?>" name="menu-item-megamenu-width[<?php echo $item_id; ?>]" class="widefat edit-menu-item-width">
+                                <option <?php selected($item->width, 'full'); ?> value="full"><?php _e('Full Width', THEME_LANGUAGE); ?></option>
+                                <option <?php selected($item->width, 'three'); ?> value="three"><?php _e('Three quarters', THEME_LANGUAGE); ?></option>
+                                <option <?php selected($item->width, 'half'); ?> value="half"><?php _e('Half', THEME_LANGUAGE); ?></option>
+                            </select>
                         </label>
                     </p>
                     <p class="description description-position description-wide">
@@ -79,10 +91,10 @@ function themedev_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                             <?php _e('Disable Mega Menu Column Link', THEME_LANGUAGE); ?>
                         </label>
                     </p>
-                    <p class="field-newrow description description-wide">
-                        <label for="menu-item-newrow-<?php echo $item_id; ?>">
-                            <input type="checkbox" <?php checked($item->newrow, 'enabled'); ?> id="menu-item-newrow-<?php echo $item_id; ?>" name="menu-item-megamenu-newrow[<?php echo $item_id; ?>]" value="enabled" class="edit-menu-item-newrow"/>
-                            <?php _e( 'New Row (Clear the previous row and start a new one with this item)', THEME_LANGUAGE); ?>
+                    <p class="field-endrow description description-wide">
+                        <label for="menu-item-endrow-<?php echo $item_id; ?>">
+                            <input type="checkbox" <?php checked($item->endrow, 'enabled'); ?> id="menu-item-endrow-<?php echo $item_id; ?>" name="menu-item-megamenu-endrow[<?php echo $item_id; ?>]" value="enabled" class="edit-menu-item-endrow"/>
+                            <?php _e( 'End Row (Clear the next row and start a new one with next item)', THEME_LANGUAGE); ?>
                         </label>
                     </p>
                     <p class="field-widget description description-wide">

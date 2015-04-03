@@ -20,10 +20,10 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
         $el_class = $this->getExtraClass($el_class);
         $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'mailchimp-wrapper ' . $el_class . vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
         
-        
         $output = '';
         
-        $api_key = "acf783f889d685580748b6c543235ef9-us5";
+        $api_key = themedev_option('mailchimp_api');
+
         if ( isset ( $api_key ) && !empty ( $api_key ) ) {
             
             if(!$content) 
@@ -40,15 +40,11 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
             $output .= ($text_before) ? '<p class="mailchimp-before">'.$text_before.'</p>' : '';
             
             $output .= '<form class="mailchimp-form" id="mailchimp'.$rand.'" action="#" method="post">';
-            
                 $output .= '<input name="email" class="form-control" required="" id="email'.$rand.'" type="email" placeholder="'.__('E-mail address', THEME_LANGUAGE).'"/>';
     			$output .= '<input type="hidden" name="action" value="signup"/>';
     			$output .= '<input type="hidden" name="list_id" value="'.$mailchimp_list.'"/>';
-                $output .= '<input type="hidden" name="opt_in" value="'.$opt_in.'"/>';
-                
-    			$output .= '<input type="submit" value="'.__('Subscribe', THEME_LANGUAGE).'" class="submit"/>';
-                $output .= '<span class="mailchimp-loading"><i class="fa fa-spinner fa-spin fa-lg"></i></span>';
-                
+                $output .= '<input type="hidden" name="opt_in" value="'.$opt_in.'"/>';                
+    			$output .= '<button class="submit" type="submit">'.__('Subscribe', THEME_LANGUAGE).'<span class="mailchimp-loading"></span></button>';
                 $output .= '<div class="mailchimp-success">'.$content.'</div>';    
                 $output .= '<div class="mailchimp-error"></div>';
             $output .= '</form>';

@@ -40,10 +40,10 @@ $woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 1 );
 
 if ( $products->have_posts() ) : ?>
 
-	<div class="upsells products clearfix">
+	<div class="upsells-products clearfix">
 
 		<h2><?php _e( 'You may also like&hellip;', 'woocommerce' ) ?></h2>
-        <div class="upsells-carousel">
+        <div class="woocommerce-carousel-wrapper" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_upsells_carousel', '[[992,4], [768, 2], [480, 1]]'); ?>">
     		<?php woocommerce_product_loop_start(); ?>
     
     			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
@@ -53,8 +53,8 @@ if ( $products->have_posts() ) : ?>
     			<?php endwhile; // end of the loop. ?>
     
     		<?php woocommerce_product_loop_end(); ?>
-        </div>
-	</div>
+        </div><!-- .woocommerce-carousel-wrapper -->
+	</div><!-- .upsells-products -->
 
 <?php endif;
 

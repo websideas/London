@@ -3,10 +3,6 @@
 /**
  * All helpers for theme
  *
- * @author      KiteThemes
- * @package     Kite/Template
- * @since       1.0
- * @link        http://kitethemes.com
  */
 
 // Exit if accessed directly

@@ -22,7 +22,8 @@
             $('li.menu-item').each( function(){
                 var objMenuItem = $(this),
                     currentMega = objMenuItem.find(".edit-menu-item-enable"),
-                    currentFullwidth = objMenuItem.find(".edit-menu-item-fullwidth"),
+                    currentWidth = objMenuItem.find(".edit-menu-item-width"),
+                    objPosition = objMenuItem.find('p.description-position'),
                     objId = currentMega.data('id');
                     
                 if(objMenuItem.hasClass('menu-item-depth-0') ) {
@@ -33,10 +34,10 @@
                         activeMega = false;
                         $('#content-megamenu-'+objId).hide();
                     } 
-                    if(currentFullwidth.prop('checked')){
-                        objMenuItem.find('p.description-position').hide();
+                    if(currentWidth.val() == 'full'){
+                        objPosition.hide();
                     }else{
-                        objMenuItem.find('p.description-position').show();
+                        objPosition.show();
                     }
                 }
                 
@@ -50,9 +51,9 @@
                 }
             });
         }
-        $(document).on('click', "input[name^='menu-item-megamenu-fullwidth']:checkbox", function(){
+        $(document).on('change', "select[name^='menu-item-megamenu-width']", function(){
             var $objPosition = $(this).closest('.megamenu-layout').find('p.description-position');
-    		($(this).prop("checked")) ? $objPosition.hide() : $objPosition.show();
+    		($(this).val() == 'full') ? $objPosition.hide() : $objPosition.show();
         });
         
         $( document ).on( 'mouseup', '.menu-item-bar', function( event, ui ) {

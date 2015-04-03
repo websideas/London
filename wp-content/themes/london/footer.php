@@ -12,6 +12,7 @@
         <?php
     	/**
     	 * @hooked 
+         * 
     	 */
     	do_action( 'theme_content_bottom' ); ?>
 	</div><!-- .site-content -->
@@ -19,10 +20,17 @@
     <?php
 	/**
 	 * @hooked 
+     * theme_after_footer_addscroll 10
+     * 
 	 */
 	do_action( 'theme_before_footer' ); ?>
     
 	<div class="footer-container">
+        <?php
+    	/**
+    	 * @hooked 
+    	 */
+    	do_action( 'theme_before_footer_top' ); ?>
         <div id="footer-top">
             <div class="container">
                 <?php dynamic_sidebar('footer-top') ?>
@@ -31,15 +39,12 @@
         <footer id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <?php dynamic_sidebar('footer-column-1') ?>
-                    </div>
-                    <div class="col-md-4">
-                        <?php dynamic_sidebar('footer-column-2') ?>
-                    </div>
-                    <div class="col-md-4">
-                        <?php dynamic_sidebar('footer-column-3') ?>
-                    </div>
+                    <?php $layouts = explode('-', themedev_option('footer-layout', '3-3-3-3')); ?>
+                    <?php foreach($layouts as $i => $layout){ ?>
+                        <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
+                            <?php dynamic_sidebar('footer-column-'.($i+1)) ?>
+                        </div>
+                    <?php } ?>
                 </div>
             </div><!-- .container -->
         </footer><!-- #footer -->
@@ -62,7 +67,7 @@
     
     <?php
 	/**
-	 * @hooked theme_after_footer_addscroll 10
+	 * @hooked 
 	 */
 	do_action( 'theme_after_footer' ); ?>
     

@@ -13,7 +13,7 @@ function vc_mailchimp_settings_field($settings, $value) {
 	$dependency = vc_generate_dependencies_attributes($settings);
 	$output = '';
     
-    $api_key = 'acf783f889d685580748b6c543235ef9-us5';
+    $api_key = themedev_option('mailchimp_api');
     
     if ( isset ( $api_key ) && !empty ( $api_key ) ) {
         $mcapi = new MCAPI($api_key);
@@ -101,7 +101,7 @@ function vc_kt_taxonomy_settings_field($settings, $value) {
 	if ( !is_array($value_arr) ) {
 		$value_arr = array_map( 'trim', explode(',', $value_arr) );
 	}
-
+    $output = '';
 	if ( !empty($settings['taxonomy']) ) {
 		
         $terms_fields = array();
@@ -118,16 +118,19 @@ function vc_kt_taxonomy_settings_field($settings, $value) {
 		}
 
         $size = (!empty($settings['size'])) ? 'size="'.$settings['size'].'"' : '';
+        $uniqeID    = uniqid();
         
-        return '<select multiple="multiple" '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
+        $output = '<select id="kt_taxonomy-'.$uniqeID.'" multiple="multiple" '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
                     .implode( $terms_fields )
                 .'</select>';
-        
+                
+        $output .= '<script type="text/javascript">jQuery("#kt_taxonomy-' . $uniqeID . '").chosen();</script>';
+
 	}
     
-    return '';
+    return $output;
 }
-add_shortcode_param('kt_taxonomy', 'vc_kt_taxonomy_settings_field');
+add_shortcode_param('kt_taxonomy', 'vc_kt_taxonomy_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
 
 /**
  * Posts field.

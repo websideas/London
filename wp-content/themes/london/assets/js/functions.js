@@ -38,27 +38,13 @@
         init_carousel();
         init_backtotop();
         init_mailchimp();
-        
-        
-        /**==============================
-        ***  Sticky header
-        ===============================**/
+        init_MainMenu();
+        init_ProductQuickView();
+        init_SaleCountDown();
         
         $('form.woocommerce-ordering select').customSelect();
         
         
-        // Related, Up Sells Carousel
-        $('.related-carousel ul, .upsells-carousel ul, .cross-sells-carousel ul').owlCarousel({
-			theme: "style-opaque-box arrows-at-hover",
-			items : 4,
-			itemsDesktopSmall: [979, 3],
-			itemsTablet: [768, 3],
-			itemsMobile: [479, 1],
-			autoHeight: false,
-			navigation: true,
-			navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-			pagination: false
-		});
         
         
         var sync1 = $("#sync1");
@@ -138,6 +124,9 @@
     
     
     $(window).resize(function(){
+        /**==============================
+        ***  Sticky header
+        ===============================**/
         $('#header.sticky-header').ktSticky();
     });
     
@@ -170,27 +159,18 @@
             e.preventDefault();
             var mForm = $(this),
                 button = mForm.find('.mailchimp-submit'),
-                loading = mForm.find('.mailchimp-loading').fadeIn(),
-                loadingIcon = loading.find('i'),
                 error = mForm.find('.mailchimp-error').fadeOut(),
                 success = mForm.find('.mailchimp-success').fadeOut();
-            
-            button.find('span').eq(0).css({ 'visibility': 'hidden'});
-            button.find('.btn-loading').show();
             
             var data = {
                 action: 'frontend_mailchimp',
                 security : ajax_frontend.security,
                 email: mForm.find('input[name=email]').val(),
-                name: mForm.find('input[name=name]').val(),
                 list_id: mForm.find('input[name=list_id]').val(),
                 opt_in: mForm.find('input[name=opt_in]').val()
             };
             
             $.post(ajax_frontend.ajaxurl, data, function(response) {
-                
-                button.find('span').eq(0).css({ 'visibility': 'visible'});
-                button.find('.btn-loading').hide();
                 
                 var data = $.parseJSON(response);
                 if(data.error == '1'){
@@ -201,6 +181,58 @@
             });
         });
     }
+    
+    /* ---------------------------------------------
+     Product Quick View
+     --------------------------------------------- */
+    function init_ProductQuickView(){
+        $('.product-quick-view').on('click', function(e){
+            e.preventDefault();
+            var objProduct = $(this);
+            
+            var data = {
+                action: 'frontend_product_quick_view',
+                security : ajax_frontend.security,
+                product_id: objProduct.data('id')
+            };
+            
+            $.post(ajax_frontend.ajaxurl, data, function(response) {
+                $.magnificPopup.open({
+    				items: {
+    					src: '<div class="themedev-product-popup">' + response + '</div>',
+    					type: 'inline'
+    				}
+    			});
+                setTimeout( function() {
+                    
+                    jQuery('.single-product-quickview-images').owlCarousel({
+    					theme: "owl-carousel-navigation-center",
+    					singleItem: true,
+    					autoHeight: true,
+    					navigation: true,
+    					navigationText: false,
+    					pagination: false
+    				});
+                }, 500 );
+                
+            });
+            
+            
+        });
+    }
+    
+    /* ---------------------------------------------
+     MEGA MENU
+    --------------------------------------------- */
+    function init_MainMenu(){
+        $("nav#main-nav ul.menu").superfish({
+            hoverClass: 'hovered',
+            popUpSelector: 'ul.sub-menu-dropdown,.kt-megamenu-wrapper',
+            animation: {},
+    		animationOut: {}
+        });
+    }
+    
     /* ---------------------------------------------
      Back to top
      --------------------------------------------- */
@@ -215,12 +247,32 @@
     	});
     }
     
+    /* ---------------------------------------------
+     Sale Count Down
+     --------------------------------------------- */
+    function init_SaleCountDown(){
+        
+        $('.woocommerce-countdown').each(function(){
+            
+            var $this = $(this), 
+                finalDate = $(this).data('time');
+            $this.countdown(finalDate, function(event) {
+                $this.html(event.strftime(''
+                     + '<div><span>%D</span> days</div>'
+                     + '<div><span>%H</span> hr</div>'
+                     + '<div><span>%M</span> min</div>'
+                     + '<div><span>%S</span> sec</div>'));
+            });
+            
+        });
+    }
+    
     
     /* ---------------------------------------------
      Owl carousel
      --------------------------------------------- */
     function init_carousel(){
-        $('.owl-carousel-theme').each(function(){
+        $('.kt-owl-carousel').each(function(){
             var objCarousel = $(this),
                     owlItems = objCarousel.data('items'),
                     owlNavigation = objCarousel.data('navigation'),
@@ -261,12 +313,13 @@
                 owlSingleItem = false;
             }
             
+            
             var options = {
                 items: owlItems,
                 slideSpeed: 350,
                 singleItem: owlSingleItem,
                 pagination: owlPagination,
-                autoHeight: true,
+                autoHeight: owlAutoheight,
                 navigation: owlNavigation,
                 navigationText: false,
                 theme: owlTheme,
@@ -282,6 +335,32 @@
             objCarousel.owlCarousel(options);
             
         });
+        
+        
+        // Related, Up Sells Carousel
+        $('.woocommerce-carousel-wrapper').each(function(){
+            var carouselWrapper = $(this),
+                wooCarousel = $(this).find('ul.products'),
+                wooCarouselTheme = carouselWrapper.data('theme');
+            
+            if(typeof wooCarouselTheme === "undefined"){
+                wooCarouselTheme = 'style-navigation-top';
+            }
+            
+            wooCarousel.owlCarousel({
+    			theme: wooCarouselTheme,
+    			items : 1,
+                itemsCustom: carouselWrapper.data('itemscustom'),
+    			autoHeight: false,
+    			navigation: true,
+    			navigationText: false,
+    			pagination: false
+    		});
+            
+        })
+        
+        
+        
     }
     
 })(jQuery); // End of use strict

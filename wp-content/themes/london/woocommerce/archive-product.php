@@ -13,8 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-//fullwidth, sidebar-left, sidebar-right
-$layout = apply_filters( 'archive_product_layout', 'fullwidth' );
+$layout = apply_filters( 'archive_product_layout', 'full' );
 
 get_header( 'shop' ); ?>
 
@@ -27,9 +26,9 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-        <?php if($layout == 'sidebar-left' || $layout == 'sidebar-right'){  ?>
+        <?php if($layout == 'left' || $layout == 'right'){  ?>
             <div class="row <?php echo $layout; ?>">
-                <?php $class = ($layout == 'sidebar-left') ? 'pull-right' : '' ?>
+                <?php $class = ($layout == 'left') ? 'pull-right' : '' ?>
                 <div id="main" class="col-md-9 col-xs-12 <?php echo $class; ?>">
         <?php } ?>
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -80,12 +79,12 @@ get_header( 'shop' ); ?>
 
 		<?php endif; ?>
         
-        <?php if($layout == 'sidebar-left' || $layout == 'sidebar-right'){  ?>
-                </div><!-- .col-md-9.pull-right -->
+        <?php if($layout == 'left' || $layout == 'right'){  ?>
+                </div><!-- .col-md-9 -->
         <?php } ?>
         
         <?php
-            if($layout != 'fullwidth'){
+            if($layout != 'full'){
         		/**
         		 * woocommerce_sidebar hook
         		 *
@@ -94,8 +93,8 @@ get_header( 'shop' ); ?>
         		do_action( 'woocommerce_sidebar' );
             }
     	?>
-        <?php if($layout == 'sidebar-left' || $layout == 'sidebar-right'){  ?>
-            </div><!-- .col-md-9.pull-right -->
+        <?php if($layout == 'left' || $layout == 'right'){  ?>
+            </div><!-- .col-md-9 -->
         <?php } ?>
     
     	<?php

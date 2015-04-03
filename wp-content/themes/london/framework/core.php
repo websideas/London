@@ -22,10 +22,17 @@ define( 'FW_ASSETS', trailingslashit( FW_URL . 'assets' ) );
 define( 'FW_JS', trailingslashit( FW_ASSETS . 'js' ) );
 define( 'FW_CSS', trailingslashit( FW_ASSETS . 'css' ) );
 define( 'FW_IMG', trailingslashit( FW_ASSETS . 'images' ) );
+define( 'FW_LIBS', trailingslashit( FW_ASSETS . 'libs' ) );
 
 define( 'FW_CLASS', trailingslashit( FW_DIR . 'class' ) );
 define( 'FW_DATA', trailingslashit( FW_DIR . 'data' ) );
 
+
+/**
+ * All ajax functions
+ *
+ */
+require_once ( FW_DIR . 'ajax.php' );
 
 /**
  * Get Mailchimp API
@@ -125,7 +132,7 @@ if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/f
     require_once (FW_EXT_CUSTOM_DIR . 'redux-framework-custom.php');
 }
 if (file_exists( FW_DATA . 'data-options.php' ) ) {
-    //require_once( FW_DATA . 'data-options.php' );
+    require_once( FW_DATA . 'data-options.php' );
     require_once( FW_DATA . 'data-options-example.php' );
 }
 

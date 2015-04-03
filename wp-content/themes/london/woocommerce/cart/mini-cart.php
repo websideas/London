@@ -34,16 +34,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 					<li class="clearfix">
 						<?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key ); ?>
-						<?php if ( ! $_product->is_visible() ) : ?>
-							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
-						<?php else : ?>
-							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
-								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
-							</a>
-						<?php endif; ?>
-						<?php echo WC()->cart->get_item_data( $cart_item ); ?>
-
-						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+                        <div class="product-thumbnail">
+    						<?php if ( ! $_product->is_visible() ) : ?>
+    							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) ?>
+    						<?php else : ?>
+    							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
+    								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) ?>
+    							</a>
+    						<?php endif; ?>
+                        </div>
+                        <div class="product-information">
+                            <a href="product-title"><?php echo $product_name; ?></a>
+    						<?php echo WC()->cart->get_item_data( $cart_item ); ?>
+    						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+                        </div>
 					</li>
 					<?php
 				}

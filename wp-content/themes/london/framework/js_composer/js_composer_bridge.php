@@ -6,9 +6,11 @@ if ( !defined('ABSPATH')) exit;
 $composer_addons = array(
     //'list.php',
     'contact-info.php',
-    'clients_carousel.php',
+    'clients-carousel.php',
     'mailchimp.php',
-    'recent_posts_carousel.php'
+    'recent-posts-carousel.php',
+    'woocommerce-sales-countdown.php',
+    'desinger-collection-carousel.php'
 );
 
 foreach ( $composer_addons as $addon ) {

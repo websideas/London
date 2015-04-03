@@ -18,6 +18,7 @@ if ( empty( $product ) || ! $product->exists() ) {
 }
 
 $posts_per_page = apply_filters('woocommerce_single_product_related', 12);
+
 $related = $product->get_related( $posts_per_page );
 
 if ( sizeof( $related ) == 0 ) return;
@@ -36,19 +37,18 @@ $products = new WP_Query( $args );
 
 $woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 1 );
 
-
 if ( $products->have_posts() ) : ?>
 
-	<div class="related products clearfix">
+	<div class="related-products clearfix">
 		<h2><?php _e( 'Related Products', 'woocommerce' ); ?></h2>
-        <div class="related-carousel">
+        <div class="woocommerce-carousel-wrapper" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_related_carousel', '[[992,4], [768, 2], [480, 1]]'); ?>">
             <?php woocommerce_product_loop_start(); ?>
     			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
     				<?php wc_get_template_part( 'content', 'product' ); ?>
     			<?php endwhile; // end of the loop. ?>
             <?php woocommerce_product_loop_end(); ?>
-        </div>
-	</div>
+        </div><!-- .woocommerce-carousel-wrapper -->
+	</div><!-- .related-products -->
 
 <?php endif;
 

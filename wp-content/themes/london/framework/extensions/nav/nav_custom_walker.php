@@ -200,19 +200,29 @@ class KTMenuWalker extends Walker_Nav_Menu{
 class KTMegaWalker extends Walker_Nav_Menu{
     
     /**
-	 * @var string $megamenu_enable are we currently rendering a mega menu?
+	 * @var string $megamenu_enable
 	 */
 	private $megamenu_enable = "";
     
     /**
-	 * @var string $megamenu_fullwidth are we currently rendering a mega menu fullwidth?
+	 * @var string $megamenu_width
 	 */
-    private $megamenu_fullwidth = "";
+    private $megamenu_width = "";
     
     /**
-	 * @var string $megamenu_columns are we currently rendering a mega menu columns?
+	 * @var string $megamenu_columns
 	 */
     private $megamenu_columns = "";
+    
+    /**
+	 * @var string $megamenu_position
+	 */
+    private $megamenu_position = "";
+    
+    /**
+	 * @var string $megamenu_layout
+	 */
+    private $megamenu_layout = "";
     
     
     
@@ -220,9 +230,11 @@ class KTMegaWalker extends Walker_Nav_Menu{
 		$indent = str_repeat("\t", $depth);
         
         if( $depth === 0 && $this->megamenu_enable == "enabled" ) {
-            $fullwidth = ($this->megamenu_fullwidth) ? ' megamenu-fullwidth' : '';
-            $colums = ($this->megamenu_columns) ? $this->megamenu_columns : 'auto';
-            $output .= "\n$indent<div class=\"kt-megamenu-wrapper$fullwidth megamenu-columns-$colums \">\n<ul class='kt-megamenu-ul clearfix'>\n";
+			$colums = ($this->megamenu_columns) ? $this->megamenu_columns : 'auto';
+            $position = ($this->megamenu_width != 'full') ? ' megamenu-position-'.$this->megamenu_position : '';
+            $layout = ' megamenu-layout-'.$this->megamenu_layout;
+            
+            $output .= "\n$indent<div class=\"kt-megamenu-wrapper $position $layout megamenu-columns-$colums \">\n<ul class='kt-megamenu-ul clearfix'>\n";
         }elseif($this->megamenu_enable == "enabled"){
             $output .= "\n$indent<ul class=\"sub-menu-megamenu\">\n";
         }else{
@@ -248,8 +260,10 @@ class KTMegaWalker extends Walker_Nav_Menu{
     public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		if( $depth === 0 ) {
 			$this->megamenu_enable = get_post_meta( $item->ID, '_menu_item_megamenu_enable', true );
-            $this->megamenu_fullwidth = get_post_meta( $item->ID, '_menu_item_megamenu_fullwidth', true );
+            $this->megamenu_width = get_post_meta( $item->ID, '_menu_item_megamenu_width', true );
             $this->megamenu_columns = get_post_meta( $item->ID, '_menu_item_megamenu_columns', true );
+            $this->megamenu_position = get_post_meta( $item->ID, '_menu_item_megamenu_position', true );
+            $this->megamenu_layout = get_post_meta( $item->ID, '_menu_item_megamenu_layout', true );
 		}
         
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -262,17 +276,11 @@ class KTMegaWalker extends Walker_Nav_Menu{
         
         if( $depth === 0 && $this->megamenu_enable) {
             $classes[] = 'kt-megamenu-item';
-            if($this->megamenu_fullwidth){
-                $classes[] = 'kt-megamenu-item-fullwidth';
-            }else{
-                $position = get_post_meta( $item->ID, '_menu_item_megamenu_position', true );
-                ($position) ? $position : 'center';
-                $classes[] = 'kt-megamenu-item-'.$position ; 
-            }
+            $classes[] = 'kt-megamenu-item-'.$this->megamenu_width;
         }
-        $newrow = get_post_meta( $item->ID, '_menu_item_megamenu_newrow', true );
-        if($depth == 1 && $newrow){
-            $classes[] = 'kt-megamenu-item-newrow';
+        $endrow = get_post_meta( $item->ID, '_menu_item_megamenu_endrow', true );
+        if($depth == 1 && $endrow){
+            $classes[] = 'kt-megamenu-item-endrow';
         }
         
         
@@ -351,23 +359,24 @@ class KTMegaWalker extends Walker_Nav_Menu{
         
 		$item_output .= $args->before;
         
+        $megamenu_columnlink = ($this->megamenu_enable && $depth == 1) ? get_post_meta( $item->ID, '_menu_item_megamenu_columnlink', true ) : false;
         
-        
-        $megamenu_columnlink = get_post_meta( $item->ID, '_menu_item_megamenu_columnlink', true );
-        
-        
-        if(!$megamenu_columnlink || !$depth = 1){
+        if(!$megamenu_columnlink || $depth != 1){
             $item_output .= '<a'. $attributes .'>';
+        }else{
+            $item_output .= '<span>';
         }
         
         $icon = get_post_meta( $item->ID, '_menu_item_megamenu_icon', true );
-        $icon = ($icon) ? '<i class="'.$icon.'"></i>' : '';
+        $icon = ($icon) ? '<i class="icon-menu '.$icon.'"></i>' : '';
         
 		/** This filter is documented in wp-includes/post-template.php */
 		$item_output .= $args->link_before .$icon . apply_filters( 'the_title', $item->title, $item->ID )  . $args->link_after;
 		
         if(!$megamenu_columnlink || !$depth = 1){
             $item_output .= '</a>';
+        }else{
+            $item_output .= '</span>';
         }
         
 		$item_output .= $args->after;
@@ -377,7 +386,8 @@ class KTMegaWalker extends Walker_Nav_Menu{
         if($megamenu_columntitle && $depth ==1 )
             $item_output = '';
         
-        $megamenu_widget = get_post_meta( $item->ID, '_menu_item_megamenu_widget', true );
+        $megamenu_widget = ($this->megamenu_enable && $depth == 1) ? get_post_meta( $item->ID, '_menu_item_megamenu_widget', true ) : false;
+        
         
         if($megamenu_widget && $depth ==1 ){
             ob_start();
