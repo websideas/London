@@ -65,10 +65,7 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
                     endif;
                 $output .= '</div>';
                 
-                
-                
-                
-                $output .= '<div class="col-md-9 col-sm-9 col-xs-12">';
+                $output .= '<div class="col-md-9 col-sm-9 col-xs-12 desinger-collection-woocommerce">';
                     $products = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $desinger); 
                     
                     global $woocommerce_loop;
@@ -85,21 +82,17 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
                         $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
                         
                         if ( $products->have_posts() ) :
-
                             $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
                             $output .= '<div class="woocommerce-carousel-wrapper" data-theme="style-navigation-bottom" data-itemscustom="'.$itemscustom.'">';
-                            
-                            ob_start();
+                                ob_start();
+                                woocommerce_product_loop_start();
+                                while ( $products->have_posts() ) : $products->the_post();
+                                    wc_get_template_part( 'content', 'product-normal' );
+                                endwhile; // end of the loop.
+                                woocommerce_product_loop_end();
                                 
-                            woocommerce_product_loop_start();
-                            while ( $products->have_posts() ) : $products->the_post();
-                                wc_get_template_part( 'content', 'product-normal' );
-                            endwhile; // end of the loop.
-                            woocommerce_product_loop_end();
-                            
-                            $output .= '<div class="woocommerce  columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
+                                $output .= '<div class="woocommerce  columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
                             $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
-                            $output .= '</div>'; 
                             
                         endif;
                 
@@ -108,7 +101,7 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
                         
                     }
                     
-                $output .= '</div>';
+                $output .= '</div><!-- .col-md -->';
             
             $output .= '</div><!-- .row -->';
         $output .= '</div>';

@@ -8,88 +8,162 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
+if ( ! class_exists( 'RWMB_Sidebars_Field' )){
+	class RWMB_Sidebars_Field extends RWMB_Select_Field{
 
-if(is_admin()){
-    if ( ! class_exists( 'RWMB_Posts_Field' )){
-    	class RWMB_Posts_Field extends RWMB_Select_Field{
-    		/**
-    		 * Enqueue scripts and styles
-    		 *
-    		 * @return	void
-    		 */
-    		
-    		static function admin_enqueue_scripts()
-    		{
-    			wp_enqueue_style( 'select2', RWMB_CSS_URL . 'select2/select2.css', array(), '3.2' );
-    			wp_enqueue_style( 'rwmb-select-advanced', RWMB_CSS_URL . 'select-advanced.css', array(), RWMB_VER );
-    
-    			wp_register_script( 'select2', RWMB_JS_URL . 'select2/select2.min.js', array(), '3.2', true );
-    			wp_enqueue_script( 'rwmb-select-advanced', RWMB_JS_URL . 'select-advanced.js', array( 'select2' ), RWMB_VER, true );
-    		}
-    
-    		/**
-    		 * Get field HTML
-    		 *
-    		 * @param string $html
-    		 * @param mixed  $meta
-    		 * @param array  $field
-    		 *
-    		 * @return string
-    		 */
-    		static function html( $meta, $field ){
-                
-                
-                $html = sprintf(
-    				'<select class="rwmb-select-advanced" name="%s" id="%s" size="%s"%s data-options="%s">',
-    				$field['field_name'],
-    				$field['id'],
-    				$field['size'],
-    				$field['multiple'] ? ' multiple="multiple"' : '',
-    				esc_attr( json_encode( $field['js_options'] ) )
-    			);
-    
-    			$html .= self::options_html( $field, $meta );
-    
-    			$html .= '</select>';
-    
-    			return $html;
-    		}
+		/**
+		 * Get field HTML
+		 *
+		 * @param mixed $meta
+		 * @param array $field
+		 *
+		 * @return string
+		 */
+		static function html( $meta, $field )
+		{
+			$field['options'] = self::get_options( $field );
+			return RWMB_Select_Field::html( $meta, $field );
+		}
+        /**
+		 * Normalize parameters for field
+		 *
+		 * @param array $field
+		 *
+		 * @return array
+		 */
+		static function normalize_field( $field )
+		{
+			$field = parent::normalize_field( $field );
+
+            if(!isset($field['default'])){
+                $field['default'] = false;
+            } 
             
-            /**
-    		 * Normalize parameters for field
-    		 *
-    		 * @param array $field
-    		 *
-    		 * @return array
-    		 */
-    		static function normalize_field( $field )
-    		{
-    			$field = parent::normalize_field( $field );
-    
-    			$field = wp_parse_args( $field, array(
-    				'js_options' => array(),
-    			) );
-    
-    			$field['js_options'] = wp_parse_args( $field['js_options'], array(
-    				'allowClear'  => true,
-    				'width'       => 'resolve',
-    				'placeholder' => $field['placeholder'],
-    			) );
-                
-                $posts = array();
-                $query = new WP_Query( array( 'post_type' => $field['post_type'], 'posts_per_page' => -1 ) );
-                
-                if ( $query->have_posts() ) {
-                	while ( $query->have_posts() ) : $query->the_post();
-                        $posts[get_the_ID()] = ucwords( get_the_title() );
-                	endwhile;
+			return $field;
+		}
+        
+        /**
+		 * Get options
+		 *
+		 * @param array $field
+		 *
+		 * @return array
+		 */
+		static function get_options( $field )
+		{
+			$options = array();
+            if($field['default']){
+                $options['default'] = __('Default area', THEME_LANG);  
+            }
+            
+            foreach($GLOBALS['wp_registered_sidebars'] as $sidebar){
+                $options[$sidebar['id']] = ucwords( $sidebar['name'] );
+            }
+
+			return $options;
+		}
+        
+	}
+} // end RWMB_Sidebars_Field
+
+
+
+if ( ! class_exists( 'RWMB_RevSlider_Field' )){
+	class RWMB_RevSlider_Field extends RWMB_Select_Field{
+
+		/**
+		 * Get field HTML
+		 *
+		 * @param mixed $meta
+		 * @param array $field
+		 *
+		 * @return string
+		 */
+		static function html( $meta, $field )
+		{
+			$field['options'] = self::get_options( $field );
+			return RWMB_Select_Field::html( $meta, $field );
+		}
+        
+        /**
+		 * Get options
+		 *
+		 * @param array $field
+		 *
+		 * @return array
+		 */
+		static function get_options( $field )
+		{
+			$options = array();
+            $options[''] = __('Select Option', THEME_LANG);
+            
+            if ( class_exists( 'RevSlider' ) ) {
+                $slider = new RevSlider();
+                $arrSliders = $slider->getArrSlidersShort();
+                foreach ( $arrSliders as $key => $entry ) {
+                    $options[$key] = $entry;
                 }
-                wp_reset_postdata();
-                
-                $field['options'] = $posts;
-                
-    			return $field;
-    		}
-    	}
-    }
-}
+            }
+
+			return $options;
+		}
+        
+	}
+} // end RWMB_RevSlider_Field
+
+
+
+if ( ! class_exists( 'RWMB_Layerslider_Field' )){
+	class RWMB_Layerslider_Field extends RWMB_Select_Field{
+
+		/**
+		 * Get field HTML
+		 *
+		 * @param mixed $meta
+		 * @param array $field
+		 *
+		 * @return string
+		 */
+		static function html( $meta, $field )
+		{
+			$field['options'] = self::get_options( $field );
+			return RWMB_Select_Field::html( $meta, $field );
+		}
+        
+        /**
+		 * Get options
+		 *
+		 * @param array $field
+		 *
+		 * @return array
+		 */
+		static function get_options( $field )
+		{
+			$options = array();
+            $options[''] = __('Select Option', THEME_LANG);
+            
+            if ( is_plugin_active( 'LayerSlider/layerslider.php' ) ) {
+            global $wpdb;
+                $table_name = $wpdb->prefix . "layerslider";
+                $sliders = $wpdb->get_results( "SELECT * FROM $table_name
+                                                WHERE flag_hidden = '0' AND flag_deleted = '0'
+                                                ORDER BY date_c ASC LIMIT 100" );
+                if ( $sliders != null && !empty( $sliders ) ) {
+
+                    foreach ( $sliders as $item ) :
+                        $options[$item->id] = $item->name;
+                    endforeach;
+                }
+            }
+
+			return $options;
+		}
+        
+	}
+} // end RWMB_Layerslider_Field
+
+
+
+
+
+

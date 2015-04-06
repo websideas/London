@@ -5,6 +5,40 @@
 if ( !defined('ABSPATH')) exit;
 
 
+//add_filter('woocommerce_product_loop_start', 'woocommerce_product_loop_start_callback');
+function woocommerce_product_loop_start_callback($classes){
+    return $classes.' lists';
+}
+
+/**
+ * Define image sizes
+ */
+function themedev_woocommerce_image_dimensions() {
+	global $pagenow;
+ 
+	if ( ! isset( $_GET['activated'] ) || $pagenow != 'themes.php' ) {
+		return;
+	}
+
+  	$catalog = array('width' => '500','height' => '600', 'crop' => 1 );
+    $thumbnail = array('width' => '500', 'height' => '600', 'crop' => 1 );
+	$single = array( 'width' => '1000','height' => '1200', 'crop' => 1);
+	
+	// Image sizes
+	update_option( 'shop_catalog_image_size', $catalog ); 		// Product category thumbs
+	update_option( 'shop_single_image_size', $single ); 		// Single product image
+	update_option( 'shop_thumbnail_image_size', $thumbnail ); 	// Image gallery thumbs
+}
+add_action( 'after_switch_theme', 'themedev_woocommerce_image_dimensions', 1 );
+/**
+ * Change placeholder for woocommerce
+ * 
+ */
+add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
+
+function custom_woocommerce_placeholder_img_src( $src ) {
+	return THEME_IMG . 'placeholder.png';
+}
 /**
  * Enable support for woocommerce after setip theme
  * 
@@ -25,8 +59,75 @@ if ( ! function_exists( 'woocommerce_theme_setup' ) ):
 endif;
 
 /**
+ * Woocommerce tool link in header
+ * 
+ * @since 1.0
+ */
+function woocommerce_get_tool($id = 'woocommerce-nav'){
+    
+    global $wpdb, $yith_wcwl, $woocommerce;
+    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
+        <nav class="woocommerce-nav-container" id="<?php echo $id; ?>">
+            <ul class="menu">
+                <li>
+                    <?php if ( is_user_logged_in() ) { ?>
+                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?php _e('My Account','woothemes'); ?></a>
+                    <?php }else { ?>
+                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>"><?php _e('Login / Register','woothemes'); ?></a>
+                    <?php } ?>
+                </li>
+                <?php
+                    if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
+                        echo "<li>";
+                    	echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
+                        echo "</li>";
+                    endif;
+                ?>
+                <?php 
+                    if(class_exists('YITH_WCWL_UI')){
+                        $count = array();
+            	       
+                		if( is_user_logged_in() ) {
+                		    $count = $wpdb->get_results( $wpdb->prepare( 'SELECT COUNT(*) as `cnt` FROM `' . YITH_WCWL_TABLE . '` WHERE `user_id` = %d', get_current_user_id()  ), ARRAY_A );
+                		    $count = $count[0]['cnt'];
+                		} elseif( yith_usecookies() ) {
+                		    $count[0]['cnt'] = count( yith_getcookie( 'yith_wcwl_products' ) );
+                		    $count = $count[0]['cnt'];
+                		} else {
+                		    $count[0]['cnt'] = count( $_SESSION['yith_wcwl_products'] );
+                		    $count = $count[0]['cnt'];
+                		}
+                        
+                		if (is_array($count)) {
+                			$count = 0;
+                		}
+                        echo "<li>";
+                            echo '<a class="wishlist-link" href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist ", THEME_LANG).'<span>('.$count.')</span></a>';
+                        echo "</li>";
+                    }
+                ?>
+                <?php
+                    if(defined( 'YITH_WOOCOMPARE' )){
+                        echo "<li>";
+                        echo '<a href="#" class="yith-woocompare-open">'.__("Compare", THEME_LANG).'</a>';
+                        echo "</li>";
+                    }
+                ?>
+                <?php
+            	/**
+            	 * @hooked 
+            	 */
+            	do_action( 'woocommerce_get_tool' ); ?>
+                
+            </ul>
+        </nav>
+    <?php }
+}
+
+/**
  * Woocommerce cart in header
  * 
+ * @since 1.0
  */
 function woocommerce_get_cart(){
     $output = '';
@@ -37,7 +138,7 @@ function woocommerce_get_cart(){
 		$cart_count = $woocommerce->cart->cart_contents_count;
         
         $output .= '<div class="shopping_cart">';
-            $output .= '<a class="cart-contents" href="'.$woocommerce->cart->get_cart_url().'" title="'.__("View my shopping cart", THEME_LANG).'">'.$cart_total.'</a>';
+            $output .= '<a class="cart-contents" href="'.$woocommerce->cart->get_cart_url().'" title="'.__("View my shopping cart", THEME_LANG).'"><span class="cart-content-text">'.__('My Cart', THEME_LANG).'</span><span class="cart-content-total">'.$cart_total.'</span></a>';
             
             $output .= '<div class="shopping-bag">';
             $output .= '<div class="shopping-bag-wrapper mCustomScrollbar">';
@@ -84,6 +185,9 @@ function woocommerce_get_cart(){
     }
     return $output;
 }
+
+
+
 
 /**
  * Woocommerce replate cart in header
@@ -200,9 +304,9 @@ add_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20, 0);
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30, 0);
 add_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 12, 0);
 
-remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5, 0);
+//remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5, 0);
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10, 0);
-remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10, 0);
+//remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10, 0);
 
 add_action( 'woocommerce_shop_loop_item_image', 'woocommerce_template_loop_product_thumbnail', 5, 0);
 add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_template_loop_add_to_cart', 5, 0);

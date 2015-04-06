@@ -15,7 +15,7 @@
          * 
     	 */
     	do_action( 'theme_content_bottom' ); ?>
-	</div><!-- .site-content -->
+	</div><!-- #content -->
     
     <?php
 	/**
@@ -51,18 +51,18 @@
         <div id="footer-bottom" class="copyright">
             <div class="container">
                 <div class="display-table">
-                    <div class="display-td">
+                    <div class="display-td footer-bottom-left">
                         LONDON STARS &copy; 2014. Powered by Wordpress. All Rights Reserved.
                     </div>
-                    <?php if ( has_nav_menu( 'bottom' ) ) { ?>
-                        <div class="display-td text-right">
+                    <div class="display-td text-right footer-bottom-right">
+                        <?php if ( has_nav_menu( 'bottom' ) ) { ?>
                             <?php wp_nav_menu( array( 'theme_location' => 'bottom', 'container' => 'nav', 'container_id' => 'bottom-nav' ) ); ?>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
                     </div>
+                    
                 </div>
             </div><!-- .container -->
-        </div><!-- #footer-top -->
+        </div><!-- #footer-bottom -->
 	</div><!-- .footer-container -->
     
     <?php

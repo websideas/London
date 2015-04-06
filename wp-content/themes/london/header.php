@@ -4,9 +4,7 @@
  *
  * Displays all of the head element and everything up until the "site-content" div.
  *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
+ * @since 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -24,73 +22,51 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php $position = themedev_getHeader(); ?>
     <?php
 	/**
 	 * @hooked 
 	 */
 	do_action( 'theme_body_top' ); ?>
     <div id="page">
+        <?php 
+            if($position == 'below'){
+                /**
+            	 * @hooked theme_slideshows_position_callback 10
+            	 */
+            	do_action( 'theme_slideshows_position' );
+            } 
+        ?>
+        
         <?php
     	/**
     	 * @hooked 
     	 */
     	do_action( 'theme_before_header' ); ?>
-        
-        <div class="<?php echo apply_filters('theme_header_class', 'header-container') ?>">
-            <header id="header" class="sticky-header">
-                <div class="container">
-                    <div id="header-inner">
-                        <div id="header-wrap" class="display-table">
-                            <div class="site-branding display-td">
-                                <?php if ( is_front_page() && is_home() ) : ?>
-            						<h1 class="site-logo">
-                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                            <img src="<?php echo THEME_IMG; ?>nella-fashion.jpg" alt="<?php bloginfo( 'name' ); ?>" />
-                                        </a>
-                                    </h1><!-- .site-logo -->
-            					<?php else : ?>
-            						<p class="site-logo">
-                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                            <img src="<?php echo THEME_IMG; ?>nella-fashion.jpg" alt="<?php bloginfo( 'name' ); ?>" />                                    
-                                        </a>
-                                    </p><!-- .site-logo -->
-            					<?php endif; ?>
-                                <div id="site-title"><?php bloginfo( 'name' ); ?></div>
-                                <div id="site-description"><?php bloginfo( 'description' ); ?></div>
-                            </div><!-- .site-branding -->
-                            <div class="header-content display-td">
-                                <div class="header-content-top clearfix">
-                                    <?php echo woocommerce_get_cart(); ?>
-                                    <?php
-                                        if ( has_nav_menu( 'top' ) ) { 
-                                            wp_nav_menu( array( 'theme_location' => 'top', 'container' => 'nav', 'container_id' => 'top-nav' ) );
-                                        } 
-                                    ?>
-                                </div><!-- .header-content-top -->
-                                <div class="header-content-bottom clearfix">
-                                    <?php
-                                        if ( has_nav_menu( 'primary' ) ) {  
-                                            wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav', 'walker' => new KTMegaWalker() ) );
-                                        }
-                                    ?>
-                                    <?php get_search_form(); ?>
-                                </div><!-- .header-content-bottom -->
-                            </div><!-- .header-content -->
-                        </div><!-- #header-wrap -->
-                    </div><!-- #header-inner -->
-                </div>
+        <?php $header_layout = themedev_getHeaderLayout(); ?>
+        <div class="header-<?php echo $header_layout ?> <?php echo apply_filters('theme_header_class', 'header-container', $position) ?>">
+            <header id="header" class="<?php echo apply_filters('theme_header_content_class', 'header-content') ?>">
+                <?php get_template_part( 'layouts/headers/header',  $header_layout); ?>
             </header><!-- #header -->
         </div><!-- .header-container -->
         
+        <?php 
+            if($position != 'below'){
+                /**
+            	 * @hooked theme_slideshows_position_callback 10
+            	 */
+            	do_action( 'theme_slideshows_position' );
+            } 
+         ?>
+        
         <?php
     	/**
-    	 * @hooked theme_before_content_add_sideshow 10
-         * @hooked theme_before_content_add_title 20
+    	 * @hooked theme_before_content_add_title 10
          * 
     	 */
-    	do_action( 'theme_before_content' ); ?>
+    	do_action( 'theme_before_content' , $position); ?>
         
-        <div id="content" class="site-content">
+        <div id="content" class="<?php echo apply_filters('themdev_content_class', 'site-content') ?>">
             <?php
     		/**
     		 * @hooked

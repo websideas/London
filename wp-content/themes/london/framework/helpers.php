@@ -60,6 +60,110 @@ if (!function_exists('themedev_option')){
 }
 
 /**
+ * Get Layout of post
+ * 
+ * @param number $post_id Optional. ID of article or page.
+ * @return string
+ * 
+ */
+function themedev_getlayout($post_id = null){
+    global $post;
+	if(!$post_id) $post_id = $post->ID;
+
+    $layout = rwmb_meta('kt_layout');
+    
+    if($layout == 'default' || !$layout){
+        $layout = themedev_option('layout', 'full');
+    }
+    
+    return $layout;
+}
+
+/**
+ * Get Header
+ * 
+ * @return string
+ * 
+ */
+
+function themedev_getHeader(){
+    $header = 'default';
+    if(is_page() || is_singular('post')){
+        $header_position = rwmb_meta('kt_header_position');
+        if($header_position){
+            $header = $header_position;
+        }
+    }
+    return $header;
+}
+
+/**
+ * Get Header Layout
+ * 
+ * @return string
+ * 
+ */
+function themedev_getHeaderLayout(){
+    $layout = themedev_option('header', 'layout1');
+    if(is_page() || is_singular('post')){
+        $header_layout = rwmb_meta('kt_header');
+        if($header_layout != '' && $header_layout != 'default'){
+            $layout = $header_layout;
+        }
+    }
+    return $layout;
+}
+
+/**
+ * Get Layout sidebar of post
+ * 
+ * @return array
+ * 
+ */
+function themedev_sidebar(){
+    global $post;
+    
+    $sidebar = themedev_option('sidebar', 'full');
+    $sidebar_left = themedev_option('sidebar_left', 'primary-widget-area');
+    $sidebar_right = themedev_option('sidebar_right', 'primary-widget-area');
+    
+    if($sidebar == 'left'){
+        $sidebar_area = $sidebar_left;
+    }elseif($sidebar == 'right'){
+        $sidebar_area = $sidebar_right;
+    }else{
+        $sidebar_area = null;
+    }
+    
+    $layout_sidebar = array('sidebar' => $sidebar, 'sidebar_area' => $sidebar_area);
+    
+    if(is_page() || is_singular('post')){
+        
+        $sidebar_post = rwmb_meta('kt_sidebar');
+        
+        if($sidebar_post != 'default' && $sidebar_post){
+            $layout_sidebar['sidebar'] = $sidebar_post;
+            if($sidebar_post == 'left'){
+                $sidebar_left_post = rwmb_meta('kt_left_sidebar');
+                if($sidebar_left_post  == 'default'){
+                    $sidebar_left_post = $sidebar_left;
+                }
+                $layout_sidebar['sidebar_area'] = $sidebar_left_post;
+            }elseif($sidebar_post == 'right'){
+                $sidebar_right_post = rwmb_meta('kt_right_sidebar');
+                if($sidebar_right_post  == 'default'){
+                    $sidebar_right_post = $sidebar_right;
+                }
+                $layout_sidebar['sidebar_area'] = $sidebar_right_post;
+            }
+            
+        }
+    }
+
+    return $layout_sidebar;
+}
+
+/**
  * Get link attach from thumbnail_id.
  *
  * @param number $thumbnail_id ID of thumbnail.

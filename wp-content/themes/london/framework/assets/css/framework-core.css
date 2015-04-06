@@ -40,8 +40,17 @@
 .rwmb-meta-box .rwmb-label ~ .rwmb-input{
     width: 64%;
 }
-body #post-body .rwmb-select-advanced{
+div#post-body .rwmb-select-advanced{
     min-width: 330px;
+}
+
+div#post-body .rwmb-select{
+    -moz-appearance: none;
+    background: url("../images/selectbox-arrow.png") no-repeat scroll right center rgba(0, 0, 0, 0);
+    border: 1px solid #e4e4e4;
+    cursor: pointer;
+    height: 30px;
+    width: 174px;
 }
 
 /*==================================

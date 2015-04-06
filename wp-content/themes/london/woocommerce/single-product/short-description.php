@@ -19,5 +19,5 @@ if ( ! $post->post_excerpt ) {
 
 ?>
 <div itemprop="description" class="product-short-description">
-	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ); ?>
 </div>

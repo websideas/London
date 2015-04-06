@@ -39,8 +39,8 @@ if ( ! class_exists( 'RWMB_Post_Field' ) )
 					return RWMB_Select_Advanced_Field::html( $meta, $field );
 			}
 		}
-
-		/**
+        
+        /**
 		 * Normalize parameters for field
 		 *
 		 * @param array $field
@@ -49,70 +49,22 @@ if ( ! class_exists( 'RWMB_Post_Field' ) )
 		 */
 		static function normalize_field( $field )
 		{
-			$default_post_type = __( 'Post', 'meta-box' );
-			if ( is_string( $field['post_type'] ) )
-			{
-				$post_type_object  = get_post_type_object( $field['post_type'] );
-				$default_post_type = $post_type_object->labels->singular_name;
-			}
+			$field = parent::normalize_field( $field );
 
 			$field = wp_parse_args( $field, array(
-				'post_type'  => 'post',
-				'field_type' => 'select_advanced',
-				'parent'     => false,
-				'query_args' => array(),
+				'js_options' => array(),
 			) );
 
-			$field['std'] = empty( $field['std'] ) ? sprintf( __( 'Select a %s', 'meta-box' ), $default_post_type ) : $field['std'];
-
-			if ( $field['parent'] )
-			{
-				$field['multiple']   = false;
-				$field['field_name'] = 'parent_id';
-			}
-
-			$field['query_args'] = wp_parse_args( $field['query_args'], array(
-				'post_type'      => $field['post_type'],
-				'post_status'    => 'publish',
-				'posts_per_page' => - 1,
+			$field['js_options'] = wp_parse_args( $field['js_options'], array(
+				'allowClear'  => true,
+				'width'       => 'resolve',
+				'placeholder' => $field['placeholder'],
 			) );
-
-			switch ( $field['field_type'] )
-			{
-				case 'select':
-					return RWMB_Select_Field::normalize_field( $field );
-					break;
-				case 'select_advanced':
-				default:
-					return RWMB_Select_Advanced_Field::normalize_field( $field );
-			}
+            
+            
+			return $field;
 		}
-
-		/**
-		 * Get meta value
-		 * If field is cloneable, value is saved as a single entry in DB
-		 * Otherwise value is saved as multiple entries (for backward compatibility)
-		 *
-		 * @see "save" method for better understanding
-		 *
-		 * @param $post_id
-		 * @param $saved
-		 * @param $field
-		 *
-		 * @return array
-		 */
-		static function meta( $post_id, $saved, $field )
-		{
-			if ( isset( $field['parent'] ) && $field['parent'] )
-			{
-				$post = get_post( $post_id );
-
-				return $post->post_parent;
-			}
-
-			return RWMB_Select_Field::meta( $post_id, $saved, $field );
-		}
-
+        
 		/**
 		 * Save meta value
 		 * If field is cloneable, value is saved as a single entry in DB

@@ -40,10 +40,10 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) :
                 $output .= '<div class="owl-carousel-wrapper">';
-                $output .= '<div class="owl-carousel kt-owl-carousel" data-pagination="false" data-theme="style-navigation-top" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
+                $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-top" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
                 while ( $query->have_posts() ) : $query->the_post();
                     $output .= '<div class="recent-posts-item">';
-                        $output .= '<a href="'.get_permalink().'">';
+                        $output .= '<a href="'.get_permalink().'" class="entry-thumbnail">';
                             $output .= get_the_post_thumbnail( $post->ID, 'recent_posts', array('class'=>"first-img product-img"));
                         $output .= '</a>';
                         

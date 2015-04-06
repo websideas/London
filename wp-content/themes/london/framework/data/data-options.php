@@ -165,321 +165,56 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
 				'icon'			=> '',
                 'fields' => array(
                     array(
-                        'id'       => 'opt-web-fonts',
-                        'type'     => 'media',
-                        'title'    => __( 'Web Fonts', THEME_LANG ),
-                        'compiler' => 'true',
-                        'mode'     => false,
-                        // Can be set to false to allow any media type, or can also be set to any mime type.
-                        'desc'     => __( 'Basic media uploader with disabled URL input field.', THEME_LANG ),
-                        'subtitle' => __( 'Upload any media using the WordPress native uploader', THEME_LANG ),
-                    )
-                )
-            );
-            
-            /**
-				Top bar
-			**/
-			$this->sections[] = array(
-				'id'			=> 'topbar',
-				'title'			=> __( 'Top bar', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
-				'icon'			=> '',
-				'fields'		=> array(
-                    
-                    array(
-                        'id'       => 'topbar',
-                        'type'     => 'switch',
-                        'title'    => __( 'Top Bar', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Look, it\'s on!', 'redux-framework-demo' ),
-                        'default'  => true,
-                    ),
-                    
-                    array(
-                        'id'       => 'topbar-social-demo',
-                        'type'     => 'social',
-                        'title'    => __( 'Top Bar', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Look, it\'s on!', 'redux-framework-demo' ),
-                        'options'  => array(
-                            'facebook' => array( 'icon' => 'fa fa-facebook','title' => 'Facebook'),
-                            'twitter' => array( 'icon' => 'fa fa-twitter','title' => 'Twitter'),
-                            'google' => array( 'icon' => 'fa fa-google','title' => 'Google'),
-                            'google_plus' => array( 'icon' => 'fa fa-google-plus','title' => 'Google Plus'),
-                            'instagram' => array( 'icon' => 'fa fa-instagram','title' => 'Instagram'),
-                            'pinterest' => array( 'icon' => 'fa pinterest-p','title' => 'Pinterest'),
-                        ),
-                        'default' => array(
-                            'facebook' => 'http://facebook.com/',
-                            'twitter' => 'http://facebook.com/',
-                            'instagram' => 'http://instagram.com/',
-                            'pinterest' => 'http://pinterest.com/'
-                        )
-                    ),
-                    
-                    
-                    array(
-                        'id'       => 'topbar-visibility',
-                        'type'     => 'select_sortable',
-                        'title'    => __( 'Top Bar Visibility', 'redux-framework-demo' ),
-                        'subtitle'     => __( 'Select your visibility.', 'redux-framework-demo' ),
-                        'options'  => array(
-                            'visible' => __('Always Visible', 'redux-framework-demo' ),
-                            'visible-md-block' => __('Visible Desktops', 'redux-framework-demo' ),
-                            'visible-sm-block' => __('Visible Tablets', 'redux-framework-demo' ),
-                            'visible-xs-block' => __('Visible Phones', 'redux-framework-demo' ),
-                            'hidden-md' => __('Hidden Desktops', 'redux-framework-demo' ),
-                            'hidden-sm' => __('Hidden Tablets', 'redux-framework-demo' ),
-                            'hidden-xs' => __('Hidden Phones', 'redux-framework-demo' )
-                        ),
-                        'default'  => 'visible-md-block',
-                        'clear' => false
-                    ),
-                    
-                    array(
-                        'id'       => 'topbar-style',
+                        'id'       => 'layout',
                         'type'     => 'select',
-                        'title'    => __( 'Top Bar Style', 'redux-framework-demo' ),
-                        'subtitle'     => __( 'Select your preferred top bar style.', 'redux-framework-demo' ),
+                        'title'    => __( 'Page layout', THEME_LANG ),
+                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
                         'options'  => array(
-                            'centered' => __('Centered', 'redux-framework-demo' ),
-                            'sides' => __('Sides', 'redux-framework-demo' )
+                            'full' => __('Full width Layout', THEME_LANG),
+                            'boxed' => __('Boxed Layout', THEME_LANG),
                         ),
-                        'default'  => 'centered',
-                        'clear' => false
-                    ),
-                    
-                    array(
-                        'id'       => 'topbar-left',
-                        'type'     => 'select',
-                        'title'    => __( 'Topbar left', 'redux-framework-demo' ),
-                        'subtitle' => __( 'No validation can be done on this field type', 'redux-framework-demo' ),
-                        'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-                        'options'  => array(
-                            'contact' => __('Contact', 'redux-framework-demo' ),
-                            'navigation' => __('Navigation', 'redux-framework-demo' ),
-                            'socials' => __('Socials', 'redux-framework-demo' ),
-                            'user' => __('User - Woocommerce', 'redux-framework-demo' ),
-                            'cart' => __('Cart - Woocommerce', 'redux-framework-demo' )
-                        ),
-                        'default'  => 'contact'
-                    ),
-                    array(
-                        'id'       => 'topbar-right',
-                        'type'     => 'select',
-                        'title'    => __( 'Topbar right', 'redux-framework-demo' ),
-                        'subtitle' => __( 'No validation can be done on this field type', 'redux-framework-demo' ),
-                        'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-                        'options'  => array(
-                            'contact' => __('Contact', 'redux-framework-demo' ),
-                            'navigation' => __('Navigation', 'redux-framework-demo' ),
-                            'socials' => __('Socials', 'redux-framework-demo' ),
-                            'user' => __('User - Woocommerce', 'redux-framework-demo' ),
-                            'cart' => __('Cart - Woocommerce', 'redux-framework-demo' )
-                        ),
-                        'default'  => 'socials'
-                    ),
-                    /*---------------------------------------------------------------------*/
-                    array(
-                        'id'   => 'topbar-info-social',
-                        'type' => 'info',
-                        'title' => __( 'This is a title.', 'redux-framework-demo' ),
-                        'desc' => __( 'This is the info field, if you want to break sections up.', 'redux-framework-demo' )
-                    ),
-                    
-                    array(
-                        'id'       => 'topbar-social-target',
-                        'type'     => 'select',
-                        'title'    => __( 'Top Bar Social Link Target', 'redux-framework-demo' ),
-                        'subtitle'     => __( 'Select to open the social links in a new or the same window.', 'redux-framework-demo' ),
-                        'options'  => array(
-                            '_blank' => __('new window', 'redux-framework-demo' ),
-                            '_self' => __('Same Window', 'redux-framework-demo' )
-                        ),
-                        'default'  => '1',
+                        'default'  => 'full',
                         'clear' => false
                     ),
                     array(
-                        'id'       => 'topbar-social-target',
+                        'id'       => 'sidebar',
                         'type'     => 'select',
-                        'title'    => __( 'Top Bar Social Style', 'redux-framework-demo' ),
-                        'subtitle'     => __( 'Select your preferred social link style.', 'redux-framework-demo' ),
+                        'title'    => __( 'Sidebar configuration', THEME_LANG ),
+                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
                         'options'  => array(
-                            'awesome' => __('Awesome Font', 'redux-framework-demo' ),
-                            'elegant' => __('Elegant Font', 'redux-framework-demo' ),
+                            'full' => __('No sidebars', THEME_LANG),
+                            'left' => __('Left Sidebar', THEME_LANG),
+                            'right' => __('Right Layout', THEME_LANG)
                         ),
-                        'default'  => 'awesome',
+                        'default'  => 'full',
                         'clear' => false
                     ),
-                    
                     array(
-                        'id'       => 'topbar-social',
-                        'type'     => 'sortable',
-                        'title'    => __( 'Sortable Text Option', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Define and reorder these however you want.', 'redux-framework-demo' ),
-                        'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+                        'id'       => 'sidebar_left',
+                        'type'     => 'select',
+                        'title'    => __( 'Sidebar left area', THEME_LANG ),
+                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
                         'options'  => array(
-                            'facebook' => 'Facebook',
-                            'twitter' => 'Twitter',
-                            'Google+' => '',
-                            'Linkedin' => '',
-                            'Pinterest' => '',
-                            'Instagram' => '',
-                            'Youtube' => '',
-                            'RSS' => '',
-                        )
-                    ),
-                    array(
-                            'id'       => 'opt-sortable',
-                            'type'     => 'sortable',
-                            'title'    => __( 'Sortable Text Option', 'redux-framework-demo' ),
-                            'subtitle' => __( 'Define and reorder these however you want.', 'redux-framework-demo' ),
-                            'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-                            'options'  => array(
-                                'si1' => 'Item 1',
-                                'si2' => 'Item 2',
-                                'si3' => 'Item 3',
-                            )
+                            'primary-widget-area' => __('Primary Widget Area', THEME_LANG),
+                            'sidebar-column-1' => __('Sidebar 1', THEME_LANG),
+                            'sidebar-column-2' => __('Sidebar 2', THEME_LANG)
                         ),
-                    /*---------------------------------------------------------------------*/
-                    array(
-                        'id'   => 'topbar-info-contact',
-                        'type' => 'info',
-                        'title' => __( 'This is a title.', 'redux-framework-demo' ),
-                        'desc' => __( 'This is the info field, if you want to break sections up.', 'redux-framework-demo' )
+                        'default'  => 'primary-widget-area',
+                        'clear' => false
                     ),
-                    
                     array(
-                        'id'       => 'topbar-contact',
-                        'type'     => 'sortable',
-                        'title'    => __( 'Sortable Text Option', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Define and reorder these however you want.', 'redux-framework-demo' ),
-                        'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+                        'id'       => 'sidebar_right',
+                        'type'     => 'select',
+                        'title'    => __( 'Sidebar right area', THEME_LANG ),
+                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
                         'options'  => array(
-                            'Email' => 'demo@gmail.com',
-                            'Phone' => '1.777.777.777',
-                        )
-                    ),
-                    /*---------------------------------------------------------------------*/
-                    array(
-                        'id'   => 'topbar-info-styling',
-                        'type' => 'info',
-                        'title' => __( 'Styling', 'redux-framework-demo' ),
-                        'desc' => __( 'This is the info field, if you want to break sections up.', 'redux-framework-demo' )
-                    ),
-                    
-                    array(
-                        'id'       => 'topbar-background',
-                        'type'     => 'background',
-                        'title'    => __( 'Top bar Background', THEME_LANG ),
-                        'subtitle' => __( 'Top bar Background with image, color, etc.', THEME_LANG ),
-                        'default'   => array( 'background-color'=>'#1A1C27' ),
-                        'output'      => array( '#top-bar' ),
-                    ),
-                    
-                    array(
-                        'id'       => 'topbar-typography',
-                        'type'     => 'typography',
-                        'text-align' => false,
-                        'title'    => __( 'Top bar typography', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Specify the body font properties.', 'redux-framework-demo' ),
-                        'google'   => true,
-                        'default'  => array(
-                            'color'       => '#A1B1BC',
-                            'font-size'   => '14px',
-                            'font-family' => 'Lato',
-                            'font-weight' => 'Normal',
-                            'line-height' => '40px',
+                            'primary-widget-area' => __('Primary Widget Area', THEME_LANG),
+                            'sidebar-column-1' => __('Sidebar 1', THEME_LANG),
+                            'sidebar-column-2' => __('Sidebar 2', THEME_LANG)
                         ),
-                        'output'      => array( '#top-bar' ),
+                        'default'  => 'primary-widget-area',
+                        'clear' => false
                     ),
-                    
-                    array(
-                        'id'       => 'topbar-link',
-                        'type'     => 'link_color',
-                        'title'    => __( 'Links Color Option', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
-                        'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-                        //'regular'   => false, // Disable Regular Color
-                        //'hover'     => false, // Disable Hover Color
-                        //'active'    => false, // Disable Active Color
-                        //'visited'   => true,  // Enable Visited Color
-                        'default'  => array(
-                            'regular' => '#A1B1BC',
-                            'hover'   => '#FFFFFF',
-                            'active'  => '#FFFFFF',
-                        ),
-                        'output'      => array( '#top-bar a' ),
-                    ),
-                    
-                    /*---------------------------------------------------------------------*/
-                    array(
-                        'id'   => 'opt-info-field',
-                        'type' => 'info',
-                        'title' => __( 'This is a title.', 'redux-framework-demo' ),
-                        'desc' => __( 'This is the info field, if you want to break sections up.', 'redux-framework-demo' )
-                    ),
-                    /*
-                    array(
-                        'id'       => 'topbar-spacing',
-                        'type'     => 'spacing',
-                        // An array of CSS selectors to apply this font style to
-                        'mode'     => 'padding',
-                        // absolute, padding, margin, defaults to padding
-                        //'all'      => true,
-                        // Have one field that applies to all
-                        'top'           => true,     // Disable the top
-                        'right'         => false,     // Disable the right
-                        'bottom'        => true,     // Disable the bottom
-                        'left'          => false,     // Disable the left
-                        'units'         => 'px',      // You can specify a unit value. Possible: px, em, %
-                        //'units_extended'=> 'true',    // Allow users to select any type of unit
-                        'display_units' => 'true',   // Set to false to hide the units if the units are specified
-                        'title'    => __( 'Padding/Margin Option', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Allow your users to choose the spacing or margin they want.', 'redux-framework-demo' ),
-                        'desc'     => __( 'You can enable or disable any piece of this field. Top, Right, Bottom, Left, or Units.', 'redux-framework-demo' ),
-                        'default'  => array(
-                            'padding-top'    => '5px',
-                            'padding-bottom' => '5px',
-                        )
-                    ),
-                    */
-                    array(
-                            'id'       => 'topbar-border-top',
-                            'type'     => 'border',
-                            'title'    => __( 'Header Border Option', 'redux-framework-demo' ),
-                            'all'           => false,
-                            'top'           => true,     // Disable the top
-                            'right'         => false,     // Disable the right
-                            'bottom'        => false,     // Disable the bottom
-                            'left'          => false,     // Disable the left
-                            'subtitle' => __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
-                            'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-                            'default'  => array(
-                                'border-color'  => '#222533',
-                                'border-style'  => 'solid',
-                                'border-top'    => '5px'
-                            ),
-                            'output'      => array( '#top-bar' ),
-                        ),
-                    array(
-                            'id'       => 'topbar-border-bottom',
-                            'type'     => 'border',
-                            'title'    => __( 'Header Border Option', 'redux-framework-demo' ),
-                            'all'           => false,
-                            'top'           => false,     // Disable the top
-                            'right'         => false,     // Disable the right
-                            'bottom'        => true,     // Disable the bottom
-                            'left'          => false,     // Disable the left
-                            'subtitle' => __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
-                            'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-                            'default'  => array(
-                                'border-bottom'    => '0px'
-                            ),
-                            'output'      => array( '#top-bar' ),
-                        ),
-                    
-                    
                 )
             );
             
@@ -497,11 +232,27 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
 						'id'		=> 'fixed_header',
 						'type'		=> 'switch',
 						'title'		=> __( 'Fixed Header on Scroll', THEME_LANG ),
-						'subtitle'	=> __( 'Toggle the fixed header when the user scrolls down the site on or off. Please note that for certain header (two and three) styles only the navigation will become fixed.', 'wpex' ),
+						'subtitle'	=> __( 'Toggle the fixed header when the user scrolls down the site on or off. Please note that for certain header (two and three) styles only the navigation will become fixed.', THEME_LANG),
 						"default"	=> '1',
 						'on'		=> __( 'On', THEME_LANG ),
 						'off'		=> __( 'Off', THEME_LANG ),
 					),
+                    array(
+                        'id'       => 'header',
+                        'type'     => 'select',
+                        'title'    => __( 'Header layout', THEME_LANG ),
+                        'subtitle'     => __( "Please choose header layout", THEME_LANG ),
+                        'options'  => array(
+                            'layout1' => __('Layout 1', THEME_LANG),
+                            'layout2' => __('Layout 2', THEME_LANG),
+                            'layout3' => __('Layout 3', THEME_LANG),
+                        ),
+                        'default'  => 'layout1',
+                        'clear' => false
+                    ),
+                    
+                    
+                    
                 )
             );
             

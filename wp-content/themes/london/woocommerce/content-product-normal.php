@@ -42,7 +42,7 @@ $bootstrapColumn = round( 12 / $woocommerce_loop['columns'] );
 $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColumn;
 
 ?>
-<li <?php post_class( $classes ); ?>>
+<li <?php post_class('content-product-normal'); ?>>
     <?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
     <a href="<?php the_permalink(); ?>" class="product-thumbnail <?php if($attachment) echo "product-thumbnail-effect"; ?>">
         <?php echo get_the_post_thumbnail( $post->ID, 'shop_catalog', array('class'=>"first-img product-img")) ?>

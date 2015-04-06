@@ -1,0 +1,40 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Table of contents]
+
+1. New Grid System
+2. Add clearfix in the grid system
+3. Styles for devices(>=1200px)
+4. Styles for devices(>=992px and <=1199px)
+5. Styles for devices(<=1199px)
+6. Styles for devices(<=991px )
+7. Styles for devices(>=768px and <= 991px)
+8. Styles for devices(<=767px )
+9. Styles for devices(>=768px and <= 991px)
+10. Styles for devices(<=480px )
+11. Styles for devices(<=320px )
+*/
+
+/* 3. Styles for devices(>=1200px) */
+@media (min-width: 1200px) {
+    *{}
+}
+
+/* 4. Styles for devices(>=992px and <=1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    *{}
+}
+
+/* 5. Styles for devices(<=1199px) */
+@media (max-width: 1199px) {
+    *{}
+}
+
+/* 6. Styles for devices(<=991px ) */
+@media (max-width: 991px) {
+    *{}
+}
+
+/* 10. Styles for devices(<=480px ) */
+@media (max-width: 480px) {
+    *{}
+}

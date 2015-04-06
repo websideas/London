@@ -13,6 +13,9 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
     		'opt_in' => 'yes',
             'text_before' => '',
             'text_after' => '',
+            'desktop' => 5,
+            'tablet' => 3,
+            'mobile' => 2,
             'el_class' => '',
             'css' => '',
         ), $atts ) );
@@ -31,16 +34,16 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
             
             $rand = rand();
             
-            $output .= '<div class="'.esc_attr( $css_class ).'">';
+            $output .= '<div class="'.esc_attr( $css_class ).'" id="mailchimp-wrapper-'.$rand.'">';
             
             $heading_class = apply_filters('js_composer_heading', 'block-heading mailchimp-heading');
             $heading_class = apply_filters('mailchimp_heading', $heading_class);
             $output .= ($title) ? '<h3 class="'.esc_attr($heading_class).'">'.$title.'</h3>' : '';
             
-            $output .= ($text_before) ? '<p class="mailchimp-before">'.$text_before.'</p>' : '';
+            $output .= ($text_before) ? '<div class="mailchimp-before">'.$text_before.'</div>' : '';
             
-            $output .= '<form class="mailchimp-form" id="mailchimp'.$rand.'" action="#" method="post">';
-                $output .= '<input name="email" class="form-control" required="" id="email'.$rand.'" type="email" placeholder="'.__('E-mail address', THEME_LANGUAGE).'"/>';
+            $output .= '<form class="mailchimp-form clearfix" id="mailchimp'.$rand.'" action="#" method="post">';
+                $output .= '<p><input name="email" class="form-control" required="" id="email'.$rand.'" type="email" placeholder="'.__('E-mail address', THEME_LANGUAGE).'"/></p>';
     			$output .= '<input type="hidden" name="action" value="signup"/>';
     			$output .= '<input type="hidden" name="list_id" value="'.$mailchimp_list.'"/>';
                 $output .= '<input type="hidden" name="opt_in" value="'.$opt_in.'"/>';                
@@ -48,10 +51,17 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
                 $output .= '<div class="mailchimp-success">'.$content.'</div>';    
                 $output .= '<div class="mailchimp-error"></div>';
             $output .= '</form>';
-            $output .= ($text_after) ? '<p class="mailchimp-after">'.$text_after.'</p>' : '';
+            $output .= ($text_after) ? '<div class="mailchimp-after">'.$text_after.'</div>' : '';
             $output .= '</div>';
         }
-    	return $output;
+        
+        $desktop = $desktop ? "@media (min-width: 992px) {#mailchimp-wrapper-{$rand}{min-height: $desktop}}" : '';
+        $tablet = $tablet ? "@media (max-width: 768px) {#mailchimp-wrapper-{$rand}{min-height: $tablet}}" : '';
+        $mobile = $mobile ? "@media (max-width: 480px) {#mailchimp-wrapper-{$rand}{min-height: $mobile}}" : '';  
+        
+        $style = '<style>'.$desktop.$tablet.$mobile.'</style>';
+        
+    	return $output.$style;
     }
 }
 
@@ -103,18 +113,46 @@ vc_map( array(
           "description" => __("", THEME_LANGUAGE)
         ),
         array(
-            "type" => "textfield",
-            "heading" => __( "Extra class name", "js_composer"),
-            "param_name" => "el_class",
-            "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
+          "type" => "kt_heading",
+          "heading" => __("Min height for item", THEME_LANGUAGE),
+          "param_name" => "items_show",
+          "description" => __("Please include unit it. (Ex. 300px). ", THEME_LANGUAGE)
         ),
+        array(
+			"type" => "textfield",
+			"class" => "",
+			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+			"heading" => __("On Desktop", THEME_LANGUAGE),
+			"param_name" => "desktop",
+	  	),
+		array(
+			"type" => "textfield",
+			"class" => "",
+			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+			"heading" => __("On Tablet", THEME_LANGUAGE),
+			"param_name" => "tablet",
+			"step" => "5",
+	  	),
+		array(
+			"type" => "textfield",
+			"class" => "",
+			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+			"heading" => __("On Mobile", THEME_LANGUAGE),
+			"param_name" => "mobile",
+	  	),
         array(
 			'type' => 'css_editor',
 			'heading' => __( 'Css', 'js_composer' ),
 			'param_name' => 'css',
 			// 'description' => __( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'js_composer' ),
 			'group' => __( 'Design options', 'js_composer' )
-		)
+		),
+        array(
+            "type" => "textfield",
+            "heading" => __( "Extra class name", "js_composer"),
+            "param_name" => "el_class",
+            "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
+        ),
     ),
 ));
 
