@@ -31,7 +31,7 @@ if ( ! $product || ! $product->is_visible() )
 $woocommerce_loop['loop']++;
 
 // Extra post classes
-$classes = array();
+$classes = array('product');
 if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] )
 	$classes[] = 'first';
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
@@ -41,8 +41,10 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 $bootstrapColumn = round( 12 / $woocommerce_loop['columns'] );
 $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColumn;
 
+$classes[] = 'content-product-normal';
+
 ?>
-<li <?php post_class('content-product-normal'); ?>>
+<li <?php post_class($classes); ?>>
     <?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
     <a href="<?php the_permalink(); ?>" class="product-thumbnail <?php if($attachment) echo "product-thumbnail-effect"; ?>">
         <?php echo get_the_post_thumbnail( $post->ID, 'shop_catalog', array('class'=>"first-img product-img")) ?>

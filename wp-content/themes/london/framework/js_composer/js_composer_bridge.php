@@ -9,8 +9,9 @@ $composer_addons = array(
     'clients-carousel.php',
     'mailchimp.php',
     'recent-posts-carousel.php',
-    'woocommerce-sales-countdown.php',
-    'desinger-collection-carousel.php'
+    'sales-countdown.php',
+    'desinger-collection-carousel.php',
+    'category_products_tab.php'
 );
 
 foreach ( $composer_addons as $addon ) {

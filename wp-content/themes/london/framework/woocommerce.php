@@ -5,11 +5,6 @@
 if ( !defined('ABSPATH')) exit;
 
 
-//add_filter('woocommerce_product_loop_start', 'woocommerce_product_loop_start_callback');
-function woocommerce_product_loop_start_callback($classes){
-    return $classes.' lists';
-}
-
 /**
  * Define image sizes
  */
@@ -289,8 +284,11 @@ function london_single_product_layout( $columns ) {
  * 
  */
 function woocommerce_shop_loop_item_action_action_add(){
+    echo "<div class='functional-buttons'>";
+    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'">'.__('Quick view', THEME_LANG).'</a>';
     echo do_shortcode('[yith_wcwl_add_to_wishlist]');
     echo do_shortcode('[yith_compare_button]');
+    echo "</div>";
 }
 
 /**
@@ -298,27 +296,37 @@ function woocommerce_shop_loop_item_action_action_add(){
  * 
  */
 
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20, 0);
-add_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20, 0);
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+add_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20);
 
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30, 0);
-add_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 12, 0);
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+add_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 12);
 
-//remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5, 0);
-remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10, 0);
-//remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10, 0);
-
-add_action( 'woocommerce_shop_loop_item_image', 'woocommerce_template_loop_product_thumbnail', 5, 0);
-add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_template_loop_add_to_cart', 5, 0);
+add_action( 'woocommerce_before_shop_loop', 'woocommerce_gridlist_toggle', 40);
 
 
-remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10, 0);
-add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 20, 0);
 
-remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10, 0);
-add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_show_product_loop_sale_flash', 10, 0);
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 
-add_action( 'woocommerce_shop_loop_item_action', 'woocommerce_shop_loop_item_action_action_add', 10, 0);
+
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_rating', 5);
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_single_excerpt', 7);
+
+add_action( 'woocommerce_shop_loop_item_image', 'woocommerce_template_loop_product_thumbnail', 5);
+add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_template_loop_add_to_cart', 5);
+
+add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_template_loop_add_to_cart', 10);
+add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_shop_loop_item_action_action_add', 10);
+
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 20);
+
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
+add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_show_product_loop_sale_flash', 10);
+
+add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_shop_loop_item_action_action_add', 10);
 
 
 add_action( 'woocommerce_after_shop_loop_item_sale', 'woocommerce_after_shop_loop_item_sale_sale_price', 10, 2);
@@ -336,13 +344,23 @@ add_action( 'woocommerce_after_shop_loop_item_sale', 'woocommerce_after_shop_loo
 function woocommerce_after_shop_loop_item_sale_short_description($product, $post){
     echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 }
-
+function woocommerce_gridlist_toggle(){ ?>
+    <ul class="gridlist-toggle hidden-xs">
+        <li><span><?php _e('View as:', THEME_LANG) ?></span></li>
+		<li>
+			<a href="#" title="<?php _e('List view', THEME_LANG) ?>" data-layout="lists" data-remove="grid"><i class="fa fa-th-list"></i></a>
+		</li>
+		<li>
+			<a class="active" href="#" title="<?php _e('Grid view', THEME_LANG) ?>" data-layout="grid" data-remove="lists"><i class="fa fa-th-large"></i></a>
+		</li>
+	</ul>
+<?php }
 /**
  * Change hook of single-product.php
  * 
  */
 
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10, 0);
+
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10, 0);
 add_action( 'woocommerce_after_single_product_content', 'woocommerce_output_product_data_tabs', 10, 0);
@@ -355,3 +373,37 @@ function london_woocommerce_product_description_heading(){
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40, 0);
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 15);
 
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10, 0);
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 17, 0);
+
+
+
+if(defined( 'YITH_WOOCOMPARE' )){
+    global $yith_woocompare;
+    remove_action( 'woocommerce_single_product_summary', array( $yith_woocompare->obj, 'add_compare_link' ), 35 );
+}
+
+add_filter('yith_wcwl_positions', 'yith_wcwl_positions_callback');
+function yith_wcwl_positions_callback($positions){
+    unset($positions['add-to-cart']);
+    return $positions;
+}
+
+
+function woocommerce_shop_loop_item_action_action_product(){
+    echo "<div class='functional-buttons-product clearfix'>";
+    echo "<div class='functional-buttons'>";
+    echo do_shortcode('[yith_wcwl_add_to_wishlist]');
+    echo do_shortcode('[yith_compare_button]');
+    echo "</div>";
+    echo "</div>";
+}
+add_action( 'woocommerce_after_add_to_cart_button', 'woocommerce_shop_loop_item_action_action_product', 50);
+
+
+function custom_stock_totals($availability_html, $availability_text, $variation) {
+    $availability         = $variation->get_availability();
+	$availability_html = '<p class="stock ' . esc_attr( $availability['class'] ) . '"><span>' . esc_html( $availability_text ) . '</span></p>';
+	return 	$availability_html;
+}
+add_filter('woocommerce_stock_html', 'custom_stock_totals', 20, 3);

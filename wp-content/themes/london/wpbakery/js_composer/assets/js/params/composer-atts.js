@@ -6,7 +6,8 @@
  * Visual composer backbone/underscore shortcodes attributes
  * form field and parsing controls
  * ========================================================= */
-var vc = {
+
+ var vc = {
 	filters: {templates: []}, addTemplateFilter: function (callback) {
 		if (_.isFunction(callback)) this.filters.templates.push(callback);
 	}
@@ -1236,9 +1237,13 @@ var vc = {
 			if (arr.length > 0) {
 				new_value = arr.join(',');
 			}
+			
+			alert(new_value);
+			
 			return new_value;
 		},
 		defaults: function (param) {
+			alert(new_value);
 			return '';
 		}
 	};

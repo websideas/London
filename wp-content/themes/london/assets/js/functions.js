@@ -41,7 +41,8 @@
         init_MainMenu();
         init_ProductQuickView();
         init_SaleCountDown();
-        
+        init_gridlistToggle();
+        init_desingerCollection();
         $('form.woocommerce-ordering select').customSelect();
         
         
@@ -122,7 +123,6 @@
         
     });
     
-    
     $(window).resize(function(){
         /**==============================
         ***  Sticky header
@@ -150,6 +150,9 @@
         
         // Responsive audio
         $('.post-media-audio audio').mediaelementplayer();
+        
+        $( ".products-tabs" ).tabs();
+        
     }
     /* ---------------------------------------------
      Mailchimp
@@ -171,14 +174,63 @@
             };
             
             $.post(ajax_frontend.ajaxurl, data, function(response) {
-                
-                var data = $.parseJSON(response);
-                if(data.error == '1'){
-                    error.html(data.msg).fadeIn();
+                if(response.error == '1'){
+                    error.html(response.msg).fadeIn();
                 }else{
                     success.fadeIn();
                 }
             });
+        });
+    }
+    /* ---------------------------------------------
+     Desinger collection carousel
+     --------------------------------------------- */
+    function init_desingerCollection(){
+        $('a.desinger-collection-link').on('click',function(e){
+            e.preventDefault();
+            
+            var $desinger = $(this),
+                $wrapper = $desinger.closest('.desinger-collection-wrapper'),
+                $carousel = $wrapper.find('ul.products'),
+                $carouselData = $carousel.data('owlCarousel');
+            
+            $desinger.addClass('loading');
+            
+            var data = {
+                action: 'frontend_desinger_collection',
+                security : ajax_frontend.security,
+                desinger_id : $desinger.data('id')
+            };
+            
+            $.post(ajax_frontend.ajaxurl, data, function(response) {
+                $desinger.removeClass('loading');
+                for (i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
+                    $carouselData.removeItem(i);
+                }
+                $.each( response, function( i, val ) {
+                    $carouselData.addItem(val);
+                });
+            }, 'json');
+        });
+    }
+    
+    
+    /* ---------------------------------------------
+     Grid list Toggle
+     --------------------------------------------- */
+    function init_gridlistToggle(){
+        $('ul.gridlist-toggle a').on('click', function(e){
+            e.preventDefault();
+            var $this = $(this),
+                $gridlist = $this.closest('.gridlist-toggle'),
+                $products = $this.closest('#main').find('ul.products');
+                
+            $gridlist.find('a').removeClass('active');
+            $this.addClass('active');
+            $products
+                .removeClass($this.data('remove'))
+                .addClass($this.data('layout'));
+                
         });
     }
     

@@ -136,9 +136,7 @@ function london_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
     
-    
-    
-    
+    wp_enqueue_script( 'jquery-ui-tabs' );
     wp_enqueue_script( 'bootstrap-script', THEME_LIBS . 'bootstrap/js/bootstrap.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'mCustomScrollbar-script', THEME_JS . 'jquery.mCustomScrollbar.min.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, false );

@@ -118,9 +118,11 @@ function vc_kt_taxonomy_settings_field($settings, $value) {
 		}
 
         $size = (!empty($settings['size'])) ? 'size="'.$settings['size'].'"' : '';
+        $multiple = (!empty($settings['multiple'])) ? 'multiple="multiple"' : '';
+        
         $uniqeID    = uniqid();
         
-        $output = '<select id="kt_taxonomy-'.$uniqeID.'" multiple="multiple" '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
+        $output = '<select id="kt_taxonomy-'.$uniqeID.'" '.$multiple.' '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
                     .implode( $terms_fields )
                 .'</select>';
                 
@@ -138,7 +140,8 @@ add_shortcode_param('kt_taxonomy', 'vc_kt_taxonomy_settings_field', FW_LIBS.'cho
  */
 function vc_kt_posts_settings_field($settings, $value) {
 	$dependency = vc_generate_dependencies_attributes($settings);
-
+    $output = '';
+    
 	$value_arr = $value;
 	if ( !is_array($value_arr) ) {
 		$value_arr = array_map( 'trim', explode(',', $value_arr) );
@@ -160,13 +163,18 @@ function vc_kt_posts_settings_field($settings, $value) {
         }
         wp_reset_postdata();
 
-        $size = (!empty($settings['size'])) ? 'size="'.$settings['size'].'"' : '';        
-        return '<select multiple="multiple" '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
+        $size = (!empty($settings['size'])) ? 'size="'.$settings['size'].'"' : '';
+        $multiple = (!empty($settings['multiple'])) ? 'multiple="multiple"' : '';
+        $uniqeID    = uniqid();
+        
+        $output .= '<select id="kt_posts-'.$uniqeID.'" '.$multiple.' '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
                     .implode( $terms_fields )
                 .'</select>';
+        $output .= '<script type="text/javascript">jQuery("#kt_posts-' . $uniqeID . '").chosen();</script>';
     }
+    return $output;
 }
-add_shortcode_param('kt_posts', 'vc_kt_posts_settings_field');
+add_shortcode_param('kt_posts', 'vc_kt_posts_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
 
 
 
@@ -177,7 +185,8 @@ add_shortcode_param('kt_posts', 'vc_kt_posts_settings_field');
  */
 function vc_kt_authors_settings_field($settings, $value) {
 	$dependency = vc_generate_dependencies_attributes($settings);
-
+    $output = '';
+    
 	$value_arr = $value;
 	if ( !is_array($value_arr) ) {
 		$value_arr = array_map( 'trim', explode(',', $value_arr) );
@@ -194,11 +203,20 @@ function vc_kt_authors_settings_field($settings, $value) {
         $terms_fields[] = "<option value='{$author->ID}' {$selected}>{$author->display_name}</option>";
     }
 
-    $size = (!empty($settings['size'])) ? 'size="'.$settings['size'].'"' : '';        
-    return '<select multiple="multiple" '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
+    $size = (!empty($settings['size'])) ? 'size="'.$settings['size'].'"' : '';
+    $multiple = (!empty($settings['multiple'])) ? 'multiple="multiple"' : '';
+    $uniqeID    = uniqid();
+    
+    $output .= '<select id="kt_authors-'.$uniqeID.'" multiple="multiple" '.$size.' name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'_field" '.$dependency.'>'
                 .implode( $terms_fields )
             .'</select>';
+    
+    $output .= '<script type="text/javascript">jQuery("#kt_authors-' . $uniqeID . '").chosen();</script>';
+            
+    return $output;
 
 }
-add_shortcode_param('kt_authors', 'vc_kt_authors_settings_field');
+add_shortcode_param('kt_authors', 'vc_kt_authors_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
+
+
 
