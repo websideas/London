@@ -174,8 +174,10 @@ function kite_register_meta_boxes( $meta_boxes )
                 'name' => __('Products', THEME_LANG),
                 'id' => $prefix . 'products',
                 'type' => 'post',
+                'query_args' => array('post_type' => 'product', 'posts_per_page' => '-1'),
                 'post_type' => 'product',
                 'multiple' => true,
+                'size' => 5,
                 'placeholder' => ('Select your products'),
                 'desc' => __('Please Select product for this Designer', THEME_LANG),
                 'field_type' => 'select_advanced'

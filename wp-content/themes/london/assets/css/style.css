@@ -533,6 +533,22 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 .desinger-collection-wrapper p.info{
     display: block;
     margin-bottom: 15px;
+    position: relative;
+}
+.desinger-collection-wrapper .desinger-collection-link span{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    color: #FFF;
+    background: #000;
+    display: none;
+    text-align: center;
+}
+.desinger-collection-wrapper .desinger-collection-link.loading span{
+    display: block;
 }
 .desinger-collection-wrapper p.info .name{
     border-bottom: 1px solid #ccc;

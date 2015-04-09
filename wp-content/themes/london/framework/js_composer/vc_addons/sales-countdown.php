@@ -3,7 +3,7 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-class WPBakeryShortCode_Woocommerce_Sales_Countdown_Carousel extends WPBakeryShortCode {
+class WPBakeryShortCode_Sales_Countdown_Carousel extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
         extract( shortcode_atts( array(
             'title' => '',
@@ -67,8 +67,8 @@ class WPBakeryShortCode_Woocommerce_Sales_Countdown_Carousel extends WPBakerySho
 }
 
 vc_map( array(
-    "name" => __( "Woocommerce Sales Countdown Carousel", THEME_LANGUAGE),
-    "base" => "woocommerce_sales_countdown_carousel",
+    "name" => __( "Sales Countdown Carousel", THEME_LANGUAGE),
+    "base" => "sales_countdown_carousel",
     "category" => __('by Cuongdv'),
     "description" => __( "", THEME_LANGUAGE),
     "wrapper_class" => "clearfix",
@@ -87,15 +87,6 @@ vc_map( array(
           "value" => 10,
           "description" => __("Enter number of Post", THEME_LANGUAGE)
         ),
-        array(
-          "type" => "kt_number",
-          "heading" => __("The Excerpt length", THEME_LANGUAGE),
-          "param_name" => "the_excerpt_length",
-          "value" => '',
-          "description" => __("", THEME_LANGUAGE)
-        ),
-        
-        
         array(
           "type" => "kt_heading",
           "heading" => __("Items to Show?", THEME_LANGUAGE),

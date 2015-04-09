@@ -54,6 +54,11 @@ if ( ! class_exists( 'RWMB_Post_Field' ) )
 			$field = wp_parse_args( $field, array(
 				'js_options' => array(),
 			) );
+            
+            
+            if ( $field['multiple'] )
+                $field['field_name'] .= '[]';
+            
 
 			$field['js_options'] = wp_parse_args( $field['js_options'], array(
 				'allowClear'  => true,
@@ -65,22 +70,6 @@ if ( ! class_exists( 'RWMB_Post_Field' ) )
 			return $field;
 		}
         
-		/**
-		 * Save meta value
-		 * If field is cloneable, value is saved as a single entry in DB
-		 * Otherwise value is saved as multiple entries (for backward compatibility)
-		 *
-		 * TODO: A good way to ALWAYS save values in single entry in DB, while maintaining backward compatibility
-		 *
-		 * @param $new
-		 * @param $old
-		 * @param $post_id
-		 * @param $field
-		 */
-		static function save( $new, $old, $post_id, $field )
-		{
-			return RWMB_Select_Field::save( $new, $old, $post_id, $field );
-		}
 
 		/**
 		 * Get posts

@@ -306,7 +306,7 @@ if ( ! class_exists( 'RWMB_Field ' ) )
 			}
 
 			if ( $field['multiple'] )
-			{
+			{    
 				foreach ( $new as $new_value )
 				{
 					if ( ! in_array( $new_value, $old ) )

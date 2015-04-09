@@ -7,7 +7,13 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
         extract( shortcode_atts( array(
             'title' => '',
-            'number' => 10,
+            'source' => 'all',
+            'posts' => '',
+            'max_items' => 10,
+            'css_animation' => '',
+            'orderby' => 'date',
+            'meta_key' => '',
+            'order' => 'DESC',
             'desktop' => 4,
             'tablet' => 2,
             'mobile' => 1,
@@ -16,96 +22,115 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
         ), $atts ) );
         
         $args = array(
-            'posts_per_page'=> $number,
-            'post_type' => 'kt_designer'
-    	);
+                    'post_type' => 'kt_designer',
+                    'order' => $order,
+                    'orderby' => $orderby,
+                    'posts_per_page' => $max_items
+                );
         
+        if($orderby == 'meta_value' || $orderby == 'meta_value_num'){
+            $args['meta_key'] = $meta_key;
+        }
         
-        $el_class = $this->getExtraClass($el_class);
-        $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'desinger-collection-wrapper ' . $el_class . vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
+        if($source == 'posts'){
+            if($posts){
+                $posts_arr = array_filter(explode( ',', $posts));
+                if(count($posts_arr)){
+                    $args['post__in'] = $posts_arr;
+                }
+            }
+        }
+        
+        $atts['columns'] = 1;
+        
+        $elementClass = array(
+        	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'desinger-collection-wrapper ', $this->settings['base'], $atts ),
+        	'extra' => $this->getExtraClass( $el_class ),
+        	'css_animation' => $this->getCSSAnimation( $css_animation ),
+            'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
+        );
+        
+        $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
+        
         
         $output = '';
-        $output .= '<div class="'.esc_attr( $css_class ).'">';
+        $output .= '<div class="'.esc_attr( $elementClass ).'">';
             $heading_class = apply_filters('js_composer_heading', 'block-heading desinger-collection-carousel-heading');
             $heading_class = apply_filters('desinger_collection_carousel_heading', $heading_class);
             $output .= ($title) ? '<h3 class="'.esc_attr($heading_class).'">'.$title.'</h3>' : '';
             
-            
-            $output .= '<div class="row">';
-                $output .= '<div class="col-md-3 col-sm-3 col-xs-12">';
-                    $query = new WP_Query( $args );
-                    if ( $query->have_posts() ) :
+            $query = new WP_Query( $args );
+            if ( $query->have_posts() ) :
+                $desinger = false;
+                $output .= '<div class="row">';
+                    $output .= '<div class="col-md-3 col-sm-3 col-xs-12 desinger-collection-carousel">';
                         $output .= '<div class="owl-carousel-wrapper">';
-                        $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center" data-itemscustom="[[992,1], [768,1], [480,1]]">';
-                        $desinger = false;
-                        while ( $query->have_posts() ) : $query->the_post();
-                            $output .= '<div class="desinger-collection-item">';
-                                if(has_post_thumbnail()){
-                                    $output .= sprintf(
-                                                    '<a href="#" title="%s" class="desinger-collection-link">%s</a>',
-                                                    __('Click on image to load products of the collection', THEME_LANG),
-                                                    get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"))
-                                                );
-                                }
-                                $output .= sprintf(
-                                                '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
-                                                get_the_title(),
-                                                rwmb_meta( 'kt_description' )
-                                            );
-                                $output .= rwmb_meta( 'kt_info' );
-                                
-                            $output .= '</div><!-- .desinger-collection-item -->';
-                            if(!$desinger){
-                                $desinger = get_the_ID();
-                            }
-                            
-                        endwhile; wp_reset_postdata();
-                        $output .= '</div><!-- .owl-carousel.kt-owl-carousel -->';
+                            $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
+                                while ( $query->have_posts() ) : $query->the_post();
+                                    $output .= '<div class="desinger-collection-item">';
+                                        if(has_post_thumbnail()){
+                                            $desinger_image = get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
+                                        }else{
+                                            $desinger_image = apply_filters('desinger_image_placeholder', '<img src="'.THEME_IMG.'desingner-placeholder.png" alt="">');
+                                                                                    
+                                        }
+                                        $output .= sprintf(
+                                                        '<a href="#" title="%s" class="desinger-collection-link" data-id="%s">%s%s</a>',
+                                                        __('Click on image to load products of the collection', THEME_LANG),
+                                                        get_the_ID(),
+                                                        $desinger_image,
+                                                        '<span><i class="fa fa-spinner fa-spin"></i></span>'
+                                                    );                                        
+                                        $output .= sprintf(
+                                                        '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
+                                                        get_the_title(),
+                                                        rwmb_meta( 'kt_description' )
+                                                    );
+                                        $output .= rwmb_meta( 'kt_info' );
+                                    $output .= '</div><!-- .desinger-collection-item -->';
+                                    if(!$desinger){
+                                        $desinger = get_the_ID();
+                                    }
+                                endwhile; wp_reset_postdata();
+                            $output .= '</div><!-- .owl-carousel.kt-owl-carousel -->';
                         $output .= '</div><!-- .owl-carousel-wrapper -->';
-                    endif;
-                $output .= '</div>';
-                
-                $output .= '<div class="col-md-9 col-sm-9 col-xs-12 desinger-collection-woocommerce">';
-                    $products = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $desinger); 
-                    
-                    global $woocommerce_loop;
-                    $woocommerce_loop['columns'] = 1;
-                    
-                    if(count($products)){
-                        $args = array(
-                			'posts_per_page'	=> -1,
-                			'post_status' 		=> 'publish',
-                			'post_type' 		=> 'product',
-                			'post__in'			=> array_merge( array( 0 ), $products )
-                		);
-                        
-                        $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
-                        
-                        if ( $products->have_posts() ) :
-                            $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
-                            $output .= '<div class="woocommerce-carousel-wrapper" data-theme="style-navigation-bottom" data-itemscustom="'.$itemscustom.'">';
-                                ob_start();
-                                woocommerce_product_loop_start();
-                                while ( $products->have_posts() ) : $products->the_post();
-                                    wc_get_template_part( 'content', 'product-normal' );
-                                endwhile; // end of the loop.
-                                woocommerce_product_loop_end();
-                                
-                                $output .= '<div class="woocommerce  columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
-                            $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
+                    $output .= '</div><!--.desinger-collection-carousel -->';
+                    $output .= '<div class="col-md-9 col-sm-9 col-xs-12 desinger-collection-woocommerce">';
+                        $product_ids = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $desinger);
+                        if(count($product_ids)){
+                            $args = array(
+                    			'posts_per_page'	=> -1,
+                    			'post_status' 		=> 'publish',
+                    			'post_type' 		=> 'product',
+                    			'post__in'			=> array_merge( array( 0 ), $product_ids )
+                    		);
+                            $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
                             
-                        endif;
-                
-                		wp_reset_postdata();
-                        
-                        
-                    }
-                    
-                $output .= '</div><!-- .col-md -->';
-            
-            $output .= '</div><!-- .row -->';
+                            global $woocommerce_loop;
+                            $woocommerce_loop['columns'] =  $atts['columns'];
+                            
+                            if ( $products->have_posts() ) :
+                                    $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
+                                    $output .= '<div class="woocommerce-carousel-wrapper" data-theme="style-navigation-bottom" data-itemscustom="'.$itemscustom.'">';
+                                        ob_start();
+                                        woocommerce_product_loop_start();
+                                        while ( $products->have_posts() ) : $products->the_post();
+                                            wc_get_template_part( 'content', 'product-normal' );
+                                        endwhile; // end of the loop.
+                                        woocommerce_product_loop_end();
+                                        
+                                        $output .= '<div class="woocommerce  columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
+                                    $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
+                            endif;
+                            wp_reset_postdata();
+                        }
+                    $output .= '</div><!--.desinger-collection-woocommerce -->';
+                $output .= '</div><!-- .row -->';
+            else:
+                wp_reset_postdata();
+            endif;
         $output .= '</div>';
-        
+
     	return $output;
     }
 }
@@ -123,15 +148,36 @@ vc_map( array(
             "admin_label" => true,
         ),
         array(
-            "type" => "kt_number",
-            "heading" => __("Number Post", THEME_LANGUAGE),
-            "param_name" => "number",
-            "value" => 10,
-            "description" => __("How many Posts you would like to show? ( -1 means unlimited )", THEME_LANGUAGE)
+            "type" => "dropdown",
+        	"heading" => __("Data source", THEME_LANGUAGE),
+        	"param_name" => "source",
+        	"value" => array(
+                __('All', THEME_LANGUAGE) => '',
+                __('Specific Posts', THEME_LANGUAGE) => 'posts',
+        	),
+            "admin_label" => true,
+            'std' => '',
+        	"description" => __("Select content type for your testimonials.", THEME_LANGUAGE)
         ),
         array(
+			"type" => "kt_posts",
+            'post_type' => 'kt_designer',
+			'heading' => __( 'Specific Posts', 'js_composer' ),
+			'param_name' => 'posts',
+            'multiple' => true,
+            "dependency" => array("element" => "source","value" => array('posts')),
+		),
+        array(
+    		'type' => 'textfield',
+    		'heading' => __( 'Total items', 'js_composer' ),
+    		'param_name' => 'max_items',
+    		'value' => 10, // default value
+    		'param_holder_class' => 'vc_not-for-custom',
+    		'description' => __( 'Set max limit for items in grid or enter -1 to display all (limited to 1000).', 'js_composer' )
+    	),
+        array(
             "type" => "kt_heading",
-            "heading" => __("Items to Show?", THEME_LANGUAGE),
+            "heading" => __("Product Items to Show?", THEME_LANGUAGE),
             "param_name" => "items_show",
             "value" => "6",
         ),
@@ -141,7 +187,7 @@ vc_map( array(
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
 			"heading" => __("On Desktop", THEME_LANGUAGE),
 			"param_name" => "desktop",
-			"value" => "5",
+			"value" => "4",
 			"min" => "1",
 			"max" => "25",
 			"step" => "1",
@@ -152,7 +198,7 @@ vc_map( array(
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
 			"heading" => __("On Tablet", THEME_LANGUAGE),
 			"param_name" => "tablet",
-			"value" => "3",
+			"value" => "2",
 			"min" => "1",
 			"max" => "25",
 			"step" => "1",
@@ -163,23 +209,90 @@ vc_map( array(
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
 			"heading" => __("On Mobile", THEME_LANGUAGE),
 			"param_name" => "mobile",
-			"value" => "2",
+			"value" => "1",
 			"min" => "1",
 			"max" => "25",
 			"step" => "1",
 	  	),
+        array(
+        	'type' => 'dropdown',
+        	'heading' => __( 'CSS Animation', 'js_composer' ),
+        	'param_name' => 'css_animation',
+        	'admin_label' => true,
+        	'value' => array(
+        		__( 'No', 'js_composer' ) => '',
+        		__( 'Top to bottom', 'js_composer' ) => 'top-to-bottom',
+        		__( 'Bottom to top', 'js_composer' ) => 'bottom-to-top',
+        		__( 'Left to right', 'js_composer' ) => 'left-to-right',
+        		__( 'Right to left', 'js_composer' ) => 'right-to-left',
+        		__( 'Appear from center', 'js_composer' ) => "appear"
+        	),
+        	'description' => __( 'Select type of animation if you want this element to be animated when it enters into the browsers viewport. Note: Works only in modern browsers.', 'js_composer' )
+        ),
         array(
             "type" => "textfield",
             "heading" => __( "Extra class name", "js_composer"),
             "param_name" => "el_class",
             "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
         ),
+        
+        
+        // Data settings
+        array(
+    		'type' => 'dropdown',
+    		'heading' => __( 'Order by', 'js_composer' ),
+    		'param_name' => 'orderby',
+    		'value' => array(
+    			__( 'Date', 'js_composer' ) => 'date',
+    			__( 'Order by post ID', 'js_composer' ) => 'ID',
+    			__( 'Author', 'js_composer' ) => 'author',
+    			__( 'Title', 'js_composer' ) => 'title',
+    			__( 'Last modified date', 'js_composer' ) => 'modified',
+    			__( 'Post/page parent ID', 'js_composer' ) => 'parent',
+    			__( 'Number of comments', 'js_composer' ) => 'comment_count',
+    			__( 'Menu order/Page Order', 'js_composer' ) => 'menu_order',
+    			__( 'Meta value', 'js_composer' ) => 'meta_value',
+    			__( 'Meta value number', 'js_composer' ) => 'meta_value_num',
+    			__( 'Random order', 'js_composer' ) => 'rand',
+    		),
+    		'description' => __( 'Select order type. If "Meta value" or "Meta value Number" is chosen then meta key is required.', 'js_composer' ),
+    		'group' => __( 'Data settings', 'js_composer' ),
+    		'param_holder_class' => 'vc_grid-data-type-not-ids',
+            "admin_label" => true,
+    	),
+    	array(
+    		'type' => 'textfield',
+    		'heading' => __( 'Meta key', 'js_composer' ),
+    		'param_name' => 'meta_key',
+    		'description' => __( 'Input meta key for grid ordering.', 'js_composer' ),
+    		'group' => __( 'Data settings', 'js_composer' ),
+    		'param_holder_class' => 'vc_grid-data-type-not-ids',
+    		'dependency' => array(
+    			'element' => 'orderby',
+    			'value' => array( 'meta_value', 'meta_value_num' ),
+    		),
+            "admin_label" => true,
+    	),
+        array(
+    		'type' => 'dropdown',
+    		'heading' => __( 'Sorting', 'js_composer' ),
+    		'param_name' => 'order',
+    		'group' => __( 'Data settings', 'js_composer' ),
+    		'value' => array(
+    			__( 'Descending', 'js_composer' ) => 'DESC',
+    			__( 'Ascending', 'js_composer' ) => 'ASC',
+    		),
+    		'param_holder_class' => 'vc_grid-data-type-not-ids',
+    		'description' => __( 'Select sorting order.', 'js_composer' ),
+            "admin_label" => true,
+    	),
+        
         array(
 			'type' => 'css_editor',
 			'heading' => __( 'Css', 'js_composer' ),
 			'param_name' => 'css',
 			// 'description' => __( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'js_composer' ),
 			'group' => __( 'Design options', 'js_composer' )
-		)
+		),
     ),
 ));

@@ -38,7 +38,7 @@ if ( ! $product || ! $product->is_visible() )
 $woocommerce_loop['loop']++;
 
 // Extra post classes
-$classes = array();
+$classes = array('product');
 if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] )
 	$classes[] = 'first';
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
@@ -77,13 +77,10 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
     			 *
     			 * @hooked woocommerce_template_loop_add_to_cart - 5
     			 * @hooked woocommerce_show_product_loop_sale_flash - 10
+                 * @hooked woocommerce_shop_loop_item_action_action_add - 15
     			 */
     			do_action( 'woocommerce_shop_loop_item_after_image' );
     		?>
-            <div class="functional-buttons clearfix">
-                <a href="<?php the_permalink(); ?>" class="product-quick-view" data-id="<?php the_ID() ?>"></a>
-                <?php do_action( 'woocommerce_shop_loop_item_action' ); ?>
-            </div>
         </div>
         <div class="product-meta-wrapper">
         
@@ -111,8 +108,6 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
             	</a>
             </h5>
             
-            <?php wc_get_template( 'single-product/short-description.php' ); ?>
-            
             
         	<?php
         
@@ -124,7 +119,19 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
         		do_action( 'woocommerce_after_shop_loop_item' ); 
         
         	?>
-        
+            
+            <div class="product-item-tools clearfix">
+                <?php
+            		/**
+            		 * woocommerce_after_shop_loop_item hook
+            		 *
+            		 * @hooked woocommerce_template_loop_price - 10
+            		 */
+            		do_action( 'woocommerce_shop_loop_item_tools' ); 
+            
+            	?>
+            </div>
+            
         </div>
         
     </div>
