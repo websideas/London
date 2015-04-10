@@ -4,6 +4,7 @@
 if ( !defined('ABSPATH')) exit;
 
 class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
+    var $excerpt_length;
     protected function content($atts, $content = null) {
         extract( shortcode_atts( array(
             'title' => '',
@@ -15,14 +16,21 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
             'meta_key' => '',
             'order' => 'DESC',
             'max_items' => 10,
+            "excerpt_length" => 10,
+            'autoplay' => '', 
+            'navigation' => '',
+            'slidespeed' => 200,
+            'theme' => 'style-navigation-center',
             'desktop' => 4,
             'tablet' => 2,
             'mobile' => 1,
             'css_animation' => '',
             'el_class' => '',
+            'border_heading' => '',
             'css' => '',
         ), $atts ) );
         
+        $this->excerpt_length = 10;
         
         $args = array(
                     'order' => $order,
@@ -61,24 +69,53 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
         $the_query = new WP_Query( $args );
         
         $elementClass = array(
-        	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'recent-posts-carousel-wrapper ', $this->settings['base'], $atts ),
+        	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'carousel-wrapper-top recent-posts-carousel-wrapper ', $this->settings['base'], $atts ),
         	'extra' => $this->getExtraClass( $el_class ),
         	'css_animation' => $this->getCSSAnimation( $css_animation ),
             'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
         );
         
+        if($theme == 'style-navigation-top'){
+            $elementClass['carousel'] = 'carousel-wrapper-top';
+            $title = ($title) ? $title : "&nbsp;";
+        }
+        
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
         
         $output = '';
         $output .= '<div class="'.esc_attr( $elementClass ).'">';
-            $heading_class = apply_filters('js_composer_heading', 'block-heading recent-posts-heading');
-            $heading_class = apply_filters('recent_posts_heading', $heading_class);
-            $output .= ($title) ? '<h3 class="'.esc_attr($heading_class).'">'.$title.'</h3>' : '';
+            
+            if($title){
+                $heading_class = "block-heading";
+                if($border_heading){
+                    $heading_class .= " block-heading-underline";
+                }
+                $output .= '<div class="'.$heading_class.'">';
+                    $output .= '<h3>'.$title.'</h3>';
+                $output .= '</div>';
+            }
+            
+            
+            
+            
+            
             
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) :
+                
+                $data_carousel = array(
+                                    "autoheight" => "false",
+                                    "autoplay" => $autoplay,
+                                    "navigation" => $navigation,
+                                    "slidespeed" => $slidespeed,
+                                    "pagination" => "false",
+                                    "theme" => $theme,
+                                    "itemscustom" => '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]'
+                                );
+                
                 $output .= '<div class="owl-carousel-wrapper">';
-                $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-top" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
+                $output .= '<div class="owl-carousel kt-owl-carousel" '.render_data_carousel($data_carousel).'>';
+                //add_filter( 'excerpt_length', array($this, 'custom_excerpt_length'), 20 );                
                 while ( $query->have_posts() ) : $query->the_post();
                     $output .= '<div class="recent-posts-item">';
                         $output .= '<a href="'.get_permalink().'" class="entry-thumbnail">';
@@ -86,6 +123,7 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
                         $output .= '</a>';
                         
                         $output .= '<h5 class="entry-title"><a href="'.get_permalink().'">'.get_the_title().'</a></h5>';
+                        
                         $output .= '<p class="post-content-blog">'.get_the_excerpt().'</p>';
                         $output .= sprintf(
                                         "<p><a href='%s' class='%s'>%s</a></p>",
@@ -96,6 +134,7 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
                         
                     $output .= '</div><!-- .recent-posts-item -->';
                 endwhile; wp_reset_postdata();
+                //remove_filter( 'excerpt_length', array($this, 'custom_excerpt_length'), 20 );                
                 $output .= '</div>';
                 $output .= '</div>';
                 
@@ -104,6 +143,9 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
         $output .= '</div>';
         
     	return $output;
+    }
+    function custom_excerpt_length( $length ) {
+    	return $this->excerpt_length;
     }
 }
 
@@ -120,6 +162,12 @@ vc_map( array(
             "param_name" => "title",
             "admin_label" => true,
         ),
+        array(
+			'type' => 'checkbox',
+			'heading' => __( 'Border in heading', THEME_LANGUAGE ),
+			'param_name' => 'border_heading',
+			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
+		),
         array(
             "type" => "dropdown",
         	"heading" => __("Data source", THEME_LANGUAGE),
@@ -246,29 +294,29 @@ vc_map( array(
 			'type' => 'checkbox',
 			'heading' => __( 'AutoPlay', THEME_LANGUAGE ),
 			'param_name' => 'autoplay',
-			'value' => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
-            'group' => __( 'Carousel', THEME_LANG )
+			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
+            'group' => __( 'Carousel settings', THEME_LANG )
 		),
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'Navigation', THEME_LANGUAGE ),
+            'heading' => __( 'Navigation', THEME_LANGUAGE ),
 			'param_name' => 'navigation',
-			'value' => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
-            'desc' => __( 'Display "next" and "prev" buttons.', THEME_LANGUAGE ),
-            'group' => __( 'Carousel', THEME_LANG )
+			'value' => array( __( "Don't use Navigation", 'js_composer' ) => 'false' ),
+            'description' => __( "Don't display 'next' and 'prev' buttons.", THEME_LANGUAGE ),
+            'group' => __( 'Carousel settings', THEME_LANG )
 		),
         array(
     		'type' => 'dropdown',
-    		'heading' => __( 'Theme', 'js_composer' ),
+    		'heading' => __( 'Theme',THEME_LANG ),
     		'param_name' => 'theme',
-    		'group' => __( 'Data settings', 'js_composer' ),
     		'value' => array(
-    			__( 'Navigation Top', 'js_composer' ) => 'style-navigation-top',
-    			__( 'Navigation Center', 'js_composer' ) => 'style-navigation-center',
-                __( 'Navigation Bottom', 'js_composer' ) => 'style-navigation-bottom',
+    			__( 'Navigation Top', THEME_LANG ) => 'style-navigation-top',
+    			__( 'Navigation Center', THEME_LANG ) => 'style-navigation-center',
+                __( 'Navigation Bottom', THEME_LANG ) => 'style-navigation-bottom',
     		),
-    		'description' => __( 'Select sorting order.', 'js_composer' ),
-            'group' => __( 'Carousel', THEME_LANG )
+            'std' => 'style-navigation-center',
+            'description' => __( 'Please your theme for carousel', THEME_LANG ),
+            'group' => __( 'Carousel settings', THEME_LANG )
     	),
         array(
 			"type" => "kt_number",
@@ -276,15 +324,15 @@ vc_map( array(
 			"param_name" => "slidespeed",
 			"value" => "200",
             "suffix" => __("milliseconds", THEME_LANG),
-			"desc" => __('Slide speed in milliseconds', THEME_LANG),
-            'group' => __( 'Carousel', THEME_LANG )
+			"description" => __('Slide speed in milliseconds', THEME_LANG),
+            'group' => __( 'Carousel settings', THEME_LANG )
 	  	),
         array(
           "type" => "kt_heading",
           "heading" => __("Items to Show?", THEME_LANGUAGE),
           "param_name" => "items_show",
           "value" => "6",
-          'group' => __( 'Carousel', THEME_LANG )
+          'group' => __( 'Carousel settings', THEME_LANG )
         ),
         array(
 			"type" => "kt_number",
@@ -296,7 +344,7 @@ vc_map( array(
 			"min" => "1",
 			"max" => "25",
 			"step" => "1",
-            'group' => __( 'Carousel', THEME_LANG )
+            'group' => __( 'Carousel settings', THEME_LANG )
 	  	),
 		array(
 			"type" => "kt_number",
@@ -308,7 +356,7 @@ vc_map( array(
 			"min" => "1",
 			"max" => "25",
 			"step" => "1",
-            'group' => __( 'Carousel', THEME_LANG )
+            'group' => __( 'Carousel settings', THEME_LANG )
 	  	),
 		array(
 			"type" => "kt_number",
@@ -320,10 +368,8 @@ vc_map( array(
 			"min" => "1",
 			"max" => "25",
 			"step" => "1",
-            'group' => __( 'Carousel', THEME_LANG )
+            'group' => __( 'Carousel settings', THEME_LANG )
 	  	),
-        
-        
         array(
 			'type' => 'css_editor',
 			'heading' => __( 'Css', 'js_composer' ),

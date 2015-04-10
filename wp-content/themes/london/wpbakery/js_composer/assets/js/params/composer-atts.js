@@ -1238,12 +1238,9 @@
 				new_value = arr.join(',');
 			}
 			
-			alert(new_value);
-			
 			return new_value;
 		},
 		defaults: function (param) {
-			alert(new_value);
 			return '';
 		}
 	};

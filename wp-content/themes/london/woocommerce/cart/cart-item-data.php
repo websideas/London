@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$key = sanitize_text_field( $data['key'] );
 	?>
         <div class="variation-item">
-    		<div class="variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( $data['key'] ); ?>:</div>
-    		<div class="variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( wpautop( $data['value'] ) ); ?></div>
+    		<div class="variation-item-label variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( $data['key'] ); ?>:</div>
+    		<div class="variation-item-value variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( wpautop( $data['value'] ) ); ?></div>
         </div>
 	<?php endforeach; ?>
 </div>

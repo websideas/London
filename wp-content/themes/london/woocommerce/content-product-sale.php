@@ -75,10 +75,6 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
         			 */
         			do_action( 'woocommerce_shop_loop_item_after_image' );
         		?>
-                <div class="functional-buttons">
-                    <a href="<?php the_permalink(); ?>" class="product-quick-view" data-id="<?php the_ID() ?>"></a>
-                    <?php do_action( 'woocommerce_shop_loop_item_action' ); ?>
-                </div>
             </div>
         </div><!-- .sales-countdown-left -->
         <div class="col-md-6 sales-countdown-right">

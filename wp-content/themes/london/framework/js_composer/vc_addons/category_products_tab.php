@@ -7,97 +7,97 @@ if ( !defined('ABSPATH')) exit;
 
 class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
-        extract( shortcode_atts( array(
-            'taxonomy' => '',
-            'number' => 10,
+        $atts = shortcode_atts( array(
+            'category' => '',
+            'per_page' => 12,
             'columns' => 4,
+            'border_heading' => '',
+            'css_animation' => '',
             'el_class' => '',
-        ), $atts ) );
+            'css' => '',   
+        ), $atts );
+        extract($atts);
 
         global $woocommerce_loop;
+        
+        $elementClass = array(
+        	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'category-products-tab-wrapper ', $this->settings['base'], $atts ),
+        	'extra' => $this->getExtraClass( $el_class ),
+        	'css_animation' => $this->getCSSAnimation( $css_animation ),
+            'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
+        );
+        $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
+        
         
         $tabs = array( 
             'new-arrivals' => __( 'New Arrivals',THEME_LANGUAGE ),
             'best-sellers' => __( 'Best Sellers',THEME_LANGUAGE ) 
         );
         
-        $rand = rand();
-        $term = get_term( $taxonomy, 'product_cat' );
-        
         $output = '';
-        if($term->name){
-            $name_tax = $term->name;
-        }else{
-            $name_tax = 'All';
-        }
-        $output .= "<div class='module-products-tab woocommerce'>";
-            $output .= "<div class='products-tabs'>";
-                $output .= "<h3 class='cat-title'>".$name_tax;
-                    $output .= "<ul class='clearfix'>";
+        
+        $uniqeID    = uniqid();
+        if($category){
+            
+            $term = get_term( $category, 'product_cat' );
+
+            $output .= '<div class="'.esc_attr( $elementClass ).'">';
+                
+                $heading_class = "block-heading";
+                if($border_heading){
+                    $heading_class .= " block-heading-underline";
+                }
+                $output .= '<div class="'.$heading_class.' block-heading-tabs-wapper clearfix">';
+                    $output .= '<h3>'.$term->name.'</h3>';
+                    $output .= "<ul class='block-heading-tabs'>";
                         foreach( $tabs as $k=>$v ){
-                            $output .= "<li><a href='#tabs-".$k.$rand."'>".$v."</a></li>";
+                            $output .= "<li><a href='#tab-".$k.'-'.$uniqeID."'>".$v."</a></li>";
                         }
                     $output .= "</ul>";
-                $output .= "</h3>";
+                $output .= "</div>";
                 
-                $args_tax = array(
-                    'parent' => '0'
-                );
-                $terms = get_terms( 'product_cat',$args_tax);
-                if($terms){
-                    $term_id = array();
-                    foreach( $terms as $item ){
-                        $term_id[] = $item->term_id;
-                    }
-                }
-                if($taxonomy == ''){
-                    $taxonomy = $term_id;
-                }
-                
+                $meta_query = WC()->query->get_meta_query();
                 $args = array(
-        			'posts_per_page'	=> $number,
-                    'post_type'         => 'product',
-                    'tax_query'         => array(
-                                    		array(
-                                    			'taxonomy' => 'product_cat',
-                                    			'field' => 'id',
-                                    			'terms' => $taxonomy
-                                    		)
-                                    	)
+        			'post_type'				=> 'product',
+        			'post_status'			=> 'publish',
+        			'ignore_sticky_posts'	=> 1,
+        			'posts_per_page' 		=> $atts['per_page'],
+        			'meta_query' 			=> $meta_query
         		);
                 
-                foreach( $tabs as $k=>$v ){
-                    if( $k == 'new-arrivals' ){
+                $output .= "<div class='category-products-tabs'>";
+                foreach($tabs as $key => $tab){
+                    if( $key == 'new-arrivals' ){
                         $args['orderby'] = 'date';
                         $args['order'] 	 = 'DESC';
-                    }elseif( $k == 'best-sellers' ){
+                    }elseif( $key == 'best-sellers' ){
                         $args['meta_key']   = 'total_sales';
                         $args['orderby'] 	= 'meta_value_num';
                     }
-                    $output .= "<div id='tabs-".$k.$rand."'>";
+                    
+                    $output .= "<div id='tab-".$key.'-'.$uniqeID."' class='category-products-tab'>";
                         ob_start();
                         $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
-                        $woocommerce_loop['columns'] = $atts['columns']; ?>
-                        <div class='woocommerce columns-<?php echo $atts['columns']; ?>'><?php
-                            
-                    		if ( $products->have_posts() ) : ?>
-                        			<?php woocommerce_product_loop_start(); ?>
-                        
-                        				<?php while ( $products->have_posts() ) : $products->the_post(); ?>
-                        
-                        					<?php wc_get_template_part( 'content', 'product' ); ?>
-                        
-                        				<?php endwhile; // end of the loop. ?>
-                        
-                        			<?php woocommerce_product_loop_end(); ?>
-                    		<?php endif; wp_reset_postdata(); ?>
-                            
-                        </div><?php
-                        $output .= ob_get_clean();
-                    $output .= "</div>";
+                        $woocommerce_loop['columns'] = $atts['columns'];
+                        if ( $products->have_posts() ) :
+                            woocommerce_product_loop_start();
+                            while ( $products->have_posts() ) : $products->the_post();
+                                wc_get_template_part( 'content', 'product' );
+                            endwhile; // end of the loop.
+                            woocommerce_product_loop_end();
+                        endif;
+                        wp_reset_postdata();
+                        $output .= '<div class="woocommerce  columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
+                    $output .= "</div><!-- .category-products-tab -->";
+                    
+                    
                 }
-            $output .= "</div>";
-        $output .= "</div>";    
+                $output .= "</div><!-- .category-products-tabs -->";
+                
+            
+            $output .= "</div><!-- .category-products-tab-wrapper -->";
+
+        }
         
         return $output;
     }
@@ -106,30 +106,50 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
 
 
 vc_map( array(
-    "name" => __( "Category Product Tab", THEME_LANGUAGE),
+    "name" => __( "Category Products Tab", THEME_LANGUAGE),
     "base" => "category_products_tab",
     "category" => __('by Cuongdv'),
     "params" => array(
         array(
-            "type" => "taxonomy",
-            "taxonomy" => "product_cat",
-            "class" => "",
-            "heading" => __("Category", THEME_LANGUAGE),
-            "param_name" => "taxonomy",
-            "value" => '',
-            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", LANGUAGE_ZONE)
-        ),
+			"type" => "kt_taxonomy",
+            'taxonomy' => 'product_cat',
+			'heading' => __( 'Category', 'js_composer' ),
+			'param_name' => 'category'
+		),
         array(
-          "type" => "textfield",
-          "heading" => __("Number Post", THEME_LANGUAGE),
-          "param_name" => "number",
-          "description" => __("Enter number of Post", THEME_LANGUAGE)
-        ),
+			'type' => 'checkbox',
+			'heading' => __( 'Border in heading', THEME_LANGUAGE ),
+			'param_name' => 'border_heading',
+			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
+		),
         array(
-          "type" => "textfield",
-          "heading" => __("Columns", THEME_LANGUAGE),
-          "param_name" => "columns",
-          "description" => __("Enter columns of Post", THEME_LANGUAGE)
+			'type' => 'textfield',
+			'heading' => __( 'Per page', 'js_composer' ),
+			'value' => 12,
+			'param_name' => 'per_page',
+			'description' => __( 'The "per_page" shortcode determines how many products to show on the page', 'js_composer' ),
+		),
+        array(
+			'type' => 'textfield',
+			'heading' => __( 'Columns', 'js_composer' ),
+			'value' => 4,
+			'param_name' => 'columns',
+			'description' => __( 'The columns attribute controls how many columns wide the products should be before wrapping.', 'js_composer' ),
+		),
+        array(
+        	'type' => 'dropdown',
+        	'heading' => __( 'CSS Animation', 'js_composer' ),
+        	'param_name' => 'css_animation',
+        	'admin_label' => true,
+        	'value' => array(
+        		__( 'No', 'js_composer' ) => '',
+        		__( 'Top to bottom', 'js_composer' ) => 'top-to-bottom',
+        		__( 'Bottom to top', 'js_composer' ) => 'bottom-to-top',
+        		__( 'Left to right', 'js_composer' ) => 'left-to-right',
+        		__( 'Right to left', 'js_composer' ) => 'right-to-left',
+        		__( 'Appear from center', 'js_composer' ) => "appear"
+        	),
+        	'description' => __( 'Select type of animation if you want this element to be animated when it enters into the browsers viewport. Note: Works only in modern browsers.', 'js_composer' )
         ),
         array(
             "type" => "textfield",
@@ -137,5 +157,12 @@ vc_map( array(
             "param_name" => "el_class",
             "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
         ),
+        array(
+			'type' => 'css_editor',
+			'heading' => __( 'Css', 'js_composer' ),
+			'param_name' => 'css',
+			// 'description' => __( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'js_composer' ),
+			'group' => __( 'Design options', 'js_composer' )
+		),
     ),
 ));
