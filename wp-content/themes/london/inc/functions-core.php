@@ -123,10 +123,12 @@ function london_scripts() {
     wp_enqueue_style( 'magnific-popup-css', THEME_CSS . 'magnific-popup.css', array());
     wp_enqueue_style( 'owl-carousel-css', THEME_LIBS . 'owl-carousel/owl.carousel.css', array());
     wp_enqueue_style( 'owl-carousel-theme', THEME_LIBS . 'owl-carousel/owl.theme.css', array());
+    wp_enqueue_style( 'easyzoom', THEME_CSS . 'easyzoom.css', array());
     
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
     wp_enqueue_style( 'woocommerce-css', THEME_CSS . 'woocommerce.css', array('london-main'));
+    wp_enqueue_style( 'queries-css', THEME_CSS . 'queries.css', array('london-main'));
     
 	// Load the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'london-ie', THEME_CSS . 'ie.css', array( 'london-style' ), '20141010' );
@@ -137,6 +139,8 @@ function london_scripts() {
 	}
     
     wp_enqueue_script( 'jquery-ui-tabs' );
+    
+    wp_enqueue_script( 'easing-script', THEME_JS . 'jquery.easing.1.3.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'bootstrap-script', THEME_LIBS . 'bootstrap/js/bootstrap.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'mCustomScrollbar-script', THEME_JS . 'jquery.mCustomScrollbar.min.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'mousewheel-script', THEME_JS . 'jquery.mousewheel.min.js', array( 'jquery' ), null, false );
@@ -147,6 +151,7 @@ function london_scripts() {
     wp_enqueue_script( 'magnific-popup-script', THEME_JS . 'jquery.magnific-popup.min.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'countdown-script', THEME_JS . 'jquery.countdown.min.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'variations-plugin-script', THEME_JS . 'woo-variations-plugin.js', array( 'jquery' ), null, false );
+    wp_enqueue_script( 'easyzoom', THEME_JS . 'easyzoom.js', array( 'jquery' ), null, false );
     
     
     wp_enqueue_script( 'london-script', THEME_JS . 'functions.js', array( 'jquery', 'wp-mediaelement' ), null, true );

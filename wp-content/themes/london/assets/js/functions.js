@@ -15,18 +15,6 @@
         $(window).trigger("scroll");
         $(window).trigger("resize");
         
-        // Hash menu forwarding
-        if (window.location.hash){
-            if($(window.location.hash).length){
-                var hash_offset = $(window.location.hash).offset().top;
-                $("html, body").animate({
-                    scrollTop: hash_offset
-                });
-            }
-        }
-        
-        
-        
     });
     
     /* ---------------------------------------------
@@ -37,10 +25,12 @@
         $(window).trigger("resize");
         
         init_shortcodes();
+        init_popup();
         init_carousel();
         init_backtotop();
         init_mailchimp();
         init_MainMenu();
+        init_MobileMenu();
         init_ProductQuickView();
         init_SaleCountDown();
         init_gridlistToggle();
@@ -50,10 +40,11 @@
         init_productcarouselwoo();
         init_woocategories_products();
         
-        $('form.woocommerce-ordering select').customSelect();
+        //$('form.woocommerce-ordering select').customSelect();
         
         
-        
+        var $easyzoom = $('.easyzoom').easyZoom();
+        woo_quantily();
     });
     
     $(window).resize(function(){
@@ -63,6 +54,86 @@
         $('#header.sticky-header').ktSticky();
     });
     
+    /* ---------------------------------------------
+     Woocommercer Quantily
+     --------------------------------------------- */
+     function woo_quantily(){
+        $('body').on('click','.quantity .quantity-plus',function(){
+            var obj_qty = $(this).closest('.quantity').find('input.qty'),
+                val_qty = parseInt(obj_qty.val()),
+                min_qty = parseInt(obj_qty.attr('min')),
+                max_qty = parseInt(obj_qty.attr('max')),
+                step_qty = parseInt(obj_qty.attr('step'));
+            val_qty = val_qty + step_qty;
+            if(max_qty && val_qty > max_qty){ val_qty = max_qty; }
+            obj_qty.val(val_qty);
+        });
+        $('body').on('click','.quantity .quantity-minus',function(){
+            var obj_qty = $(this).closest('.quantity').find('input.qty'), 
+                val_qty = parseInt(obj_qty.val()),
+                min_qty = parseInt(obj_qty.attr('min')),
+                max_qty = parseInt(obj_qty.attr('max')),
+                step_qty = parseInt(obj_qty.attr('step'));
+            val_qty = val_qty - step_qty;
+            if(min_qty && val_qty < min_qty){ val_qty = min_qty; }
+            if(!min_qty && val_qty < 0){ val_qty = 0; }
+            obj_qty.val(val_qty);
+        });
+     }
+     
+    /* ---------------------------------------------
+     Sale Count Down
+     --------------------------------------------- */
+    function init_SaleCountDown(){
+        $('.woocommerce-countdown').each(function(){
+            var $this = $(this), 
+                finalDate = $(this).data('time');
+            $this.countdown(finalDate, function(event) {
+                $this.html(event.strftime(''
+                     + '<div><span>%D</span> days</div>'
+                     + '<div><span>%H</span> hr</div>'
+                     + '<div><span>%M</span> min</div>'
+                     + '<div><span>%S</span> sec</div>'));
+            });
+        });
+    }
+    /* ---------------------------------------------
+     Mobile Detection
+     --------------------------------------------- */
+    function isMobile(){
+        return (
+            (navigator.userAgent.match(/Android/i)) ||
+    		(navigator.userAgent.match(/webOS/i)) ||
+    		(navigator.userAgent.match(/iPhone/i)) ||
+    		(navigator.userAgent.match(/iPod/i)) ||
+    		(navigator.userAgent.match(/iPad/i)) ||
+    		(navigator.userAgent.match(/BlackBerry/))
+        );
+    }
+    
+    /* ---------------------------------------------
+     Popup content 
+     --------------------------------------------- */
+    function init_popup(){
+        if($('#popup-wrap').length > 0){
+            var $disable_mobile = $('#popup-wrap').data('mobile');
+            if(!isMobile() || (isMobile() && $disable_mobile == 0)){
+                $.magnificPopup.open({
+                    items: { src: '#popup-wrap' },
+                    type: 'inline',
+                    callbacks: {
+                        beforeClose: function() {
+                            var data = {
+                                action: 'fronted_popup',
+                                security : ajax_frontend.security,
+                            };
+                            $.post(ajax_frontend.ajaxurl, data, function(response) { }, 'json');
+                        }
+                    }
+                });
+            }
+        }
+    }
     
     /* ---------------------------------------------
      Shortcodes
@@ -89,6 +160,7 @@
         $( ".categories-top-sellers-wrapper" ).tabs();
         
     }
+    
     /* ---------------------------------------------
      Mailchimp
      --------------------------------------------- */
@@ -152,7 +224,9 @@
             }, 'json');
         });
     }
-    
+    /* ---------------------------------------------
+     Woo categories products
+     --------------------------------------------- */
     function init_woocategories_products(){
         $('.categories-products-lists > ul li a').on('click',function(e){
             e.preventDefault();
@@ -283,7 +357,7 @@
     }
     
     /* ---------------------------------------------
-     MEGA MENU
+     Main Menu
     --------------------------------------------- */
     function init_MainMenu(){
         $("nav#main-nav ul.menu").superfish({
@@ -292,6 +366,30 @@
             animation: {},
     		animationOut: {}
         });
+    }
+    
+    /* ---------------------------------------------
+     Mobile Menu
+    --------------------------------------------- */
+    function init_MobileMenu(){
+        $('ul.navigation-mobile ul.sub-menu-dropdown').each(function(){
+            $(this).parent().children('a').prepend( '<span class="open-submenu"></span>' );
+            $(this).parent().children('span.title-megamenu').prepend( '<span class="open-submenu"></span>' );
+        });
+        
+        $('.open-submenu').on('click', function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            $( this ).closest('li').toggleClass('active-menu-item');
+            $( this ).closest('li').children( '.sub-menu-dropdown, .menu-widget-container' ).toggle();
+        });
+        
+        $('.mobile-nav-bar').on('click', function(e){
+            e.preventDefault();
+            $( this ).toggleClass('active');
+            $('nav#main-nav-mobile').toggle();
+        });
+        
     }
     
     /* ---------------------------------------------
@@ -308,22 +406,7 @@
     	});
     }
     
-    /* ---------------------------------------------
-     Sale Count Down
-     --------------------------------------------- */
-    function init_SaleCountDown(){
-        $('.woocommerce-countdown').each(function(){
-            var $this = $(this), 
-                finalDate = $(this).data('time');
-            $this.countdown(finalDate, function(event) {
-                $this.html(event.strftime(''
-                     + '<div><span>%D</span> days</div>'
-                     + '<div><span>%H</span> hr</div>'
-                     + '<div><span>%M</span> min</div>'
-                     + '<div><span>%S</span> sec</div>'));
-            });
-        });
-    }
+    
     /* ---------------------------------------------
      Owl carousel woo
      --------------------------------------------- */
@@ -374,11 +457,12 @@
     		});
         });
     }
+    
+    var sync1 = $("#sync1");
+    var sync2 = $("#sync2");
+    
     function init_productcarouselwoo(){
-        
-        var sync1 = $("#sync1");
-        var sync2 = $("#sync2");
-             
+         
         sync1.owlCarousel({
             singleItem : true,
             slideSpeed : 1000,

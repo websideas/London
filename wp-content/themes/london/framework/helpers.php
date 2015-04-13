@@ -58,6 +58,28 @@ if (!function_exists('themedev_option')){
         }
     }
 }
+/**
+ * Get logo of current page
+ * 
+ * @return string
+ * 
+ */
+function themedev_getLogo(){
+    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
+
+    $logo_default = themedev_option( 'logo' );
+    $logo_retina = themedev_option( 'logo_retina' );
+    
+    if(is_array($logo_default)){
+        $logo['default'] = $logo_default['url'];
+    }
+    
+    if(is_array($logo_retina)){
+        $logo['retina'] = $logo_retina['url'];
+    }
+    
+    return $logo;
+}
 
 /**
  * Get Layout of post

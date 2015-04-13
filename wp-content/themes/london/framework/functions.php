@@ -181,3 +181,28 @@ function theme_header_class_callback($class, $position){
     }
     return $class;
 }
+
+
+
+/**
+ * Add popup 
+ *
+ * @since 1.0
+ */
+add_action( 'theme_after_footer', 'theme_after_footer_add_popup', 20 );
+function theme_after_footer_add_popup(){
+    $enable_popup = themedev_option( 'enable_popup' );
+    $disable_popup_mobile = themedev_option( 'disable_popup_mobile' );
+    $content_popup = themedev_option( 'content-popup' );
+    if( $enable_popup == 1 ){
+        if(!isset($_SESSION['popup'])){ ?>
+            <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>">     
+                <div class="white-popup-block">
+                    <?php echo do_shortcode($content_popup); ?>
+                </div>
+            </div>
+        <?php }else{
+            $_SESSION['popup'] = 1;
+        }
+    }
+}

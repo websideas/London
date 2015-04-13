@@ -1,4 +1,4 @@
-/* global confirm, relid:true, jsonView */
+/* global redux, confirm, relid:true, jsonView */
 
 (function( $ ) {
     'use strict';
@@ -51,6 +51,9 @@
         var $notification_bar = jQuery( document.getElementById( 'redux_notification_bar' ) );
         $notification_bar.slideUp();
         jQuery( '.redux-save-warn' ).slideUp();
+        jQuery( '.redux_ajax_save_error' ).slideUp('medium', function(){
+            jQuery( this ).remove();
+        });
 
         var $parent = jQuery( document.getElementById( "redux-form-wrapper" ) );
 
@@ -129,8 +132,7 @@
                         jQuery( '.redux-action_bar input' ).removeAttr( 'disabled' );
                         jQuery( '.redux-action_bar .spinner' ).fadeOut( 'fast' );
                         overlay.fadeOut( 'fast' );
-                        jQuery( '.redux_ajax_save_error' ).slideUp();
-                        jQuery( '.wrap h2:first-child' ).parent().append( '<div class="error redux_ajax_save_error" style="display:none;"><p>' + response.status + '</p></div>' );
+                        jQuery( '.wrap h2:first' ).parent().append( '<div class="error redux_ajax_save_error" style="display:none;"><p>' + response.status + '</p></div>' );
                         jQuery( '.redux_ajax_save_error' ).slideDown();
                         jQuery( "html, body" ).animate( {scrollTop: 0}, "slow" );
                     }
@@ -614,7 +616,7 @@
             function() {
                 var type = $( this ).attr( 'data-type' );
                 //console.log(type);
-                if ( redux.field_objects[type] ) {
+                if ( typeof redux.field_objects != 'undefined' && redux.field_objects[type] && redux.field_objects[type] ) {
                     redux.field_objects[type].init();
                 }
                 if ( $( this ).hasClass( 'redux_remove_th' ) ) {
@@ -630,7 +632,7 @@
     };
 
     $.redux.notices = function() {
-        if ( redux.errors !== undefined ) {
+        if ( redux.errors && redux.errors.errors ) {
             $.each(
                 redux.errors.errors, function( sectionID, sectionArray ) {
                     $.each(
@@ -638,6 +640,8 @@
                             $( "#" + redux.args.opt_name + '-' + value.id ).addClass( "redux-field-error" );
                             if ( $( "#" + redux.args.opt_name + '-' + value.id ).parent().find( '.redux-th-error' ).length === 0 ) {
                                 $( "#" + redux.args.opt_name + '-' + value.id ).append( '<div class="redux-th-error">' + value.msg + '</div>' );
+                            } else {
+                                $( "#" + redux.args.opt_name + '-' + value.id ).parent().find( '.redux-th-error' ).html(value.msg).css('display', 'block');
                             }
                         }
                     );
@@ -671,7 +675,7 @@
                 }
             );
         }
-        if ( redux.warnings !== undefined ) {
+        if ( redux.warnings && redux.warnings.warnings ) {
             $.each(
                 redux.warnings.warnings, function( sectionID, sectionArray ) {
                     $.each(
@@ -679,6 +683,8 @@
                             $( "#" + redux.args.opt_name + '-' + value.id ).addClass( "redux-field-warning" );
                             if ( $( "#" + redux.args.opt_name + '-' + value.id ).parent().find( '.redux-th-warning' ).length === 0 ) {
                                 $( "#" + redux.args.opt_name + '-' + value.id ).append( '<div class="redux-th-warning">' + value.msg + '</div>' );
+                            } else {
+                                $( "#" + redux.args.opt_name + '-' + value.id ).parent().find( '.redux-th-warning' ).html(value.msg ).css('display', 'block');
                             }
                         }
                     );

@@ -121,3 +121,34 @@ a img.aligncenter {
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
 }
+
+
+
+
+#popup-wrap{
+    margin: 40px auto;
+    max-width: 500px;
+    padding: 25px;
+    position: relative;
+    text-align: left;
+}
+.mfp-close-btn-in #popup-wrap .mfp-close{
+    background: #000;
+    color:#fff;
+    width:26px;
+    height:26px;
+    line-height: 26px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+#popup-wrap h3.title-top{
+    font-size: 13px;
+    font-family:Arial;
+    margin:0 0 25px;
+    color:#666;
+}
+#popup-wrap .mailchimp-before{
+    color:#666;
+    font-size:13px;
+    margin:0 0 25px;
+}

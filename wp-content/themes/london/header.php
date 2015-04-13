@@ -9,14 +9,16 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 	<![endif]-->
-    <link href='http://fonts.googleapis.com/css?family=Dosis:400,200,300,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,200,300,500,600,700' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52724564406b05c9" async="async"></script>
+
 	<?php wp_head(); ?>
     <?php do_action( 'theme_head_bottom' ); ?>
 </head>
@@ -48,6 +50,21 @@
             <header id="header" class="<?php echo apply_filters('theme_header_content_class', 'header-content') ?>">
                 <?php get_template_part( 'layouts/headers/header',  $header_layout); ?>
             </header><!-- #header -->
+            <?php /*
+            <div id="mobile-nav-bar">
+                <a href="#">
+                    <?php _e('Menu', THEME_LANG); ?>
+                    <span class="mobile-nav-handle"><span></span></span>
+                </a>
+            </div>
+            */ ?>
+            <div id="mobile-nav-holder">
+                <?php
+                    if ( has_nav_menu( 'primary' ) ) {  
+                        wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav-mobile', 'menu_class' => 'menu navigation-mobile', 'walker' => new KTMenuWalker() ) );
+                    }
+                ?>
+            </div>
         </div><!-- .header-container -->
         
         <?php 

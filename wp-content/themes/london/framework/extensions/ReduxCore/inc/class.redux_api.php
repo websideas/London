@@ -56,7 +56,7 @@
             }
 
             public static function loadExtensions( $ReduxFramework ) {
-                if ( $instanceExtensions = self::getExtensions( '', $ReduxFramework->args['opt_name'] ) ) {
+                if ( $instanceExtensions = self::getExtensions( $ReduxFramework->args['opt_name'], "" ) ) {
                     foreach ( $instanceExtensions as $name => $extension ) {
                         if ( ! class_exists( $extension['class'] ) ) {
                             // In case you wanted override your override, hah.
@@ -91,6 +91,11 @@
 
 
             public static function loadRedux( $opt_name = "" ) {
+
+                if ( empty( $opt_name ) ) {
+                    return;
+                }
+
                 $check = ReduxFrameworkInstances::get_instance( $opt_name );
                 if ( isset( $check->apiHasRun ) ) {
                     return;
@@ -107,8 +112,13 @@
                     add_action( "redux/extensions/{$opt_name}/before", array( 'Redux', 'loadExtensions' ), 0 );
                 }
 
-                $redux            = new ReduxFramework( $sections, $args );
-                $redux->apiHasRun = 1;
+                $redux                   = new ReduxFramework( $sections, $args );
+                $redux->apiHasRun        = 1;
+                self::$init[ $opt_name ] = 1;
+                if ( isset( $redux->args['opt_name'] ) && $redux->args['opt_name'] != $opt_name ) {
+                    self::$init[ $redux->args['opt_name'] ] = 1;
+                }
+
             }
 
             public static function createRedux() {
@@ -120,7 +130,7 @@
             }
 
             public static function constructArgs( $opt_name ) {
-                $args             = isset( self::$args[ $opt_name ] ) ? self::$args[ $opt_name ] : array();
+                $args = isset( self::$args[ $opt_name ] ) ? self::$args[ $opt_name ] : array();
 
                 $args['opt_name'] = $opt_name;
                 if ( ! isset( $args['menu_title'] ) ) {
@@ -184,6 +194,15 @@
                 }
 
                 return false;
+            }
+
+            public static function setSections( $opt_name = '', $sections = array() ) {
+                self::check_opt_name( $opt_name );
+                if ( ! empty( $sections ) ) {
+                    foreach ( $sections as $section ) {
+                        Redux::setSection( $opt_name, $section );
+                    }
+                }
             }
 
             public static function setSection( $opt_name = '', $section = array() ) {
@@ -366,15 +385,20 @@
                 return $version;
             }
 
-            public static function checkExtensionClassFile( $opt_name, $name = "", $class_file = "" ) {
+            public static function checkExtensionClassFile( $opt_name, $name = "", $class_file = "", $instance = "" ) {
                 if ( file_exists( $class_file ) ) {
                     self::$uses_extensions[ $opt_name ] = isset( self::$uses_extensions[ $opt_name ] ) ? self::$uses_extensions[ $opt_name ] : array();
                     if ( ! in_array( $name, self::$uses_extensions[ $opt_name ] ) ) {
                         self::$uses_extensions[ $opt_name ][] = $name;
                     }
 
-                    self::$extensions[ $name ]             = isset( self::$extensions[ $name ] ) ? self::$extensions[ $name ] : array();
-                    $version                               = self::getFileVersion( $class_file );
+                    self::$extensions[ $name ] = isset( self::$extensions[ $name ] ) ? self::$extensions[ $name ] : array();
+                    $version                   = self::getFileVersion( $class_file );
+                    if ( empty( $version ) && ! empty( $instance ) ) {
+                        if ( isset( $instance->version ) ) {
+                            $version = $instance->version;
+                        }
+                    }
                     self::$extensions[ $name ][ $version ] = isset( self::$extensions[ $name ][ $version ] ) ? self::$extensions[ $name ][ $version ] : $class_file;
                 }
             }
@@ -408,16 +432,61 @@
                 }
             }
 
-            public static function getExtensions( $key = "", $opt_name = "" ) {
+            public static function getAllExtensions() {
+                $redux = ReduxFrameworkInstances::get_all_instances();
+                foreach ( $redux as $instance ) {
+                    if ( ! empty( self::$uses_extensions[ $instance['args']['opt_name'] ] ) ) {
+                        continue;
+                    }
+                    if ( ! empty( $instance['extensions'] ) ) {
+
+                        Redux::getInstanceExtensions( $instance['args']['opt_name'], $instance );
+                    }
+                }
+            }
+
+            public static function getInstanceExtensions( $opt_name, $instance = array() ) {
+                if ( ! empty( self::$uses_extensions[ $opt_name ] ) ) {
+                    return;
+                }
+                if ( empty( $instance ) ) {
+                    $instance = ReduxFrameworkInstances::get_instance( $opt_name );
+                }
+                if ( empty( $instance ) || empty( $instance->extensions ) ) {
+                    return;
+                }
+                foreach ( $instance->extensions as $name => $extension ) {
+                    if ( $name == "widget_areas" ) {
+                        $new = new Redux_Widget_Areas( $instance );
+                    }
+                    if ( isset( self::$uses_extensions[ $opt_name ][ $name ] ) ) {
+                        continue;
+                    }
+                    if ( isset( $extension->extension_dir ) ) {
+                        Redux::setExtensions( $opt_name, str_replace( $name, '', $extension->extension_dir ) );
+
+                    } else if ( isset( $extension->_extension_dir ) ) {
+                        Redux::setExtensions( $opt_name, str_replace( $name, '', $extension->_extension_dir ) );
+                    }
+                }
+            }
+
+            public static function getExtensions( $opt_name = "", $key = "" ) {
+
                 if ( empty( $opt_name ) ) {
+                    Redux::getAllExtensions();
                     if ( empty( $key ) ) {
-                        return self::$extension_paths[ $key ];
+                        return self::$extension_paths;
                     } else {
                         if ( isset( self::$extension_paths[ $key ] ) ) {
                             return self::$extension_paths[ $key ];
                         }
                     }
                 } else {
+                    if ( empty( self::$uses_extensions[ $opt_name ] ) ) {
+                        Redux::getInstanceExtensions( $opt_name );
+                    }
+
                     if ( empty( self::$uses_extensions[ $opt_name ] ) ) {
                         return false;
                     }
@@ -427,8 +496,9 @@
                         $name                             = str_replace( '.php', '', basename( $extension ) );
                         $extension_class                  = 'ReduxFramework_Extension_' . $name;
                         $instanceExtensions[ $extension ] = array(
-                            'path'  => $class_file,
-                            'class' => $extension_class
+                            'path'    => $class_file,
+                            'class'   => $extension_class,
+                            'version' => Redux::getFileVersion( $class_file )
                         );
                     }
 

@@ -73,7 +73,8 @@
             // ATTENTION DEVS
             // Please update the build number with each push, no matter how small.
             // This will make for easier support when we ask users what version they are using.
-            public static $_version = '3.4.4.7';
+
+            public static $_version = '3.5.2';
             public static $_dir;
             public static $_url;
             public static $_upload_dir;
@@ -192,7 +193,6 @@
              * @return \ReduxFramework
              */
             public function __construct( $sections = array(), $args = array(), $extra_tabs = array() ) {
-
                 // Disregard WP AJAX 'heartbeat'call.  Why waste resources?
                 if ( isset ( $_POST ) && isset ( $_POST['action'] ) && $_POST['action'] == 'heartbeat' ) {
 
@@ -241,6 +241,11 @@
                  * @param  array $args ReduxFramework configuration
                  */
                 $this->args = apply_filters( "redux/options/{$this->args['opt_name']}/args", $this->args );
+
+                // Do not save the defaults if we're on a live preview!
+                if ( $GLOBALS['pagenow'] == "customize" && isset( $_GET['theme'] ) && ! empty( $_GET['theme'] ) ) {
+                    $this->args['save_defaults'] = false;
+                }
 
                 if ( ! empty ( $this->args['opt_name'] ) ) {
                     /**
@@ -352,7 +357,7 @@
                     }
 
                     // Display admin notices
-                    add_action( 'admin_notices', array( $this, '_admin_notices' ) );
+                    add_action( 'admin_notices', array( $this, '_admin_notices' ), 99 );
 
                     // Check for dismissed admin notices.
                     add_action( 'admin_init', array( $this, '_dismiss_admin_notice' ), 9 );
@@ -395,8 +400,24 @@
                     }
                     // Ajax saving!!!
                     add_action( "wp_ajax_" . $this->args['opt_name'] . '_ajax_save', array( $this, "ajax_save" ) );
-                    
-                    include_once 'core/dashboard.php';
+
+                    if ( $this->args['dev_mode'] == true || Redux_Helpers::isLocalHost() == true ) {
+                        include_once 'core/dashboard.php';
+                        
+                        if ( ! isset ( $GLOBALS['redux_notice_check'] ) ) {
+                            include_once 'core/newsflash.php';
+
+                            $params = array(
+                                'dir_name'    => 'notice',
+                                'server_file' => 'http://www.reduxframework.com/' . 'wp-content/uploads/redux/redux_notice.json',
+                                'interval'    => 3,
+                                'cookie_id'   => 'redux_blast',
+                            );
+
+                            new reduxNewsflash( $this, $params );
+                            $GLOBALS['redux_notice_check'] = 1;
+                        }
+                    }
                 }
 
                 /**
@@ -580,7 +601,7 @@
             }
 
             public function _admin_notices() {
-                Redux_Functions::adminNotices();
+                Redux_Functions::adminNotices( $this->admin_notices );
             }
 
             public function _dismiss_admin_notice() {
@@ -936,7 +957,7 @@
                             //if
                         } else if ( $type == "post_type" || $type == "post_types" ) {
                             global $wp_post_types;
-                            
+
                             $defaults   = array(
                                 'public'              => true,
                                 'exclude_from_search' => false,
@@ -1996,6 +2017,29 @@
                                 continue; // You need a type!
                             }
 
+                            if ( $field['type'] == "info" && isset( $field['raw_html'] ) && $field['raw_html'] == true ) {
+                                $field['type']                             = "raw";
+                                $field['content']                          = $field['desc'];
+                                $field['desc']                             = "";
+                                $this->sections[ $k ]['fields'][ $fieldk ] = $field;
+                            } else if ( $field['type'] == "info" ) {
+                                if ( ! isset( $field['full_width'] ) ) {
+                                    $field['full_width']                       = true;
+                                    $this->sections[ $k ]['fields'][ $fieldk ] = $field;
+                                }
+                            }
+
+                            if ( $field['type'] == "raw" ) {
+                                if ( isset( $field['align'] ) ) {
+                                    $field['full_width'] = $field['align'] ? false : true;
+                                    unset( $field['align'] );
+                                } else if ( ! isset( $field['full_width'] ) ) {
+                                    $field['full_width'] = true;
+                                }
+                                $this->sections[ $k ]['fields'][ $fieldk ] = $field;
+                            }
+
+
                             /**
                              * filter 'redux/options/{opt_name}/field/{field.id}'
                              *
@@ -2018,21 +2062,6 @@
                             if ( isset ( $field['customizer_only'] ) && $field['customizer_only'] == true ) {
                                 //$display = false;
                             }
-
-
-                            // TODO AFTER GROUP WORKS - Remove IF statement
-//                            if ( $field['type'] == "group" && isset( $_GET['page'] ) && $_GET['page'] == $this->args['page_slug'] ) {
-//                                if ( $this->args['dev_mode'] ) {
-//                                    $this->admin_notices[] = array(
-//                                        'type'    => 'error',
-//                                        'msg'     => 'The <strong>group field</strong> has been <strong>removed</strong> while we retool it for improved performance.',
-//                                        'id'      => 'group_err',
-//                                        'dismiss' => true,
-//                                    );
-//                                }
-//                                continue; // Disabled for now
-//                            }
-
 
                             if ( isset ( $field['permissions'] ) ) {
 
@@ -2073,7 +2102,7 @@
 
                             // Set the defaults to the value if not present
                             $doUpdate = false;
-
+                            
                             // Check fields for values in the default parameter
                             if ( ! isset ( $this->options[ $field['id'] ] ) && isset ( $field['default'] ) ) {
                                 $this->options_defaults[ $field['id'] ] = $this->options[ $field['id'] ] = $field['default'];
@@ -2650,12 +2679,46 @@
                 if ( ! empty ( $_POST['data'] ) && ! empty ( $redux->args['opt_name'] ) ) {
 
                     $values        = array();
+                    //if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+                    //    $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
+                    //    while (list($key, $val) = each($process)) {
+                    //        foreach ($val as $k => $v) {
+                    //            unset($process[$key][$k]);
+                    //            if (is_array($v)) {
+                    //                $process[$key][stripslashes($k)] = $v;
+                    //                $process[] = &$process[$key][stripslashes($k)];
+                    //            } else {
+                    //                $process[$key][stripslashes($k)] = stripslashes($v);
+                    //            }
+                    //        }
+                    //    }
+                    //    unset($process);
+                    //}
                     $_POST['data'] = stripslashes( $_POST['data'] );
                     parse_str( $_POST['data'], $values );
                     $values = $values[ $redux->args['opt_name'] ];
-                    $values = array_map( 'stripslashes_deep', $values );
+
+
+                    if ( function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() ) {
+                        $values = array_map( 'stripslashes_deep', $values );
+                    }
+
+                    //$beforeDeep = $values;
+                    //// Ace editor hack for < PHP 5.4. Oy
+                    //if ( isset( $this->fields['ace_editor'] ) ) {
+                    //    if ( function_exists( 'get_magic_quotes_gpc' ) && get_magic_quotes_gpc() ) {
+                    //        foreach ( $this->fields['ace_editor'] as $id => $v ) {
+                    //            if ( version_compare( phpversion(), '5.4', '<' ) ) {
+                    //                $values[ $id ] = stripslashes( $beforeDeep[ $id ] );
+                    //            } else {
+                    //                $values[ $id ] = $beforeDeep[ $id ];
+                    //            }
+                    //        }
+                    //    }
+                    //}
 
                     if ( ! empty ( $values ) ) {
+
                         try {
                             if ( isset ( $redux->validation_ran ) ) {
                                 unset ( $redux->validation_ran );

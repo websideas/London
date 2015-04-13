@@ -218,6 +218,171 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                 )
             );
             
+            
+            
+            
+            /**
+			 *	Logos
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'logos',
+				'title'			=> __( 'Logos Settings', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_desktop',
+				'icon'			=> '',
+				'fields'		=> array(
+                    array(
+                        'id'       => 'logo',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Logo', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'logo_retina',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Logo (Retina Version @2x)', THEME_LANG ),
+                        'desc'     => __('Select an image file for the retina version of the logo. It should be exactly 2x the size of main logo.', THEME_LANG)
+                    ),
+                    array(
+                        'id'             => 'wrapper_dimensions_logo',
+                        'type'           => 'dimensions',
+                        'units'          => array( 'em', 'px'),
+                        'units_extended' => 'true',
+                        'title'          => __( 'Dimensions wrapper logo (Width/Height)', THEME_LANG ),
+                        'default'        => array( 'width'  => 120, 'height' => 120 ),
+                        'output'   => array( '.site-branding .site-logo' ),
+                    ),
+                    array(
+                        'id'             => 'logo_width',
+                        'type'           => 'dimensions',
+                        'units'          => array( 'em', 'px'),
+                        'units_extended' => 'true',
+                        'title'          => __( 'Logo width', THEME_LANG ),
+                        'height'         => false,
+                        'default'        => array( 'width'  => 120, 'height' => 100 ),
+                        'output'   => array( '.site-logo img' ),
+                    ),
+                    array(
+                        'id'       => 'logo_margin_spacing',
+                        'type'     => 'spacing',
+                        'mode'     => 'margin',
+                        'output'   => array( '.site-branding .site-logo' ),
+                        'units'          => array( 'em', 'px' ), 
+                        'units_extended' => 'true',
+                        'title'    => __( 'Logo margin spacing Option', THEME_LANG ),
+                        'default'  => array(
+                            'margin-top'    => '0px',
+                            'margin-right'  => '60px',
+                            'margin-bottom' => '0px',
+                            'margin-left'   => '0px'
+                        )
+                    ),
+                    array(
+                            'id'       => 'logo_circle',
+                            'type'     => 'switch',
+                            'title'    => __( 'Logo circle', THEME_LANG ),
+                            'default'  => true,
+                        ),
+                    array(
+                        'id'       => 'opt-color-rgba',
+                        'type'     => 'color_rgba',
+                        'title'    => __( 'Color RGBA', 'redux-framework-demo' ),
+                        'subtitle' => __( 'Gives you the RGBA color.', 'redux-framework-demo' ),
+                        'default'  => array(
+                            'color' => '#000',
+                            'alpha' => '1'
+                        ),
+                        'output'   => array( '.site-branding .site-logo' ),
+                        'mode'     => 'background',
+                        'validate' => 'colorrgba',
+                    ),
+                    array(
+                        'id'             => 'dimensions_logo',
+                        'type'           => 'dimensions',
+                        'output'   => array( '.is-sticky .site-branding .site-logo' ),
+                        'units'          => array( 'em', 'px'), 
+                        'units_extended' => 'true', 
+                        'title'          => __( 'Wrapper logo sticky width', THEME_LANG ),
+                        'default'        => array( 'width'  => 95, 'height' => 95 )
+                    ),
+                    array(
+                        'id'             => 'logo_sticky_width',
+                        'type'           => 'dimensions',
+                        'output'   => array( '.is-sticky .site-logo img' ),
+                        'units'          => array( 'em', 'px'), 
+                        'units_extended' => 'true', 
+                        'title'          => __( 'Logo sticky width', THEME_LANG ),
+                        'height'         => false,
+                        'default'        => array( 'width'  => 95, 'height' => 100 )
+                    ),
+                    array(
+                        'id'       => 'logo_sticky_margin_spacing',
+                        'type'     => 'spacing',
+                        'mode'     => 'margin',
+                        'units'          => array( 'em', 'px' ), 
+                        'units_extended' => 'true',
+                        'title'    => __( 'Logo margin spacing Option', THEME_LANG ),
+                        'default'  => array(
+                            'margin-top'    => '-20px',
+                            'margin-right'  => '60px',
+                            'margin-bottom' => '-20px',
+                            'margin-left'   => '0px'
+                        ),
+                        'output'   => array( '.is-sticky .site-branding .site-logo' ),
+                    ),
+                    
+                    array(
+                        'id'       => 'custom_favicon',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Custom Favicon', THEME_LANG ),
+                        'subtitle' => __( 'Using this option, You can upload your own custom favicon (16px x 16px)', THEME_LANG),
+                    ),
+                    array(
+                        'id'       => 'custom_favicon_iphone',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Apple iPhone Favicon', THEME_LANG ),
+                        'subtitle' => __( 'Favicon for Apple iPhone (57px x 57px)', THEME_LANG),
+                    ),
+                    array(
+                        'id'       => 'custom_favicon_iphone_retina',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Apple iPhone Retina Favicon', THEME_LANG ),
+                        'subtitle' => __( 'Favicon for Apple iPhone Retina Version (114px x 114px)', THEME_LANG),
+                    ),
+                    array(
+                        'id'       => 'custom_favicon_ipad',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Apple iPad Favicon Upload', THEME_LANG ),
+                        'subtitle' => __( 'Favicon for Apple iPad (72px x 72px)', THEME_LANG),
+                    ),
+                    array(
+                        'id'       => 'custom_favicon_ipad_retina',
+                        'type'     => 'media',
+                        'preview'  => true,
+                        'title'    => __( 'Apple iPad Retina Icon Upload', THEME_LANG ),
+                        'subtitle' => __( 'Favicon for Apple iPad Retina Version (144px x 144px)', THEME_LANG),
+                    ),
+                )
+            );
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             /**
 			 *	Header
 			 **/
@@ -286,6 +451,51 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                         'default'  => '3-3-3-3'
                     ),
                     
+                )
+            );
+            /**
+			 *	Popup
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'popup',
+				'title'			=> __( 'Popup', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_desktop',
+				'icon'			=> '',
+				'fields'		=> array(
+                    array(
+						'id'		=> 'enable_popup',
+						'type'		=> 'switch',
+						'title'		=> __( 'Enable Popup', THEME_LANG ),
+						'subtitle'	=> __( '', THEME_LANG),
+						"default"	=> '1',
+						'on'		=> __( 'On', THEME_LANG ),
+						'off'		=> __( 'Off', THEME_LANG ),
+					),
+                    array(
+						'id'		=> 'disable_popup_mobile',
+						'type'		=> 'switch',
+						'title'		=> __( 'Disable Popup on Mobile', THEME_LANG ),
+						'subtitle'	=> __( '', THEME_LANG),
+						"default"	=> '0',
+						'on'		=> __( 'On', THEME_LANG ),
+						'off'		=> __( 'Off', THEME_LANG ),
+					),
+                    array(
+                        'id'       => 'popup-background',
+                        'type'     => 'background',
+                        'output'   => array( '#popup-wrap' ),
+                        'title'    => __( 'Popup Background', THEME_LANG ),
+                        'subtitle' => __( 'Popup background with image, color, etc.', THEME_LANG ),
+                        'default'   => '#FFFFFF',
+                    ),
+                    array(
+                        'id'       => 'content-popup',
+                        'type'     => 'editor',
+                        'title'    => __( 'Content Popup', THEME_LANG ),
+                        'subtitle' => __( '', THEME_LANG ),
+                        'default'  => 'Content popup',
+                    ),
                 )
             );
             

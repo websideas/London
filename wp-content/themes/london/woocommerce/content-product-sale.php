@@ -45,7 +45,7 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
 <li <?php post_class( $classes ); ?>>
     <?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
     <div class="row">
-        <div class="col-md-6 sales-countdown-left">
+        <div class="col-md-6 col-sm-6 sales-countdown-left">
             <div class="product-image-container">
             
                 <?php 
@@ -77,7 +77,7 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
         		?>
             </div>
         </div><!-- .sales-countdown-left -->
-        <div class="col-md-6 sales-countdown-right">
+        <div class="col-md-6 col-sm-6 sales-countdown-right">
             <h5>
             	<a href="<?php the_permalink(); ?>">
             

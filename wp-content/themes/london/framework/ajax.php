@@ -173,3 +173,17 @@ add_action( 'wp_ajax_nopriv_frontend_product_quick_view', 'wp_ajax_frontend_prod
 
 
 
+add_action( 'wp_ajax_fronted_popup', 'wp_ajax_fronted_popup_callback' );
+add_action( 'wp_ajax_nopriv_fronted_popup', 'wp_ajax_fronted_popup_callback' );
+
+function wp_ajax_fronted_popup_callback() {
+    check_ajax_referer( 'ajax_frontend', 'security' );
+     
+    $output = array();   
+    
+    $_SESSION['popup'] = 1;
+     
+    echo json_encode($output);
+    
+    die();
+}
