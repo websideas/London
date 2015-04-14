@@ -101,6 +101,7 @@
                     }
                     //}
 
+
                     add_action( 'wp_head', array( $this, 'customize_preview_init' ) );
                 }
 
@@ -126,9 +127,7 @@
             }
 
             public function _override_values( $data ) {
-                if ( empty( $this->parent->options ) ) {
-                    $this->parent->get_options();
-                }
+
                 self::get_post_values();
 
                 if ( isset( $_POST['customized'] ) && ! empty( self::$post_values ) ) {
@@ -278,6 +277,13 @@
                             if ( ! current_user_can( $option['permissions'] ) ) {
                                 continue;
                             }
+                        }
+                        if ( isset( $option['validate'] ) && $option['validate'] != false ) {
+                            continue;
+                        }
+
+                        if ( isset( $option['validate_callback'] ) && !empty( $option['validate_callback'] ) ) {
+                            continue;
                         }
 
                         if ( isset( $option['customizer'] ) && $option['customizer'] === false ) {

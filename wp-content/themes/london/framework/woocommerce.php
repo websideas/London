@@ -285,9 +285,13 @@ function london_single_product_layout( $columns ) {
  */
 function woocommerce_shop_loop_item_action_action_add(){
     echo "<div class='functional-buttons'>";
-    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'">'.__('Quick view', THEME_LANG).'</a>';
-    echo do_shortcode('[yith_wcwl_add_to_wishlist]');
-    echo do_shortcode('[yith_compare_button]');
+    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span></span><i class="fa fa-spinner fa-spin"></i></a>';
+    if(class_exists('YITH_WCWL_UI')){
+        echo do_shortcode('[yith_wcwl_add_to_wishlist]');    
+    }
+    if(defined( 'YITH_WOOCOMPARE' )){
+        echo do_shortcode('[yith_compare_button]');
+    }
     echo "</div>";
 }
 
@@ -391,12 +395,18 @@ function yith_wcwl_positions_callback($positions){
 
 
 function woocommerce_shop_loop_item_action_action_product(){
-    echo "<div class='functional-buttons-product clearfix'>";
-    echo "<div class='functional-buttons'>";
-    echo do_shortcode('[yith_wcwl_add_to_wishlist]');
-    echo do_shortcode('[yith_compare_button]');
-    echo "</div>";
-    echo "</div>";
+    if(class_exists('YITH_WCWL_UI') || defined( 'YITH_WOOCOMPARE' )){
+        echo "<div class='functional-buttons-product clearfix'>";
+        echo "<div class='functional-buttons'>";
+        if(class_exists('YITH_WCWL_UI')){
+            echo do_shortcode('[yith_wcwl_add_to_wishlist]');    
+        }
+        if(defined( 'YITH_WOOCOMPARE' )){
+            echo do_shortcode('[yith_compare_button]');
+        }
+        echo "</div>";
+        echo "</div>";
+    }
 }
 add_action( 'woocommerce_after_add_to_cart_button', 'woocommerce_shop_loop_item_action_action_product', 50);
 

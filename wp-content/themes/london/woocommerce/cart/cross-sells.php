@@ -35,9 +35,10 @@ $woocommerce_loop['columns'] = apply_filters( 'woocommerce_cross_sells_columns',
 
 if ( $products->have_posts() ) : ?>
 
-	<div class="cross-sells-products">
-
-		<h2><?php _e( 'You may be interested in&hellip;', 'woocommerce' ) ?></h2>
+	<div class="cross-sells-products carousel-wrapper-top clearfix">
+        <div class="block-heading">
+            <h2><?php _e( 'You may be interested in&hellip;', 'woocommerce' ) ?></h2>
+        </div>
         <div class="woocommerce-carousel-wrapper" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_cross_sells_carousel', '[[992,4], [768, 2], [480, 1]]'); ?>">
 		<?php woocommerce_product_loop_start(); ?>
 

@@ -55,11 +55,9 @@
              */
             public function __construct( $parent ) {
 
-
-
                 $this->parent = $parent;
                 if ( empty( $this->extension_dir ) ) {
-                    $this->extension_dir = trailingslashit( str_replace( '\\', '/', dirname( __FILE__ ) ) );
+                    //$this->extension_dir = trailingslashit( str_replace( '\\', '/', dirname( __FILE__ ) ) );
                 }
                 $this->field_name = 'import_export';
 

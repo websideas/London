@@ -58,6 +58,28 @@ if (!function_exists('themedev_option')){
         }
     }
 }
+/**
+ * Get logo of current page
+ * 
+ * @return string
+ * 
+ */
+function themedev_getLogo(){
+    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
+
+    $logo_default = themedev_option( 'logo' );
+    $logo_retina = themedev_option( 'logo_retina' );
+    
+    if(is_array($logo_default)){
+        $logo['default'] = $logo_default['url'];
+    }
+    
+    if(is_array($logo_retina)){
+        $logo['retina'] = $logo_retina['url'];
+    }
+    
+    return $logo;
+}
 
 /**
  * Get Layout of post
@@ -136,11 +158,10 @@ function themedev_sidebar(){
     }
     
     $layout_sidebar = array('sidebar' => $sidebar, 'sidebar_area' => $sidebar_area);
-    
-    if(is_page() || is_singular('post')){
-        
+    if(is_cart()){
+        $layout_sidebar = array('sidebar' => 'full', 'sidebar_area' => null);
+    }elseif(is_page() || is_singular('post')){
         $sidebar_post = rwmb_meta('kt_sidebar');
-        
         if($sidebar_post != 'default' && $sidebar_post){
             $layout_sidebar['sidebar'] = $sidebar_post;
             if($sidebar_post == 'left'){
@@ -156,8 +177,8 @@ function themedev_sidebar(){
                 }
                 $layout_sidebar['sidebar_area'] = $sidebar_right_post;
             }
-            
         }
+        
     }
 
     return $layout_sidebar;
@@ -226,4 +247,21 @@ function get_gallerys_post($meta, $size = 'screen', $post_id = null) {
 	
 	$media_image = rwmb_meta($meta, 'type=image&size='.$size, $post_id);
 	return (count($media_image)) ? $media_image : false;
+}
+
+
+/**
+ * Render data option for carousel
+ * 
+ * @param $data array. All data for carousel
+ * 
+ */
+function render_data_carousel($data){
+    $output = "";
+    foreach($data as $key => $val){
+        if($val){
+            $output .= ' data-'.$key.'="'.$val.'"';
+        }
+    }
+    return $output;
 }

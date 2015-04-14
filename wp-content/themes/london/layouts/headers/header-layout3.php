@@ -1,16 +1,15 @@
+<?php
+
+// Exit if accessed directly
+if ( !defined('ABSPATH')) exit;
+?>
+
 <div class="container">
     <div class="display-table" id="header-wrap">
         <div class="site-branding display-td">
-            <?php $tag = ( is_front_page() && is_home() ) ? 'h1' : 'p'; ?>
-    		<<?php echo $tag ?> class="site-logo">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <img src="<?php echo THEME_IMG; ?>logo-black.png" alt="<?php bloginfo( 'name' ); ?>" />
-                </a>
-            </<?php echo $tag ?>><!-- .site-logo -->
-            <div id="site-title"><?php bloginfo( 'name' ); ?></div>
-            <div id="site-description"><?php bloginfo( 'description' ); ?></div>
+            <?php get_template_part( 'layouts/headers/header',  'branding'); ?>
         </div><!-- .site-branding -->
-        <div class="display-td">
+        <div class="display-td header-content-right">
             <div class="header-content-top clearfix">
                 <?php
                     if ( has_nav_menu( 'top' ) ) { 
@@ -34,6 +33,7 @@
                 }
             ?>
             <?php get_search_form(); ?>
+            <?php get_template_part( 'layouts/headers/header', 'mobile'); ?>
         </div>
     </div>
 </div><!-- .header-content-bottom -->

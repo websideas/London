@@ -69,11 +69,12 @@ if ( ! comments_open() ) {
 						),
 						'label_submit'  => __( 'Submit', 'woocommerce' ),
 						'logged_in_as'  => '',
-						'comment_field' => ''
+						'comment_field' => '',
+                        'class_submit' => 'btn btn-default'
 					);
 
 					if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
-						$comment_form['comment_field'] = '<p class="comment-form-rating"><label for="rating">' . __( 'Your Rating', 'woocommerce' ) .'</label><select name="rating" id="rating">
+						$comment_form['comment_field'] = '<p class="comment-form-rating"><label for="rating">' . __( 'Your Rating', 'woocommerce' ) .'</label><select name="rating" id="rating" class="form-control">
 							<option value="">' . __( 'Rate&hellip;', 'woocommerce' ) . '</option>
 							<option value="5">' . __( 'Perfect', 'woocommerce' ) . '</option>
 							<option value="4">' . __( 'Good', 'woocommerce' ) . '</option>

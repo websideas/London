@@ -16,13 +16,17 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'london');
+define('DB_NAME', 'websidea_london');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'websidea_cuongdv');
 
 /** MySQL database password */
+<<<<<<< HEAD
 define('DB_PASSWORD', 'root');
+=======
+define('DB_PASSWORD', 'admin123');
+>>>>>>> master
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
