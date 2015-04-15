@@ -177,3 +177,78 @@ function theme_after_footer_top_addscroll(){
 
 
 
+if ( ! function_exists( 'kt_comment_nav' ) ) :
+    /**
+     * Display navigation to next/previous comments when applicable.
+     *
+     * @since London 1.0
+     */
+    function kt_comment_nav() {
+        // Are there comments to navigate through?
+        if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
+            ?>
+            <nav class="navigation comment-navigation" role="navigation">
+                <h2 class="screen-reader-text"><?php _e( 'Comment navigation', THEME_LANG ); ?></h2>
+                <div class="nav-links">
+                    <?php
+                    if ( $prev_link = get_previous_comments_link( __( 'Older Comments', THEME_LANG ) ) ) :
+                        printf( '<div class="nav-previous">%s</div>', $prev_link );
+                    endif;
+
+                    if ( $next_link = get_next_comments_link( __( 'Newer Comments',  THEME_LANG ) ) ) :
+                        printf( '<div class="nav-next">%s</div>', $next_link );
+                    endif;
+                    ?>
+                </div><!-- .nav-links -->
+            </nav><!-- .comment-navigation -->
+        <?php
+        endif;
+    }
+endif;
+
+
+/**
+ *
+ * Custom call back function for default post type
+ *
+ * @param $comment
+ * @param $args
+ * @param $depth
+ */
+function kt_comments($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment; ?>
+
+<li <?php comment_class('comment'); ?> id="li-comment-<?php comment_ID() ?>">
+    <div  id="comment-<?php comment_ID(); ?>" class="comment-item">
+
+        <div class="comment-avatar">
+            <?php echo get_avatar($comment->comment_author_email, $size='90',$default='' ); ?>
+        </div>
+        <div class="comment-content">
+            <div class="comment-meta">
+                <a class="comment-author" href="#"><?php printf(__('<b class="author_name">%s </b>'), get_comment_author_link()) ?></a>
+                <span class="comment-date"><?php printf( '%1$s' , get_comment_date( 'F j, Y \a\t g:i a' )); ?></span>
+            </div>
+            <div class="comment-entry entry-content">
+                <?php comment_text() ?>
+                <?php if ($comment->comment_approved == '0') : ?>
+                    <em><?php _e('Your comment is awaiting moderation.','sathemes') ?></em>
+                <?php endif; ?>
+            </div>
+            <div class="comment-actions clear">
+                <?php edit_comment_link(__('(Edit)','sathemes'),'  ','') ?>
+                <?php comment_reply_link( array_merge( $args,
+                    array('depth' => $depth,
+                        'max_depth' => $args['max_depth'],
+                        'reply_text' =>'<i class="fa fa-share"></i> '.__('Reply')
+                    ))) ?>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+<?php
+}
+
+
+

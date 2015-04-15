@@ -1,0 +1,2 @@
+- Reponsive cho 404
+- Respondive cho blog posts
