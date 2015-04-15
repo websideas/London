@@ -1,4 +1,11 @@
 Problems:
 - Reponsive cho 404
 - Respondive cho blog posts
+-
+
+Tasks:
+- Update all site data
+- 6  home versions
 - Logo when scroll down
+- Page boxed mod
+

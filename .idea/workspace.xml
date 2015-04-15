@@ -80,7 +80,7 @@
       <file leaf-file-name="developer-notes.txt" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1252">
+            <state line="11" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.20207667" vertical-offset="0" max-vertical-offset="1252">
               <folding />
             </state>
           </provider>
@@ -803,7 +803,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1252">
+        <state line="11" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.20207667" vertical-offset="0" max-vertical-offset="1252">
           <folding />
         </state>
       </provider>
