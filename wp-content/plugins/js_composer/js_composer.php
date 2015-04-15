@@ -756,11 +756,7 @@ class Vc_Manager {
 	 * @return string
 	 */
 	public function assetUrl( $file ) {
-		//return preg_replace( '/\s/', '%20', plugins_url( $this->path( 'ASSETS_DIR_NAME', $file ), __FILE__ ) );
-        $app_root = str_replace( '\\', '/', $this->path( 'APP_ROOT', '' ) );
-		$template_dir = str_replace( '\\', '/', get_template_directory() );
-		$assets_url = str_replace( $template_dir, get_template_directory_uri(), $app_root );
-		return trailingslashit( $assets_url ) . preg_replace( '/\s/', '%20', $this->path( 'ASSETS_DIR_NAME', $file ) );
+		return preg_replace( '/\s/', '%20', plugins_url( $this->path( 'ASSETS_DIR_NAME', $file ), __FILE__ ) );
 	}
 }
 

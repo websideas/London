@@ -456,8 +456,8 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'units_extended' => 'true',
                         'title'    => __( 'Footer widgets padding', THEME_LANG ),
                         'default'  => array(
-                            'padding-top'    => '50px',
-                            'padding-bottom'   => '25px'
+                            'padding-top'    => '0px',
+                            'padding-bottom'   => '10px'
                         )
                     ),
                     array(
@@ -503,26 +503,54 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => '4-4-4'
                     ),
                     
+                    
+                    
+                    
                     /*
                     Disable footer widgets.
                     
                     Disable footer top.
-                    
-                    Background Image For Footer Area
-                    
-                    Footer Top Padding
-                    
-                    Footer Bottom Padding
-                    
-                    Footer Top Border Thickness
-                    
-                    Footer Top Border Color
                     */
                     
-                    
-                    
-                    
-                    
+                    /* Footer Bottom */
+                    array(
+                        'id'       => 'footer_padding',
+                        'type'     => 'spacing',
+                        'mode'     => 'padding',
+                        'left'     => false,
+                        'right'    => false,
+                        'output'   => array( '#footer' ),
+                        'units'          => array( 'em', 'px' ), 
+                        'units_extended' => 'true',
+                        'title'    => __( 'Footer padding', THEME_LANG ),
+                        'default'  => array(
+                            'padding-top'    => '25px',
+                            'padding-bottom'   => '35px'
+                        )
+                    ),
+                    array(
+                        'id'       => 'footer_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( 'background-color'=>'#f6f6f6' ),
+                        'output'      => array( '#footer' ),
+                    ),
+                    array(
+                        'id'       => 'footer_border',
+                        'type'     => 'border',
+                        'title'    => __( 'Footer Border', THEME_LANG ),
+                        'output'   => array( '#footer' ),
+                        'all'      => false,
+                        'left'     => false,
+                        'right'    => false,
+                        'default'  => array(
+                            'border-color'  => '#cccccc',
+                            'border-style'  => 'solid',
+                            'border-top'    => '1px',
+                            'border-bottom' => '0px',
+                        )
+                    )
                 )
             );
             /**

@@ -165,21 +165,7 @@ if (is_admin() ) {
  * 
  */ 
 
-if ( ! class_exists( 'Vc_Manager', false ) ) {
 
-	require_once locate_template('/wpbakery/js_composer/js_composer.php');
-    
-	if ( function_exists( 'vc_set_as_theme' ) ) {
-		vc_set_as_theme(true);
-	}
-
-	if ( function_exists( 'vc_set_default_editor_post_types' ) ) {
-		vc_set_default_editor_post_types( array( 'page', 'post' ) );
-	}
-    
-    vc_disable_frontend();
-    
-}
 
 if ( class_exists( 'Vc_Manager', false ) ) {
     
@@ -197,11 +183,10 @@ if ( class_exists( 'Vc_Manager', false ) ) {
     add_action( 'init', 'themedev_js_composer_bridge', 20 );
     if ( !function_exists('themedev_js_composer_bridge') ) {
 		function themedev_js_composer_bridge() {
-		  
 			require_once(FW_DIR . 'js_composer/js_composer_parrams.php');
             require_once(FW_DIR . 'js_composer/js_composer_bridge.php');
-            
 		}
 	}
-    
+}else{
+    add_action( 'admin_notices', 'kt_admin_notice_for_js_composer');
 }

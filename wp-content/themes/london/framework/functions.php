@@ -5,6 +5,16 @@ if ( !defined('ABSPATH')) exit;
 
 
 /**
+ * Admin notice for js_composer
+ *
+ * @since 1.0
+ */
+function kt_admin_notice_for_js_composer(){
+    $theme = wp_get_theme();
+	echo '<div class="updated"><p><strong>'.$theme->get( 'Name' ).'</strong> '.__('theme requires', THEME_LANG).' <strong>Visual Composer</strong> '.__('Plugin installed and activated.', THEME_LANG).'</p></div>';
+}
+
+/**
  * Extend the default WordPress body classes.
  *
  * @since 1.0

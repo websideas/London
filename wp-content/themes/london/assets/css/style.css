@@ -1746,15 +1746,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 /** ================================================
     Footer
 *** ================================================*/
-#footer-top{
-    border-top: 1px solid #cccccc;
-    padding: 20px 0 40px;
-    background: #f6f6f6;
-}
-#footer-area{
-    background: #f6f6f6;
-    padding: 0 0 40px 0;
-}
+
 
 #footer-area h3.widget-title{
     border-bottom: 1px solid #cccccc;
@@ -1779,11 +1771,6 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 }
 
 
-
-#footer{
-    border-top: 1px solid #cccccc;
-    padding: 25px 0 35px;
-}
 #bottom-nav > ul{
     margin: 0;
     padding: 0;
