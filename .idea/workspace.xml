@@ -59,10 +59,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1870" column="0" selection-start="43399" selection-end="43399" vertical-scroll-proportion="17.803425" vertical-offset="21183" max-vertical-offset="48001">
+            <state line="963" column="21" selection-start="21773" selection-end="21773" vertical-scroll-proportion="-37.153847" vertical-offset="21183" max-vertical-offset="48001">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="163" column="21" selection-start="3705" selection-end="3705" vertical-scroll-proportion="0.0" vertical-offset="2855" max-vertical-offset="4094">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="developer-notes.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1252">
               <folding />
             </state>
           </provider>
@@ -125,6 +143,8 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/js_composer_bridge.php" />
         <option value="$USER_HOME$/Desktop/london/header.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt" />
       </list>
     </option>
   </component>
@@ -281,70 +301,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="London" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="London" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="london" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js_composer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="London" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="London" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="london" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js_composer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vc_addons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -575,11 +531,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/wpbakery/js_composer/include/params/vc_grid_item/class-vc-grid-item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7843" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/wpbakery/js_composer/include/params/vc_grid_item/shortcodes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="728" column="9" selection-start="28119" selection-end="28119" vertical-scroll-proportion="-25.5" vertical-offset="16081" max-vertical-offset="17296" />
@@ -623,11 +574,6 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/archive.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1265" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.5745367" vertical-offset="0" max-vertical-offset="3657" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/wpbakery/js_composer/include/classes/shortcodes/vc-gitem-zone-a.php">
@@ -843,7 +789,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1870" column="0" selection-start="43399" selection-end="43399" vertical-scroll-proportion="17.803425" vertical-offset="21183" max-vertical-offset="48001">
+        <state line="963" column="21" selection-start="21773" selection-end="21773" vertical-scroll-proportion="-37.153847" vertical-offset="21183" max-vertical-offset="48001">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="21" selection-start="3705" selection-end="3705" vertical-scroll-proportion="0.0" vertical-offset="2855" max-vertical-offset="4094">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1252">
           <folding />
         </state>
       </provider>
