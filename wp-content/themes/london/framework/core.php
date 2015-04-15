@@ -160,13 +160,22 @@ if (is_admin() ) {
     
 
 }
+  
+/**
+ * Force Visual Composer to initialize as "built into the theme". 
+ * This will hide certain tabs under the Settings->Visual Composer page
+ */
+
+add_action( 'vc_before_init', 'kt_vcSetAsTheme' );
+function kt_vcSetAsTheme() {
+    vc_set_as_theme();
+}
+
+
 /**
  * Initialising Visual Composer
  * 
  */ 
-
-
-
 if ( class_exists( 'Vc_Manager', false ) ) {
     
     if ( ! function_exists( 'js_composer_bridge_admin' ) ) {
@@ -187,6 +196,4 @@ if ( class_exists( 'Vc_Manager', false ) ) {
             require_once(FW_DIR . 'js_composer/js_composer_bridge.php');
 		}
 	}
-}else{
-    add_action( 'admin_notices', 'kt_admin_notice_for_js_composer');
 }

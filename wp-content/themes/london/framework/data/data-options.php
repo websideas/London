@@ -405,6 +405,12 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'fields'		=> array(
                     /* Footer Top */
                     array(
+                        'id'       => 'footer_top',
+                        'type'     => 'switch',
+                        'title'    => __( 'Footer top enable', THEME_LANG ),
+                        'default'  => true,
+                    ),
+                    array(
                         'id'       => 'footer_top_padding',
                         'type'     => 'spacing',
                         'mode'     => 'padding',
@@ -445,6 +451,12 @@ if ( ! class_exists( 'KT_config' ) ) {
                     
                     
                     /* Footer widgets */
+                    array(
+                        'id'       => 'footer_widgets',
+                        'type'     => 'switch',
+                        'title'    => __( 'Footer widgets enable', THEME_LANG ),
+                        'default'  => true,
+                    ),
                     array(
                         'id'       => 'footer_widgets_padding',
                         'type'     => 'spacing',
@@ -503,16 +515,13 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => '4-4-4'
                     ),
                     
-                    
-                    
-                    
-                    /*
-                    Disable footer widgets.
-                    
-                    Disable footer top.
-                    */
-                    
-                    /* Footer Bottom */
+                    /* Footer */
+                    array(
+                        'id'       => 'footer',
+                        'type'     => 'switch',
+                        'title'    => __( 'Footer enable', THEME_LANG ),
+                        'default'  => true,
+                    ),
                     array(
                         'id'       => 'footer_padding',
                         'type'     => 'spacing',
@@ -550,7 +559,48 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'border-top'    => '1px',
                             'border-bottom' => '0px',
                         )
-                    )
+                    ),
+                    array(
+                        'id'       => 'footer_layout',
+                        'type'     => 'select',
+                        'title'    => __( 'Footer layout', THEME_LANG ),
+                        'subtitle'     => __( 'Select your preferred footer layout.', THEME_LANG ),
+                        'options'  => array(
+                            'centered' => __('Centered', THEME_LANG),
+                            'sides' => __('Sides', THEME_LANG )
+                        ),
+                        'default'  => 'sides',
+                        'clear' => false
+                    ),
+                    array(
+                        'id'       => 'footer-left',
+                        'type'     => 'select',
+                        'title'    => __( 'Footer left', THEME_LANG ),
+                        'options'  => array(
+                            'navigation' => __('Navigation', THEME_LANG ),
+                            'socials' => __('Socials', THEME_LANG ),
+                            'copyright' => __('Copyright', THEME_LANG ),
+                        ),
+                        'default'  => 'copyright'
+                    ),
+                    array(
+                        'id'       => 'footer-right',
+                        'type'     => 'select',
+                        'title'    => __( 'Footer right', THEME_LANG ),
+                        'options'  => array(
+                            'navigation' => __('Navigation', THEME_LANG ),
+                            'socials' => __('Socials', THEME_LANG ),
+                            'copyright' => __('Copyright', THEME_LANG ),
+                        ),
+                        'default'  => 'navigation'
+                    ),
+                    array(
+                        'id'       => 'footer-copyright',
+                        'type'     => 'editor',
+                        'title'    => __( 'Footer Copyright Text', THEME_LANG ),
+                        'default'  => 'LONDON STARS &copy; 2015. Powered by Wordpress&#8482;. All Rights Reserved.'
+                    ),
+                    
                 )
             );
             /**
