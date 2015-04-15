@@ -4,8 +4,8 @@
 if ( !defined('ABSPATH')) exit;
 
 
-if ( ! class_exists( 'KiteThemes_config' ) ) {
-    class KiteThemes_config{
+if ( ! class_exists( 'KT_config' ) ) {
+    class KT_config{
         public $args = array();
         public $sections = array();
         public $theme;
@@ -245,6 +245,15 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                         'desc'     => __('Select an image file for the retina version of the logo. It should be exactly 2x the size of main logo.', THEME_LANG)
                     ),
                     array(
+                        'id'             => 'wrapper_dimensions_logo',
+                        'type'           => 'dimensions',
+                        'units'          => array( 'em', 'px'),
+                        'units_extended' => 'true',
+                        'title'          => __( 'Dimensions wrapper logo (Width/Height)', THEME_LANG ),
+                        'default'        => array( 'width'  => 120, 'height' => 120 ),
+                        'output'   => array( '.site-branding .site-logo' ),
+                    ),
+                    array(
                         'id'             => 'logo_width',
                         'type'           => 'dimensions',
                         'units'          => array( 'em', 'px'),
@@ -252,7 +261,7 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                         'title'          => __( 'Logo width', THEME_LANG ),
                         'height'         => false,
                         'default'        => array( 'width'  => 120, 'height' => 100 ),
-                        'output'   => array( '.site-branding .site-logo, .site-branding .site-logo img' ),
+                        'output'   => array( '.site-logo img' ),
                     ),
                     array(
                         'id'       => 'logo_margin_spacing',
@@ -284,14 +293,23 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                             'color' => '#000',
                             'alpha' => '1'
                         ),
-                        'output'   => array( '.site-branding .site-logo.logo-circle' ),
+                        'output'   => array( '.site-branding .site-logo' ),
                         'mode'     => 'background',
                         'validate' => 'colorrgba',
                     ),
                     array(
+                        'id'             => 'dimensions_logo',
+                        'type'           => 'dimensions',
+                        'output'   => array( '.is-sticky .site-branding .site-logo' ),
+                        'units'          => array( 'em', 'px'), 
+                        'units_extended' => 'true', 
+                        'title'          => __( 'Wrapper logo sticky width', THEME_LANG ),
+                        'default'        => array( 'width'  => 95, 'height' => 95 )
+                    ),
+                    array(
                         'id'             => 'logo_sticky_width',
                         'type'           => 'dimensions',
-                        'output'   => array( '.is-sticky .site-branding .site-logo,.is-sticky .site-branding .site-logo img' ),
+                        'output'   => array( '.is-sticky .site-logo img' ),
                         'units'          => array( 'em', 'px'), 
                         'units_extended' => 'true', 
                         'title'          => __( 'Logo sticky width', THEME_LANG ),
@@ -533,29 +551,17 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                         ),
                         'default'  => 'full'
                     ),
-                    array(
-                        'id'       => 'products-layout',
-                        'type'     => 'select',
-                        'title'    => __( 'Woocommerce Single Product Layout', THEME_LANG ),
-                        'options'  => array(
-                            'grid' => __('Grid', THEME_LANG ),
-                            'lists' => __('Lists', THEME_LANG )
-                        ),
-                        'default'  => 'grid'
-                    ),
+                    
                 )
             );
-            
-            
-            
-             
+
             
         }
         
     }
     
     global $reduxConfig;
-    $reduxConfig = new KiteThemes_config();
+    $reduxConfig = new KT_config();
     
 } else {
     echo "The class named Redux_Framework_sample_config has already been called. <strong>Developers, you need to prefix this class with your company name or you'll run into problems!</strong>";

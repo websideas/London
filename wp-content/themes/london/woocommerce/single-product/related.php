@@ -35,8 +35,7 @@ $args = apply_filters( 'woocommerce_related_products_args', array(
 
 $products = new WP_Query( $args );
 
-$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns_addons', 1 );
-$woocommerce_loop['columns_tablet'] = apply_filters( 'loop_shop_columns_addons_tablet', 1 );
+$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 1 );
 
 if ( $products->have_posts() ) : ?>
 
@@ -44,7 +43,7 @@ if ( $products->have_posts() ) : ?>
         <div class="block-heading">
             <h2><?php _e( 'Related Products', 'woocommerce' ); ?></h2>
         </div>
-        <div class="woocommerce-carousel-wrapper" data-theme="style-navigation-top" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_carousel', '[[992,4], [768, 3], [480, 1]]'); ?>">
+        <div class="woocommerce-carousel-wrapper" data-theme="style-navigation-top" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_related_carousel', '[[992,4], [768, 3], [480, 1]]'); ?>">
             <?php woocommerce_product_loop_start(); ?>
     			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
     				<?php wc_get_template_part( 'content', 'product' ); ?>

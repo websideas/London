@@ -52,4 +52,3 @@ get_header(); ?>
         do_action( 'theme_after_main' ); ?>
     </div><!-- .container -->
 <?php get_footer(); ?>
-

@@ -64,9 +64,9 @@ if (!function_exists('themedev_option')){
  * @return string
  * 
  */
-function themedev_getLogo(){
-    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
+function kt_get_logo(){
 
+    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
     $logo_default = themedev_option( 'logo' );
     $logo_retina = themedev_option( 'logo_retina' );
     
@@ -108,7 +108,7 @@ function themedev_getlayout($post_id = null){
  * 
  */
 
-function themedev_getHeader(){
+function kt_get_header(){
     $header = 'default';
     if(is_page() || is_singular('post')){
         $header_position = rwmb_meta('kt_header_position');
@@ -125,14 +125,16 @@ function themedev_getHeader(){
  * @return string
  * 
  */
-function themedev_getHeaderLayout(){
+function kt_get_header_layout(){
     $layout = themedev_option('header', 'layout1');
+    /*
     if(is_page() || is_singular('post')){
         $header_layout = rwmb_meta('kt_header');
         if($header_layout != '' && $header_layout != 'default'){
             $layout = $header_layout;
         }
     }
+    */
     return $layout;
 }
 
@@ -158,7 +160,7 @@ function themedev_sidebar(){
     }
     
     $layout_sidebar = array('sidebar' => $sidebar, 'sidebar_area' => $sidebar_area);
-    if(is_cart() || is_checkout() || is_account_page()){
+    if(is_cart()){
         $layout_sidebar = array('sidebar' => 'full', 'sidebar_area' => null);
     }elseif(is_page() || is_singular('post')){
         $sidebar_post = rwmb_meta('kt_sidebar');

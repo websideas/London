@@ -4,7 +4,7 @@ $settings = $block_data[1];
 $link_setting = empty($settings[0]) ? '' : $settings[0];
 ?>
 <?php if($block === 'title'): ?>
-<h2 class="post-title">
+<h2 class="post-title ">
     <?php echo empty($link_setting) || $link_setting!='no_link' ? $this->getLinked($post, $post->title, $link_setting, 'link_title') : $post->title ?>
 </h2>
 <?php elseif($block === 'image' && !empty($post->thumbnail)): ?>

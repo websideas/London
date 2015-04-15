@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 //fullwidth, sidebar-left, sidebar-right
-$layout = apply_filters( 'single_product_layout', 'full' );
+$layout = apply_filters( 'single_product_layout', 'fullwidth' );
 
 
 get_header( 'shop' ); ?>
@@ -28,9 +28,9 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>  
-        <?php if($layout == 'left' || $layout == 'right'){  ?>
+        <?php if($layout == 'sidebar-left' || $layout == 'sidebar-right'){  ?>
             <div class="row <?php echo $layout; ?>">
-                <?php $class = ($layout == 'left') ? 'pull-right' : '' ?>
+                <?php $class = ($layout == 'sidebar-left') ? 'pull-right' : '' ?>
                 <div id="main" class="col-md-9 col-xs-12 <?php echo $class; ?>">
         <?php } ?>
         
@@ -40,12 +40,12 @@ get_header( 'shop' ); ?>
 
 		<?php endwhile; // end of the loop. ?>
         
-        <?php if($layout == 'left' || $layout == 'right'){  ?>
+        <?php if($layout == 'sidebar-left' || $layout == 'sidebar-right'){  ?>
                 </div><!-- .col-md-9.pull-right -->
         <?php } ?>
         
         <?php
-            if($layout !='full'){
+            if($layout !='fullwidth'){
         		/**
         		 * woocommerce_sidebar hook
         		 *
@@ -54,7 +54,7 @@ get_header( 'shop' ); ?>
         		do_action( 'woocommerce_sidebar' );
             }
         	?>
-         <?php if($layout == 'left' || $layout == 'right'){  ?>
+         <?php if($layout == 'sidebar-left' || $layout == 'sidebar-right'){  ?>
             </div><!-- .col-md-9.pull-right -->
         <?php } ?>
 	<?php
