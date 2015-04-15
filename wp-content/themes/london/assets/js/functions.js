@@ -1,5 +1,5 @@
 (function($){
-    "use strict"; // Start of use strict
+    //"use strict"; // Start of use strict
     
     
     /* ---------------------------------------------
@@ -26,25 +26,24 @@
         
         init_shortcodes();
         init_popup();
+        
         init_carousel();
+        init_carouselwoo();
+        init_productcarouselwoo();
+        init_SaleCountDown();
+        
         init_backtotop();
         init_mailchimp();
         init_MainMenu();
         init_MobileMenu();
         init_ProductQuickView();
-        init_SaleCountDown();
         init_gridlistToggle();
         init_desingerCollection();
-        
-        init_carouselwoo();
-        init_productcarouselwoo();
         init_woocategories_products();
+        init_wooQuantily();
         
-        //$('form.woocommerce-ordering select').customSelect();
+        $('.easyzoom').easyZoom();
         
-        
-        var $easyzoom = $('.easyzoom').easyZoom();
-        woo_quantily();
     });
     
     $(window).resize(function(){
@@ -57,7 +56,7 @@
     /* ---------------------------------------------
      Woocommercer Quantily
      --------------------------------------------- */
-     function woo_quantily(){
+     function init_wooQuantily(){
         $('body').on('click','.quantity .quantity-plus',function(){
             var obj_qty = $(this).closest('.quantity').find('input.qty'),
                 val_qty = parseInt(obj_qty.val()),
@@ -85,6 +84,7 @@
      Sale Count Down
      --------------------------------------------- */
     function init_SaleCountDown(){
+
         $('.woocommerce-countdown').each(function(){
             var $this = $(this), 
                 finalDate = $(this).data('time');
@@ -139,7 +139,7 @@
      Shortcodes
      --------------------------------------------- */
     function init_shortcodes(){
-        "use strict";
+        //"use strict";
         
         // Tooltips (bootstrap plugin activated)
         $('[data-toggle="tooltip"]').tooltip();
@@ -475,7 +475,7 @@
         sync2.owlCarousel({
             theme : 'woocommerce-thumbnails',
             items : 3,
-            itemsCustom : [[768,3],[479,2]],
+            itemsCustom : [[768,3],[479,3]],
             navigation: true,
             navigationText: false,
             pagination:false,
@@ -598,11 +598,38 @@
                         that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'))
                     }
                 },
+                /*
+                afterInit : function(elem){
+                    if($(elem).closest('.desinger-collection-carousel').length > 0){
+                        var number_current = this.owl.currentItem,
+                            current_item =  $(elem).find('.owl-item:eq('+number_current+')');
+                        var h_img = current_item.find('.desinger-collection-link').outerHeight(),
+                            h_button = current_item.find('.owl-prev').outerHeight();
+                        $(elem).find('.owl-buttons > div').css({'top':(h_img-h_button)/2+'px'});
+                    }
+                },
                 afterUpdate: function(elem) {
-                    /*if (elem.closest(".isotope-container").length > 0) {
+                    if (elem.closest(".isotope-container").length > 0) {
                         elem.closest(".isotope-container").isotope("layout");
-                    }*/
-                }
+                    }
+                    
+                    if($(elem).closest('.desinger-collection-carousel').length > 0){
+                        var number_current = this.owl.currentItem,
+                            current_item =  $(elem).find('.owl-item:eq('+number_current+')');
+                        var h_img = current_item.find('.desinger-collection-link').outerHeight(),
+                            h_button = current_item.find('.owl-prev').outerHeight();
+                        $(elem).find('.owl-buttons > div').css({'top':(h_img-h_button)/2+'px'});
+                    }
+                },
+                afterMove : function(elem) {
+                    if($(elem).closest('.desinger-collection-carousel').length > 0){
+                        var number_current = this.owl.currentItem,
+                            current_item =  $(elem).find('.owl-item:eq('+number_current+')');
+                        var h_img = current_item.find('.desinger-collection-link').outerHeight(),
+                            h_button = current_item.find('.owl-prev').outerHeight();
+                        $(elem).find('.owl-buttons > div').css({'top':(h_img-h_button)/2+'px'});
+                    }
+                }*/
             };
             objCarousel.owlCarousel(options);
             

@@ -32,14 +32,15 @@ $args = array(
 $products = new WP_Query( $args );
 
 $woocommerce_loop['columns'] = apply_filters( 'woocommerce_cross_sells_columns', 1 );
+$woocommerce_loop['columns_tablet'] = apply_filters( 'woocommerce_cross_sells_columns_tablet', 1 );
 
 if ( $products->have_posts() ) : ?>
-
+    <p>&nbsp;</p>
 	<div class="cross-sells-products carousel-wrapper-top clearfix">
         <div class="block-heading">
             <h2><?php _e( 'You may be interested in&hellip;', 'woocommerce' ) ?></h2>
         </div>
-        <div class="woocommerce-carousel-wrapper" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_cross_sells_carousel', '[[992,4], [768, 2], [480, 1]]'); ?>">
+        <div class="woocommerce-carousel-wrapper" data-theme="style-navigation-top" data-itemscustom="<?php echo apply_filters( 'woocommerce_single_product_cross_sells_carousel', '[[992,4], [768, 2], [480, 1]]'); ?>">
 		<?php woocommerce_product_loop_start(); ?>
 
 			<?php while ( $products->have_posts() ) : $products->the_post(); ?>

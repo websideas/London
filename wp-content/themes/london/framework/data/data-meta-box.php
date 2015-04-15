@@ -25,7 +25,6 @@ function kite_register_meta_boxes( $meta_boxes )
         'context' => 'normal',
         'priority' => 'high',
         'fields' => array(
-
             array(
                 'name'    => __( 'Header position', THEME_LANG ),
                 'type'     => 'select',
@@ -38,23 +37,19 @@ function kite_register_meta_boxes( $meta_boxes )
                 ),
                 'std'  => 'default'
             ),
-
-            /*
-           array(
-               'name' => __('Header layout', THEME_LANG),
-               'id' => $prefix . 'header',
-               'desc' => __("Please choose this page's layout.", THEME_LANG),
-               'type' => 'select',
-               'options' => array(
-                   'default' => __('Default option', THEME_LANG),
-                   'layout1' => __('Layout 1', THEME_LANG),
-                   'layout2' => __('Layout 2', THEME_LANG),
-                   'layout3' => __('Layout 3', THEME_LANG),
-               ),
-               'std' => 'default'
-           ),
-
-           */
+            array(
+                'name' => __('Header layout', THEME_LANG),
+                'id' => $prefix . 'header',
+                'desc' => __("Please choose this page's layout.", THEME_LANG),
+                'type' => 'select',
+                'options' => array(
+                    'default' => __('Default option', THEME_LANG),
+                    'layout1' => __('Layout 1', THEME_LANG),
+                    'layout2' => __('Layout 2', THEME_LANG),
+                    'layout3' => __('Layout 3', THEME_LANG),
+                ),
+                'std' => 'default'
+            ),
             array(
                 'type' => 'divider',
                 'id' => 'fake_divider_id',

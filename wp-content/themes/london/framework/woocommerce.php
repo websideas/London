@@ -25,6 +25,8 @@ function themedev_woocommerce_image_dimensions() {
 	update_option( 'shop_thumbnail_image_size', $thumbnail ); 	// Image gallery thumbs
 }
 add_action( 'after_switch_theme', 'themedev_woocommerce_image_dimensions', 1 );
+
+
 /**
  * Change placeholder for woocommerce
  * 
@@ -64,16 +66,17 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
     if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
         <nav class="woocommerce-nav-container" id="<?php echo $id; ?>">
             <ul class="menu">
-                <li>
-                    <?php if ( is_user_logged_in() ) { ?>
+                    <?php /* if ( is_user_logged_in() ) { ?>
+                    <li class='logout-link'> 
+                        <a href="<?php echo wp_logout_url(); ?>"><?php _e('Logout', THEME_LANG) ?></a>
+                    </li>
+                    <?php } */ ?>
+                    <li class='my-account-link'>                        
                         <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?php _e('My Account','woothemes'); ?></a>
-                    <?php }else { ?>
-                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>"><?php _e('Login / Register','woothemes'); ?></a>
-                    <?php } ?>
-                </li>
+                    </li>
                 <?php
                     if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-                        echo "<li>";
+                        echo "<li class='checkout-link'>";
                     	echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
                         echo "</li>";
                     endif;
@@ -96,14 +99,14 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                 		if (is_array($count)) {
                 			$count = 0;
                 		}
-                        echo "<li>";
-                            echo '<a class="wishlist-link" href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist ", THEME_LANG).'<span>('.$count.')</span></a>';
+                        echo "<li class='wishlist-link'>";
+                            echo '<a href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist ", THEME_LANG).'<span>('.$count.')</span></a>';
                         echo "</li>";
                     }
                 ?>
                 <?php
                     if(defined( 'YITH_WOOCOMPARE' )){
-                        echo "<li>";
+                        echo "<li class='woocompare-link'>";
                         echo '<a href="#" class="yith-woocompare-open">'.__("Compare", THEME_LANG).'</a>';
                         echo "</li>";
                     }
@@ -219,6 +222,11 @@ function london_wrapper_end() {
   echo '</div><!-- .container --></div>';
 }
 
+/**
+ * Add checkout button to cart page
+ * 
+ */
+add_action('woocommerce_cart_actions', 'woocommerce_button_proceed_to_checkout');
 
 /**
  * Woocommerce breadcrumb change order and navigation pipe
@@ -242,21 +250,24 @@ function jk_woocommerce_breadcrumbs() {
 
 
 /**
- * Change number or products per row to 3
+ * Change columns of shop
  * 
  */
 
 add_filter( 'loop_shop_columns', 'london_woo_shop_columns' );
 function london_woo_shop_columns( $columns ) {
-    if(is_shop()){
+    $layout = themedev_option('archive-product-layout','full');
+    if($layout == 'left' || $layout == 'right'){
+        return 3;
+    }else{
         return 4;
-    }elseif(is_product_category()){
-        return 3;
-    }elseif(is_product_tag()){
-        return 3;
     }
     return $columns;
 }
+
+
+
+
 
 /**
  * Change layout of archive product
@@ -264,8 +275,21 @@ function london_woo_shop_columns( $columns ) {
  */
 add_filter( 'archive_product_layout', 'woocommerce_archive_product_layout' );
 function woocommerce_archive_product_layout( $columns ) {
-    $layout = themedev_option('archive-product-layout','full');
+    $layout = themedev_option('archive-product-layout', 'full');
     return $layout;
+}
+
+add_filter( 'woocommerce_product_loop_start', 'woocommerce_product_loop_start_callback' );
+function woocommerce_product_loop_start_callback($classes){
+    if(is_product_category() || is_shop() || is_product_tag()){
+        $products_layout = themedev_option('products-layout', 'grid');
+        $classes .= ' '.$products_layout;
+    }
+    return $classes;
+}
+add_filter( 'woocommerce_gridlist_toggle', 'woocommerce_gridlist_toggle_callback' );
+function woocommerce_gridlist_toggle_callback(){
+    return themedev_option('products-layout', 'grid');
 }
 
 
@@ -275,8 +299,23 @@ function woocommerce_archive_product_layout( $columns ) {
  */
 add_filter( 'single_product_layout', 'london_single_product_layout' );
 function london_single_product_layout( $columns ) {
-    //fullwidth, sidebar-left, sidebar-right
-    return 'fullwidth';
+    $layout = themedev_option('single-product-layout', 'full');
+    return $layout;
+}
+
+/**
+ * Change layout of carousel single product
+ * 
+ */
+add_filter( 'woocommerce_single_product_carousel', 'woocommerce_single_product_carousel_callback' );
+function woocommerce_single_product_carousel_callback( $columns ) {
+    $layout = themedev_option('single-product-layout', 'full');
+    if($layout == 'left' || $layout == 'right'){
+        return '[[992,3], [768, 3], [480, 2]]';
+    }else{
+        return '[[992,4], [768, 3], [480, 2]]';
+    }
+    
 }
 
 /**
@@ -349,13 +388,14 @@ function woocommerce_after_shop_loop_item_sale_short_description($product, $post
     echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 }
 function woocommerce_gridlist_toggle(){ ?>
+    <?php $gridlist = apply_filters('woocommerce_gridlist_toggle', 'grid') ?>
     <ul class="gridlist-toggle hidden-xs">
         <li><span><?php _e('View as:', THEME_LANG) ?></span></li>
 		<li>
-			<a href="#" title="<?php _e('List view', THEME_LANG) ?>" data-layout="lists" data-remove="grid"><i class="fa fa-th-list"></i></a>
+			<a <?php if($gridlist == 'lists'){ ?>class="active"<?php } ?> href="#" title="<?php _e('List view', THEME_LANG) ?>" data-layout="lists" data-remove="grid"><i class="fa fa-th-list"></i></a>
 		</li>
 		<li>
-			<a class="active" href="#" title="<?php _e('Grid view', THEME_LANG) ?>" data-layout="grid" data-remove="lists"><i class="fa fa-th-large"></i></a>
+			<a <?php if($gridlist == 'grid'){ ?>class="active"<?php } ?> href="#" title="<?php _e('Grid view', THEME_LANG) ?>" data-layout="grid" data-remove="lists"><i class="fa fa-th-large"></i></a>
 		</li>
 	</ul>
 <?php }
@@ -417,3 +457,14 @@ function custom_stock_totals($availability_html, $availability_text, $variation)
 	return 	$availability_html;
 }
 add_filter('woocommerce_stock_html', 'custom_stock_totals', 20, 3);
+
+/* cart hooks */
+add_action('woocommerce_before_cart_table', 'kt_woocommerce_before_cart_table', 20);
+function kt_woocommerce_before_cart_table( $args )
+{
+	global $woocommerce;
+
+	$html = '<h3>' . sprintf( __( 'You Have %d Items In Your Cart', 'Avada' ), $woocommerce->cart->cart_contents_count ) . '</h3>';
+
+	echo $html;
+}
