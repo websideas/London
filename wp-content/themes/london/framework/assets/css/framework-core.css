@@ -129,6 +129,7 @@ div#post-body .rwmb-select{
     cursor: pointer;
     height: 30px;
     width: 174px;
+    box-shadow: none;
 }
 
 /*==================================

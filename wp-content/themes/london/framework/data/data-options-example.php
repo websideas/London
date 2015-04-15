@@ -764,6 +764,8 @@
                 'subtitle' => __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
                 'output'   => array( '.site-header' ),
                 'all'      => false,
+                'left'     => false,
+                'right'    => false,
                 // An array of CSS selectors to apply this font style to
                 'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
                 'default'  => array(

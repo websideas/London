@@ -25,21 +25,23 @@
 	 */
 	do_action( 'theme_before_footer' ); ?>
     
-	<div class="footer-container">
-        <?php
-    	/**
-    	 * @hooked 
-    	 */
-    	do_action( 'theme_before_footer_top' ); ?>
-        <div id="footer-top">
+    <?php
+	/**
+	 * @hooked 
+	 */
+	do_action( 'theme_before_footer_top' ); ?>
+    <?php if(is_active_sidebar( 'footer-top' )){ ?>
+        <footer id="footer-top">
             <div class="container">
                 <?php dynamic_sidebar('footer-top') ?>
             </div><!-- .container -->
-        </div><!-- #footer-top -->
-        <footer id="footer">
+        </footer><!-- #footer-top -->
+    <?php } ?>
+    <footer id="footer-area">
+        <div id="footer-area-content">
             <div class="container">
                 <div class="row">
-                    <?php $layouts = explode('-', themedev_option('footer-layout', '3-3-3-3')); ?>
+                    <?php $layouts = explode('-', themedev_option('footer_widgets_layout', '4-4-4')); ?>
                     <?php foreach($layouts as $i => $layout){ ?>
                         <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
                             <?php dynamic_sidebar('footer-column-'.($i+1)) ?>
@@ -47,22 +49,23 @@
                     <?php } ?>
                 </div>
             </div><!-- .container -->
-        </footer><!-- #footer -->
-        <div id="footer-bottom" class="copyright">
-            <div class="container">
-                <div class="display-table">
-                    <div class="display-td footer-bottom-left">
-                        <?php if ( has_nav_menu( 'bottom' ) ) { ?>
-                            <?php wp_nav_menu( array( 'theme_location' => 'bottom', 'container' => 'nav', 'container_id' => 'bottom-nav' ) ); ?>
-                        <?php } ?>
-                    </div>
-                    <div class="display-td footer-bottom-right">
-                        LONDON STARS &copy; 2014. Powered by Wordpress. All Rights Reserved.
-                    </div>
+        </div><!-- #footer-area-content -->
+    </footer><!-- #footer-area -->
+    
+	<footer id="footer" class="copyright">
+        <div class="container">
+            <div class="display-table">
+                <div class="display-td footer-left">
+                    <?php if ( has_nav_menu( 'bottom' ) ) { ?>
+                        <?php wp_nav_menu( array( 'theme_location' => 'bottom', 'container' => 'nav', 'container_id' => 'bottom-nav' ) ); ?>
+                    <?php } ?>
                 </div>
-            </div><!-- .container -->
-        </div><!-- #footer-bottom -->
-	</div><!-- .footer-container -->
+                <div class="display-td footer-right">
+                    LONDON STARS &copy; 2014. Powered by Wordpress. All Rights Reserved.
+                </div>
+            </div>
+        </div><!-- .container -->
+	</footer><!-- #footer -->
     
     <?php
 	/**

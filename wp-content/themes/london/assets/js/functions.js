@@ -482,7 +482,6 @@
             responsiveRefreshRate : 100,
             afterInit : function(el){
                 el.find(".owl-item").eq(0).addClass("synced");
-                //el.find(".owl-wrapper").equalHeights();
             }
         });
         

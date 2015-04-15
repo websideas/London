@@ -127,14 +127,6 @@ function kt_get_header(){
  */
 function kt_get_header_layout(){
     $layout = themedev_option('header', 'layout1');
-    /*
-    if(is_page() || is_singular('post')){
-        $header_layout = rwmb_meta('kt_header');
-        if($header_layout != '' && $header_layout != 'default'){
-            $layout = $header_layout;
-        }
-    }
-    */
     return $layout;
 }
 

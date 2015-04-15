@@ -152,3 +152,21 @@ a img.aligncenter {
     font-size:13px;
     margin:0 0 25px;
 }
+#popup-wrap .mfp-close:active{ top:0; }
+
+.product-details-share{
+    margin:20px 0;
+}
+.product-details-share ul.share{
+    padding:0;
+    margin:0 15px 0 0;
+    list-style: none;
+    float:left;
+}
+.product-details-share ul.share li{
+    float:left;
+    margin-right:10px;
+}
+.product-details-share ul.share li a{ color:#8e8c86; }
+
+.themedev-product-popup .product-details-share{ display:none; }
