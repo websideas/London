@@ -1871,11 +1871,18 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 
 
 .easyzoom{ display: block; }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 .easyzoom-flyout img{ max-width:none!important; }
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 /** ================================================
     BLOG POSTS
 *** ================================================*/
@@ -2079,3 +2086,9 @@ a.comment-reply-link {
 }
 .content-404 h3 { font-size: 14px; font-weight: bold; }
 .content-404 .buttons {  margin-top: 40px; }
+<<<<<<< HEAD
+=======
+=======
+.easyzoom-flyout img{ max-width:none!important; }
+>>>>>>> master
+>>>>>>> origin/master
