@@ -1,7 +1,7 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [Table of contents]
 
-1. Retina logo
+1. New Grid System
 2. Add clearfix in the grid system
 3. Styles for devices(>=1200px)
 4. Styles for devices(>=992px and <=1199px)
@@ -13,15 +13,6 @@
 10. Styles for devices(<=480px )
 11. Styles for devices(<=320px )
 */
-
-/* 1. Retina logo */
-@media only screen and (-o-min-device-pixel-ratio: 3/2),
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio: 1.5),
-only screen and (min-resolution: 144dpi) {
-   .site-branding .site-logo.retina-logo-wrapper .retina-logo{ display: block; }
-   .site-branding .site-logo.retina-logo-wrapper .default-logo { display: none; }
-}
 
 /* 3. Styles for devices(>=1200px) */
 @media (min-width: 1200px) {
@@ -41,17 +32,14 @@ only screen and (min-resolution: 144dpi) {
 /* 6. Styles for devices(<=991px ) */
 @media (max-width: 991px) {
     *{}
-    #header.is-sticky,
     .header-container.header-absolute{
-        position: static!important;
+        position: static;
     }
     #main-nav,
     .header-content-left,
     .header-content-right{
         display: none;
     }
-    #woocommerce-nav-mobile-wrapper,
-    #mobile-nav-holder,
     #header-wrap .display-table,
     #mobile-content-all,
     #header-content-mobile{
@@ -113,41 +101,15 @@ only screen and (min-resolution: 144dpi) {
         padding-right: 0;
     }
 }
-/* 7. Styles for devices(>=768px and <= 991px) */
-/* 8. Styles for devices(<=767px ) */
-@media (max-width: 767px) {
-    *{}
-    .themedev-product-popup h1.product_title{
-        margin-top:10px;
-    } 
-    .woocommerce ul.products li.first{
-        clear: none;
-    }
-    .woocommerce ul.products li.first-tablet{
-        clear: both;
-    }
-}
+
 /* 10. Styles for devices(<=480px ) */
 @media (max-width: 480px) {
     *{}
-    
-    .woocommerce ul.products li.product{
-        width: 100%;
-    }
-    .woocommerce-page .quantity .input-text,
-    .woocommerce .summary .quantity .input-text{
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
     .woocommerce ul.products.lists .product-image-container,
     .woocommerce ul.products.lists .product-meta-wrapper{
         width: 100%;
         padding: 0;
         margin-bottom: 10px;
-    }
-    .woocommerce-breadcrumb .page-return{
-        display: none;
     }
     body .wpb_content_element .wpb_tabs_nav li{
         float: none;
@@ -187,32 +149,5 @@ only screen and (min-resolution: 144dpi) {
     .woocommerce-result-count{
         float: none;
         margin: 0;
-    }
-    
-    .woocommerce table.shop_table .product-quantity,
-    .woocommerce table.shop_table td.product-quantity{
-        display: none;
-    }
-    .woocommerce table.shop_table td.product-thumbnail img{
-        max-width:55px;
-    }
-    .woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2,
-    .woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1{
-        width:100%;
-    }
-    .themedev-product-popup.woocommerce .entry-summary{
-        padding:0;
-    }
-}
-@media (max-width: 360px) {
-    *{}
-    .woocommerce table.shop_table td.actions .checkout-button, 
-    .woocommerce table.shop_table td.actions input[name="update_cart"]{
-        width:100%;
-        text-align: center;
-        margin:0;
-    }
-    .woocommerce table.shop_table td.actions .checkout-button{ 
-        margin:0 0 10px; 
     }
 }

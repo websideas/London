@@ -68,8 +68,8 @@ if ( $attachment_ids ) {
 	<?php
 }
 ?>
-<?php
-/**
- * @hooked 
- */
-do_action( 'theme_share_product' ); ?>
+<ul>
+    <li><a href="mailto:?subject=<?php echo get_the_title($post->ID); ?>&body=<?php echo get_permalink($post->ID); ?>"><i class="fa fa-envelope"></i></a></li>
+    <li><a href="javascript:print();"><i class="fa fa-print"></i></a></li>
+</ul>
+<div class="addthis_native_toolbox"></div>

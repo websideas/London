@@ -29,10 +29,6 @@ if ( empty( $woocommerce_loop['loop'] ) )
 // Store column count for displaying the grid
 if ( empty( $woocommerce_loop['columns'] ) )
 	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 4 );
-    
-// Store column count for displaying the grid
-if ( empty( $woocommerce_loop['columns_tablet'] ) )
-	$woocommerce_loop['columns_tablet'] = apply_filters( 'loop_shop_columns_tablet', 2 );
 
 // Ensure visibility
 if ( ! $product || ! $product->is_visible() )
@@ -48,17 +44,9 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
 
-
-if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns_tablet'] || 1 == $woocommerce_loop['columns_tablet'] )
-	$classes[] = 'first-tablet';
-if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns_tablet'] )
-	$classes[] = 'last-tablet';
-
-
 // Bootstrap Column
 $bootstrapColumn = round( 12 / $woocommerce_loop['columns'] );
-$bootstrapTabletColumn = round( 12 / $woocommerce_loop['columns_tablet'] );
-$classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColumn;
+$classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColumn;
 
 ?>
 <li <?php post_class( $classes ); ?>>    

@@ -63,7 +63,7 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
             if ( $query->have_posts() ) :
                 $desinger = false;
                 $output .= '<div class="row">';
-                    $output .= '<div class="col-md-3 col-sm-4 col-xs-12 desinger-collection-carousel">';
+                    $output .= '<div class="col-md-3 col-sm-3 col-xs-12 desinger-collection-carousel">';
                         $output .= '<div class="owl-carousel-wrapper">';
                             $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
                                 while ( $query->have_posts() ) : $query->the_post();
@@ -95,7 +95,7 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
                             $output .= '</div><!-- .owl-carousel.kt-owl-carousel -->';
                         $output .= '</div><!-- .owl-carousel-wrapper -->';
                     $output .= '</div><!--.desinger-collection-carousel -->';
-                    $output .= '<div class="col-md-9 col-sm-8 col-xs-12 desinger-collection-woocommerce">';
+                    $output .= '<div class="col-md-9 col-sm-9 col-xs-12 desinger-collection-woocommerce">';
                         $product_ids = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $desinger);
                         if(count($product_ids)){
                             $args = array(

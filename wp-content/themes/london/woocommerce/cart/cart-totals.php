@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="cart_totals col-md-4 col-sm-12 col-xs-12 pull-right <?php if ( WC()->customer->has_calculated_shipping() ) echo 'calculated_shipping'; ?>">
+<div class="cart_totals col-md-4 col-sm-12 <?php if ( WC()->customer->has_calculated_shipping() ) echo 'calculated_shipping'; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 

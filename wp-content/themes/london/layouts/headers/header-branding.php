@@ -3,11 +3,8 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-$logo = themedev_getLogo();
-$logo_class = ($logo['retina']) ? ' retina-logo-wrapper' : ''; 
-$logo_circle = themedev_option('logo_circle');
-if($logo_circle) $logo_class .= ' logo-circle';
-
+$logo = kt_get_logo();
+$logo_class = ($logo['retina']) ? 'retina-logo-wrapper' : ''; 
 ?>
 
 <?php $tag = ( is_front_page() && is_home() ) ? 'h1' : 'p'; ?>

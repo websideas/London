@@ -1,10 +1,7 @@
 <?php
-
+session_start();
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
-
-session_start();
-//session_destroy();
 
 // Script version, used to add version for scripts and styles
 define( 'THEME_VER', '1.0' );
