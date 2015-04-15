@@ -12,6 +12,8 @@ define( 'FW_URL', trailingslashit(THEME_URL.'framework'));
 define( 'FW_EXT_DIR', trailingslashit( FW_DIR . 'extensions' ) );
 define( 'FW_EXT_URL', trailingslashit( FW_URL . 'extensions' ) );
 
+define( 'FW_PLUGINS_DIR', trailingslashit( FW_DIR . 'plugins' ) );
+
 define( 'FW_EXT_CUSTOM_DIR', trailingslashit( FW_DIR . 'extensions-custom' ) );
 define( 'FW_EXT_CUSTOM_URL', trailingslashit( FW_URL . 'extensions-custom' ) );
 
@@ -142,16 +144,18 @@ if (file_exists( FW_DATA . 'data-options.php' ) ) {
 if (is_admin() ) {
     
     /**
-	 * Include the shortcodes.
+	 * Install Plugins
      * 
 	 */ 
-    if ( class_exists( 'RW_Meta_Box' ) ) {
-        require_once (FW_EXT_DIR . 'shortcodes/shortcodes.php');
-        if ( class_exists( 'KT_SHORTCODES' ) ) {
-        	require_once (FW_DATA . 'data-shortcodes.php');
-        }
-    }
-
+ 	require_once (FW_DATA . 'data-plugins.php');
+    
+    /**
+	 * Include meta-box.
+     * 
+	 */ 
+    require_once (FW_DATA . 'data-meta-box.php');
+    
+    
     /**
      * Get Navigation nav
      *
