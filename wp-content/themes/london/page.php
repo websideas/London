@@ -23,12 +23,12 @@ get_header(); ?>
         <div class="row">    
             <div id="main" class="<?php echo apply_filters('themedev_main_class', 'main-class', $sidebar['sidebar']); ?>">
                 <?php
-                	// Start the loop.
-                	while ( have_posts() ) : the_post();
-                		// Include the page content template.
-                		get_template_part( 'content', 'page' );
-                	// End the loop.
-                	endwhile;
+
+                the_post();
+                // Include the page content template.
+                get_template_part( 'content', 'page' );
+
+
             	?>
             </div>
             <?php if($sidebar['sidebar'] != 'full'){ ?>

@@ -59,7 +59,8 @@ function theme_setup() {
         add_image_size( 'haft', 570);
         add_image_size( 'recent_posts', 570, 380, true);
         add_image_size( 'small', 105, 105, true );
-        
+        add_image_size( 'blog-post', 770, 290, true );
+
     }
     
     load_theme_textdomain( THEME_LANG, THEME_DIR . '/languages' );

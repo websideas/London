@@ -1771,16 +1771,6 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 
 
 
-
-
-
-
-
-
-
-
-
-
 /** ================================================
     Sidebar
 *** ================================================*/
@@ -1824,3 +1814,56 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 
 .easyzoom{ display: block; }
 .easyzoom-flyout img{ max-width:none!important; }
+
+
+
+/** ================================================
+    BLOG POSTS
+*** ================================================*/
+.blog-posts .post-item {
+    position: relative;
+}
+.blog-posts .post-item .post-info {
+    margin-left: 80px;
+    border: 1px solid #CCCCCC;
+    border-bottom-width: 0px;
+    padding: 10px;
+    min-height: 100px; display: block;
+}
+.blog-posts .post-item:last-child .post-info,
+.blog-posts .post-item.post-item-last .post-info
+{
+    border-bottom-width: 1px;
+}
+
+.blog-posts .post-item .entry-date-time {
+    color: #ffffff;
+    width: 70px; display: block;
+    text-align: center;
+    padding: 10px 0px;
+    position: absolute; top: 0px; left: 0px; background: #333333; text-transform: uppercase;
+}
+.blog-posts .post-item .entry-date-time .d{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 34px;
+}
+.blog-posts .post-item .entry-date-time .y { margin-top: 3px; }
+.blog-posts .entry-title {
+    font-size: 18px; line-height: 1.5; margin-bottom: 0px;
+}
+.entry-meta-data { font-style: italic;  margin-bottom: 5px; color: #858785; }
+.entry-meta-data > span:after {
+    content: "/";
+    margin-right: 4px; margin-left: 6px;
+}
+.entry-meta-data > span:last-child:after {
+    content:''; margin-left: 0px; margin-right: 0px;
+}
+.entry-more { font-style: italic; }
+.entry-thumb {
+    margin-bottom: 15px;
+}
+.entry-ci {
+    margin-left: 20px; margin-right: 20px;
+}
