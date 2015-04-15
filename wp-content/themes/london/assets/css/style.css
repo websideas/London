@@ -1835,6 +1835,10 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 {
     border-bottom-width: 1px;
 }
+.blog-posts .post-item.search-item .post-info {
+    margin-left: 0px; min-height: auto;
+}
+
 
 .blog-posts .post-item .entry-date-time {
     color: #ffffff;
@@ -1867,3 +1871,152 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .entry-ci {
     margin-left: 20px; margin-right: 20px;
 }
+
+.list-blog-posts .navigation , .entry-content .page-links{ text-align: right; width: 100%; }
+.list-blog-posts .navigation .nav-links span, .list-blog-posts .navigation .nav-links  a ,
+.entry-content .page-links a, .entry-content .page-links span
+{ margin-left: 15px; }
+.list-blog-posts .navigation .nav-links span ,  .entry-content .page-links span { colo: #000; font-weight: bold; }
+.taxonomy-description { font-size: 16px; font-weight: bold;  margin-bottom: 30px; }
+
+/** ================================================
+SINGLE POST - ENTRY POST
+/** ================================================ */
+.single .entry-meta-data { margin-bottom: 20px; }
+.single .entry-thumb img { padding: 10px; border: 1px solid #CCCCCC; width: 100%; }
+
+
+
+/** ================================================
+COMMENTS
+/** ================================================ */
+
+.comment-list, .comment-list ol, .comment-list ul {
+    padding: 0px; margin: 0px;
+}
+.comment-list li { list-style: none;  }
+
+
+.comment-respond .comment-reply-title {
+    margin-top: 0px;
+}
+#comments { margin-top: 30px; }
+.comment-form p label {
+    display: block;
+}
+
+#comments {
+    padding-bottom: 10px;
+}
+.comment_nav { display: block; }
+.comment_nav .previous{ float: right; }
+.comment_nav a{ margin-bottom: 20px; display: inline-block; }
+.comment_nav:before{
+    clear: both;
+    content: " ";
+    display: block;
+}
+.comments-list {
+    margin: 0px;
+    padding:0px;
+}
+.comments-list li {
+    list-style: none;
+    margin-bottom: 0px;
+}
+.comment-meta {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 15px; margin-bottom: 15px;
+}
+.comments-list li .respond-form, .comments-list li .respond {
+    margin-left: 30px;
+    clear: both;
+}
+.comment-entry.entry-content {
+    margin-bottom: 5px;
+}
+.comment-item {
+    margin-bottom: 25px;
+}
+.comment-item .comment-avatar {
+    float: left;
+    margin-right: 18px;
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 120px;
+    -moz-border-radius: 120px;
+    border-radius: 120px;
+}
+.comment-item .comment-avatar  img{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+
+.comment-date {font-style: italic; margin-left: 10px; color: #888888; float: right; }
+.comment-content {
+    margin-left: 80px;
+    background: #F8F8F8;
+    padding: 15px;
+    position: relative;
+}
+a.comment-reply-link {
+    background: none repeat scroll 0 0 #333333;
+    bottom: 0;
+    color: #f5f5f5;
+    padding: 5px 15px;
+    position: absolute;
+    right: 0;
+    font-size: 12px; text-transform: uppercase;
+
+}
+#cancel-comment-reply-link {
+    background: none repeat scroll 0 0 #333333;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 12px; text-transform: uppercase;
+}
+
+.comment ul.children {
+    margin-left: 30px;
+}
+.comment-respond {
+    background: #f3f3f3;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.comment-form input[type=text], .comment-form input[type=email], .comment-form input[type=url], .comment-form textarea{
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    padding: 5px 10px;
+}
+.comment-form .submit {
+    padding: 7px 15px; text-transform: uppercase;
+    background: #f7f3ee;
+    border: 0px none;
+    border: 1px solid #CCCCCC;
+}
+
+
+
+/* 404 PAGE */
+.content-404 { text-align: center ; max-width: 840px; margin: 0px auto 50px; }
+.content-404 form { text-align: left; }
+.content-404  h1{ text-transform: uppercase; font-weight: bold;  font-size:  28px; margin-bottom: 0px; }
+.content-404 form .form-control {
+    max-width: 320px; display: inline-block; height: auto;
+    padding: 8px 12px; margin-top: 2px;
+}
+.content-404 form .btn { margin-top: -5px; }
+.content-404  p {
+    text-transform: uppercase;  font-size: 16px; font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    color: #555454;
+    margin-bottom: 20px;
+    padding-bottom: 19px;
+
+}
+.content-404 h3 { font-size: 14px; font-weight: bold; }
+.content-404 .buttons {  margin-top: 40px; }

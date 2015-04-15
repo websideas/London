@@ -13,6 +13,7 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
             'orderby' => '',
             'heading' => 'h2',
             'order' => '',
+            'pagination' => '',
             'css' => '',
             'el_class' => '',
         ), $atts );
@@ -40,99 +41,58 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
 
             }
 
+            global $wp_query, $post, $paged;
 
             $category = ($category) ? explode(',', $category ) : false;
-
-            $output .= "<div class='blog-posts'>";
-
         		$args = array(
         			'posts_per_page'	=> $atts['per_page'],
         			'orderby' 			=> $atts['orderby'],
         			'order' 			=> $atts['order'],
-        			'no_found_rows' 	=> 1,
         			'post_status' 		=> 'publish',
         			'post_type' 		=> 'post',
+                    'posts_per_page'    => $per_page,
+                    'paged' => $paged
         		);
                 if( !empty( $category ) ){
                     $args['tax_query'] = array( array( 'taxonomy' => 'product_cat', 'field' => 'id', 'terms' => $category, 'operator' => 'IN' ) );
                 }
                 
                 ob_start();
-                global $wp_query, $post;
+
                 $wp_query = new WP_Query( $args  );
 
                 $posts = $wp_query->get_posts();
 
                 $n  =  count( $posts );
 
+                ?>
+                <div class='blog-posts'>
+                <?php
                 do_action('before_blog_posts_loop');
                 if ( $n ) :
                     foreach ( $posts as $i => $post ) :
                         setup_postdata(  $post );
-                        $classes =  array();
-                        $classes[] = 'post-item';
-                        if( $i ==0 ){
-                            $classes[] = 'post-item-first';
-                        }
-
-                        if( $i == $n-1 ){
-                            $classes[] = 'post-item-last';
-                        }
-
-                        ?>
-                        <div <?php post_class('post-item'); ?>>
-                            <div class="entry-date-time">
-                                <div class="m"> <?php the_time( 'M' ); ?></div>
-                                <div class="d"> <?php the_time( 'd' ); ?></div>
-                                <div class="y"> <?php the_time( 'Y' ); ?></div>
-                            </div>
-                            <div class="post-info">
-                                <?php if( has_post_thumbnail() ){
-                                    ?>
-                                    <div class="entry-thumb">
-                                        <?php
-                                        the_post_thumbnail('blog-post');
-                                        ?>
-                                    </div>
-                                    <?php
-                                } ?>
-                                <div class="entry-ci">
-                                    <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                                    <div class="entry-meta-data">
-                                        <?php
-                                        printf( '<span class="author vcard">'.__('Posed by:', THEME_LANG ).' <a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-                                            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-                                            esc_attr( sprintf( __( 'View all posts by %s', 'THEME_LANG' ), get_the_author() ) ),
-                                            get_the_author()
-                                        );
-                                        ?>
-                                        <span class="cat"><?php the_category(', '); ?></span>
-                                    <span class="comment-count"><?php comments_number(
-                                            __('Comments: 0', THEME_LANG),
-                                            __('Comment: 1', THEME_LANG),
-                                            __('Comments: %', THEME_LANG)
-                                        ); ?></span>
-                                    </div>
-                                    <div class="entry-excerpt">
-                                        <?php the_excerpt(); ?>
-                                    </div>
-                                    <div class="entry-more">
-                                        <a href="<?php the_permalink() ?>"><?php _e('Read more', THEME_LANG ); ?></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    <?php
+                        get_template_part( 'templates/loop' );
 
                     endforeach; // end of the loop.
         		endif;
-                do_action('after_blog_posts_loop');
-        		$wp_query->reset_postdata();
-        		$output .= ob_get_clean();
 
-            $output .= "</div><!-- .blog-posts -->";
+            ?>
+            </div><!-- .blog-posts -->
+            <?php
+            // Previous/next page navigation.
+
+            echo get_the_posts_pagination( array(
+                'prev_text'          => __( 'Previous', THEME_LANG ),
+                'next_text'          => __( 'Next', THEME_LANG ),
+                'before_page_number' => '',
+            ) );
+
+
+            $output .= ob_get_clean();
+
+            do_action('after_blog_posts_loop');
+            $wp_query->reset_postdata();
         $output .= "</div>";   
         
         return $output;
@@ -215,6 +175,14 @@ vc_map( array(
             ),
 			'description' => sprintf( __( 'Designates the ascending or descending order. More at %s.', 'js_composer' ), '<a href="http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters" target="_blank">WordPress codex page</a>' )
 		),
+
+
+        array(
+            'type' => 'checkbox',
+            'heading' => __( 'Pagination', THEME_LANGUAGE ),
+            'param_name' => 'pagination',
+            'value' => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
+        ),
 
         array(
             "type" => "textfield",
