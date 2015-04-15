@@ -24,7 +24,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <?php $position = themedev_getHeader(); ?>
+    <?php $position = kt_get_header(); ?>
     <?php
 	/**
 	 * @hooked 
@@ -45,7 +45,7 @@
     	 * @hooked 
     	 */
     	do_action( 'theme_before_header' ); ?>
-        <?php $header_layout = themedev_getHeaderLayout(); ?>
+        <?php $header_layout = kt_get_header_layout(); ?>
         <div class="header-<?php echo $header_layout ?> <?php echo apply_filters('theme_header_class', 'header-container', $position) ?>">
             <header id="header" class="<?php echo apply_filters('theme_header_content_class', 'header-content') ?>">
                 <?php get_template_part( 'layouts/headers/header',  $header_layout); ?>

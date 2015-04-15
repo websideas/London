@@ -4,8 +4,8 @@
 if ( !defined('ABSPATH')) exit;
 
 
-if ( ! class_exists( 'KiteThemes_config' ) ) {
-    class KiteThemes_config{
+if ( ! class_exists( 'KT_config' ) ) {
+    class KT_config{
         public $args = array();
         public $sections = array();
         public $theme;
@@ -554,17 +554,14 @@ if ( ! class_exists( 'KiteThemes_config' ) ) {
                     
                 )
             );
-            
-            
-            
-             
+
             
         }
         
     }
     
     global $reduxConfig;
-    $reduxConfig = new KiteThemes_config();
+    $reduxConfig = new KT_config();
     
 } else {
     echo "The class named Redux_Framework_sample_config has already been called. <strong>Developers, you need to prefix this class with your company name or you'll run into problems!</strong>";

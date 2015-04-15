@@ -3,7 +3,7 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-$logo = themedev_getLogo();
+$logo = kt_get_logo();
 $logo_class = ($logo['retina']) ? 'retina-logo-wrapper' : ''; 
 ?>
 

@@ -101,6 +101,7 @@ require_once ( FW_EXT_DIR .'nav/nav_custom_walker.php' );
  * 
  */
 
+
 define( 'RWMB_URL', trailingslashit( FW_EXT_URL . 'meta-box' ) );
 define( 'RWMB_DIR', trailingslashit( FW_EXT_DIR . 'meta-box' ) );
 
@@ -119,10 +120,12 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
     
 }
 
+
 /**
  * Include the redux-framework.
  * 
  */
+
 if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/framework.php' ) ) {
     
     
@@ -135,7 +138,6 @@ if (file_exists( FW_DATA . 'data-options.php' ) ) {
     require_once( FW_DATA . 'data-options.php' );
     require_once( FW_DATA . 'data-options-example.php' );
 }
-
 
 if (is_admin() ) {
     
