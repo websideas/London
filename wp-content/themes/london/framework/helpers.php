@@ -64,7 +64,7 @@ if (!function_exists('themedev_option')){
  * @return string
  * 
  */
-function themedev_getLogo(){
+function kt_get_logo(){
 
     $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
     $logo_default = themedev_option( 'logo' );
@@ -108,7 +108,7 @@ function themedev_getlayout($post_id = null){
  * 
  */
 
-function themedev_getHeader(){
+function kt_get_header(){
     $header = 'default';
     if(is_page() || is_singular('post')){
         $header_position = rwmb_meta('kt_header_position');
@@ -125,7 +125,7 @@ function themedev_getHeader(){
  * @return string
  * 
  */
-function themedev_getHeaderLayout(){
+function kt_get_header_layout(){
     $layout = themedev_option('header', 'layout1');
     /*
     if(is_page() || is_singular('post')){

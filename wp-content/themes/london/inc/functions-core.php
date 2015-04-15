@@ -98,8 +98,8 @@ function add_span_cat_count($variable) {
  * @since 1.0
  * @return void
  */
-if ( ! function_exists( 'themdev_meta_title' ) ) {
-	function themdev_meta_title() { ?>
+if ( ! function_exists( 'kt_meta_title' ) ) {
+	function kt_meta_title() { ?>
 		<title><?php if ( function_exists( 'wpseo_auto_load' ) ) { ?> 
             <?php wp_title(); ?>
             <?php }else{ ?>
