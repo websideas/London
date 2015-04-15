@@ -41,7 +41,7 @@
         <div id="footer-area-content">
             <div class="container">
                 <div class="row">
-                    <?php $layouts = explode('-', themedev_option('footer_widgets_layout', '4-4-4')); ?>
+                    <?php $layouts = explode('-', kt_option('footer_widgets_layout', '4-4-4')); ?>
                     <?php foreach($layouts as $i => $layout){ ?>
                         <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
                             <?php dynamic_sidebar('footer-column-'.($i+1)) ?>

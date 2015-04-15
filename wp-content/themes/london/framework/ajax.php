@@ -15,7 +15,7 @@ function wp_ajax_frontend_mailchimp_callback() {
     check_ajax_referer( 'ajax_frontend', 'security' );
     
     $output = array( 'error'=> 1, 'msg' => __('Error', THEME_LANGUAGE));
-    $api_key = themedev_option('mailchimp_api');
+    $api_key = kt_option('mailchimp_api');
     $email = ($_POST['email']) ? $_POST['email'] : '';
     
     if ($email) {

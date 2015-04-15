@@ -8,7 +8,7 @@ if ( !defined('ABSPATH')) exit;
 /**
  * Define image sizes
  */
-function themedev_woocommerce_image_dimensions() {
+function kt_woocommerce_image_dimensions() {
 	global $pagenow;
  
 	if ( ! isset( $_GET['activated'] ) || $pagenow != 'themes.php' ) {
@@ -24,7 +24,7 @@ function themedev_woocommerce_image_dimensions() {
 	update_option( 'shop_single_image_size', $single ); 		// Single product image
 	update_option( 'shop_thumbnail_image_size', $thumbnail ); 	// Image gallery thumbs
 }
-add_action( 'after_switch_theme', 'themedev_woocommerce_image_dimensions', 1 );
+add_action( 'after_switch_theme', 'kt_woocommerce_image_dimensions', 1 );
 
 
 /**
@@ -256,7 +256,7 @@ function jk_woocommerce_breadcrumbs() {
 
 add_filter( 'loop_shop_columns', 'london_woo_shop_columns' );
 function london_woo_shop_columns( $columns ) {
-    $layout = themedev_option('archive-product-layout','full');
+    $layout = kt_option('archive-product-layout','full');
     if($layout == 'left' || $layout == 'right'){
         return 3;
     }else{
@@ -275,21 +275,21 @@ function london_woo_shop_columns( $columns ) {
  */
 add_filter( 'archive_product_layout', 'woocommerce_archive_product_layout' );
 function woocommerce_archive_product_layout( $columns ) {
-    $layout = themedev_option('archive-product-layout', 'full');
+    $layout = kt_option('archive-product-layout', 'full');
     return $layout;
 }
 
 add_filter( 'woocommerce_product_loop_start', 'woocommerce_product_loop_start_callback' );
 function woocommerce_product_loop_start_callback($classes){
     if(is_product_category() || is_shop() || is_product_tag()){
-        $products_layout = themedev_option('products-layout', 'grid');
+        $products_layout = kt_option('products-layout', 'grid');
         $classes .= ' '.$products_layout;
     }
     return $classes;
 }
 add_filter( 'woocommerce_gridlist_toggle', 'woocommerce_gridlist_toggle_callback' );
 function woocommerce_gridlist_toggle_callback(){
-    return themedev_option('products-layout', 'grid');
+    return kt_option('products-layout', 'grid');
 }
 
 
@@ -299,7 +299,7 @@ function woocommerce_gridlist_toggle_callback(){
  */
 add_filter( 'single_product_layout', 'london_single_product_layout' );
 function london_single_product_layout( $columns ) {
-    $layout = themedev_option('single-product-layout', 'full');
+    $layout = kt_option('single-product-layout', 'full');
     return $layout;
 }
 
@@ -309,7 +309,7 @@ function london_single_product_layout( $columns ) {
  */
 add_filter( 'woocommerce_single_product_carousel', 'woocommerce_single_product_carousel_callback' );
 function woocommerce_single_product_carousel_callback( $columns ) {
-    $layout = themedev_option('single-product-layout', 'full');
+    $layout = kt_option('single-product-layout', 'full');
     if($layout == 'left' || $layout == 'right'){
         return '[[992,3], [768, 3], [480, 2]]';
     }else{

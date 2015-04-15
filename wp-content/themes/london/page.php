@@ -11,7 +11,7 @@
  * @since London 1.0
  */
 
-$sidebar = themedev_sidebar();
+$sidebar = kt_sidebar();
 
 get_header(); ?>
     <div class="container">
@@ -21,7 +21,7 @@ get_header(); ?>
     	 */
     	do_action( 'theme_before_main' ); ?>
         <div class="row">    
-            <div id="main" class="<?php echo apply_filters('themedev_main_class', 'main-class', $sidebar['sidebar']); ?>">
+            <div id="main" class="<?php echo apply_filters('kt_main_class', 'main-class', $sidebar['sidebar']); ?>">
                 <?php
 
                 the_post();
@@ -32,7 +32,7 @@ get_header(); ?>
             	?>
             </div>
             <?php if($sidebar['sidebar'] != 'full'){ ?>
-                <div class="<?php echo apply_filters('themedev_sidebar_class', 'sidebar', $sidebar['sidebar']); ?>">
+                <div class="<?php echo apply_filters('kt_sidebar_class', 'sidebar', $sidebar['sidebar']); ?>">
                     <?php dynamic_sidebar($sidebar['sidebar_area']); ?>
                 </div><!-- .sidebar -->
             <?php } ?>

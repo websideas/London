@@ -33,7 +33,7 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
         
         $output = '';
         
-        $api_key = themedev_option('mailchimp_api');
+        $api_key = kt_option('mailchimp_api');
 
         if ( isset ( $api_key ) && !empty ( $api_key ) ) {
             
