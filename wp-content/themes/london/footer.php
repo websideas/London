@@ -25,19 +25,19 @@
 	 */
 	do_action( 'theme_before_footer' ); ?>
     
-    <?php if(is_active_sidebar( 'footer-top' ) && themedev_option('footer_top', true)){ ?>
+    <?php if(is_active_sidebar( 'footer-top' ) && kt_option('footer_top', true)){ ?>
         <footer id="footer-top">
             <div class="container">
                 <?php dynamic_sidebar('footer-top') ?>
             </div><!-- .container -->
         </footer><!-- #footer-top -->
     <?php } ?>
-    <?php if(themedev_option('footer_widgets', true)){ ?>
+    <?php if(kt_option('footer_widgets', true)){ ?>
         <footer id="footer-area">
             <div id="footer-area-content">
                 <div class="container">
                     <div class="row">
-                        <?php $layouts = explode('-', themedev_option('footer_widgets_layout', '4-4-4')); ?>
+                        <?php $layouts = explode('-', kt_option('footer_widgets_layout', '4-4-4')); ?>
                         <?php foreach($layouts as $i => $layout){ ?>
                             <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
                                 <?php dynamic_sidebar('footer-column-'.($i+1)) ?>
@@ -48,10 +48,10 @@
             </div><!-- #footer-area-content -->
         </footer><!-- #footer-area -->
     <?php } ?>
-    <?php if(themedev_option('footer', true)){ ?>
+    <?php if(kt_option('footer', true)){ ?>
     	<footer id="footer" class="copyright">
             <div class="container">
-                <?php get_template_part( 'layouts/footers/footer', themedev_option('footer_layout', 'sides') ); ?>
+                <?php get_template_part( 'layouts/footers/footer', kt_option('footer_layout', 'sides') ); ?>
             </div><!-- .container -->
     	</footer><!-- #footer -->
     <?php } ?>
