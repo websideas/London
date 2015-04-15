@@ -189,9 +189,9 @@ if ( class_exists( 'Vc_Manager', false ) ) {
 		vc_set_shortcodes_templates_dir( FW_DIR . 'js_composer/vc_templates' );
 	}
     
-    add_action( 'init', 'themedev_js_composer_bridge', 20 );
-    if ( !function_exists('themedev_js_composer_bridge') ) {
-		function themedev_js_composer_bridge() {
+    add_action( 'init', 'kt_js_composer_bridge', 20 );
+    if ( !function_exists('kt_js_composer_bridge') ) {
+		function kt_js_composer_bridge() {
 			require_once(FW_DIR . 'js_composer/js_composer_parrams.php');
             require_once(FW_DIR . 'js_composer/js_composer_bridge.php');
 		}

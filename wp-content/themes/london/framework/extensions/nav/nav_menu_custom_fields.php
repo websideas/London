@@ -11,8 +11,8 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-add_action( 'walker_nav_menu_custom_fields', 'themedev_add_custom_fields', 10, 4 );
-function themedev_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
+add_action( 'walker_nav_menu_custom_fields', 'kt_add_custom_fields', 10, 4 );
+function kt_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
     <div class="clearfix"></div>
     <div class="container-megamenu">
         <p class="field-icon description description-wide clearfix">
@@ -100,7 +100,7 @@ function themedev_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                     <p class="field-widget description description-wide">
                         <label for="menu-item-widget-<?php echo $item_id; ?>">
                             <?php _e('Mega Menu Widget Area', THEME_LANGUAGE); ?><br />
-                            <?php $sidebars = themedev_sidebars();?>
+                            <?php $sidebars = kt_sidebars();?>
                             <select id="menu-item-widget-<?php echo $item_id; ?>" name="menu-item-megamenu-widget[<?php echo $item_id; ?>]" class="widefat edit-menu-item-widget">
                                 <option value="0"><?php _e( 'Select Widget Area', THEME_LANGUAGE); ?></option>
                                 <?php foreach($sidebars as $k=>$v){ ?>

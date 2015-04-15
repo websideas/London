@@ -33,13 +33,13 @@ if( ! class_exists( 'KT_MEGAMENU' ) ) {
             $this->custom_fields = array( 'icon', 'enable', 'width', 'columntitle', 'columnlink', 'position', 'columns', 'widget', 'clwidth', 'endrow', 'layout');
             
     		// add custom menu fields to menu
-    		add_filter( 'wp_setup_nav_menu_item', array( $this, 'themedev_add_custom_nav_fields' ) );
+    		add_filter( 'wp_setup_nav_menu_item', array( $this, 'kt_add_custom_nav_fields' ) );
     
     		// save menu custom fields
-    		add_action( 'wp_update_nav_menu_item', array( $this, 'themedev_update_custom_nav_fields'), 10, 3 );
+    		add_action( 'wp_update_nav_menu_item', array( $this, 'kt_update_custom_nav_fields'), 10, 3 );
     		
     		// edit menu walker
-    		add_filter( 'wp_edit_nav_menu_walker', array( $this, 'themedev_edit_walker'), 10, 2 );
+    		add_filter( 'wp_edit_nav_menu_walker', array( $this, 'kt_edit_walker'), 10, 2 );
             
             // add enqueue scripts
             add_action( 'admin_enqueue_scripts', 	array( $this, 'register_scripts' ) );
@@ -54,7 +54,7 @@ if( ! class_exists( 'KT_MEGAMENU' ) ) {
     	 * @since       1.0 
     	 * @return      void
     	*/
-    	function themedev_add_custom_nav_fields( $menu_item ) {
+    	function kt_add_custom_nav_fields( $menu_item ) {
             foreach ( $this->custom_fields as $key ) {
                 $menu_item->$key = get_post_meta( $menu_item->ID, '_menu_item_megamenu_'.$key, true );
             }
@@ -69,7 +69,7 @@ if( ! class_exists( 'KT_MEGAMENU' ) ) {
     	 * @since       1.0 
     	 * @return      void
     	*/
-    	function themedev_update_custom_nav_fields( $menu_id, $menu_item_db_id, $args ) {
+    	function kt_update_custom_nav_fields( $menu_id, $menu_item_db_id, $args ) {
             
             foreach ( $this->custom_fields as $key ) {
     			if( !isset( $_REQUEST['menu-item-megamenu-'.$key][$menu_item_db_id] ) ) {
@@ -90,7 +90,7 @@ if( ! class_exists( 'KT_MEGAMENU' ) ) {
     	 * @since       1.0 
     	 * @return      void
     	*/
-    	function themedev_edit_walker($walker,$menu_id) {
+    	function kt_edit_walker($walker,$menu_id) {
     	    return 'Walker_Nav_Menu_Edit_Custom';
     	}
         
@@ -112,7 +112,7 @@ if( ! class_exists( 'KT_MEGAMENU' ) ) {
 			wp_enqueue_script( 'admin-megamenu' );
 		}
     
-    } // end themedev_MegaMenu() class
+    } // end kt_MegaMenu() class
     
     // instantiate plugin's class
     new KT_MEGAMENU();

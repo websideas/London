@@ -27,8 +27,8 @@ add_filter( 'sanitize_boolean', 'sanitize_boolean', 15 );
 * @return string
 */
 
-if (!function_exists('themedev_sidebars')){
-    function themedev_sidebars( $option=false, $default=false ){
+if (!function_exists('kt_sidebars')){
+    function kt_sidebars( $option=false, $default=false ){
         $sidebars = array();
         foreach ( $GLOBALS['wp_registered_sidebars'] as $item ) {
             $sidebars[$item['id']] = $item['name'];
@@ -45,14 +45,14 @@ if (!function_exists('themedev_sidebars')){
 * @return string
 */
 
-if (!function_exists('themedev_option')){
-    function themedev_option( $option=false, $default=false ){
+if (!function_exists('kt_option')){
+    function kt_option( $option=false, $default=false ){
         if($option === FALSE){
             return FALSE;
         }
-        $themedev_options = get_option(THEME_OPTIONS);
-        if(isset($themedev_options[$option]) && $themedev_options[$option] !== ''){
-            return $themedev_options[$option];
+        $kt_options = get_option(THEME_OPTIONS);
+        if(isset($kt_options[$option]) && $kt_options[$option] !== ''){
+            return $kt_options[$option];
         }else{
             return $default;
         }
@@ -67,8 +67,8 @@ if (!function_exists('themedev_option')){
 function kt_get_logo(){
 
     $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
-    $logo_default = themedev_option( 'logo' );
-    $logo_retina = themedev_option( 'logo_retina' );
+    $logo_default = kt_option( 'logo' );
+    $logo_retina = kt_option( 'logo_retina' );
     
     if(is_array($logo_default)){
         $logo['default'] = $logo_default['url'];
@@ -88,14 +88,14 @@ function kt_get_logo(){
  * @return string
  * 
  */
-function themedev_getlayout($post_id = null){
+function kt_getlayout($post_id = null){
     global $post;
 	if(!$post_id) $post_id = $post->ID;
 
     $layout = rwmb_meta('kt_layout');
     
     if($layout == 'default' || !$layout){
-        $layout = themedev_option('layout', 'full');
+        $layout = kt_option('layout', 'full');
     }
     
     return $layout;
@@ -126,7 +126,7 @@ function kt_get_header(){
  * 
  */
 function kt_get_header_layout(){
-    $layout = themedev_option('header', 'layout1');
+    $layout = kt_option('header', 'layout1');
     return $layout;
 }
 
@@ -136,12 +136,12 @@ function kt_get_header_layout(){
  * @return array
  * 
  */
-function themedev_sidebar(){
+function kt_sidebar(){
     global $post;
     
-    $sidebar = themedev_option('sidebar', 'full');
-    $sidebar_left = themedev_option('sidebar_left', 'primary-widget-area');
-    $sidebar_right = themedev_option('sidebar_right', 'primary-widget-area');
+    $sidebar = kt_option('sidebar', 'full');
+    $sidebar_left = kt_option('sidebar_left', 'primary-widget-area');
+    $sidebar_right = kt_option('sidebar_right', 'primary-widget-area');
     
     if($sidebar == 'left'){
         $sidebar_area = $sidebar_left;

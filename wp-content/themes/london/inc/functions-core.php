@@ -7,7 +7,7 @@ if ( !defined('ABSPATH')) exit;
 /*
  * Set up the content width value based on the theme's design.
  *
- * @see themedev_content_width() for template-specific adjustments.
+ * @see kt_content_width() for template-specific adjustments.
  */
 if ( ! isset( $content_width ) )
 	$content_width = 1170;

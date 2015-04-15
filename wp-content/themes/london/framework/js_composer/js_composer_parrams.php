@@ -13,7 +13,7 @@ function vc_mailchimp_settings_field($settings, $value) {
 	$dependency = vc_generate_dependencies_attributes($settings);
 	$output = '';
     
-    $api_key = themedev_option('mailchimp_api');
+    $api_key = kt_option('mailchimp_api');
     
     if ( isset ( $api_key ) && !empty ( $api_key ) ) {
         $mcapi = new MCAPI($api_key);

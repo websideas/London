@@ -30,10 +30,10 @@ function theme_body_classes( $classes ) {
 	}
     
     if(is_page() || is_singular('post')){
-        $classes[] = 'layout-'.themedev_getlayout($post->ID);
+        $classes[] = 'layout-'.kt_getlayout($post->ID);
         $classes[] = rwmb_meta('kt_extra_page_class');
     }else{
-        $classes[] = 'layout-'.themedev_option('layout');
+        $classes[] = 'layout-'.kt_option('layout');
     }
 
 	return $classes;
@@ -50,7 +50,7 @@ add_filter( 'body_class', 'theme_body_classes' );
  *  
  * @return array The filtered body class list.
  */
-function themedev_main_class_callback($classes, $layout){
+function kt_main_class_callback($classes, $layout){
     
     if($layout == 'left' || $layout == 'right'){
         $classes .= ' col-md-9 col-xs-12'; 
@@ -63,7 +63,7 @@ function themedev_main_class_callback($classes, $layout){
     }
     return $classes;
 }
-add_filter('themedev_main_class', 'themedev_main_class_callback', 10, 2);
+add_filter('kt_main_class', 'kt_main_class_callback', 10, 2);
 
 
 /**
@@ -76,13 +76,13 @@ add_filter('themedev_main_class', 'themedev_main_class_callback', 10, 2);
  *  
  * @return array The filtered body class list.
  */
-function themedev_sidebar_class_callback($classes, $layout){
+function kt_sidebar_class_callback($classes, $layout){
     if($layout == 'left' || $layout == 'right'){
         $classes .= ' col-md-3 col-xs-12'; 
     }
     return $classes;
 }
-add_filter('themedev_sidebar_class', 'themedev_sidebar_class_callback', 10, 2);
+add_filter('kt_sidebar_class', 'kt_sidebar_class_callback', 10, 2);
 
 
 
@@ -109,7 +109,7 @@ add_filter('kt_content_class', 'kt_content_class_callback');
  * Add class sticky to header
  */
 function theme_header_content_class_callback($classes){
-    $sticky = themedev_option('fixed_header', 1);
+    $sticky = kt_option('fixed_header', 1);
     if($sticky){
         $classes .= ' sticky-header';
     }
@@ -201,9 +201,9 @@ function theme_header_class_callback($class, $position){
  */
 add_action( 'theme_after_footer', 'theme_after_footer_add_popup', 20 );
 function theme_after_footer_add_popup(){
-    $enable_popup = themedev_option( 'enable_popup' );
-    $disable_popup_mobile = themedev_option( 'disable_popup_mobile' );
-    $content_popup = themedev_option( 'content-popup' );
+    $enable_popup = kt_option( 'enable_popup' );
+    $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
+    $content_popup = kt_option( 'content-popup' );
     if( $enable_popup == 1 ){
         if(!isset($_SESSION['popup'])){ ?>
             <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>">     
@@ -239,11 +239,11 @@ function theme_share_product_add_share(){
 
 
 function blog_favicon() { 
-    $custom_favicon = themedev_option( 'custom_favicon' );
-    $custom_favicon_iphone = themedev_option( 'custom_favicon_iphone' );
-    $custom_favicon_iphone_retina = themedev_option( 'custom_favicon_iphone_retina' );
-    $custom_favicon_ipad = themedev_option( 'custom_favicon_ipad' );
-    $custom_favicon_ipad_retina = themedev_option( 'custom_favicon_ipad_retina' );
+    $custom_favicon = kt_option( 'custom_favicon' );
+    $custom_favicon_iphone = kt_option( 'custom_favicon_iphone' );
+    $custom_favicon_iphone_retina = kt_option( 'custom_favicon_iphone_retina' );
+    $custom_favicon_ipad = kt_option( 'custom_favicon_ipad' );
+    $custom_favicon_ipad_retina = kt_option( 'custom_favicon_ipad_retina' );
     
     ?>
     <!-- Favicons -->

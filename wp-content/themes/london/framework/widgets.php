@@ -78,15 +78,15 @@ if ( function_exists('register_sidebar')) {
 
 /* Widgets list */
 /*
-$themedev_widgets = array(
+$kt_widgets = array(
 	'widget_mailchimp.php',
     'widget_facebooklike.php',
     'widget_socials.php',
     'widget_article.php'
 );
 
-foreach ( $themedev_widgets as $themedev_widget ) {
-	if ( $file_path = locate_template( THEME_WIDGETS . $themedev_widget ) ) {
+foreach ( $kt_widgets as $kt_widget ) {
+	if ( $file_path = locate_template( THEME_WIDGETS . $kt_widget ) ) {
 		require_once( $file_path );
 	}
 }
