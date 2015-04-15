@@ -7,8 +7,8 @@
  * other "pages" on your WordPress site will use a different template.
  *
  * @package WordPress
- * @subpackage London
- * @since London 1.0
+ * @subpackage Twenty_Fifteen
+ * @since Twenty Fifteen 1.0
  */
 
 $sidebar = themedev_sidebar();
@@ -23,12 +23,12 @@ get_header(); ?>
         <div class="row">    
             <div id="main" class="<?php echo apply_filters('themedev_main_class', 'main-class', $sidebar['sidebar']); ?>">
                 <?php
-
-                the_post();
-                // Include the page content template.
-                get_template_part( 'content', 'page' );
-
-
+                	// Start the loop.
+                	while ( have_posts() ) : the_post();
+                		// Include the page content template.
+                		get_template_part( 'content', 'page' );
+                	// End the loop.
+                	endwhile;
             	?>
             </div>
             <?php if($sidebar['sidebar'] != 'full'){ ?>

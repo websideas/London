@@ -3,8 +3,8 @@
  * The sidebar containing the main widget area
  *
  * @package WordPress
- * @subpackage London
- * @since London 1.0
+ * @subpackage Twenty_Fifteen
+ * @since Twenty Fifteen 1.0
  */
 
 if ( is_active_sidebar( 'shop-widget-area' )  ) : ?>

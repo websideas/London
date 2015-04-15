@@ -196,7 +196,7 @@ function theme_after_footer_add_popup(){
     $content_popup = themedev_option( 'content-popup' );
     if( $enable_popup == 1 ){
         if(!isset($_SESSION['popup'])){ ?>
-            <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>">     
+            <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>" class="mfp-hide">     
                 <div class="white-popup-block">
                     <?php echo do_shortcode($content_popup); ?>
                 </div>
@@ -206,3 +206,49 @@ function theme_after_footer_add_popup(){
         }
     }
 }
+
+/**
+ * Add share product 
+ *
+ * @since 1.0
+ */
+add_action( 'theme_share_product', 'theme_share_product_add_share', 20 );
+function theme_share_product_add_share(){ 
+    global $post;
+    ?>
+    <div class="product-details-share clearfix">
+        <ul class="share clearfix">
+            <li><a href="mailto:?subject=<?php echo get_the_title($post->ID); ?>&body=<?php echo get_permalink($post->ID); ?>"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="javascript:print();"><i class="fa fa-print"></i></a></li>
+        </ul>
+        <div class="addthis_native_toolbox"></div>
+    </div><?php
+}
+
+
+function blog_favicon() { 
+    $custom_favicon = themedev_option( 'custom_favicon' );
+    $custom_favicon_iphone = themedev_option( 'custom_favicon_iphone' );
+    $custom_favicon_iphone_retina = themedev_option( 'custom_favicon_iphone_retina' );
+    $custom_favicon_ipad = themedev_option( 'custom_favicon_ipad' );
+    $custom_favicon_ipad_retina = themedev_option( 'custom_favicon_ipad_retina' );
+    
+    ?>
+    <!-- Favicons -->
+    <?php if($custom_favicon['url']){ ?>
+        <link rel="shortcut icon" href="<?php echo $custom_favicon['url'] ?>" />    
+    <?php } ?>
+	<?php if($custom_favicon_iphone['url']){ ?>
+        <link rel="apple-touch-icon" href="<?php echo $custom_favicon_iphone['url'] ?>" />    
+    <?php } ?>
+    <?php if($custom_favicon_iphone_retina['url']){ ?>
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $custom_favicon_iphone_retina['url'] ?>" />    
+    <?php } ?>
+    <?php if($custom_favicon_ipad['url']){ ?>
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $custom_favicon_ipad['url'] ?>" />    
+    <?php } ?>
+    <?php if($custom_favicon_ipad_retina['url']){ ?>
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $custom_favicon_ipad_retina['url'] ?>" />    
+    <?php } ?>
+<?php }
+add_action('wp_head', 'blog_favicon');

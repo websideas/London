@@ -13,7 +13,6 @@ $composer_addons = array(
     'desinger-collection-carousel.php',
     'category_products_tab.php',
     'categories_top_sellers.php',
-    'blog-posts.php',
 );
 
 foreach ( $composer_addons as $addon ) {
