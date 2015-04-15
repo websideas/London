@@ -62,7 +62,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2090" column="0" selection-start="49039" selection-end="49039" vertical-scroll-proportion="0.8686786" vertical-offset="47005" max-vertical-offset="48231">
+            <state line="1870" column="0" selection-start="43399" selection-end="43399" vertical-scroll-proportion="17.803425" vertical-offset="21183" max-vertical-offset="48001">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="blog-posts.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/blog-posts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="34" selection-start="4716" selection-end="4716" vertical-scroll-proportion="0.0" vertical-offset="3289" max-vertical-offset="4853">
+            <state line="143" column="34" selection-start="4716" selection-end="4716" vertical-scroll-proportion="-122.96154" vertical-offset="92" max-vertical-offset="4853">
               <folding />
             </state>
           </provider>
@@ -677,7 +677,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.53846157" vertical-offset="14" max-vertical-offset="1242" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.53846157" vertical-offset="14" max-vertical-offset="1242">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-meta-box.php">
@@ -811,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/blog-posts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="34" selection-start="4716" selection-end="4716" vertical-scroll-proportion="0.0" vertical-offset="3289" max-vertical-offset="4853">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/js_composer_parrams.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="47" selection-start="4724" selection-end="4732" vertical-scroll-proportion="0.0" vertical-offset="2760" max-vertical-offset="5244">
@@ -839,9 +834,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/blog-posts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="34" selection-start="4716" selection-end="4716" vertical-scroll-proportion="-122.96154" vertical-offset="92" max-vertical-offset="4853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2090" column="0" selection-start="49039" selection-end="49039" vertical-scroll-proportion="0.8686786" vertical-offset="47005" max-vertical-offset="48231">
+        <state line="1870" column="0" selection-start="43399" selection-end="43399" vertical-scroll-proportion="17.803425" vertical-offset="21183" max-vertical-offset="48001">
           <folding />
         </state>
       </provider>
