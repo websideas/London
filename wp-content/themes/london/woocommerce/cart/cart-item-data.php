@@ -12,14 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="variation">
+<dl class="variation">
 	<?php
 		foreach ( $item_data as $data ) :
 			$key = sanitize_text_field( $data['key'] );
 	?>
-        <div class="variation-item">
-    		<div class="variation-item-label variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( $data['key'] ); ?>:</div>
-    		<div class="variation-item-value variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( wpautop( $data['value'] ) ); ?></div>
-        </div>
+		<dt class="variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( $data['key'] ); ?>:</dt>
+		<dd class="variation-<?php echo sanitize_html_class( $key ); ?>"><?php echo wp_kses_post( wpautop( $data['value'] ) ); ?></dd>
 	<?php endforeach; ?>
-</div>
+</dl>

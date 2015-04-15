@@ -17,7 +17,7 @@ $attachment_ids = $product->get_gallery_attachment_ids();
 
 if ( $attachment_ids ) {
 	?>
-    <div class="single-product-main-thumbnails owl-carousel" id="sync2">
+    <div class="single-product-main-thumbnails owl-carousel <?php if($attachment_count < 3){ echo " no-padding";} ?>" id="sync2">
     	<?php
     		if ( has_post_thumbnail() ) {
     
@@ -29,8 +29,6 @@ if ( $attachment_ids ) {
     				'alt'	=> $image_title
     				) );
     
-                //Get attachment IDS
-    			$attachment_ids = $product->get_gallery_attachment_ids();
     			$attachment_count   = count( $attachment_ids );
                 
     			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" title="%s">%s</a>', $image_link, $image_caption, $image ), $post->ID );
@@ -68,8 +66,8 @@ if ( $attachment_ids ) {
 	<?php
 }
 ?>
-<ul>
-    <li><a href="mailto:?subject=<?php echo get_the_title($post->ID); ?>&body=<?php echo get_permalink($post->ID); ?>"><i class="fa fa-envelope"></i></a></li>
-    <li><a href="javascript:print();"><i class="fa fa-print"></i></a></li>
-</ul>
-<div class="addthis_native_toolbox"></div>
+<?php
+/**
+ * @hooked 
+ */
+do_action( 'theme_share_product' ); ?>

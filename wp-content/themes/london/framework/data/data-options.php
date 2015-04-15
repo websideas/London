@@ -220,7 +220,6 @@ if ( ! class_exists( 'KT_config' ) ) {
             
             
             
-            
             /**
 			 *	Logos
 			 **/
@@ -245,15 +244,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'desc'     => __('Select an image file for the retina version of the logo. It should be exactly 2x the size of main logo.', THEME_LANG)
                     ),
                     array(
-                        'id'             => 'wrapper_dimensions_logo',
-                        'type'           => 'dimensions',
-                        'units'          => array( 'em', 'px'),
-                        'units_extended' => 'true',
-                        'title'          => __( 'Dimensions wrapper logo (Width/Height)', THEME_LANG ),
-                        'default'        => array( 'width'  => 120, 'height' => 120 ),
-                        'output'   => array( '.site-branding .site-logo' ),
-                    ),
-                    array(
                         'id'             => 'logo_width',
                         'type'           => 'dimensions',
                         'units'          => array( 'em', 'px'),
@@ -261,7 +251,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'title'          => __( 'Logo width', THEME_LANG ),
                         'height'         => false,
                         'default'        => array( 'width'  => 120, 'height' => 100 ),
-                        'output'   => array( '.site-logo img' ),
+                        'output'   => array( '.site-branding .site-logo, .site-branding .site-logo img' ),
                     ),
                     array(
                         'id'       => 'logo_margin_spacing',
@@ -293,23 +283,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'color' => '#000',
                             'alpha' => '1'
                         ),
-                        'output'   => array( '.site-branding .site-logo' ),
+                        'output'   => array( '.site-branding .site-logo.logo-circle' ),
                         'mode'     => 'background',
                         'validate' => 'colorrgba',
                     ),
                     array(
-                        'id'             => 'dimensions_logo',
-                        'type'           => 'dimensions',
-                        'output'   => array( '.is-sticky .site-branding .site-logo' ),
-                        'units'          => array( 'em', 'px'), 
-                        'units_extended' => 'true', 
-                        'title'          => __( 'Wrapper logo sticky width', THEME_LANG ),
-                        'default'        => array( 'width'  => 95, 'height' => 95 )
-                    ),
-                    array(
                         'id'             => 'logo_sticky_width',
                         'type'           => 'dimensions',
-                        'output'   => array( '.is-sticky .site-logo img' ),
+                        'output'   => array( '.is-sticky .site-branding .site-logo,.is-sticky .site-branding .site-logo img' ),
                         'units'          => array( 'em', 'px'), 
                         'units_extended' => 'true', 
                         'title'          => __( 'Logo sticky width', THEME_LANG ),
@@ -374,15 +355,6 @@ if ( ! class_exists( 'KT_config' ) ) {
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
             /**
 			 *	Header
 			 **/
@@ -431,12 +403,92 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'icon_class'	=> 'icon_flowchart_alt',
 				'icon'			=> '',
 				'fields'		=> array(
+                    /* Footer Top */
                     array(
-                        'id'       => 'footer-layout',
+                        'id'       => 'footer_top_padding',
+                        'type'     => 'spacing',
+                        'mode'     => 'padding',
+                        'left'     => false,
+                        'right'    => false,
+                        'output'   => array( '#footer-top' ),
+                        'units'          => array( 'em', 'px' ), 
+                        'units_extended' => 'true',
+                        'title'    => __( 'Footer top padding', THEME_LANG ),
+                        'default'  => array(
+                            'padding-top'    => '50px',
+                            'padding-bottom'   => '25px'
+                        )
+                    ),
+                    array(
+                        'id'       => 'footer_top_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer top Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer top Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( 'background-color'=>'#f6f6f6' ),
+                        'output'      => array( '#footer-top' ),
+                    ),
+                    array(
+                        'id'       => 'footer_top_border',
+                        'type'     => 'border',
+                        'title'    => __( 'Footer top Border', THEME_LANG ),
+                        'output'   => array( '#footer-top' ),
+                        'all'      => false,
+                        'left'     => false,
+                        'right'    => false,
+                        'default'  => array(
+                            'border-color'  => '#cccccc',
+                            'border-style'  => 'solid',
+                            'border-top'    => '1px',
+                            'border-bottom' => '0px',
+                        )
+                    ),
+                    
+                    
+                    /* Footer widgets */
+                    array(
+                        'id'       => 'footer_widgets_padding',
+                        'type'     => 'spacing',
+                        'mode'     => 'padding',
+                        'left'     => false,
+                        'right'    => false,
+                        'output'   => array( '#footer-area' ),
+                        'units'          => array( 'em', 'px' ), 
+                        'units_extended' => 'true',
+                        'title'    => __( 'Footer widgets padding', THEME_LANG ),
+                        'default'  => array(
+                            'padding-top'    => '50px',
+                            'padding-bottom'   => '25px'
+                        )
+                    ),
+                    array(
+                        'id'       => 'footer_widgets_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer widgets Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer widgets Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( 'background-color'=>'#f6f6f6' ),
+                        'output'      => array( '#footer-area' ),
+                    ),
+                    array(
+                        'id'       => 'footer_widgets_border',
+                        'type'     => 'border',
+                        'title'    => __( 'Footer widgets Border', THEME_LANG ),
+                        'output'   => array( '#footer-area' ),
+                        'all'      => false,
+                        'left'     => false,
+                        'right'    => false,
+                        'default'  => array(
+                            'border-color'  => '',
+                            'border-style'  => 'solid',
+                            'border-top'    => '0px',
+                            'border-bottom' => '0px',
+                        )
+                    ),
+                    array(
+                        'id'       => 'footer_widgets_layout',
                         'type'     => 'image_select',
                         'compiler' => true,
-                        'title'    => __( 'Footer layout', THEME_LANG ),
-                        'subtitle' => __( 'Select your footer', THEME_LANG ),
+                        'title'    => __( 'Footer widgets layout', THEME_LANG ),
+                        'subtitle' => __( 'Select your footer widgets layout', THEME_LANG ),
                         'options'  => array(
                             '3-3-3-3' => array( 'alt' => __( 'Layout 1', THEME_LANG ), 'img' => FW_IMG . 'footer/footer-1.png' ),
                             '6-3-3' => array( 'alt' => __( 'Layout 2', THEME_LANG ), 'img' => FW_IMG . 'footer/footer-2.png' ),
@@ -448,8 +500,28 @@ if ( ! class_exists( 'KT_config' ) ) {
                             '3-6-3' => array( 'alt' => __( 'Layout 8', THEME_LANG ), 'img' => FW_IMG . 'footer/footer-8.png' ),
                             '12' => array( 'alt' => __( 'Layout 9', THEME_LANG ), 'img' => FW_IMG . 'footer/footer-9.png' ),
                         ),
-                        'default'  => '3-3-3-3'
+                        'default'  => '4-4-4'
                     ),
+                    
+                    /*
+                    Disable footer widgets.
+                    
+                    Disable footer top.
+                    
+                    Background Image For Footer Area
+                    
+                    Footer Top Padding
+                    
+                    Footer Bottom Padding
+                    
+                    Footer Top Border Thickness
+                    
+                    Footer Top Border Color
+                    */
+                    
+                    
+                    
+                    
                     
                 )
             );
@@ -541,6 +613,16 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'full'
                     ),
                     array(
+                        'id'       => 'products-layout',
+                        'type'     => 'select',
+                        'title'    => __( 'Woocommerce Archive Products Layout', THEME_LANG ),
+                        'options'  => array(
+                            'grid' => __('Grid', THEME_LANG ),
+                            'lists' => __('Lists', THEME_LANG )
+                        ),
+                        'default'  => 'grid'
+                    ),
+                    array(
                         'id'       => 'single-product-layout',
                         'type'     => 'select',
                         'title'    => __( 'Woocommerce Single Product Layout', THEME_LANG ),
@@ -551,6 +633,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'default'  => 'full'
                     ),
+                    
                     
                 )
             );
