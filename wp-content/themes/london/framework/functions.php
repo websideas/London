@@ -81,7 +81,7 @@ add_filter('themedev_sidebar_class', 'themedev_sidebar_class_callback', 10, 2);
  *
  * @since 1.0
  */
-function themdev_content_class_callback($classes){
+function kt_content_class_callback($classes){
     global $post;
     if(is_page()){
         if(rwmb_meta('kt_remove_top')){
@@ -93,7 +93,7 @@ function themdev_content_class_callback($classes){
     }
     return $classes;
 } 
-add_filter('themdev_content_class', 'themdev_content_class_callback');
+add_filter('kt_content_class', 'kt_content_class_callback');
 
 /**
  * Add class sticky to header

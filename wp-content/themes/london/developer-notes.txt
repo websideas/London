@@ -9,3 +9,4 @@ Tasks:
 - Logo when scroll down
 - Page boxed mod
 - Move VC to plugin folder
+- breackcrumbs for post, archives,...
