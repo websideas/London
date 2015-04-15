@@ -65,8 +65,8 @@ if (!function_exists('themedev_option')){
  * 
  */
 function themedev_getLogo(){
-    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
 
+    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
     $logo_default = themedev_option( 'logo' );
     $logo_retina = themedev_option( 'logo_retina' );
     
@@ -127,12 +127,14 @@ function themedev_getHeader(){
  */
 function themedev_getHeaderLayout(){
     $layout = themedev_option('header', 'layout1');
+    /*
     if(is_page() || is_singular('post')){
         $header_layout = rwmb_meta('kt_header');
         if($header_layout != '' && $header_layout != 'default'){
             $layout = $header_layout;
         }
     }
+    */
     return $layout;
 }
 
