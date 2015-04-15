@@ -8,4 +8,4 @@ Tasks:
 - 6  home versions
 - Logo when scroll down
 - Page boxed mod
-
+- Move VC to plugin folder
