@@ -1803,8 +1803,16 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .footer-right #bottom-nav ul > li:first-child{
     padding-left: 0;
 }
-
-
+.footer-centered{
+    text-align: center;
+}
+.footer-centered #bottom-nav ul > li:last-child{
+    border: none;
+}
+.footer-centered #bottom-nav,
+.footer-centered .footer-copyright{
+    margin-bottom: 5px;
+}
 
 
 

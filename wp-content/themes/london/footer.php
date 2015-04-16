@@ -49,7 +49,7 @@
         </footer><!-- #footer-area -->
     <?php } ?>
     <?php if(kt_option('footer', true)){ ?>
-    	<footer id="footer" class="copyright">
+    	<footer id="footer">
             <div class="container">
                 <?php get_template_part( 'layouts/footers/footer', kt_option('footer_layout', 'sides') ); ?>
             </div><!-- .container -->

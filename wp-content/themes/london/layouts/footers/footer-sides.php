@@ -1,10 +1,20 @@
+<?php
+
+// Exit if accessed directly
+if ( !defined('ABSPATH')) exit;
+
+
+$footer_left = kt_option('footer_left');
+$footer_right = kt_option('footer_right');
+
+if(!$footer_left && !$footer_right) return;
+
+?>
 <div class="display-table">
     <div class="display-td footer-left">
-        <?php if ( has_nav_menu( 'bottom' ) ) { ?>
-            <?php wp_nav_menu( array( 'theme_location' => 'bottom', 'container' => 'nav', 'container_id' => 'bottom-nav' ) ); ?>
-        <?php } ?>
+        <?php get_template_part( 'layouts/footers/footer', $footer_left ); ?>
     </div>
     <div class="display-td footer-right">
-        LONDON STARS &copy; 2014. Powered by Wordpress. All Rights Reserved.
+        <?php get_template_part( 'layouts/footers/footer', $footer_right ); ?>
     </div>
 </div>

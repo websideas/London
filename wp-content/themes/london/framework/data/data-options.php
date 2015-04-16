@@ -374,6 +374,9 @@ if ( ! class_exists( 'KT_config' ) ) {
 						'on'		=> __( 'On', THEME_LANG ),
 						'off'		=> __( 'Off', THEME_LANG ),
 					),
+                    
+                    
+                    
                     array(
                         'id'       => 'header',
                         'type'     => 'select',
@@ -534,7 +537,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'title'    => __( 'Footer padding', THEME_LANG ),
                         'default'  => array(
                             'padding-top'    => '25px',
-                            'padding-bottom'   => '35px'
+                            'padding-bottom'   => '25px'
                         )
                     ),
                     array(
@@ -573,10 +576,11 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'clear' => false
                     ),
                     array(
-                        'id'       => 'footer-left',
+                        'id'       => 'footer_left',
                         'type'     => 'select',
                         'title'    => __( 'Footer left', THEME_LANG ),
                         'options'  => array(
+                            '' => __('Empty', THEME_LANG ),
                             'navigation' => __('Navigation', THEME_LANG ),
                             'socials' => __('Socials', THEME_LANG ),
                             'copyright' => __('Copyright', THEME_LANG ),
@@ -584,10 +588,11 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'copyright'
                     ),
                     array(
-                        'id'       => 'footer-right',
+                        'id'       => 'footer_right',
                         'type'     => 'select',
                         'title'    => __( 'Footer right', THEME_LANG ),
                         'options'  => array(
+                            '' => __('Empty', THEME_LANG ),
                             'navigation' => __('Navigation', THEME_LANG ),
                             'socials' => __('Socials', THEME_LANG ),
                             'copyright' => __('Copyright', THEME_LANG ),
@@ -595,7 +600,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'navigation'
                     ),
                     array(
-                        'id'       => 'footer-copyright',
+                        'id'       => 'footer_copyright',
                         'type'     => 'editor',
                         'title'    => __( 'Footer Copyright Text', THEME_LANG ),
                         'default'  => 'LONDON STARS &copy; 2015. Powered by Wordpress&#8482;. All Rights Reserved.'
