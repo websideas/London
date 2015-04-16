@@ -615,8 +615,6 @@
                 }
             };
             objCarousel.owlCarousel(options);
-
-            console.debug(options);
             
         });
     }
