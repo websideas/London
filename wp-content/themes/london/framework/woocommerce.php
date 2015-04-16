@@ -175,7 +175,7 @@ function woocommerce_get_cart(){
             $output .= '</div><!-- .shopping-bag-content -->';
             $output .= '</div><!-- .shopping-bag-wrapper -->';
             $output .= '</div><!-- .shopping-bag -->';
-            $output .= "<script type='text/javascript'>jQuery('.mCustomScrollbar').mCustomScrollbar();</script>";
+           //$output .= "<script type='text/javascript'>jQuery('.mCustomScrollbar').mCustomScrollbar();</script>";
         $output .= '</div><!-- .shopping_cart -->';
         
         

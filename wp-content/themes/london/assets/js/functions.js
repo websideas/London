@@ -45,6 +45,15 @@
         
         var $easyzoom = $('.easyzoom').easyZoom();
         woo_quantily();
+
+        if( typeof ( jQuery.mCustomScrollbar )!==undefined ){
+           // jQuery('.mCustomScrollbar').mCustomScrollbar();
+            $(window).bind('wc_fragments_loaded wc_fragments_refreshed', function (){
+                jQuery('.mCustomScrollbar').mCustomScrollbar();
+            });
+        }
+
+
     });
     
     $(window).resize(function(){

@@ -188,16 +188,17 @@ if ( class_exists( 'Vc_Manager', false ) ) {
 		}
 	}
     add_action( 'admin_enqueue_scripts', 'js_composer_bridge_admin', 15 );
-    
-    if ( function_exists( 'vc_set_shortcodes_templates_dir' ) ) {
-		vc_set_shortcodes_templates_dir( THEME_TEMP . 'templates/vc_templates' );
-	}
-    
-    add_action( 'init', 'kt_js_composer_bridge', 20 );
+
+
     if ( !function_exists('kt_js_composer_bridge') ) {
 		function kt_js_composer_bridge() {
 			require_once(FW_DIR . 'js_composer/js_composer_parrams.php');
             require_once(FW_DIR . 'js_composer/js_composer_bridge.php');
 		}
+
+        if ( function_exists( 'vc_set_shortcodes_templates_dir' ) ) {
+            vc_set_shortcodes_templates_dir( THEME_TEMP . '/vc_templates' );
+        }
 	}
+    add_action( 'init', 'kt_js_composer_bridge', 20 );
 }
