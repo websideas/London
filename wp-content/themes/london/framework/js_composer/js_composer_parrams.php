@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  *
  */
 function vc_mailchimp_settings_field($settings, $value) {
-	$dependency = vc_generate_dependencies_attributes($settings);
+	$dependency = '';
 	$output = '';
     
     $api_key = kt_option('mailchimp_api');
@@ -30,14 +30,14 @@ function vc_mailchimp_settings_field($settings, $value) {
     }
     return $output;
 }
-add_shortcode_param('kt_mailchimp', 'vc_mailchimp_settings_field');
+vc_add_shortcode_param('kt_mailchimp', 'vc_mailchimp_settings_field');
 
 /**
  * Heading field.
  *
  */
 function ktheading_settings_field( $settings, $value ) {
-    $dependency = vc_generate_dependencies_attributes($settings);
+    $dependency = '';
 	$param_name = isset($settings['param_name']) ? $settings['param_name'] : '';
 	$type = isset($settings['type']) ? $settings['type'] : '';
 	$min = isset($settings['min']) ? $settings['min'] : '';
@@ -47,7 +47,7 @@ function ktheading_settings_field( $settings, $value ) {
     
     return '<input type="hidden" class="wpb_vc_param_value ' . $settings['param_name'] . ' ' . $settings['type'] . ' ' . $class . '" name="' . $param_name . '" value="'.$value.'" '.$dependency.'/>';
 }
-add_shortcode_param( 'kt_heading', 'ktheading_settings_field' );
+vc_add_shortcode_param( 'kt_heading', 'ktheading_settings_field' );
 
 
 /**
@@ -55,7 +55,7 @@ add_shortcode_param( 'kt_heading', 'ktheading_settings_field' );
  *
  */
 function vc_ktnumber_settings_field($settings, $value){
-	$dependency = vc_generate_dependencies_attributes($settings);
+	$dependency = '';
 	$param_name = isset($settings['param_name']) ? $settings['param_name'] : '';
 	$type = isset($settings['type']) ? $settings['type'] : '';
 	$min = isset($settings['min']) ? $settings['min'] : '';
@@ -65,7 +65,7 @@ function vc_ktnumber_settings_field($settings, $value){
 	$output = '<input type="number" min="'.$min.'" max="'.$max.'" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="'.$value.'" '.$dependency.' style="max-width:100px; margin-right: 10px;" />'.$suffix;
 	return $output;
 }
-add_shortcode_param('kt_number' , 'vc_ktnumber_settings_field');
+vc_add_shortcode_param('kt_number' , 'vc_ktnumber_settings_field');
 
 
 /**
@@ -73,7 +73,7 @@ add_shortcode_param('kt_number' , 'vc_ktnumber_settings_field');
  *
  */
 function vc_kt_image_select_settings_field($settings, $value) {
-	$dependency = vc_generate_dependencies_attributes($settings);
+	$dependency = '';
     $param_name = isset($settings['param_name']) ? $settings['param_name'] : '';
 	$type = isset($settings['type']) ? $settings['type'] : '';
     $class = isset($settings['class']) ? $settings['class'] : '';
@@ -87,7 +87,7 @@ function vc_kt_image_select_settings_field($settings, $value) {
     
     return implode(' ', $radios);
 }
-add_shortcode_param('kt_image_select', 'vc_kt_image_select_settings_field');
+vc_add_shortcode_param('kt_image_select', 'vc_kt_image_select_settings_field');
 
 
 /**
@@ -95,7 +95,7 @@ add_shortcode_param('kt_image_select', 'vc_kt_image_select_settings_field');
  *
  */
 function vc_kt_taxonomy_settings_field($settings, $value) {
-	$dependency = vc_generate_dependencies_attributes($settings);
+	$dependency = '';
 
 	$value_arr = $value;
 	if ( !is_array($value_arr) ) {
@@ -132,14 +132,14 @@ function vc_kt_taxonomy_settings_field($settings, $value) {
     
     return $output;
 }
-add_shortcode_param('kt_taxonomy', 'vc_kt_taxonomy_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
+vc_add_shortcode_param('kt_taxonomy', 'vc_kt_taxonomy_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
 
 /**
  * Posts field.
  *
  */
 function vc_kt_posts_settings_field($settings, $value) {
-	$dependency = vc_generate_dependencies_attributes($settings);
+	$dependency = '';
     $output = '';
     
 	$value_arr = $value;
@@ -174,7 +174,7 @@ function vc_kt_posts_settings_field($settings, $value) {
     }
     return $output;
 }
-add_shortcode_param('kt_posts', 'vc_kt_posts_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
+vc_add_shortcode_param('kt_posts', 'vc_kt_posts_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
 
 
 
@@ -184,7 +184,7 @@ add_shortcode_param('kt_posts', 'vc_kt_posts_settings_field', FW_LIBS.'chosen/ch
  *
  */
 function vc_kt_authors_settings_field($settings, $value) {
-	$dependency = vc_generate_dependencies_attributes($settings);
+	$dependency = '';
     $output = '';
     
 	$value_arr = $value;
@@ -216,7 +216,7 @@ function vc_kt_authors_settings_field($settings, $value) {
     return $output;
 
 }
-add_shortcode_param('kt_authors', 'vc_kt_authors_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
+vc_add_shortcode_param('kt_authors', 'vc_kt_authors_settings_field', FW_LIBS.'chosen/chosen.jquery.min.js');
 
 
 
