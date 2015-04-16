@@ -159,10 +159,10 @@ function wp_ajax_frontend_product_quick_view_callback() {
 	
 	$post = get_post( $product_id );
 
-	$product = get_product( $product_id );
+	$product = wc_get_product( $product_id );
     
     // Call our template to display the product infos
-	woocommerce_get_template( 'content-single-product-quick-view.php'); 
+    wc_get_template( 'content-single-product-quick-view.php');
     
     
     die();
