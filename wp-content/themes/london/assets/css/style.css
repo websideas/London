@@ -1770,14 +1770,21 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     padding: 0 0 15px;
     width: 100%;
 }
+
+
 #footer-area .widget_nav_menu ul,
-#footer-area .widget_black_studio_tinymce ul{
-    margin-left: 0;
-    margin-bottom: 20px;
-    padding-left: 0;
+#footer-area .widget_recent_comments ul,
+#footer-area .widget_meta ul,
+#footer-area .widget_categories ul,
+#footer-area .widget_archive ul{
+    margin:0;
+    padding:0;
 }
-#footer-area .widget_nav_menu ul li,
-#footer-area .widget_black_studio_tinymce ul li{
+#footer-area .widget_recent_comments ul li,
+#footer-area .widget_meta ul li,
+#footer-area .widget_categories ul li,
+#footer-area .widget_archive ul li,
+#footer-area .widget_nav_menu ul li{
     line-height: 24px;
     list-style: outside none disc;
     margin-left: 17px;
@@ -2096,6 +2103,8 @@ WIDGET
 .sidebar .widget-container select{
     width:100%;
 }
+.sidebar .widget_recent_comments ul,
+.sidebar .widget_recent_entries ul,
 .sidebar .widget_nav_menu ul,
 .sidebar .widget_meta ul,
 .sidebar .widget_archive ul,
@@ -2104,12 +2113,16 @@ WIDGET
     margin:0;
     list-style: none;
 }
+.sidebar .widget_recent_comments ul li,
+.sidebar .widget_recent_entries ul li,
 .sidebar .widget_nav_menu ul li,
 .sidebar .widget_meta ul li,
 .sidebar .widget_archive ul li,
 .sidebar .widget_categories ul li{
     position: relative;
 }
+.sidebar .widget_recent_comments ul li,
+.sidebar .widget_recent_entries ul li,
 .sidebar .widget_nav_menu ul li a,
 .sidebar .widget_meta ul li a,
 .sidebar .widget_archive ul li a,
@@ -2123,6 +2136,7 @@ WIDGET
 .sidebar .widget_categories ul li:last-child ul.children{
     border-bottom:none;
 }
+.sidebar .widget_recent_entries ul li:last-child,
 .sidebar .widget_nav_menu ul li:last-child a,
 .sidebar .widget_meta ul li:last-child a,
 .sidebar .widget_archive ul li:last-child a,
@@ -2161,6 +2175,73 @@ WIDGET
 .sidebar .widget_categories ul li a:focus{
     background-color: #dbdbdb;
 }
+
+
+
+/*====== Calendar ====*/
+
+#calendar_wrap table{
+    border: none;
+    text-align: left;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
+.sidebar #calendar_wrap{
+    margin: -20px -20px -25px;
+}
+#calendar_wrap caption {
+	background: #333;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0;
+    padding: 5px 5px 5px 20px;
+    font-weight:normal;
+}
+#calendar_wrap thead th,
+#calendar_wrap tbody td {
+	padding: 7px 0 5px;
+	background: #48494a;
+	border-bottom: none;
+	border-left: 0;
+	font-size: 12px;
+	line-height: 15px;
+	color: #fff;
+	text-align: center;
+}
+#calendar_wrap thead th{
+    background: none;
+    color:#000;
+}
+#calendar_wrap tbody td {
+	color: #a4a4a4;
+	background: #323845;
+}
+#calendar_wrap tbody td#today {
+	background: #3cb4ec;
+    color: #FFF;
+}
+#calendar_wrap tbody td a {
+	color: #a4a4a4;
+}
+#calendar_wrap tbody td a:hover {
+	color: #fff;
+}
+#calendar_wrap tbody td.pad {
+    background: none; 
+    border: none;
+}
+#calendar_wrap tfoot td {
+	padding: 5px;
+	font-size: 9px;
+	font-weight: bold;
+	line-height: 12px;
+	text-transform: uppercase;
+}
+
+/*==== End Calendar ====*/
 /** ================================================
 END WIDGET
 /** ================================================ */

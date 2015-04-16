@@ -178,11 +178,9 @@ add_action( 'wp_ajax_nopriv_fronted_popup', 'wp_ajax_fronted_popup_callback' );
 
 function wp_ajax_fronted_popup_callback() {
     check_ajax_referer( 'ajax_frontend', 'security' );
-     
-    $output = array();   
-    
-    $_SESSION['popup'] = 1;
-     
+    $output = array();
+    $time_show_again = kt_option( 'time_show_again', 60 );
+    setcookie('kt_popup', 1, time() + ( $time_show_again*60), '/');
     echo json_encode($output);
     
     die();

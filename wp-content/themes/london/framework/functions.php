@@ -3,17 +3,6 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-
-/**
- * Admin notice for js_composer
- *
- * @since 1.0
- */
-function kt_admin_notice_for_js_composer(){
-    $theme = wp_get_theme();
-	echo '<div class="updated"><p><strong>'.$theme->get( 'Name' ).'</strong> '.__('theme requires', THEME_LANG).' <strong>Visual Composer</strong> '.__('Plugin installed and activated.', THEME_LANG).'</p></div>';
-}
-
 /**
  * Extend the default WordPress body classes.
  *
@@ -204,16 +193,16 @@ function theme_after_footer_add_popup(){
     $enable_popup = kt_option( 'enable_popup' );
     $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
     $content_popup = kt_option( 'content-popup' );
-    if( $enable_popup == 1 ){
-        if(!isset($_SESSION['popup'])){ ?>
-            <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>">     
+    $time_show = kt_option( 'time_show', 0 );
+    
+    if( $enable_popup == 1 ){ 
+        if(!isset($_COOKIE['kt_popup'])){ ?>
+            <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>" data-timeshow="<?php echo $time_show; ?>">     
                 <div class="white-popup-block">
                     <?php echo do_shortcode($content_popup); ?>
                 </div>
             </div>
-        <?php }else{
-            $_SESSION['popup'] = 1;
-        }
+        <?php }
     }
 }
 
@@ -238,7 +227,7 @@ function theme_share_product_add_share(){
 }
 
 
-function blog_favicon() { 
+function kt_blog_favicon() { 
     $custom_favicon = kt_option( 'custom_favicon' );
     $custom_favicon_iphone = kt_option( 'custom_favicon_iphone' );
     $custom_favicon_iphone_retina = kt_option( 'custom_favicon_iphone_retina' );
@@ -263,7 +252,7 @@ function blog_favicon() {
         <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $custom_favicon_ipad_retina['url'] ?>" />    
     <?php } ?>
 <?php }
-add_action('wp_head', 'blog_favicon');
+add_action('wp_head', 'kt_blog_favicon');
 
 
 /**

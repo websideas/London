@@ -154,15 +154,18 @@ if ( ! class_exists( 'KT_config' ) ) {
         
         public function setSections() {
             
-            //icon_refresh 
-            
-            // ACTUAL DECLARATION OF SECTIONS
             $this->sections[] = array(
                 'id' 	=> 'general',
                 'title'  => __( 'General', THEME_LANG ),
                 'desc'   => __( 'Welcome to the Simple Options Framework Demo', THEME_LANG ),
-                'icon_class'	=> 'icon_cogs',
-				'icon'			=> '',
+                'icon_class'	=> 'icon_cogs'
+            );
+            
+            $this->sections[] = array(
+                'id' 	=> 'general-global',
+                'title'  => __( 'Global', THEME_LANG ),
+                'desc'   => __( 'Welcome to the Simple Options Framework Demo', THEME_LANG ),
+                'subsection' => true,
                 'fields' => array(
                     array(
                         'id'       => 'layout',
@@ -218,8 +221,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                 )
             );
             
-            
-            
             /**
 			 *	Logos
 			 **/
@@ -227,8 +228,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'id'			=> 'logos',
 				'title'			=> __( 'Logos Settings', THEME_LANG ),
 				'desc'			=> '',
-				'icon_class'	=> 'icon_lightbulb',
-				'icon'			=> '',
+				'subsection' => true,
 				'fields'		=> array(
                     array(
                         'id'       => 'logo',
@@ -357,270 +357,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
                 )
             );
-            /**
-			 *	Menu
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'menu',
-				'title'			=> __( 'menu', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_menu-square_alt2',
-				'fields'		=> array(
-                
-                
-                )
-            );
-            /**
-			 *	Typography
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography',
-				'title'			=> __( 'Typography', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
-            );
-            
-            /**
-			 *	Typography General
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography-general',
-				'title'			=> __( 'General', THEME_LANG ),
-				'subsection' => true,
-				'icon_class'	=> 'icon_tool',
-                'fields'		=> array(
-                    array(
-                        'id'       => 'typography-body',
-                        'type'     => 'typography',
-                        'title'    => __( 'Body Font', THEME_LANG ),
-                        'subtitle' => __( 'Specify the body font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'body' ),
-                        'default'  => array(
-                            'color'       => '#666666',
-                            'font-size'   => '14px',
-                            'font-family' => 'Dosis',
-                            'font-weight' => 'Normal',
-                            'line-height' => '20px'
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-pragraph',
-                        'type'     => 'typography',
-                        'title'    => __( 'Pragraph', THEME_LANG ),
-                        'subtitle' => __( 'Specify the pragraph font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'p' ),
-                        'default'  => array(
-                            
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-link',
-                        'type'     => 'link_color',
-                        'title'    => __( 'Links Color', THEME_LANG ),
-                        'output'      => array( 'a' ),
-                        'default'  => array(
-                            'regular' => '#666666',
-                            'hover'   => '#000000',
-                            'active'   => '#000000',
-                        )
-                    ),
-                    array(
-                        'id'       => 'typography-heading1',
-                        'type'     => 'typography',
-                        'title'    => __( 'Heading 1', THEME_LANG ),
-                        'subtitle' => __( 'Specify the heading 1 font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'h1', '.h1' ),
-                        'default'  => array(
-                            'font-size'   => '36px',
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-heading2',
-                        'type'     => 'typography',
-                        'title'    => __( 'Heading 2', THEME_LANG ),
-                        'subtitle' => __( 'Specify the heading 2 font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'h2', '.h2' ),
-                        'default'  => array(
-                            'font-size'   => '30px',
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-heading3',
-                        'type'     => 'typography',
-                        'title'    => __( 'Heading 3', THEME_LANG ),
-                        'subtitle' => __( 'Specify the heading 3 font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'h3', '.h3' ),
-                        'default'  => array(
-                            'font-size'   => '24px',
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-heading4',
-                        'type'     => 'typography',
-                        'title'    => __( 'Heading 4', THEME_LANG ),
-                        'subtitle' => __( 'Specify the heading 4 font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'h4', '.h4' ),
-                        'default'  => array(
-                            'font-size'   => '18px',
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-heading5',
-                        'type'     => 'typography',
-                        'title'    => __( 'Heading 5', THEME_LANG ),
-                        'subtitle' => __( 'Specify the heading 5 font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'h5', '.h5' ),
-                        'default'  => array(
-                            'font-size'   => '14px',
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-heading6',
-                        'type'     => 'typography',
-                        'title'    => __( 'Heading 6', THEME_LANG ),
-                        'subtitle' => __( 'Specify the heading 6 font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( 'h6', '.h6' ),
-                        'default'  => array(
-                            'font-size'   => '12px',
-                        ),
-                    ),
-                )
-            );
-            /**
-			 *	Typography sidebar
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography-sidebar',
-				'title'			=> __( 'Sidebar', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-                        'id'       => 'typography-sidebar-content',
-                        'type'     => 'typography',
-                        'title'    => __( 'Sidebar text', THEME_LANG ),
-                        'subtitle' => __( 'Specify the sidebar title font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '.sidebar' ),
-                        'default'  => array(
-                        
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-sidebar',
-                        'type'     => 'typography',
-                        'title'    => __( 'Sidebar title', THEME_LANG ),
-                        'subtitle' => __( 'Specify the sidebar title font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '.sidebar .widget-container .widget-title' ),
-                        'default'  => array(
-                            'color'       => '#ffffff',
-                            'font-size'   => '18px',
-                            'font-weight' => 'Normal',
-                            'line-height' => '30px'
-                        ),
-                    ),
-                )
-            );
-            
-            /**
-			 *	Typography header
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography-header',
-				'title'			=> __( 'Header', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-                        'id'       => 'typography-header-content',
-                        'type'     => 'typography',
-                        'title'    => __( 'Header title', THEME_LANG ),
-                        'subtitle' => __( 'Specify the header title font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '#header' )
-                    )
-                )
-            );
-            
-            /**
-			 *	Typography footer
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography-footer',
-				'title'			=> __( 'Footer', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-                        'id'       => 'typography-footer-top',
-                        'type'     => 'typography',
-                        'title'    => __( 'Footer top', THEME_LANG ),
-                        'subtitle' => __( 'Specify the footer top font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '#footer-top' ),
-                        'default'  => array(
-                            'color'       => '',
-                            'font-size'   => '',
-                            'font-weight' => '',
-                            'line-height' => ''
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-footer-widgets',
-                        'type'     => 'typography',
-                        'title'    => __( 'Footer widgets', THEME_LANG ),
-                        'subtitle' => __( 'Specify the footer widgets font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '#footer-area' ),
-                        'default'  => array(
-                            'color'       => '',
-                            'font-size'   => '',
-                            'font-weight' => '',
-                            'line-height' => ''
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-footer-widgets-title',
-                        'type'     => 'typography',
-                        'title'    => __( 'Footer widgets title', THEME_LANG ),
-                        'subtitle' => __( 'Specify the footer widgets title font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '#footer-area h3.widget-title' ),
-                        'default'  => array(
-                            'color'       => '#666666',
-                            'font-size'   => '30px',
-                            'font-weight' => 'Normal',
-                            'line-height' => '30px'
-                        ),
-                    ),
-                    array(
-                        'id'       => 'typography-footer-content',
-                        'type'     => 'typography',
-                        'title'    => __( 'Footer', THEME_LANG ),
-                        'subtitle' => __( 'Specify the footer font properties.', THEME_LANG ),
-                        'google'   => true,
-                        'output'      => array( '#footer' ),
-                        'default'  => array(
-                            'color'       => '',
-                            'font-size'   => '',
-                            'font-weight' => '',
-                            'line-height' => ''
-                        ),
-                    ),
-                )
-            );
             
             
             /**
@@ -630,8 +366,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'id'			=> 'Header',
 				'title'			=> __( 'Header', THEME_LANG ),
 				'desc'			=> '',
-				'icon_class'	=> 'icon_desktop',
-				'icon'			=> '',
+				'subsection' => true,
 				'fields'		=> array(
                     array(
 						'id'		=> 'fixed_header',
@@ -679,8 +414,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'id'			=> 'footer',
 				'title'			=> __( 'Footer', THEME_LANG ),
 				'desc'			=> '',
-				'icon_class'	=> 'icon_flowchart_alt',
-				'icon'			=> '',
+				'subsection' => true,
 				'fields'		=> array(
                     /* Footer Top */
                     array(
@@ -884,6 +618,373 @@ if ( ! class_exists( 'KT_config' ) ) {
                     
                 )
             );
+            
+            /**
+			 *	Menu
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'menu',
+				'title'			=> __( 'Menu', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_menu-square_alt2',
+				'fields'		=> array(
+                
+                
+                )
+            );
+            /**
+			 *	Styling
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'styling',
+				'title'			=> __( 'Styling', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_tool',
+                'subsection' => true,
+            );
+            /**
+			 *	Styling General
+			 **/
+            $this->sections[] = array(
+				'id'			=> 'styling-general',
+				'title'			=> __( 'General', THEME_LANG ),
+				'subsection' => true,
+                'fields'		=> array(
+                    array(
+                        'id'       => 'accent-color',
+                        'type'     => 'color',
+                        'title'    => __( 'Theme Accent Color', 'redux-framework-demo' ),
+                        'default'  => '#000000',
+                    ),
+                    array(
+                        'id'       => 'typography-link',
+                        'type'     => 'link_color',
+                        'title'    => __( 'Links Color', THEME_LANG ),
+                        'output'      => array( 'a' ),
+                        'default'  => array(
+                            'regular' => '#666666',
+                            'hover'   => '#000000',
+                            'active'   => '#000000',
+                        )
+                    ),
+                )
+            );
+            
+            /**
+			 *	Styling Header
+			 **/
+            $this->sections[] = array(
+				'id'			=> 'styling-header',
+				'title'			=> __( 'Header', THEME_LANG ),
+				'subsection' => true,
+                'fields'		=> array(
+                    
+                )
+            );
+            
+            /**
+			 *	Styling Footer
+			 **/
+            $this->sections[] = array(
+				'id'			=> 'styling-footer',
+				'title'			=> __( 'Footer', THEME_LANG ),
+				'subsection' => true,
+                'fields'		=> array(
+                    
+                )
+            );
+            /**
+			 *	Styling Main Navigation
+			 **/
+            $this->sections[] = array(
+				'id'			=> 'styling-navigation',
+				'title'			=> __( 'Main Navigation', THEME_LANG ),
+				'subsection' => true,
+                'fields'		=> array(
+                    
+                )
+            );
+            
+            
+            /**
+			 *	Typography
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography',
+				'title'			=> __( 'Typography', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_tool',
+            );
+            
+            /**
+			 *	Typography General
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-general',
+				'title'			=> __( 'General', THEME_LANG ),
+				'subsection' => true,
+                'fields'		=> array(
+                    array(
+                        'id'       => 'typography-body',
+                        'type'     => 'typography',
+                        'title'    => __( 'Body Font', THEME_LANG ),
+                        'subtitle' => __( 'Specify the body font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'body' ),
+                        'default'  => array(
+                            'color'       => '#666666',
+                            'font-size'   => '14px',
+                            'font-family' => 'Dosis',
+                            'font-weight' => 'Normal',
+                            'line-height' => '20px'
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-pragraph',
+                        'type'     => 'typography',
+                        'title'    => __( 'Pragraph', THEME_LANG ),
+                        'subtitle' => __( 'Specify the pragraph font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'p' ),
+                        'default'  => array(
+                            
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading1',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 1', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 1 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h1', '.h1' ),
+                        'default'  => array(
+                            'font-size'   => '36px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading2',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 2', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 2 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h2', '.h2' ),
+                        'default'  => array(
+                            'font-size'   => '30px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading3',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 3', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 3 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h3', '.h3' ),
+                        'default'  => array(
+                            'font-size'   => '24px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading4',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 4', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 4 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h4', '.h4' ),
+                        'default'  => array(
+                            'font-size'   => '18px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading5',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 5', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 5 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h5', '.h5' ),
+                        'default'  => array(
+                            'font-size'   => '14px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading6',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 6', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 6 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h6', '.h6' ),
+                        'default'  => array(
+                            'font-size'   => '12px',
+                        ),
+                    ),
+                )
+            );
+            /**
+			 *	Typography header
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-header',
+				'title'			=> __( 'Header', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-header-content',
+                        'type'     => 'typography',
+                        'title'    => __( 'Header', THEME_LANG ),
+                        'subtitle' => __( 'Specify the header title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#header' )
+                    )
+                )
+            );
+            
+            /**
+			 *	Typography footer
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-footer',
+				'title'			=> __( 'Footer', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-footer-top',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer top', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer top font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer-top' ),
+                        'default'  => array(
+                            'color'       => '',
+                            'font-size'   => '',
+                            'font-weight' => '',
+                            'line-height' => ''
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-footer-widgets',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer widgets', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer widgets font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer-area' ),
+                        'default'  => array(
+                            'color'       => '',
+                            'font-size'   => '',
+                            'font-weight' => '',
+                            'line-height' => ''
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-footer-widgets-title',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer widgets title', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer widgets title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer-area h3.widget-title' ),
+                        'default'  => array(
+                            'color'       => '#666666',
+                            'font-size'   => '30px',
+                            'font-weight' => 'Normal',
+                            'line-height' => '30px'
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-footer-content',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer' ),
+                        'default'  => array(
+                            'color'       => '',
+                            'font-size'   => '',
+                            'font-weight' => '',
+                            'line-height' => ''
+                        ),
+                    ),
+                )
+            );
+            /**
+			 *	Typography sidebar
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-sidebar',
+				'title'			=> __( 'Sidebar', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-sidebar-content',
+                        'type'     => 'typography',
+                        'title'    => __( 'Sidebar text', THEME_LANG ),
+                        'subtitle' => __( 'Specify the sidebar title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '.sidebar' ),
+                        'default'  => array(
+                        
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-sidebar',
+                        'type'     => 'typography',
+                        'title'    => __( 'Sidebar title', THEME_LANG ),
+                        'subtitle' => __( 'Specify the sidebar title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '.sidebar .widget-container .widget-title' ),
+                        'default'  => array(
+                            'color'       => '#ffffff',
+                            'font-size'   => '18px',
+                            'font-weight' => 'Normal',
+                            'line-height' => '30px'
+                        ),
+                    ),
+                )
+            );
+            
+            /**
+			 *	Typography sidebar
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-navigation',
+				'title'			=> __( 'Main Navigation', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-navigation-top',
+                        'type'     => 'typography',
+                        'title'    => __( 'Top Menu Level', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#main-nav > ul > li > a' )
+                    ),
+                    array(
+                        'id'       => 'typography-navigation-second',
+                        'type'     => 'typography',
+                        'title'    => __( 'Top Menu Level', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#main-nav > ul > li ul.sub-menu-dropdown > li > a' )
+                    ),
+                    array(
+                        'id'       => 'typography-navigation-heading',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading title', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 
+                            '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > a',
+                            '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > span',
+                            '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li .widget-title' 
+                        ),
+                        'default'  => array(
+                            'color'       => '#666666',
+                            'font-size'   => '30px',
+                            'font-weight' => 'Normal',
+                            'line-height' => '30px'
+                        ),
+                    )
+                )
+            );
+            
             /**
 			 *	Popup
 			 **/
@@ -892,7 +993,6 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'title'			=> __( 'Popup', THEME_LANG ),
 				'desc'			=> '',
 				'icon_class'	=> 'icon_desktop',
-				'icon'			=> '',
 				'fields'		=> array(
                     array(
 						'id'		=> 'enable_popup',
@@ -912,6 +1012,20 @@ if ( ! class_exists( 'KT_config' ) ) {
 						'on'		=> __( 'On', THEME_LANG ),
 						'off'		=> __( 'Off', THEME_LANG ),
 					),
+                    array(
+                        'id' => 'time_show',
+                        'type' => 'text',
+                        'title' => __('Time to show', THEME_LANG), 
+                        'desc' => __('Unit: s', THEME_LANG),
+                        'default' => __('0', THEME_LANG)
+                    ),
+                    array(
+                        'id' => 'time_show_again',
+                        'type' => 'text',
+                        'title' => __('Time to show again', THEME_LANG),
+                        'desc' => __('Unit: minutes', THEME_LANG), 
+                        'default' => __('', THEME_LANG)
+                    ),
                     array(
                         'id'       => 'popup-background',
                         'type'     => 'background',
@@ -958,7 +1072,6 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'title'			=> __( 'Woocommerce', THEME_LANG ),
 				'desc'			=> '',
 				'icon_class'	=> 'icon_cart_alt',
-				'icon'			=> '',
 				'fields'		=> array(
                     array(
                         'id'       => 'archive-product-layout',
@@ -996,7 +1109,188 @@ if ( ! class_exists( 'KT_config' ) ) {
                     
                 )
             );
+            $this->sections[] = array(
+				'id'			=> 'social',
+				'title'			=> __( 'Social Profiles', THEME_LANG ),
+				'desc'			=> __('Social account', THEME_LANG),
+				'icon_class'	=> 'social_facebook',
+				'fields'		=> array(
+                    array(
+						'id' => 'twitter_username',
+						'type' => 'text',
+						'title' => __('Twitter', THEME_LANG),
+						'subtitle' => __("Your Twitter username (no @).", THEME_LANG),
+						'default' => ''
+                    ),
+                    array(
+						'id' => 'pinterest_username',
+						'type' => 'text',
+						'title' => __('Pinterest', THEME_LANG),
+						'subtitle' => __("Your Pinterest username", THEME_LANG),
+						'default' => ''
+                    ),
+                    array(
+						'id' => 'dribbble_username',
+						'type' => 'text',
+						'title' => __('Dribbble', THEME_LANG),
+						'subtitle' => __("Your Dribbble username", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+				    ),
+                    array(
+						'id' => 'vimeo_username',
+						'type' => 'text',
+						'title' => __('Vimeo', THEME_LANG),
+						'subtitle' => __("Your Vimeo username", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+                    ),
+                    array(
+						'id' => 'tumblr_username',
+						'type' => 'text',
+						'title' => __('Tumblr', THEME_LANG),
+						'subtitle' => __("Your Tumblr username", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+				    ),
+                    array(
+						'id' => 'skype_username',
+						'type' => 'text',
+						'title' => __('Skype', THEME_LANG),
+						'subtitle' => __("Your Skype username", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					),
+                    array(
+						'id' => 'linkedin_page_url',
+						'type' => 'text',
+						'title' => __('LinkedIn', THEME_LANG),
+						'subtitle' => __("Your LinkedIn page/profile url", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					),
+					array(
+						'id' => 'googleplus_page_url',
+						'type' => 'text',
+						'title' => __('Google+', THEME_LANG),
+						'subtitle' => __("Your Google+ page/profile URL", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					),
+					array(
+						'id' => 'email-address',
+						'type' => 'text',
+						'title' => __('Email', THEME_LANG),
+						'subtitle' => __("Your Email address", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					),
+					array(
+						'id' => 'youtube_username',
+						'type' => 'text',
+						'title' => __('YouTube', THEME_LANG),
+						'subtitle' => __("Your YouTube username", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					),
+					array(
+						'id' => 'instagram_username',
+						'type' => 'text',
+						'title' => __('Instagram', THEME_LANG),
+						'subtitle' => __("Your Instagram username", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					)
+                )
+            );
 
+            
+            /**
+			 *	Advanced
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'advanced',
+				'title'			=> __( 'Advanced', THEME_LANG ),
+				'desc'			=> '',
+                'icon_class'	=> 'icon_star_alt',
+            );
+            
+            /**
+			 *	Advanced Custom CSS
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'advanced-css',
+				'title'			=> __( 'Custom CSS', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'advanced-editor-css',
+                        'type'     => 'ace_editor',
+                        'title'    => __( 'CSS Code', THEME_LANG ),
+                        'subtitle' => __( 'Paste your CSS code here.', THEME_LANG ),
+                        'mode'     => 'css',
+                        'theme'    => 'chrome',
+                        'full_width' => true
+                    ),
+                )
+            );
+            /**
+			 *	Advanced Custom CSS
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'advanced-js',
+				'title'			=> __( 'Custom JS', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'advanced-editor-js-content',
+                        'type'     => 'ace_editor',
+                        'title'    => __( 'JS Code', THEME_LANG ),
+                        'subtitle' => __( 'Paste your JS code here.', THEME_LANG ),
+                        'mode'     => 'javascript',
+                        'theme'    => 'chrome',
+                        'default'  => "jQuery(document).ready(function(){\n\n});",
+                        'full_width' => true
+                    ),
+                )
+            );
+            /**
+			 *	Advanced Tracking Code
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'advanced-tracking',
+				'title'			=> __( 'Tracking Code', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'tracking-code',
+                        'type'     => 'textarea',
+                        'title'    => __( 'Tracking Code', THEME_LANG ),
+                        'desc'     => __( 'Paste your Google Analytics (or other) tracking code here. This will be added into the header template of your theme. Please put code inside script tags.', THEME_LANG ),
+                    )
+                )
+            );
+            /**
+			 *	Advanced Tracking Code
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'advanced-troubleshooting',
+				'title'			=> __( 'Troubleshooting', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'troubleshooting',
+                        'type'     => 'textarea',
+                        'title'    => __( 'Troubleshooting', THEME_LANG ),
+                    )
+                )
+            );
+            //
+            
             
         }
         

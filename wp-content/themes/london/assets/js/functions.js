@@ -125,22 +125,26 @@
      --------------------------------------------- */
     function init_popup(){
         if($('#popup-wrap').length > 0){
-            var $disable_mobile = $('#popup-wrap').data('mobile');
-            if(!isMobile() || (isMobile() && $disable_mobile == 0)){
-                $.magnificPopup.open({
-                    items: { src: '#popup-wrap' },
-                    type: 'inline',
-                    callbacks: {
-                        beforeClose: function() {
-                            var data = {
-                                action: 'fronted_popup',
-                                security : ajax_frontend.security,
-                            };
-                            $.post(ajax_frontend.ajaxurl, data, function(response) { }, 'json');
-                        }
-                    }
-                });
-            }
+            var $disable_mobile = $('#popup-wrap').data('mobile'),
+                time_show = $('#popup-wrap').data('timeshow');
+            
+                if(!isMobile() || (isMobile() && $disable_mobile == 0)){
+                    setTimeout(function(){
+                        $.magnificPopup.open({
+                            items: { src: '#popup-wrap' },
+                            type: 'inline',
+                            callbacks: {
+                                beforeClose: function() {
+                                    var data = {
+                                        action: 'fronted_popup',
+                                        security : ajax_frontend.security,
+                                    };
+                                    $.post(ajax_frontend.ajaxurl, data, function(response) { }, 'json');
+                                }
+                            }
+                        });
+                    }, time_show*1000);
+                }
         }
     }
     
