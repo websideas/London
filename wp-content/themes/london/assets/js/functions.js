@@ -545,18 +545,19 @@
      --------------------------------------------- */
     function init_carousel(){
         $('.kt-owl-carousel').each(function(){
+
             var objCarousel = $(this),
-                    owlItems = objCarousel.data('items'),
-                    owlPagination = objCarousel.data('pagination'),
-                    owlAutoheight = objCarousel.data('autoheight'),
-                    owlNavigation = objCarousel.data('navigation'),
-                    owlAutoPlay = objCarousel.data('autoplay'),
-                    owlTheme = objCarousel.data('theme'),
-                    owlitemsCustom = objCarousel.data('itemscustom'),
-                    owlSlideSpeed = objCarousel.data('slidespeed'),
-                    owlSingleItem = true;
-                
-                
+                owlItems = objCarousel.data('items'),
+                owlPagination = objCarousel.data('pagination'),
+                owlAutoheight = objCarousel.data('autoheight'),
+                owlNavigation = objCarousel.data('navigation'),
+                owlAutoPlay = objCarousel.data('autoplay'),
+                owlTheme = objCarousel.data('theme'),
+                owlitemsCustom = objCarousel.data('itemscustom'),
+                owlSlideSpeed = objCarousel.data('slidespeed'),
+                owlSingleItem = true;
+
+
             if(typeof owlNavigation === "undefined"){
                 owlNavigation = true;
             }
@@ -580,15 +581,15 @@
             if(typeof owlTheme === "undefined"){
                 owlTheme = 'style-navigation-center';
             }
-            
-            
+
+
             if(typeof owlItems === "undefined"){
                 owlItems = 1;
             }else{
                 owlItems = parseInt(owlItems, 10);
                 owlSingleItem = false;
             }
-            
+
             var options = {
                 items: owlItems,
                 slideSpeed: owlSlideSpeed,
@@ -614,6 +615,8 @@
                 }
             };
             objCarousel.owlCarousel(options);
+
+            console.debug(options);
             
         });
     }

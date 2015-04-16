@@ -46,7 +46,7 @@ class WPBakeryShortCode_Clients_Carousel extends WPBakeryShortCode {
             $output .= ($title) ? '<h3 class="'.esc_attr($heading_class).'">'.$title.'</h3>' : '';
             
                 $output .= '<div class="owl-carousel-wrapper">';
-                $output .= '<div class="owl-carousel kt-owl-carousel" data-autoplay="false" data-pagination="false" data-theme="style-navigation-center visiable-navigation" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
+                $output .= '<div class="owl-carousel kt-owl-carousel" data-autoplay="false" data-items="'.$desktop.'" data-pagination="false" data-theme="style-navigation-center visiable-navigation" data-itemscustom="[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]">';
                     $output .= $carousel;
                 $output .= '</div>';
                 $output .= '</div>';
