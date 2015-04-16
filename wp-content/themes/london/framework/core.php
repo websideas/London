@@ -190,7 +190,7 @@ if ( class_exists( 'Vc_Manager', false ) ) {
     add_action( 'admin_enqueue_scripts', 'js_composer_bridge_admin', 15 );
     
     if ( function_exists( 'vc_set_shortcodes_templates_dir' ) ) {
-		vc_set_shortcodes_templates_dir( THEME_TEMP . 'js_composer/vc_templates' );
+		vc_set_shortcodes_templates_dir( THEME_TEMP . 'templates/vc_templates' );
 	}
     
     add_action( 'init', 'kt_js_composer_bridge', 20 );
