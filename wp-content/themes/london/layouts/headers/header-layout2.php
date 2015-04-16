@@ -8,13 +8,8 @@
                             wp_nav_menu( array( 'theme_location' => 'top', 'container' => 'nav', 'container_id' => 'top-nav' ) );
                         } 
                     ?>
-                    <div class="header-contact">
-                        
-                        <i class="fa fa-phone"></i> <?php echo kt_option('header_phone'); ?>
-                        <i class="fa fa-email"></i> <?php echo kt_option('header_email'); ?>
-                    </div>
+                    <?php get_template_part( 'layouts/headers/header',  'contact'); ?>
                 </div>
-                
                 <div class="col-md-4 text-center">
                     <div class="site-branding">
                         <?php get_template_part( 'layouts/headers/header',  'branding'); ?>

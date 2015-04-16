@@ -74,7 +74,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     // Set it you want google fonts to update weekly. A google_api_key value is required.
                     'google_update_weekly' => false,
                     // Must be defined to add google fonts to the typography module
-                    'async_typography'     => true,
+                    'async_typography'     => false,
                     // Use a asynchronous font on the front end or font string
                     //'disable_google_fonts_link' => true,                    // Disable this in case you want to create your own google fonts loader
                     'admin_bar'            => true,
@@ -227,19 +227,21 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'id'			=> 'logos',
 				'title'			=> __( 'Logos Settings', THEME_LANG ),
 				'desc'			=> '',
-				'icon_class'	=> 'icon_desktop',
+				'icon_class'	=> 'icon_lightbulb',
 				'icon'			=> '',
 				'fields'		=> array(
                     array(
                         'id'       => 'logo',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Logo', THEME_LANG ),
                     ),
                     array(
                         'id'       => 'logo_retina',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Logo (Retina Version @2x)', THEME_LANG ),
                         'desc'     => __('Select an image file for the retina version of the logo. It should be exactly 2x the size of main logo.', THEME_LANG)
                     ),
@@ -251,7 +253,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'title'          => __( 'Logo width', THEME_LANG ),
                         'height'         => false,
                         'default'        => array( 'width'  => 120, 'height' => 100 ),
-                        'output'   => array( '.site-branding .site-logo, .site-branding .site-logo img' ),
+                        'output'   => array( '.site-branding .site-logo', '.site-branding .site-logo img' ),
                     ),
                     array(
                         'id'       => 'logo_margin_spacing',
@@ -277,8 +279,8 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'       => 'opt-color-rgba',
                         'type'     => 'color_rgba',
-                        'title'    => __( 'Color RGBA', 'redux-framework-demo' ),
-                        'subtitle' => __( 'Gives you the RGBA color.', 'redux-framework-demo' ),
+                        'title'    => __( 'Color RGBA', THEME_LANG ),
+                        'subtitle' => __( 'Gives you the RGBA color.', THEME_LANG ),
                         'default'  => array(
                             'color' => '#000',
                             'alpha' => '1'
@@ -290,7 +292,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'             => 'logo_sticky_width',
                         'type'           => 'dimensions',
-                        'output'   => array( '.is-sticky .site-branding .site-logo,.is-sticky .site-branding .site-logo img' ),
+                        'output'   => array( '.is-sticky .site-branding .site-logo', '.is-sticky .site-branding .site-logo img' ),
                         'units'          => array( 'em', 'px'), 
                         'units_extended' => 'true', 
                         'title'          => __( 'Logo sticky width', THEME_LANG ),
@@ -316,50 +318,316 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'       => 'custom_favicon',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Custom Favicon', THEME_LANG ),
                         'subtitle' => __( 'Using this option, You can upload your own custom favicon (16px x 16px)', THEME_LANG),
                     ),
                     array(
                         'id'       => 'custom_favicon_iphone',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Apple iPhone Favicon', THEME_LANG ),
                         'subtitle' => __( 'Favicon for Apple iPhone (57px x 57px)', THEME_LANG),
                     ),
                     array(
                         'id'       => 'custom_favicon_iphone_retina',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Apple iPhone Retina Favicon', THEME_LANG ),
                         'subtitle' => __( 'Favicon for Apple iPhone Retina Version (114px x 114px)', THEME_LANG),
                     ),
                     array(
                         'id'       => 'custom_favicon_ipad',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Apple iPad Favicon Upload', THEME_LANG ),
                         'subtitle' => __( 'Favicon for Apple iPad (72px x 72px)', THEME_LANG),
                     ),
                     array(
                         'id'       => 'custom_favicon_ipad_retina',
                         'type'     => 'media',
-                        'preview'  => true,
+                        'url'      => true,
+                        'compiler' => true,
                         'title'    => __( 'Apple iPad Retina Icon Upload', THEME_LANG ),
                         'subtitle' => __( 'Favicon for Apple iPad Retina Version (144px x 144px)', THEME_LANG),
                     ),
                 )
             );
+            /**
+			 *	Menu
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'menu',
+				'title'			=> __( 'menu', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_menu-square_alt2',
+				'fields'		=> array(
+                
+                
+                )
+            );
+            /**
+			 *	Typography
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography',
+				'title'			=> __( 'Typography', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_tool',
+            );
             
+            /**
+			 *	Typography General
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-general',
+				'title'			=> __( 'General', THEME_LANG ),
+				'subsection' => true,
+				'icon_class'	=> 'icon_tool',
+                'fields'		=> array(
+                    array(
+                        'id'       => 'typography-body',
+                        'type'     => 'typography',
+                        'title'    => __( 'Body Font', THEME_LANG ),
+                        'subtitle' => __( 'Specify the body font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'body' ),
+                        'default'  => array(
+                            'color'       => '#666666',
+                            'font-size'   => '14px',
+                            'font-family' => 'Dosis',
+                            'font-weight' => 'Normal',
+                            'line-height' => '20px'
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-pragraph',
+                        'type'     => 'typography',
+                        'title'    => __( 'Pragraph', THEME_LANG ),
+                        'subtitle' => __( 'Specify the pragraph font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'p' ),
+                        'default'  => array(
+                            
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-link',
+                        'type'     => 'link_color',
+                        'title'    => __( 'Links Color', THEME_LANG ),
+                        'output'      => array( 'a' ),
+                        'default'  => array(
+                            'regular' => '#666666',
+                            'hover'   => '#000000',
+                            'active'   => '#000000',
+                        )
+                    ),
+                    array(
+                        'id'       => 'typography-heading1',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 1', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 1 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h1', '.h1' ),
+                        'default'  => array(
+                            'font-size'   => '36px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading2',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 2', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 2 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h2', '.h2' ),
+                        'default'  => array(
+                            'font-size'   => '30px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading3',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 3', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 3 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h3', '.h3' ),
+                        'default'  => array(
+                            'font-size'   => '24px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading4',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 4', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 4 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h4', '.h4' ),
+                        'default'  => array(
+                            'font-size'   => '18px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading5',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 5', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 5 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h5', '.h5' ),
+                        'default'  => array(
+                            'font-size'   => '14px',
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-heading6',
+                        'type'     => 'typography',
+                        'title'    => __( 'Heading 6', THEME_LANG ),
+                        'subtitle' => __( 'Specify the heading 6 font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( 'h6', '.h6' ),
+                        'default'  => array(
+                            'font-size'   => '12px',
+                        ),
+                    ),
+                )
+            );
+            /**
+			 *	Typography sidebar
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-sidebar',
+				'title'			=> __( 'Sidebar', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_tool',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-sidebar-content',
+                        'type'     => 'typography',
+                        'title'    => __( 'Sidebar text', THEME_LANG ),
+                        'subtitle' => __( 'Specify the sidebar title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '.sidebar' ),
+                        'default'  => array(
+                        
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-sidebar',
+                        'type'     => 'typography',
+                        'title'    => __( 'Sidebar title', THEME_LANG ),
+                        'subtitle' => __( 'Specify the sidebar title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '.sidebar .widget-container .widget-title' ),
+                        'default'  => array(
+                            'color'       => '#ffffff',
+                            'font-size'   => '18px',
+                            'font-weight' => 'Normal',
+                            'line-height' => '30px'
+                        ),
+                    ),
+                )
+            );
             
+            /**
+			 *	Typography header
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-header',
+				'title'			=> __( 'Header', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_tool',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-header-content',
+                        'type'     => 'typography',
+                        'title'    => __( 'Header title', THEME_LANG ),
+                        'subtitle' => __( 'Specify the header title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#header' )
+                    )
+                )
+            );
             
+            /**
+			 *	Typography footer
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'typography-footer',
+				'title'			=> __( 'Footer', THEME_LANG ),
+				'desc'			=> '',
+				'icon_class'	=> 'icon_tool',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+                        'id'       => 'typography-footer-top',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer top', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer top font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer-top' ),
+                        'default'  => array(
+                            'color'       => '',
+                            'font-size'   => '',
+                            'font-weight' => '',
+                            'line-height' => ''
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-footer-widgets',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer widgets', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer widgets font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer-area' ),
+                        'default'  => array(
+                            'color'       => '',
+                            'font-size'   => '',
+                            'font-weight' => '',
+                            'line-height' => ''
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-footer-widgets-title',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer widgets title', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer widgets title font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer-area h3.widget-title' ),
+                        'default'  => array(
+                            'color'       => '#666666',
+                            'font-size'   => '30px',
+                            'font-weight' => 'Normal',
+                            'line-height' => '30px'
+                        ),
+                    ),
+                    array(
+                        'id'       => 'typography-footer-content',
+                        'type'     => 'typography',
+                        'title'    => __( 'Footer', THEME_LANG ),
+                        'subtitle' => __( 'Specify the footer font properties.', THEME_LANG ),
+                        'google'   => true,
+                        'output'      => array( '#footer' ),
+                        'default'  => array(
+                            'color'       => '',
+                            'font-size'   => '',
+                            'font-weight' => '',
+                            'line-height' => ''
+                        ),
+                    ),
+                )
+            );
             
             
             /**
 			 *	Header
 			 **/
 			$this->sections[] = array(
-				'id'			=> 'header',
+				'id'			=> 'Header',
 				'title'			=> __( 'Header', THEME_LANG ),
 				'desc'			=> '',
 				'icon_class'	=> 'icon_desktop',
@@ -393,18 +661,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id' => 'header_phone',
                         'type' => 'text',
                         'title' => __('Phone Number For Contact Info', THEME_LANG), 
-                        'default' => 'Call Us: 00-123-456-789'
+                        'default' => __('Call Us: 00-123-456-789', THEME_LANG)
                     ),
                     array(
                         'id' => 'header_email',
                         'type' => 'text',
                         'title' => __('Email Address For Contact Info', THEME_LANG), 
-                        'default' => 'demo@domain.com'
+                        'default' => __('demo@domain.com', THEME_LANG)
                     ),
-                    
-                    
-                    
-                    
                 )
             );
             

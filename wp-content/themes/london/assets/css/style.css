@@ -286,7 +286,7 @@ blockquote.creative.blockquote-reverse footer{
 .searchform input[type=text]{
     background: transparent;
     border: 1px solid #000;
-    color: #cccccc;
+    color: #ccc;
     width: 100%;
     padding: 5px 40px 5px 10px;
 }
@@ -310,6 +310,7 @@ blockquote.creative.blockquote-reverse footer{
     color: #fff;
     display: none;
     height: 48px;
+    margin-bottom:-24px;
     left: 50%;
     line-height: 46px;
     margin-left: -24px;
@@ -1243,6 +1244,15 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 #mobile-content-all{
     display: none;
 }
+.header-contact span{
+    padding: 0 10px;
+}
+.header-contact span:first-child{
+    padding-left: 0;
+}
+.header-contact span:last-child{
+    padding-right: 0;
+}
 /* ==============================
    Navigation mobile
    ============================== */
@@ -1518,7 +1528,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     opacity: 0;
     position: fixed;
     top: -61px;
-    z-index: 500;
+    z-index: 1100;
     -webkit-transition: top 0.4s ease 0s, opacity 0.4s ease 0s;
 	-moz-transition: top 0.4s ease 0s, opacity 0.4s ease 0s;
 	transition: top 0.4s ease 0s, opacity 0.4s ease 0s;
@@ -1652,9 +1662,12 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     padding: 0 10px;
 }
 .header-layout2 #top-nav > ul > li:first-child,
-.header-layout3 #top-nav > ul > li:first-child{
+.header-layout3 #top-nav > ul > li:first-child,
+.header-layout2 #woocommerce-nav > ul > li:first-child{
     padding-left: 0;
 }
+.header-layout2 #top-nav > ul > li:last-child,
+.header-layout3 #top-nav > ul > li:last-child,
 .header-layout2 #woocommerce-nav > ul > li:last-child,
 .header-layout3 #woocommerce-nav > ul > li:last-child{
     padding-right: 0;
@@ -1846,6 +1859,9 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     background-color: #666666;
     margin: -20px -20px -25px;
     padding: 0;
+}
+.sidebar .searchform input[type=text]{ 
+    color:#000; 
 }
 
 
@@ -2074,3 +2090,77 @@ a.comment-reply-link {
 
 .easyzoom-flyout img{ max-width:none!important; }
 
+/** ================================================
+WIDGET
+/** ================================================ */
+.sidebar .widget-container select{
+    width:100%;
+}
+.sidebar .widget_nav_menu ul,
+.sidebar .widget_meta ul,
+.sidebar .widget_archive ul,
+.sidebar .widget_categories ul{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+.sidebar .widget_nav_menu ul li,
+.sidebar .widget_meta ul li,
+.sidebar .widget_archive ul li,
+.sidebar .widget_categories ul li{
+    position: relative;
+}
+.sidebar .widget_nav_menu ul li a,
+.sidebar .widget_meta ul li a,
+.sidebar .widget_archive ul li a,
+.sidebar .widget_categories ul li a{
+    padding:10px 30px;
+    border-bottom:1px solid #ccc;
+    display: block;
+    background: url("../images/cate_item_bg.png") no-repeat 10px 18px;
+}
+.sidebar .widget_nav_menu ul li:last-child ul.sub-menu,
+.sidebar .widget_categories ul li:last-child ul.children{
+    border-bottom:none;
+}
+.sidebar .widget_nav_menu ul li:last-child a,
+.sidebar .widget_meta ul li:last-child a,
+.sidebar .widget_archive ul li:last-child a,
+.sidebar .widget_categories > ul > li ul.children li:last-child > a,
+.sidebar .widget_categories > ul > li:last-child > a{
+    border: none;
+}
+.sidebar .widget_nav_menu ul li span,
+.sidebar .widget_archive ul li span,
+.sidebar .widget_categories ul li span{
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+.sidebar .widget_nav_menu ul li ul.sub-menu,
+.sidebar .widget_categories ul li ul.children{
+    margin-top: -1px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.sidebar .widget_nav_menu ul li ul.sub-menu li ul.sub-menu,
+.sidebar .widget_categories ul li ul.children li ul.children{
+    padding-left:20px;
+} 
+.sidebar .widget_nav_menu ul li ul.sub-menu li a,
+.sidebar .widget_categories ul li ul.children li a{
+    padding-left:50px;
+    background-position: 30px 18px;
+}
+.sidebar .widget_meta ul li a:hover,
+.sidebar .widget_meta ul li a:focus,
+.sidebar .widget_archive ul li a:hover,
+.sidebar .widget_archive ul li a:focus,
+.sidebar .widget_categories ul li.current-cat > a,
+.sidebar .widget_categories ul li a:hover,
+.sidebar .widget_categories ul li a:focus{
+    background-color: #dbdbdb;
+}
+/** ================================================
+END WIDGET
+/** ================================================ */

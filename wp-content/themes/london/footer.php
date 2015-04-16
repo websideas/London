@@ -60,7 +60,7 @@
 	 * @hooked 
 	 */
 	do_action( 'theme_after_footer' ); ?>
-    
+    <a id="backtotop" href="#top"></a>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

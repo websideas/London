@@ -18,7 +18,7 @@ if ( !defined('ABSPATH')) exit;
                 ?>
                 <?php woocommerce_get_tool(); ?>
                 <div class="clearfix"></div>
-                <div class="header-contact"><i class="fa fa-phone"></i> Call Us: 00-123-456-789</div>
+                <?php get_template_part( 'layouts/headers/header',  'contact'); ?>
                 <?php echo woocommerce_get_cart(); ?>
             </div>
         </div>

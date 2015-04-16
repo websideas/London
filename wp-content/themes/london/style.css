@@ -127,6 +127,8 @@ a img.aligncenter {
 
 
 #popup-wrap{
+    background: #fff;
+    min-height:100px;
     margin: 40px auto;
     max-width: 500px;
     padding: 25px;
