@@ -375,8 +375,6 @@ if ( ! class_exists( 'KT_config' ) ) {
 						'off'		=> __( 'Off', THEME_LANG ),
 					),
                     
-                    
-                    
                     array(
                         'id'       => 'header',
                         'type'     => 'select',
@@ -390,6 +388,20 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'layout1',
                         'clear' => false
                     ),
+                    
+                    array(
+                        'id' => 'header_phone',
+                        'type' => 'text',
+                        'title' => __('Phone Number For Contact Info', THEME_LANG), 
+                        'default' => 'Call Us: 00-123-456-789'
+                    ),
+                    array(
+                        'id' => 'header_email',
+                        'type' => 'text',
+                        'title' => __('Email Address For Contact Info', THEME_LANG), 
+                        'default' => 'demo@domain.com'
+                    ),
+                    
                     
                     
                     
@@ -668,8 +680,8 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id' => 'mailchimp_api',
                         'type' => 'text',
                         'title' => __('Mailchimp API KEY', THEME_LANG), 
-                        'sub_desc' => __('To use mailchimp newsletter subscribe widget you have to enter your API KEY', THEME_LANGUAGE),
-                        'std' => ''
+                        'subtitle' => __('To use mailchimp newsletter subscribe widget you have to enter your API KEY', THEME_LANGUAGE),
+                        'default' => ''
                     ),
                 )
             );

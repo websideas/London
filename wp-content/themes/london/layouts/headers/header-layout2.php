@@ -8,7 +8,11 @@
                             wp_nav_menu( array( 'theme_location' => 'top', 'container' => 'nav', 'container_id' => 'top-nav' ) );
                         } 
                     ?>
-                    <div class="header-contact"><i class="fa fa-phone"></i> Call Us: 00-123-456-789</div>
+                    <div class="header-contact">
+                        
+                        <i class="fa fa-phone"></i> <?php echo kt_option('header_phone'); ?>
+                        <i class="fa fa-email"></i> <?php echo kt_option('header_email'); ?>
+                    </div>
                 </div>
                 
                 <div class="col-md-4 text-center">

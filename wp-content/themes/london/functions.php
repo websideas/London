@@ -12,6 +12,7 @@ define( 'THEME_LANG', 'london');
 define( 'THEME_DIR', trailingslashit(get_template_directory()));
 define( 'THEME_URL', trailingslashit(get_template_directory_uri()));
 define( 'THEME_INC', trailingslashit(THEME_DIR.'inc'));
+define( 'THEME_TEMP', trailingslashit(THEME_DIR.'templates'));
 
 define( 'THEME_ASSETS', trailingslashit( THEME_URL . 'assets' ) );
 define( 'THEME_FONTS', trailingslashit( THEME_ASSETS . 'fonts' ) );
