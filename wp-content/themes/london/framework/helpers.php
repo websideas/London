@@ -189,6 +189,19 @@ function kt_sidebar(){
     $sidebar = kt_option('sidebar', 'full');
     $sidebar_left = kt_option('sidebar_left', 'primary-widget-area');
     $sidebar_right = kt_option('sidebar_right', 'primary-widget-area');
+
+    if( kt_is_wc() ){
+        if( is_shop() || is_product_category() || is_product_tag() ){
+            $sidebar = kt_option('shop_sidebar', 'full');
+            $sidebar_left = kt_option('shop_sidebar_left', 'primary-widget-area');
+            $sidebar_right = kt_option('shop_sidebar_right', 'primary-widget-area');
+        }elseif( is_product() ){
+            $sidebar = kt_option('product_sidebar', 'full');
+            $sidebar_left = kt_option('product_sidebar_left', 'primary-widget-area');
+            $sidebar_right = kt_option('product_sidebar_right', 'primary-widget-area');
+        }
+
+    }
     
     if($sidebar == 'left'){
         $sidebar_area = $sidebar_left;

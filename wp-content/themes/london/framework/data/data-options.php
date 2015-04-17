@@ -175,6 +175,15 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
                 )
             );
+
+            global $wp_registered_sidebars;
+            $sidebars = array();
+
+            foreach ( $wp_registered_sidebars as $sidebar ){
+                $sidebars[  $sidebar['id'] ] =   $sidebar['name'];
+            }
+
+
             $this->sections[] = array(
                 'id' 	=> 'general-layout',
                 'title'  => __( 'Layout', THEME_LANG ),
@@ -184,7 +193,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'       => 'layout',
                         'type'     => 'select',
-                        'title'    => __( 'Page layout', THEME_LANG ),
+                        'title'    => __( 'Site boxed mod(?)', THEME_LANG ),
                         'subtitle'     => __( "Please choose page layout", THEME_LANG ),
                         'options'  => array(
                             'full' => __('Full width Layout', THEME_LANG),
@@ -204,34 +213,118 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'right' => __('Right Layout', THEME_LANG)
                         ),
                         'default'  => 'full',
-                        'clear' => false
+                        'clear' => false,
+
                     ),
                     array(
                         'id'       => 'sidebar_left',
-                        'type'     => 'select',
+                        'type' => 'select',
                         'title'    => __( 'Sidebar left area', THEME_LANG ),
-                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
-                        'options'  => array(
-                            'primary-widget-area' => __('Primary Widget Area', THEME_LANG),
-                            'sidebar-column-1' => __('Sidebar 1', THEME_LANG),
-                            'sidebar-column-2' => __('Sidebar 2', THEME_LANG)
-                        ),
+                        'subtitle'     => __( "Please choose default layout", THEME_LANG ),
+                        'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
-                        'clear' => false
+                        'required' => array('sidebar','equals','left')
+                        //'clear' => false
                     ),
                     array(
                         'id'       => 'sidebar_right',
                         'type'     => 'select',
                         'title'    => __( 'Sidebar right area', THEME_LANG ),
                         'subtitle'     => __( "Please choose page layout", THEME_LANG ),
-                        'options'  => array(
-                            'primary-widget-area' => __('Primary Widget Area', THEME_LANG),
-                            'sidebar-column-1' => __('Sidebar 1', THEME_LANG),
-                            'sidebar-column-2' => __('Sidebar 2', THEME_LANG)
-                        ),
+                        'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
+                        'required' => array('sidebar','equals','right')
+                        //'clear' => false
+                    ),
+
+
+
+
+                    // For Shop (Applies for Shop product cate,)
+                    array(
+                        'id'     => 'heading_s',
+                        'type'     => 'heading',
+                        'title'    => __('Shop Layout', THEME_LANG),
+
+                    ),
+                    array(
+                        'id'       => 'shop_sidebar',
+                        'type'     => 'select',
+                        'title'    => __( 'Shop: Sidebar configuration', THEME_LANG ),
+                        'subtitle'     => __( "Please choose shop layout (Apply for: Shop, Product category, Product tag)", THEME_LANG ),
+                        'options'  => array(
+                            'full' => __('No sidebars', THEME_LANG),
+                            'left' => __('Left Sidebar', THEME_LANG),
+                            'right' => __('Right Layout', THEME_LANG)
+                        ),
+                        'default'  => 'full',
                         'clear' => false
                     ),
+                    array(
+                        'id'       => 'shop_sidebar_left',
+                        'type' => 'select',
+                        'title'    => __( 'Shop: Sidebar left area', THEME_LANG ),
+                        'subtitle'     => __( "Please choose left sidebar", THEME_LANG ),
+                        'options'  => $sidebars,
+                        'default'  => 'primary-widget-area',
+                        'required' => array('shop_sidebar','equals','left')
+                        //'clear' => false
+                    ),
+                    array(
+                        'id'       => 'shop_sidebar_right',
+                        'type'     => 'select',
+                        'title'    => __( 'Shop: Sidebar right area', THEME_LANG ),
+                        'subtitle'     => __( "Please choose left sidebar", THEME_LANG ),
+                        'options'  => $sidebars,
+                        'default'  => 'primary-widget-area',
+                        'required' => array('shop_sidebar','equals','right')
+                        //'clear' => false
+                    ),
+
+
+                    // For Single Products
+                    array(
+                        'id'     => 'heading_p',
+                        'type'     => 'heading',
+                        'title'    => __('Single Product Layout', THEME_LANG),
+
+                    ),
+                    array(
+                        'id'       => 'product_sidebar',
+                        'type'     => 'select',
+                        'title'    => __( 'Product: Sidebar configuration', THEME_LANG ),
+                        'subtitle'     => __( "Please choose single product page ", THEME_LANG ),
+                        'options'  => array(
+                            'full' => __('No sidebars', THEME_LANG),
+                            'left' => __('Left Sidebar', THEME_LANG),
+                            'right' => __('Right Layout', THEME_LANG)
+                        ),
+                        'default'  => 'full',
+                        'clear' => false
+                    ),
+                    array(
+                        'id'       => 'product_sidebar_left',
+                        'type' => 'select',
+                        'title'    => __( 'Product: Sidebar left area', THEME_LANG ),
+                        'subtitle'     => __( "Please choose left sidebar ", THEME_LANG ),
+                        'options'  => $sidebars,
+                        'default'  => 'primary-widget-area',
+                        'required' => array('product_sidebar','equals','left')
+                        //'clear' => false
+                    ),
+                    array(
+                        'id'       => 'product_sidebar_right',
+                        'type'     => 'select',
+                        'title'    => __( 'Product: Sidebar right area', THEME_LANG ),
+                        'subtitle'     => __( "Please choose left sidebar ", THEME_LANG ),
+                        'options'  => $sidebars,
+                        'default'  => 'primary-widget-area',
+                        'required' => array('product_sidebar','equals','right')
+                        //'clear' => false
+                    ),
+
+
+
                 )
             );
             

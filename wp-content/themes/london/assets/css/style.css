@@ -1892,6 +1892,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .widget_rss ul li {  }
 .widget_rss ul li:last-child, .widget_pages ul li:last-child a{  margin-bottom: 0px; }
 .rsswidget { font-weight: bold; }
+.widget_calendar .widget-title { display: none; }
 
 
 

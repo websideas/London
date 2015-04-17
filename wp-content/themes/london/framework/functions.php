@@ -3,6 +3,34 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
+/*
+ * Function check if WC Plugin installed
+ */
+
+function kt_is_wc(){
+    return function_exists('is_woocommerce');
+}
+
+/**
+ *  @true  if WPML installed.
+ */
+function  kt_is_wpml(){
+    return function_exists('icl_get_languages');
+}
+
+/**
+ * Get Page id - Supported WPML Plguin
+ * @return page id
+ */
+function kt_get_page_id(  $ID , $post_type= 'page'){
+    if(kt_is_wpml()){
+        $ID =   icl_object_id($ID, $post_type , true) ;
+    }
+    return $ID;
+}
+
+
+
 /**
  * Extend the default WordPress body classes.
  *
