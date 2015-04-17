@@ -10,3 +10,7 @@ Tasks:
 - Page boxed mod
 - Move VC to plugin folder
 - breackcrumbs for post, archives,...
+- Check Header scripts
+- Add this ID settings in admin
+- Change post type ks_designer to designer
+- Add Meta box for product to select designer

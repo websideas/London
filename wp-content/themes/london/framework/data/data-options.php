@@ -214,7 +214,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'default'  => 'full',
                         'clear' => false,
-                        
+
                     ),
                     array(
                         'id'       => 'sidebar_left',
