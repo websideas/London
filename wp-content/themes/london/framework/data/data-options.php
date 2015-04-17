@@ -659,7 +659,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'active'   => '#000000',
                         )
                     ),
-                   
+
                 )
             );
             

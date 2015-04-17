@@ -23,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="data-options.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="data-options.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="661" column="19" selection-start="31880" selection-end="31880" vertical-scroll-proportion="0.51856434" vertical-offset="14784" max-vertical-offset="36639">
+            <state line="661" column="0" selection-start="31861" selection-end="31861" vertical-scroll-proportion="-8.057693" vertical-offset="14784" max-vertical-offset="36639">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="689" column="59" selection-start="14269" selection-end="14269" vertical-scroll-proportion="0.35967928" vertical-offset="15533" max-vertical-offset="54234">
               <folding />
             </state>
           </provider>
@@ -160,7 +169,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/clients-carousel.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/ajax.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/woocommerce.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/helpers.php" />
@@ -170,6 +178,7 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -680,13 +689,6 @@
         <state line="128" column="35" selection-start="4620" selection-end="4628" vertical-scroll-proportion="-20.346153" vertical-offset="2346" max-vertical-offset="4853" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1880" column="48" selection-start="44120" selection-end="44120" vertical-scroll-proportion="-40.5" vertical-offset="42187" max-vertical-offset="52003">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="22" selection-start="0" selection-end="1303" vertical-scroll-proportion="-30.961538" vertical-offset="0" max-vertical-offset="943">
@@ -857,7 +859,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="661" column="19" selection-start="31880" selection-end="31880" vertical-scroll-proportion="0.51856434" vertical-offset="14784" max-vertical-offset="36639">
+        <state line="661" column="0" selection-start="31861" selection-end="31861" vertical-scroll-proportion="-8.057693" vertical-offset="14784" max-vertical-offset="36639">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="689" column="59" selection-start="14269" selection-end="14269" vertical-scroll-proportion="0.35967928" vertical-offset="15533" max-vertical-offset="54234">
           <folding />
         </state>
       </provider>

@@ -587,7 +587,7 @@ select:not([multiple]) {
    Custom Visual Composer
    ============================== */
 .block-heading-underline{
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #cccccc;
     margin-bottom: 30px;
 }
@@ -687,7 +687,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     margin-bottom: 15px;
 }
 .recent-posts-carousel-wrapper h5.entry-title{
-    font-size: 18px;
+    font-size: 18px; line-height: 1.4; margin-bottom: 10px;
 }
 .recent-posts-carousel-wrapper .post-content-blog,
 .recent-posts-carousel-wrapper .entry-thumbnail{
