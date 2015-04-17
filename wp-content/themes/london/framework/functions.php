@@ -4,7 +4,7 @@
 if ( !defined('ABSPATH')) exit;
 
 /*
- * Function
+ * Function check if WC Plugin installed
  */
 
 function kt_is_wc(){

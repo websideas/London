@@ -13,7 +13,7 @@
 
 $sidebar = kt_sidebar();
 get_header(); ?>
-    <div class="container">
+    <div class="wc-container container">
         <?php
         /**
          * @hooked

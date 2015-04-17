@@ -213,17 +213,17 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'right' => __('Right Layout', THEME_LANG)
                         ),
                         'default'  => 'full',
-                        'clear' => false
+                        'clear' => false,
+                        
                     ),
                     array(
                         'id'       => 'sidebar_left',
                         'type' => 'select',
                         'title'    => __( 'Sidebar left area', THEME_LANG ),
-                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
-
+                        'subtitle'     => __( "Please choose default layout", THEME_LANG ),
                         'options'  => $sidebars,
-
                         'default'  => 'primary-widget-area',
+                        'required' => array('sidebar','equals','left')
                         //'clear' => false
                     ),
                     array(
@@ -233,13 +233,16 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'subtitle'     => __( "Please choose page layout", THEME_LANG ),
                         'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
+                        'required' => array('sidebar','equals','right')
                         //'clear' => false
                     ),
 
-                    /*
+
+
+
                     // For Shop (Applies for Shop product cate,)
                     array(
-                        'id'       => 'divider_s1',
+                        'id'     => 'heading_s',
                         'type'     => 'heading',
                         'title'    => __('Shop Layout', THEME_LANG),
 
@@ -248,7 +251,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'       => 'shop_sidebar',
                         'type'     => 'select',
                         'title'    => __( 'Shop: Sidebar configuration', THEME_LANG ),
-                        'subtitle'     => __( "Please choose page layout", THEME_LANG ),
+                        'subtitle'     => __( "Please choose shop layout (Apply for: Shop, Product category, Product tag)", THEME_LANG ),
                         'options'  => array(
                             'full' => __('No sidebars', THEME_LANG),
                             'left' => __('Left Sidebar', THEME_LANG),
@@ -261,26 +264,27 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'       => 'shop_sidebar_left',
                         'type' => 'select',
                         'title'    => __( 'Shop: Sidebar left area', THEME_LANG ),
-                        'subtitle'     => __( "Please choose left sidebar ", THEME_LANG ),
+                        'subtitle'     => __( "Please choose left sidebar", THEME_LANG ),
                         'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
+                        'required' => array('shop_sidebar','equals','left')
                         //'clear' => false
                     ),
                     array(
                         'id'       => 'shop_sidebar_right',
                         'type'     => 'select',
                         'title'    => __( 'Shop: Sidebar right area', THEME_LANG ),
-                        'subtitle'     => __( "Please choose left sidebar ", THEME_LANG ),
+                        'subtitle'     => __( "Please choose left sidebar", THEME_LANG ),
                         'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
+                        'required' => array('shop_sidebar','equals','right')
                         //'clear' => false
                     ),
 
-                    */
 
                     // For Single Products
                     array(
-                        'id'       => 'divider_s1',
+                        'id'     => 'heading_p',
                         'type'     => 'heading',
                         'title'    => __('Single Product Layout', THEME_LANG),
 
@@ -305,6 +309,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'subtitle'     => __( "Please choose left sidebar ", THEME_LANG ),
                         'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
+                        'required' => array('product_sidebar','equals','left')
                         //'clear' => false
                     ),
                     array(
@@ -314,6 +319,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'subtitle'     => __( "Please choose left sidebar ", THEME_LANG ),
                         'options'  => $sidebars,
                         'default'  => 'primary-widget-area',
+                        'required' => array('product_sidebar','equals','right')
                         //'clear' => false
                     ),
 
