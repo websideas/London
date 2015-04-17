@@ -1,7 +1,7 @@
 Problems:
 - Reponsive cho 404
 - Respondive cho blog posts
--
+- Body Background cover
 
 Tasks:
 - Update all site data

@@ -1870,6 +1870,13 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .sidebar .searchform input[type=text]{ 
     color:#000; 
 }
+.widget-container >ul, .widget-container ol {
+    margin-left: 0px; padding-left: 0px;
+}
+.widget_pages ul li, .widget_rss ul li { list-style: none;  margin-bottom: 15px; }
+.widget_rss ul li {  }
+.widget_rss ul li:last-child, .widget_pages ul li:last-child{  margin-bottom: 0px; }
+.rsswidget { font-weight: bold; }
 
 
 
