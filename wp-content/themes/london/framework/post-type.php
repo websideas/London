@@ -38,6 +38,6 @@ function register_post_type_init() {
         'public'             => true
         
     );
-    register_post_type( 'kt_designer', $args );
+    register_post_type( 'designer', $args );
 }
 add_action( 'init', 'register_post_type_init' );

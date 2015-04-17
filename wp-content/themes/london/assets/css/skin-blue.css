@@ -7,5 +7,11 @@
     background-color: #005eab;
 }
 .shopping_cart > a span.cart-content-total::before{
-    border-top-color: #005eab;
+    border-right-color: #005eab;
+}
+.tp-bullets .tp-rightarrow.round{
+    background-image: url(../images/prev_slide_hz_blue.png);
+}
+.tp-bullets .tp-leftarrow.round{
+    background-image: url(../images/next_slide_hz_blue.png);
 }

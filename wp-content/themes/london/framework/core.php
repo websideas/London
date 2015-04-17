@@ -97,6 +97,11 @@ require_once ( FW_DIR . 'woocommerce.php' );
  */
 require_once ( FW_EXT_DIR .'nav/nav_custom_walker.php' );
 
+/**
+ * include Shortcode
+ *
+ */
+require_once ( FW_EXT_DIR .'shortcodes/shortcodes.php' );
 
 /**
  * Include the meta-box plugin.

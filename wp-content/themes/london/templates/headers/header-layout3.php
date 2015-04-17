@@ -7,7 +7,7 @@ if ( !defined('ABSPATH')) exit;
 <div class="container">
     <div class="display-table" id="header-wrap">
         <div class="site-branding display-td">
-            <?php get_template_part( 'layouts/headers/header',  'branding'); ?>
+            <?php get_template_part( 'templates/headers/header',  'branding'); ?>
         </div><!-- .site-branding -->
         <div class="display-td header-content-right">
             <div class="header-content-top clearfix">
@@ -18,7 +18,7 @@ if ( !defined('ABSPATH')) exit;
                 ?>
                 <?php woocommerce_get_tool(); ?>
                 <div class="clearfix"></div>
-                <?php get_template_part( 'layouts/headers/header',  'contact'); ?>
+                <?php get_template_part( 'templates/headers/header',  'contact'); ?>
                 <?php echo woocommerce_get_cart(); ?>
             </div>
         </div>
@@ -33,7 +33,7 @@ if ( !defined('ABSPATH')) exit;
                 }
             ?>
             <?php get_search_form(); ?>
-            <?php get_template_part( 'layouts/headers/header', 'mobile'); ?>
+            <?php get_template_part( 'templates/headers/header', 'mobile'); ?>
         </div>
     </div>
 </div><!-- .header-content-bottom -->

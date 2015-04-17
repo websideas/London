@@ -135,28 +135,28 @@ div#post-body .rwmb-select{
 /*==================================
 * Icon for post type
 ===================================*/
-#menu-posts-kt_designer .dashicons-before:before{
+#menu-posts-designer .dashicons-before:before{
     font-family: "ElegantIcons";
     font-size: 16px;
 }
-#menu-posts-kt_designer .dashicons-before:before{
+#menu-posts-designer .dashicons-before:before{
     content: "\e08b";
 }
 
 /*==================================
 * Disable post-preview for some post type
 ===================================*/
-.post-type-kt_designer #post-preview{
+.post-type-designer #post-preview{
     display: none;
 }
-.post-type-kt_designer #preview-action:before{
+.post-type-designer #preview-action:before{
     content: ' ';
     color: red;
     text-align: left;
     display: block;
     
 }
-.post-type-kt_designer #titlediv div.inside{
+.post-type-designer #titlediv div.inside{
     display: none;
 }
 

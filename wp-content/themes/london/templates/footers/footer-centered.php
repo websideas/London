@@ -11,6 +11,6 @@ if(!$footer_left && !$footer_right) return;
 
 ?>
 <div class="footer-centered">
-    <?php get_template_part( 'layouts/footers/footer', $footer_left ); ?>
-    <?php get_template_part( 'layouts/footers/footer', $footer_right ); ?>
+    <?php get_template_part( 'templates/footers/footer', $footer_left ); ?>
+    <?php get_template_part( 'templates/footers/footer', $footer_right ); ?>
 </div>

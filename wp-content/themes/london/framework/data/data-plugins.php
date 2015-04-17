@@ -33,9 +33,9 @@ function kt_register_plugins() {
             'external_url'      => '', // If set, overrides default API URL and points to an external URL
         ),
         array(
-            'name' => 'Regenerate Thumbnails', // The plugin name
-            'slug' => 'regenerate-thumbnails', // The plugin slug (typically the folder name)
-            'required' => false, // If false, the plugin is only 'recommended' instead of required
+            'name' => 'Regenerate Thumbnails',
+            'slug' => 'regenerate-thumbnails',
+            'required' => false,
         ),
         array(
             'name' => 'WooCommerce',

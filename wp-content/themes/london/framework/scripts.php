@@ -75,9 +75,9 @@ add_action('login_head', 'kt_custom_login_logo');
  * @access      public
  */
 function kt_setting_css() {
-    $accent = kt_option('styling-accent', '#000000');
-    $header_opacity = kt_option('header-layout-opacity', '0.8');
-    $header_sticky_opacity = kt_option('header-sticky-opacity', '0.8');
+    $accent = kt_option('styling_accent', '#000000');
+    $header_opacity = kt_option('header_layout_opacity', '0.8');
+    $header_sticky_opacity = kt_option('header_sticky_opacity', '0.8');
     
     
     ?>
@@ -87,6 +87,7 @@ function kt_setting_css() {
         ::selection{ background:<?php echo $accent; ?>; }
         .button, 
         .btn-default,
+        .highlight.highlight1,
         .header-layout1 .shopping_cart > a:hover,
         .site-branding .site-logo.logo-circle,
         .tp-bullets.simplebullets.round .bullet.selected,
@@ -114,16 +115,27 @@ function kt_setting_css() {
         .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:focus, 
         .woocommerce .functional-buttons .product.compare-button a:focus, 
         .woocommerce .functional-buttons .product-quick-view:focus,
-        .woocommerce .summary .single_add_to_cart_button:hover{
+        #calendar_wrap tbody td#today,
+        .woocommerce .summary .single_add_to_cart_button:hover,
+        ul.kt_social_icons.large li a:hover, 
+        ul.kt_social_icons.large li a:focus{
             background-color: <?php echo $accent; ?>;
         }
         .button, 
         .btn-default,
+        blockquote, 
+        .blockquote-reverse, 
+        blockquote.pull-right,
         body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
         body .wpb_content_element .wpb_tabs_nav li:hover,
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover{
             border-color: <?php echo $accent; ?>;
+        }
+        ul.navigation-mobile > li:hover > a, 
+        ul.navigation-mobile > li > a:hover,
+        ul.navigation-mobile > li.current-menu-item > a{
+            border-left-color: <?php echo $accent; ?>;
         }
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a:after,
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{

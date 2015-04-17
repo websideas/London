@@ -972,6 +972,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce .gridlist-toggle li a:hover{
     background: #f7f7f7;
 }
+.woocommerce .gridlist-toggle li a i{
+    line-height: 30px;
+}
 .woocommerce .category-slide-container{
     background: #d8d7d5;
 }

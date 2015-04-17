@@ -8,11 +8,11 @@
                             wp_nav_menu( array( 'theme_location' => 'top', 'container' => 'nav', 'container_id' => 'top-nav' ) );
                         } 
                     ?>
-                    <?php get_template_part( 'layouts/headers/header',  'contact'); ?>
+                    <?php get_template_part( 'templates/headers/header',  'contact'); ?>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="site-branding">
-                        <?php get_template_part( 'layouts/headers/header',  'branding'); ?>
+                        <?php get_template_part( 'templates/headers/header',  'branding'); ?>
                     </div><!-- .site-branding -->
                 </div>
                 <div class="col-md-4 text-right header-content-right">
@@ -32,7 +32,7 @@
                 }
             ?>
             <?php get_search_form(); ?>
-            <?php get_template_part( 'layouts/headers/header', 'mobile'); ?>
+            <?php get_template_part( 'templates/headers/header', 'mobile'); ?>
         </div><!-- .header-inner -->
     </div>
 </div><!-- .header-content-bottom -->

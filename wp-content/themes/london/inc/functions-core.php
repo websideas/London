@@ -77,20 +77,6 @@ function theme_setup() {
 }
 endif;
 
-/** 
- * Widget Custom
- * 
- * @since 1.0
- */
-
-add_filter('get_archives_link', 'add_span_cat_count');
-add_filter('wp_list_categories', 'add_span_cat_count');
-function add_span_cat_count($variable) {
-    $variable = str_replace('(', '<span>(', $variable);
-    $variable = str_replace(')', ')</span>', $variable);
-    return $variable;
-}
-
 
 /**
  * Outputs the header meta title tag
@@ -128,7 +114,7 @@ function london_scripts() {
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
     wp_enqueue_style( 'woocommerce-css', THEME_CSS . 'woocommerce.css', array('london-main'));
-    wp_enqueue_style( 'skin-css', THEME_CSS . 'skin-'.kt_option('theme-skin', 'dark').'.css', array('london-main'));
+    wp_enqueue_style( 'skin-css', THEME_CSS . 'skin-'.kt_option('theme_skin', 'dark').'.css', array('london-main'));
     wp_enqueue_style( 'queries-css', THEME_CSS . 'queries.css', array('london-main'));
     
 	// Load the Internet Explorer specific stylesheet.

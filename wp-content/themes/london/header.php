@@ -52,7 +52,7 @@
                 </div>
             </div><!-- #woocommerce-nav-mobile-wrapper -->
             <header id="header" class="<?php echo apply_filters('theme_header_content_class', 'header-content') ?>">
-                <?php get_template_part( 'layouts/headers/header',  $header_layout); ?>
+                <?php get_template_part( 'templates/headers/header',  $header_layout); ?>
             </header><!-- #header -->
             <div id="mobile-nav-holder">
                 <?php

@@ -12,6 +12,7 @@
  */
 
 $sidebar = kt_sidebar();
+
 get_header(); ?>
     <div class="wc-container container">
         <?php

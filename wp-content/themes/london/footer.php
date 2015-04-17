@@ -52,7 +52,7 @@
             <?php if(kt_option('footer_bottom', true)){ ?>
             	<footer id="footer-bottom">
                     <div class="container">
-                        <?php get_template_part( 'layouts/footers/footer', kt_option('footer_bottom_layout', 'sides') ); ?>
+                        <?php get_template_part( 'templates/footers/footer', kt_option('footer_bottom_layout', 'sides') ); ?>
                     </div><!-- .container -->
             	</footer><!-- #footer -->
             <?php } ?>

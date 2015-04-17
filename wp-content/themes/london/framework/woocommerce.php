@@ -51,7 +51,7 @@ if ( ! function_exists( 'woocommerce_theme_setup' ) ):
         /**
     	 * Enable support for woocommerce
     	 */
-        //add_theme_support( 'woocommerce' );
+        add_theme_support( 'woocommerce' );
     }
 endif;
 
@@ -63,7 +63,7 @@ endif;
 function woocommerce_get_tool($id = 'woocommerce-nav'){
     
     global $wpdb, $yith_wcwl, $woocommerce;
-    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
+    if ( kt_is_wc() ) { ?>
         <nav class="woocommerce-nav-container" id="<?php echo $id; ?>">
             <ul class="menu">
                     <?php /* if ( is_user_logged_in() ) { ?>
@@ -129,7 +129,7 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
  */
 function woocommerce_get_cart(){
     $output = '';
-    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+    if ( kt_is_wc() ) {
         // Put your plugin code here
         global $woocommerce;
         $cart_total = $woocommerce->cart->get_cart_total();
@@ -256,7 +256,7 @@ function jk_woocommerce_breadcrumbs() {
 
 add_filter( 'loop_shop_columns', 'london_woo_shop_columns' );
 function london_woo_shop_columns( $columns ) {
-    $layout = kt_option('archive-product-layout','full');
+    $layout = kt_option('shop_sidebar','full');
     if($layout == 'left' || $layout == 'right'){
         return 3;
     }else{
@@ -275,7 +275,7 @@ function london_woo_shop_columns( $columns ) {
  */
 add_filter( 'archive_product_layout', 'woocommerce_archive_product_layout' );
 function woocommerce_archive_product_layout( $columns ) {
-    $layout = kt_option('archive-product-layout', 'full');
+    $layout = kt_option('shop_sidebar', 'full');
     return $layout;
 }
 
@@ -299,7 +299,7 @@ function woocommerce_gridlist_toggle_callback(){
  */
 add_filter( 'single_product_layout', 'london_single_product_layout' );
 function london_single_product_layout( $columns ) {
-    $layout = kt_option('single-product-layout', 'full');
+    $layout = kt_option('product_sidebar', 'full');
     return $layout;
 }
 
@@ -309,7 +309,7 @@ function london_single_product_layout( $columns ) {
  */
 add_filter( 'woocommerce_single_product_carousel', 'woocommerce_single_product_carousel_callback' );
 function woocommerce_single_product_carousel_callback( $columns ) {
-    $layout = kt_option('single-product-layout', 'full');
+    $layout = kt_option('product_sidebar', 'full');
     if($layout == 'left' || $layout == 'right'){
         return '[[992,3], [768, 3], [480, 2]]';
     }else{

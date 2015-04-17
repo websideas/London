@@ -7,7 +7,7 @@ if ( !defined('ABSPATH')) exit;
     <div id="header-inner">
         <div id="header-wrap" class="display-table">
             <div class="site-branding display-td">
-                <?php get_template_part( 'layouts/headers/header',  'branding'); ?>
+                <?php get_template_part( 'templates/headers/header',  'branding'); ?>
             </div><!-- .site-branding -->
             <div class="display-td header-content-right">
                 <div class="header-content-top clearfix">
@@ -26,7 +26,7 @@ if ( !defined('ABSPATH')) exit;
         </div><!-- #header-wrap -->
         <div id="mobile-content-all">
             <?php get_search_form(); ?>
-            <?php get_template_part( 'layouts/headers/header', 'mobile'); ?>
+            <?php get_template_part( 'templates/headers/header', 'mobile'); ?>
         </div>
     </div>
 </div><!-- .container -->

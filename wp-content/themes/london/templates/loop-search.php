@@ -9,6 +9,5 @@
                 <a href="<?php the_permalink() ?>"><?php _e('Read more', THEME_LANG ); ?></a>
             </div>
         </div>
-
     </div>
 </div>

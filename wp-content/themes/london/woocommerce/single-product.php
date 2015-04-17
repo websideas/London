@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-//fullwidth, sidebar-left, sidebar-right
 $layout = apply_filters( 'single_product_layout', 'full' );
 
+echo $layout;
 
 get_header( 'shop' ); ?>
 

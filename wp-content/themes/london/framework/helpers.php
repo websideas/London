@@ -193,14 +193,15 @@ function kt_sidebar(){
     if( kt_is_wc() ){
         if( is_shop() || is_product_category() || is_product_tag() ){
             $sidebar = kt_option('shop_sidebar', 'full');
-            $sidebar_left = kt_option('shop_sidebar_left', 'primary-widget-area');
-            $sidebar_right = kt_option('shop_sidebar_right', 'primary-widget-area');
+            $sidebar_left = kt_option('shop_sidebar_left', 'shop-widget-area');
+            $sidebar_right = kt_option('shop_sidebar_right', 'shop-widget-area');
         }elseif( is_product() ){
             $sidebar = kt_option('product_sidebar', 'full');
-            $sidebar_left = kt_option('product_sidebar_left', 'primary-widget-area');
-            $sidebar_right = kt_option('product_sidebar_right', 'primary-widget-area');
+            $sidebar_left = kt_option('product_sidebar_left', 'shop-widget-area');
+            $sidebar_right = kt_option('product_sidebar_right', 'shop-widget-area');
+        }elseif(is_cart()){
+            $layout_sidebar = array('sidebar' => 'full', 'sidebar_area' => null);
         }
-
     }
     
     if($sidebar == 'left'){
@@ -211,10 +212,12 @@ function kt_sidebar(){
         $sidebar_area = null;
     }
     
-    $layout_sidebar = array('sidebar' => $sidebar, 'sidebar_area' => $sidebar_area);
-    if(is_cart()){
-        $layout_sidebar = array('sidebar' => 'full', 'sidebar_area' => null);
-    }elseif(is_page() || is_singular('post')){
+    $layout_sidebar = array(
+        'sidebar' => $sidebar,
+        'sidebar_area' => $sidebar_area        
+    );
+    
+    if(is_page() || is_singular('post')){
         $sidebar_post = rwmb_meta('kt_sidebar');
         if($sidebar_post != 'default' && $sidebar_post){
             $layout_sidebar['sidebar'] = $sidebar_post;

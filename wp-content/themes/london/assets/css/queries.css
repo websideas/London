@@ -203,6 +203,12 @@ only screen and (min-resolution: 144dpi) {
     .themedev-product-popup.woocommerce .entry-summary{
         padding:0;
     }
+    .carousel-heading-top .owl-buttons{
+        display: none;
+    }
+    .carousel-wrapper-top .block-heading{
+        padding-right: 0;
+    }
 }
 @media (max-width: 360px) {
     *{}
