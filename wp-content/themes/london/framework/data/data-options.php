@@ -290,23 +290,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         )
                     ),
                     array(
-                            'id'       => 'logo_circle',
-                            'type'     => 'switch',
-                            'title'    => __( 'Logo circle', THEME_LANG ),
-                            'default'  => true,
-                        ),
-                    array(
-                        'id'       => 'opt-color-rgba',
-                        'type'     => 'color_rgba',
-                        'title'    => __( 'Color RGBA', THEME_LANG ),
-                        'subtitle' => __( 'Gives you the RGBA color.', THEME_LANG ),
-                        'default'  => array(
-                            'color' => '#000',
-                            'alpha' => '1'
-                        ),
-                        'output'   => array( '.site-branding .site-logo.logo-circle' ),
-                        'mode'     => 'background',
-                        'validate' => 'colorrgba',
+                        'id'       => 'logo_circle',
+                        'type'     => 'switch',
+                        'title'    => __( 'Logo circle', THEME_LANG ),
+                        'default'  => true,
                     ),
                     array(
                         'id'             => 'logo_sticky_width',
@@ -404,7 +391,6 @@ if ( ! class_exists( 'KT_config' ) ) {
 						'on'		=> __( 'On', THEME_LANG ),
 						'off'		=> __( 'Off', THEME_LANG ),
 					),
-                    
                     array(
                         'id'       => 'header',
                         'type'     => 'select',
@@ -418,7 +404,15 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'layout1',
                         'clear' => false
                     ),
-                    
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'header-contact-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Header contact settings', THEME_LANG ),
+                    ),
                     array(
                         'id' => 'header_phone',
                         'type' => 'text',
@@ -659,9 +653,21 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'hover'   => '#000000',
                             'active'   => '#000000',
                         )
+                    ),
+                    array(
+                        'id'       => 'theme-skin',
+                        'type'     => 'select',
+                        'title'    => __( 'Select Theme Skin', THEME_LANG ),
+                        'desc'     => __( 'Select a skin, all color options will automatically change to the defined skin.', THEME_LANG ),
+                        'options'  => array(
+                            'dark' => __('Dark', THEME_LANG),
+                            'blue' => __('Blue', THEME_LANG),
+                        ),
+                        'default'  => 'dark'
                     )
                 )
             );
+            
             
             /**
 			 *	Styling Background
@@ -699,7 +705,61 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'title'			=> __( 'Header', THEME_LANG ),
 				'subsection' => true,
                 'fields'		=> array(
-                    
+                    array(
+                        'id'   => 'header-layout1-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Header layout 1 settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'            => 'header-layout-opacity',
+                        'type'          => 'slider',
+                        'title'         => __( 'Header background opacity layout 1', THEME_LANG ),
+                        'default'       => .8,
+                        'min'           => 0,
+                        'step'          => .1,
+                        'max'           => 1,
+                        'resolution'    => 0.1,
+                        'display_value' => 'text'
+                    ),
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'header-layout2-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Header layout 2 &3 settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'header-bottom-background',
+                        'type'     => 'color_rgba',
+                        'title'    => __( 'Header background layout 2 & 3'),
+                        'default'  => array(
+                            'color' => '#333'
+                        ),
+                        'mode'     => 'background',
+                        'validate' => 'colorrgba',
+                    ),
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'header-sticky-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Header sticky settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'            => 'header-sticky-opacity',
+                        'type'          => 'slider',
+                        'title'         => __( 'Header background opacity layout 1', THEME_LANG ),
+                        'default'       => .8,
+                        'min'           => 0,
+                        'step'          => .1,
+                        'max'           => 1,
+                        'resolution'    => 0.1,
+                        'display_value' => 'text'
+                    ),
                 )
             );
             
@@ -828,14 +888,25 @@ if ( ! class_exists( 'KT_config' ) ) {
 			 *	Styling Main Navigation
 			 **/
             $this->sections[] = array(
-				'id'			=> 'styling-navigation',
-				'title'			=> __( 'Main Navigation', THEME_LANG ),
+				'id'			=> 'styling-woocommerce',
+				'title'			=> __( 'Woocommerce', THEME_LANG ),
 				'subsection' => true,
                 'fields'		=> array(
-                    
+                    array(
+                        'id'       => 'woocommerce_category_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Woocommerce category Background', THEME_LANG ),
+                        'background-repeat' => false,
+                        'background-attachment' => false,
+                        'background-position' => false,
+                        'background-image' => false,
+                        'background-size' => false,
+                        'preview' => false,
+                        'default'   => array( ),
+                        'output'      => array( '.woocommerce .category-slide-container' ),
+                    )
                 )
             );
-            
             
             /**
 			 *	Typography

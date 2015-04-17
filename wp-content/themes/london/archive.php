@@ -39,6 +39,13 @@ get_header(); ?>
                         }
                         ?>
                         </div>
+                        <?php
+                            echo get_the_posts_pagination( array(
+                                'prev_text'          => __( 'Previous', THEME_LANG ),
+                                'next_text'          => __( 'Next', THEME_LANG ),
+                                'before_page_number' => '',
+                            ) );
+                        ?>
                     </div>
                     <?php
                 }

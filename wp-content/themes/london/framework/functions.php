@@ -14,6 +14,8 @@ if ( !defined('ABSPATH')) exit;
 function theme_body_classes( $classes ) {
     global $post;
     
+    $classes[] = 'theme-skin-'.kt_option('theme-skin', 'dark');
+    
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}

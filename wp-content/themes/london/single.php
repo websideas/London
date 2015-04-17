@@ -36,7 +36,7 @@ get_header(); ?>
                         );
                         ?>
                         <span class="date-time"><i class="fa fa-calendar-o"></i> <?php the_time( get_option( 'date_format' ) ); ?></span>
-                        <span class="cat"><i class="fa fa-folder-o"></i><?php the_category(', '); ?></span>
+                        <span class="cat"><i class="fa fa-folder-o"></i> <?php the_category(', '); ?></span>
                         <span class="comment-count"><i class="fa fa-comments"></i> <?php comments_number(
                                 __('Comments: 0', THEME_LANG),
                                 __('Comment: 1', THEME_LANG),

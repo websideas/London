@@ -1,0 +1,11 @@
+#backtotop,
+#calendar_wrap tbody td,
+.blog-posts .post-item .entry-date-time,
+.woocommerce ul.products .product-image-container .button, 
+.woocommerce ul.products .product-image-container .functional-buttons,
+.shopping_cart > a span.cart-content-total{
+    background-color: #005eab;
+}
+.shopping_cart > a span.cart-content-total::before{
+    border-top-color: #005eab;
+}

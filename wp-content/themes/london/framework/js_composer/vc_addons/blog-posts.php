@@ -67,18 +67,18 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
 
                 ?>
                 <div class='blog-posts'>
-                <?php
-                do_action('before_blog_posts_loop');
-                if ( $n ) :
-                    foreach ( $posts as $i => $post ) :
-                        setup_postdata(  $post );
-                        get_template_part( 'templates/loop' );
-
-                    endforeach; // end of the loop.
-        		endif;
-
-            ?>
-            </div><!-- .blog-posts -->
+                    <?php
+                        do_action('before_blog_posts_loop');
+                        if ( $n ) :
+                            foreach ( $posts as $i => $post ) :
+                                setup_postdata(  $post );
+                                get_template_part( 'templates/loop' );
+        
+                            endforeach; // end of the loop.
+                		endif;
+        
+                    ?>
+                </div><!-- .blog-posts -->
             <?php
             // Previous/next page navigation.
 

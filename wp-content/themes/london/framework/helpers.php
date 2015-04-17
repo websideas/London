@@ -21,6 +21,53 @@ function sanitize_boolean( $input = '' ) {
 add_filter( 'sanitize_boolean', 'sanitize_boolean', 15 );
 
 /**
+ * Convert hexdec color string to rgb(a) string
+ * 
+ * @param $color string
+ * @param $opacity boolean
+ * @return void
+ */
+ 
+function kt_hex2rgba($color, $opacity = false) {
+ 
+	$default = 'rgb(0,0,0)';
+ 
+	//Return default if no color provided
+	if(empty($color))
+          return $default; 
+ 
+	//Sanitize $color if "#" is provided 
+        if ($color[0] == '#' ) {
+        	$color = substr( $color, 1 );
+        }
+ 
+        //Check if color has 6 or 3 characters and get values
+        if (strlen($color) == 6) {
+                $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+        } elseif ( strlen( $color ) == 3 ) {
+                $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+        } else {
+                return $default;
+        }
+ 
+        //Convert hexadec to rgb
+        $rgb =  array_map('hexdec', $hex);
+ 
+        //Check if opacity is set(rgba or rgb)
+        if($opacity){
+        	if(abs($opacity) > 1)
+        		$opacity = 1.0;
+        	$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+        } else {
+        	$output = 'rgb('.implode(",",$rgb).')';
+        }
+ 
+        //Return rgb(a) color string
+        return $output;
+}
+
+
+/**
 * Function to get options in front-end
 * @param int $option The option we need from the DB
 * @param string $default If $option doesn't exist in DB return $default value

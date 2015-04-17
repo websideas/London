@@ -53,7 +53,13 @@ if ( post_password_required() ) {
         ?>
         <p class="no-comments"><?php _e( 'Comments are closed.', 'twentyfifteen' ); ?></p>
     <?php endif; ?>
-
-    <?php comment_form(); ?>
+    
+    <?php
+        $args = array(
+            'class_submit'      => 'btn btn-default',
+        );
+    ?>
+    
+    <?php comment_form($args); ?>
 
 </div><!-- .comments-area -->

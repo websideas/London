@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $product, $woocommerce;
 
 $attachment_ids = $product->get_gallery_attachment_ids();
+$attachment_count   = count( $attachment_ids );
 
 if ( $attachment_ids ) {
 	?>
@@ -29,7 +30,7 @@ if ( $attachment_ids ) {
     				'alt'	=> $image_title
     				) );
     
-    			$attachment_count   = count( $attachment_ids );
+    			
                 
     			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" title="%s">%s</a>', $image_link, $image_caption, $image ), $post->ID );
                 

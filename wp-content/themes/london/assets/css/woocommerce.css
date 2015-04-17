@@ -1494,6 +1494,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
     color: #FFF;
     padding: 0 18px;
 }
+.woocommerce .summary .single_add_to_cart_button:hover{
+    background: #000;
+}
 .woocommerce .summary .stock{
     margin-bottom: 20px;
 }

@@ -11,9 +11,9 @@ if ( !defined('ABSPATH')) exit;
  */
 
 
-add_action( 'admin_enqueue_scripts', 'admin_custom_style' );
-if ( !function_exists( 'admin_custom_style' ) ) {
-    function admin_custom_style(){
+add_action( 'admin_enqueue_scripts', 'kt_admin_enqueue_scripts' );
+if ( !function_exists( 'kt_admin_enqueue_scripts' ) ) {
+    function kt_admin_enqueue_scripts(){
         
         wp_register_style( 'font-awesome', THEME_FONTS.'font-awesome/css/font-awesome.min.css');
         wp_register_style( 'elegant_font', THEME_FONTS.'elegant_font/style.css');
@@ -27,7 +27,7 @@ if ( !function_exists( 'admin_custom_style' ) ) {
         wp_register_script( 'framework-core', FW_JS.'framework-core.js', array('jquery', 'jquery-ui-tabs'), FW_VER, true);
         wp_enqueue_script('framework-core');
 
-    } // End admin_custom_style.
+    } // End kt_admin_enqueue_scripts.
 }
 
 
@@ -46,5 +46,98 @@ if ( !function_exists( 'wp_enqueue_scripts_frontend' ) ) {
         
         
 
-    } // End admin_custom_style.
+    } // End wp_enqueue_scripts_frontend.
 }
+
+/**
+ * Custom admin logo
+ * 
+ * @since       1.0
+ * @return      void
+ * @access      public
+ */
+function kt_custom_login_logo() {
+    /*
+    $options = get_option('theme_options');
+    if($options['admin_login']){
+	   echo '<style type="text/css">h1 a { background-image:url('.$options['admin_login']['url'].') !important;background-size: auto auto !important;margin-bottom: 10px !important;width: auto!important;}</style>';
+    }
+    */
+}
+add_action('login_head', 'kt_custom_login_logo');
+
+
+/**
+ * Custom admin logo
+ * 
+ * @since       1.0
+ * @return      void
+ * @access      public
+ */
+function kt_setting_css() {
+    $accent = kt_option('styling-accent', '#000000');
+    $header_opacity = kt_option('header-layout-opacity', '0.8');
+    $header_sticky_opacity = kt_option('header-sticky-opacity', '0.8');
+    
+    
+    ?>
+    <style type="text/css">
+        ::-moz-selection{ background:<?php echo $accent; ?>; }
+        ::-webkit-selection{ background:<?php echo $accent; ?>; }
+        ::selection{ background:<?php echo $accent; ?>; }
+        .button, 
+        .btn-default,
+        .header-layout1 .shopping_cart > a:hover,
+        .site-branding .site-logo.logo-circle,
+        .tp-bullets.simplebullets.round .bullet.selected,
+        .widget_tag_cloud a,
+        .widget_product_tag_cloud a, 
+        .widget_tag_cloud a,
+        #calendar_wrap caption,
+        .sidebar .widget-container .widget-title,
+        .woocommerce span.onsale,
+        .kt-owl-carousel .owl-buttons div:hover,
+        .carousel-heading-top .owl-buttons div:hover,
+        body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
+        body .wpb_content_element .wpb_tabs_nav li:hover,
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover,
+        .mCSB_scrollTools,
+        .woocommerce ul.products .button:hover,
+        .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:hover, 
+        .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:hover, 
+        .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:hover, 
+        .woocommerce .functional-buttons .product.compare-button a:hover, 
+        .woocommerce .functional-buttons .product-quick-view:hover, 
+        .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:focus, 
+        .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:focus, 
+        .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:focus, 
+        .woocommerce .functional-buttons .product.compare-button a:focus, 
+        .woocommerce .functional-buttons .product-quick-view:focus,
+        .woocommerce .summary .single_add_to_cart_button:hover{
+            background-color: <?php echo $accent; ?>;
+        }
+        .button, 
+        .btn-default,
+        body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
+        body .wpb_content_element .wpb_tabs_nav li:hover,
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover{
+            border-color: <?php echo $accent; ?>;
+        }
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a:after,
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
+            border-top-color: <?php echo $accent; ?>;
+        }
+        .header-layout1.header-container{
+            background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
+        }
+        #header.is-sticky{
+            background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
+        }
+        
+    </style>
+    <?php 
+}
+add_action('wp_head', 'kt_setting_css');
+
