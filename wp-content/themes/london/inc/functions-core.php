@@ -114,7 +114,7 @@ function london_scripts() {
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
     wp_enqueue_style( 'woocommerce-css', THEME_CSS . 'woocommerce.css', array('london-main'));
-    wp_enqueue_style( 'skin-css', THEME_CSS . 'skin-'.kt_option('theme_skin', 'dark').'.css', array('london-main'));
+    //wp_enqueue_style( 'skin-css', THEME_CSS . 'skin-'.kt_option('theme_skin', 'dark').'.css', array('london-main'));
     wp_enqueue_style( 'queries-css', THEME_CSS . 'queries.css', array('london-main'));
     
 	// Load the Internet Explorer specific stylesheet.

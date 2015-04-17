@@ -15,3 +15,6 @@ Tasks:
 - Change post type ks_designer to designer
 - Add Meta box for product to select designer
 - Please note shortcode [yith_compare_button] plugin is not activated (see: product listing when hover a product)
+- Remove file /london/assets/css/skin-blue.css, london/assets/css/skin-dark.css this inherit from styling options (Genaral skin)
+- Check logo background when change header layout
+- Style for compare products page
