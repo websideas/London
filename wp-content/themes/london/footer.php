@@ -17,51 +17,58 @@
     	do_action( 'theme_content_bottom' ); ?>
 	</div><!-- #content -->
     
-    <?php
-	/**
-	 * @hooked 
-     * theme_after_footer_addscroll 10
-     * 
-	 */
-	do_action( 'theme_before_footer' ); ?>
-    
-    <?php if(is_active_sidebar( 'footer-top' ) && kt_option('footer_top', true)){ ?>
-        <footer id="footer-top">
-            <div class="container">
-                <?php dynamic_sidebar('footer-top') ?>
-            </div><!-- .container -->
-        </footer><!-- #footer-top -->
-    <?php } ?>
-    <?php if(kt_option('footer_widgets', true)){ ?>
-        <footer id="footer-area">
-            <div id="footer-area-content">
-                <div class="container">
-                    <div class="row">
-                        <?php $layouts = explode('-', kt_option('footer_widgets_layout', '4-4-4')); ?>
-                        <?php foreach($layouts as $i => $layout){ ?>
-                            <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
-                                <?php dynamic_sidebar('footer-column-'.($i+1)) ?>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div><!-- .container -->
-            </div><!-- #footer-area-content -->
-        </footer><!-- #footer-area -->
-    <?php } ?>
     <?php if(kt_option('footer', true)){ ?>
-    	<footer id="footer">
-            <div class="container">
-                <?php get_template_part( 'layouts/footers/footer', kt_option('footer_layout', 'sides') ); ?>
-            </div><!-- .container -->
-    	</footer><!-- #footer -->
+        <?php
+    	/**
+    	 * @hooked 
+         * theme_after_footer_addscroll 10
+         * 
+    	 */
+    	do_action( 'theme_before_footer' ); ?>
+        <div id="footer">
+            <?php if(is_active_sidebar( 'footer-top' ) && kt_option('footer_top', true)){ ?>
+                <footer id="footer-top">
+                    <div class="container">
+                        <?php dynamic_sidebar('footer-top') ?>
+                    </div><!-- .container -->
+                </footer><!-- #footer-top -->
+            <?php } ?>
+            <?php if(kt_option('footer_widgets', true)){ ?>
+                <footer id="footer-area">
+                    <div id="footer-area-content">
+                        <div class="container">
+                            <div class="row">
+                                <?php $layouts = explode('-', kt_option('footer_widgets_layout', '4-4-4')); ?>
+                                <?php foreach($layouts as $i => $layout){ ?>
+                                    <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
+                                        <?php dynamic_sidebar('footer-column-'.($i+1)) ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div><!-- .container -->
+                    </div><!-- #footer-area-content -->
+                </footer><!-- #footer-area -->
+            <?php } ?>
+            <?php if(kt_option('footer_bottom', true)){ ?>
+            	<footer id="footer-bottom">
+                    <div class="container">
+                        <?php get_template_part( 'layouts/footers/footer', kt_option('footer_bottom_layout', 'sides') ); ?>
+                    </div><!-- .container -->
+            	</footer><!-- #footer -->
+            <?php } ?>
+        </div>
+        <?php
+    	/**
+    	 * @hooked 
+    	 */
+    	do_action( 'theme_after_footer' ); ?>
     <?php } ?>
-    <?php
-	/**
-	 * @hooked 
-	 */
-	do_action( 'theme_after_footer' ); ?>
-    <a id="backtotop" href="#top"></a>
 </div><!-- #page -->
+
+<?php if(kt_option('backtotop', true)){ ?>
+    <a id="backtotop" href="#top"></a>
+<?php } ?>
+
 
 <?php wp_footer(); ?>
 

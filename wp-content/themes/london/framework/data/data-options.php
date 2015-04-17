@@ -157,14 +157,28 @@ if ( ! class_exists( 'KT_config' ) ) {
             $this->sections[] = array(
                 'id' 	=> 'general',
                 'title'  => __( 'General', THEME_LANG ),
-                'desc'   => __( 'Welcome to the Simple Options Framework Demo', THEME_LANG ),
+                'desc'   => __( '', THEME_LANG ),
                 'icon_class'	=> 'icon_cogs'
             );
-            
             $this->sections[] = array(
                 'id' 	=> 'general-global',
                 'title'  => __( 'Global', THEME_LANG ),
-                'desc'   => __( 'Welcome to the Simple Options Framework Demo', THEME_LANG ),
+                'desc'   => __( '', THEME_LANG ),
+                'subsection' => true,
+                'fields' => array(
+                    //Import Demo Content
+                    array(
+                        'id'       => 'backtotop',
+                        'type'     => 'switch',
+                        'title'    => __( 'Back to top', THEME_LANG ),
+                        'default'  => true,
+                    ),
+                )
+            );
+            $this->sections[] = array(
+                'id' 	=> 'general-layout',
+                'title'  => __( 'Layout', THEME_LANG ),
+                'desc'   => __( '', THEME_LANG ),
                 'subsection' => true,
                 'fields' => array(
                     array(
@@ -225,11 +239,16 @@ if ( ! class_exists( 'KT_config' ) ) {
 			 *	Logos
 			 **/
 			$this->sections[] = array(
-				'id'			=> 'logos',
-				'title'			=> __( 'Logos Settings', THEME_LANG ),
+				'id'			=> 'logos-favicon',
+				'title'			=> __( 'Logos & Favicon', THEME_LANG ),
 				'desc'			=> '',
 				'subsection' => true,
 				'fields'		=> array(
+                    array(
+                        'id'   => 'logos-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Logos settings', THEME_LANG ),
+                    ),
                     array(
                         'id'       => 'logo',
                         'type'     => 'media',
@@ -314,7 +333,15 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'output'   => array( '.is-sticky .site-branding .site-logo' ),
                     ),
-                    
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'favicon-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Favicon settings', THEME_LANG ),
+                    ),
                     array(
                         'id'       => 'custom_favicon',
                         'type'     => 'media',
@@ -416,7 +443,36 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'desc'			=> '',
 				'subsection' => true,
 				'fields'		=> array(
-                    /* Footer Top */
+                    // Footer settings
+                    array(
+                        'id'   => 'footer-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer settings', THEME_LANG )
+                    ),
+                    array(
+                        'id'       => 'footer',
+                        'type'     => 'switch',
+                        'title'    => __( 'Footer enable', THEME_LANG ),
+                        'default'  => true,
+                    ),
+                    array(
+                        'id'       => 'footer_padding',
+                        'type'     => 'spacing',
+                        'mode'     => 'padding',
+                        'left'     => false,
+                        'right'    => false,
+                        'output'   => array( '#footer' ),
+                        'units'          => array( 'em', 'px' ), 
+                        'units_extended' => 'true',
+                        'title'    => __( 'Footer  padding', THEME_LANG ),
+                        'default'  => array( )
+                    ),
+                    // Footer Top settings
+                    array(
+                        'id'   => 'footer-top-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer top settings', THEME_LANG )
+                    ),
                     array(
                         'id'       => 'footer_top',
                         'type'     => 'switch',
@@ -433,37 +489,18 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'units'          => array( 'em', 'px' ), 
                         'units_extended' => 'true',
                         'title'    => __( 'Footer top padding', THEME_LANG ),
-                        'default'  => array(
-                            'padding-top'    => '50px',
-                            'padding-bottom'   => '25px'
-                        )
+                        'default'  => array( )
+                    ),
+                    // Footer widgets settings
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
                     ),
                     array(
-                        'id'       => 'footer_top_background',
-                        'type'     => 'background',
-                        'title'    => __( 'Footer top Background', THEME_LANG ),
-                        'subtitle' => __( 'Footer top Background with image, color, etc.', THEME_LANG ),
-                        'default'   => array( 'background-color'=>'#f6f6f6' ),
-                        'output'      => array( '#footer-top' ),
+                        'id'   => 'footer-widgets-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer widgets settings', THEME_LANG ),
                     ),
-                    array(
-                        'id'       => 'footer_top_border',
-                        'type'     => 'border',
-                        'title'    => __( 'Footer top Border', THEME_LANG ),
-                        'output'   => array( '#footer-top' ),
-                        'all'      => false,
-                        'left'     => false,
-                        'right'    => false,
-                        'default'  => array(
-                            'border-color'  => '#cccccc',
-                            'border-style'  => 'solid',
-                            'border-top'    => '1px',
-                            'border-bottom' => '0px',
-                        )
-                    ),
-                    
-                    
-                    /* Footer widgets */
                     array(
                         'id'       => 'footer_widgets',
                         'type'     => 'switch',
@@ -480,33 +517,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'units'          => array( 'em', 'px' ), 
                         'units_extended' => 'true',
                         'title'    => __( 'Footer widgets padding', THEME_LANG ),
-                        'default'  => array(
-                            'padding-top'    => '0px',
-                            'padding-bottom'   => '10px'
-                        )
-                    ),
-                    array(
-                        'id'       => 'footer_widgets_background',
-                        'type'     => 'background',
-                        'title'    => __( 'Footer widgets Background', THEME_LANG ),
-                        'subtitle' => __( 'Footer widgets Background with image, color, etc.', THEME_LANG ),
-                        'default'   => array( 'background-color'=>'#f6f6f6' ),
-                        'output'      => array( '#footer-area' ),
-                    ),
-                    array(
-                        'id'       => 'footer_widgets_border',
-                        'type'     => 'border',
-                        'title'    => __( 'Footer widgets Border', THEME_LANG ),
-                        'output'   => array( '#footer-area' ),
-                        'all'      => false,
-                        'left'     => false,
-                        'right'    => false,
-                        'default'  => array(
-                            'border-color'  => '',
-                            'border-style'  => 'solid',
-                            'border-top'    => '0px',
-                            'border-bottom' => '0px',
-                        )
+                        'default'  => array( )
                     ),
                     array(
                         'id'       => 'footer_widgets_layout',
@@ -528,55 +539,38 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => '4-4-4'
                     ),
                     
-                    /* Footer */
+                    /* Footer bottom */
                     array(
-                        'id'       => 'footer',
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'footer-bottom-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer bottom settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'footer_bottom',
                         'type'     => 'switch',
-                        'title'    => __( 'Footer enable', THEME_LANG ),
+                        'title'    => __( 'Footer bottom enable', THEME_LANG ),
                         'default'  => true,
                     ),
                     array(
-                        'id'       => 'footer_padding',
+                        'id'       => 'footer_bottom_padding',
                         'type'     => 'spacing',
                         'mode'     => 'padding',
                         'left'     => false,
                         'right'    => false,
-                        'output'   => array( '#footer' ),
+                        'output'   => array( '#footer-bottom' ),
                         'units'          => array( 'em', 'px' ), 
                         'units_extended' => 'true',
-                        'title'    => __( 'Footer padding', THEME_LANG ),
-                        'default'  => array(
-                            'padding-top'    => '25px',
-                            'padding-bottom'   => '25px'
-                        )
+                        'title'    => __( 'Footer bottom padding', THEME_LANG ),
+                        'default'  => array( )
                     ),
                     array(
-                        'id'       => 'footer_background',
-                        'type'     => 'background',
-                        'title'    => __( 'Footer Background', THEME_LANG ),
-                        'subtitle' => __( 'Footer Background with image, color, etc.', THEME_LANG ),
-                        'default'   => array( 'background-color'=>'#f6f6f6' ),
-                        'output'      => array( '#footer' ),
-                    ),
-                    array(
-                        'id'       => 'footer_border',
-                        'type'     => 'border',
-                        'title'    => __( 'Footer Border', THEME_LANG ),
-                        'output'   => array( '#footer' ),
-                        'all'      => false,
-                        'left'     => false,
-                        'right'    => false,
-                        'default'  => array(
-                            'border-color'  => '#cccccc',
-                            'border-style'  => 'solid',
-                            'border-top'    => '1px',
-                            'border-bottom' => '0px',
-                        )
-                    ),
-                    array(
-                        'id'       => 'footer_layout',
+                        'id'       => 'footer_bottom_layout',
                         'type'     => 'select',
-                        'title'    => __( 'Footer layout', THEME_LANG ),
+                        'title'    => __( 'Footer bottom layout', THEME_LANG ),
                         'subtitle'     => __( 'Select your preferred footer layout.', THEME_LANG ),
                         'options'  => array(
                             'centered' => __('Centered', THEME_LANG),
@@ -586,9 +580,9 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'clear' => false
                     ),
                     array(
-                        'id'       => 'footer_left',
+                        'id'       => 'footer_bottom_left',
                         'type'     => 'select',
-                        'title'    => __( 'Footer left', THEME_LANG ),
+                        'title'    => __( 'Footer bottom left', THEME_LANG ),
                         'options'  => array(
                             '' => __('Empty', THEME_LANG ),
                             'navigation' => __('Navigation', THEME_LANG ),
@@ -598,9 +592,9 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'copyright'
                     ),
                     array(
-                        'id'       => 'footer_right',
+                        'id'       => 'footer_bottom_right',
                         'type'     => 'select',
-                        'title'    => __( 'Footer right', THEME_LANG ),
+                        'title'    => __( 'Footer bottom right', THEME_LANG ),
                         'options'  => array(
                             '' => __('Empty', THEME_LANG ),
                             'navigation' => __('Navigation', THEME_LANG ),
@@ -626,7 +620,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'id'			=> 'menu',
 				'title'			=> __( 'Menu', THEME_LANG ),
 				'desc'			=> '',
-				'icon_class'	=> 'icon_menu-square_alt2',
+                'subsection' => true,
 				'fields'		=> array(
                 
                 
@@ -639,8 +633,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'id'			=> 'styling',
 				'title'			=> __( 'Styling', THEME_LANG ),
 				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
-                'subsection' => true,
+				'icon_class'	=> 'icon_camera_alt',
             );
             /**
 			 *	Styling General
@@ -651,13 +644,13 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'subsection' => true,
                 'fields'		=> array(
                     array(
-                        'id'       => 'accent-color',
+                        'id'       => 'styling-accent',
                         'type'     => 'color',
                         'title'    => __( 'Theme Accent Color', 'redux-framework-demo' ),
                         'default'  => '#000000',
                     ),
                     array(
-                        'id'       => 'typography-link',
+                        'id'       => 'styling-link',
                         'type'     => 'link_color',
                         'title'    => __( 'Links Color', THEME_LANG ),
                         'output'      => array( 'a' ),
@@ -666,9 +659,37 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'hover'   => '#000000',
                             'active'   => '#000000',
                         )
+                    )
+                )
+            );
+            
+            /**
+			 *	Styling Background
+			 **/
+            $this->sections[] = array(
+				'id'			=> 'styling-background',
+				'title'			=> __( 'Background', THEME_LANG ),
+				'subsection' => true,
+                'fields'		=> array(
+                    array(
+                        'id'       => 'styling-body-background',
+                        'type'     => 'background',
+                        'output'   => array( 'body' ),
+                        'title'    => __( 'Body Background', THEME_LANG ),
+                        'subtitle' => __( 'Body background with image, color, etc.', THEME_LANG ),
+                        'default'   => '#FFFFFF'
+                    ),
+                    array(
+                        'id'       => 'styling-boxed-background',
+                        'type'     => 'background',
+                        'output'   => array( 'body.layout-boxed #page' ),
+                        'title'    => __( 'Boxed Background', THEME_LANG ),
+                        'subtitle' => __( 'Body background with image, color, etc.', THEME_LANG ),
+                        'default'   => '#'
                     ),
                 )
             );
+            
             
             /**
 			 *	Styling Header
@@ -690,7 +711,117 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'title'			=> __( 'Footer', THEME_LANG ),
 				'subsection' => true,
                 'fields'		=> array(
+                    array(
+                        'id'   => 'footer-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'footer_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( 'background-color'=>'#f6f6f6' ),
+                        'output'      => array( '#footer' ),
+                    ),
+                    array(
+                        'id'       => 'footer_border',
+                        'type'     => 'border',
+                        'title'    => __( 'Footer Border', THEME_LANG ),
+                        'output'   => array( '#footer' ),
+                        'all'      => false,
+                        'left'     => false,
+                        'right'    => false,
+                        'bottom'      => false,
+                        'default'  => array(
+                            'border-color'  => '#cccccc',
+                            'border-style'  => 'solid',
+                            'border-top'    => '1px'
+                        )
+                    ),
                     
+                    // Footer top settings
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'footer-top-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer top settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'footer_top_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer top Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer top Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( ),
+                        'output'      => array( '#footer-top' ),
+                    ),
+                    array(
+                        'id'       => 'footer_top_border',
+                        'type'     => 'border',
+                        'title'    => __( 'Footer top Border', THEME_LANG ),
+                        'output'   => array( '#footer-top' ),
+                        'all'      => false,
+                        'left'     => false,
+                        'right'    => false,
+                        'top'      => false,
+                        'default'  => array(
+                            
+                        )
+                    ),
+                    // Footer widgets settings
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'footer-widgets-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer widgets settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'footer_widgets_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer widgets Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer widgets Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( ),
+                        'output'      => array( '#footer-area' ),
+                    ),
+                    array(
+                        'id'       => 'footer_widgets_border',
+                        'type'     => 'border',
+                        'title'    => __( 'Footer widgets Border', THEME_LANG ),
+                        'output'   => array( '#footer-area' ),
+                        'all'      => false,
+                        'left'     => false,
+                        'right'    => false,
+                        'top'      => false,
+                        'default'  => array(
+                            'border-color'  => '#cccccc',
+                            'border-style'  => 'solid',
+                            'border-bottom'    => '1px'
+                        )
+                    ),
+                    //Footer bottom settings
+                    array(
+                        'id'   => 'divide-id',
+                        'type' => 'divide'
+                    ),
+                    array(
+                        'id'   => 'footer-bottom-heading',
+                        'type' => 'info',
+                        'title'    => __( 'Footer bottom settings', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'footer_bottom_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Footer Background', THEME_LANG ),
+                        'subtitle' => __( 'Footer Background with image, color, etc.', THEME_LANG ),
+                        'default'   => array( ),
+                        'output'      => array( '#footer' ),
+                    )
                 )
             );
             /**

@@ -24,8 +24,7 @@ html, body{
     margin: 0 auto;
 }
 body.layout-boxed {
-	background:url(../images/boxed.png) top center no-repeat;
-	background-size:cover;
+	
 }
 body.layout-boxed #page {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
@@ -957,18 +956,6 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 }
 
 /* ==============================
-   Page
-   ============================== */
-#page{
-    background: #fff;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    z-index: 0;
-}
-
-
-/* ==============================
    Main nav
    ============================== */
 
@@ -1759,8 +1746,19 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 /** ================================================
     Footer
 *** ================================================*/
-
-
+#footer{
+    background-color: #f6f6f6;
+    border-top: 1px solid #cccccc;
+    background: #f6f6f6;
+    padding: 50px 0 0 0;
+}
+#footer-top{
+    padding: 0 0 40px;
+}
+#footer-area{
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #cccccc;
+}
 #footer-area h3.widget-title{
     border-bottom: 1px solid #cccccc;
     font-size: 30px;
@@ -1790,7 +1788,10 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     margin-left: 17px;
 }
 
-
+#footer-bottom{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
 #bottom-nav > ul{
     margin: 0;
     padding: 0;
