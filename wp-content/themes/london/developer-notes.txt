@@ -14,3 +14,4 @@ Tasks:
 - Add this ID settings in admin
 - Change post type ks_designer to designer
 - Add Meta box for product to select designer
+- Please note shortcode [yith_compare_button] plugin is not activated (see: product listing when hover a product)
