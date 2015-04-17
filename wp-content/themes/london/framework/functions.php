@@ -24,7 +24,7 @@ function  kt_is_wpml(){
  */
 function kt_get_page_id(  $ID , $post_type= 'page'){
     if(kt_is_wpml()){
-        $post_id=   icl_object_id($ID, $post_type , true) ;
+        $ID =   icl_object_id($ID, $post_type , true) ;
     }
     return $ID;
 }
