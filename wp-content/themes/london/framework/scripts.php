@@ -147,6 +147,18 @@ function kt_setting_css() {
         #header.is-sticky{
             background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
         }
+
+        #backtotop,
+        #calendar_wrap tbody td,
+        .blog-posts .post-item .entry-date-time,
+        .woocommerce ul.products .product-image-container .button,
+        .woocommerce ul.products .product-image-container .functional-buttons,
+        .shopping_cart > a span.cart-content-total{
+            background-color: <?php echo $accent; ?>;
+        }
+        .shopping_cart > a span.cart-content-total::before{
+            border-right-color: <?php echo $accent; ?>;
+        }
         
     </style>
     <?php 

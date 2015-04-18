@@ -659,17 +659,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'active'   => '#000000',
                         )
                     ),
-                    array(
-                        'id'       => 'theme_skin',
-                        'type'     => 'select',
-                        'title'    => __( 'Select Theme Skin', THEME_LANG ),
-                        'desc'     => __( 'Select a skin, all color options will automatically change to the defined skin.', THEME_LANG ),
-                        'options'  => array(
-                            'dark' => __('Dark', THEME_LANG),
-                            'blue' => __('Blue', THEME_LANG),
-                        ),
-                        'default'  => 'dark'
-                    )
+
                 )
             );
             
