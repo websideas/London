@@ -409,7 +409,7 @@
      Back to top
      --------------------------------------------- */
     function init_backtotop(){
-        var bottom = $('footer#footer').outerHeight();
+        var bottom = $('footer#footer-bottom').outerHeight();
     	var backtotop = $('#backtotop').hide();
     	$(window).scroll(function() {
     		($(window).scrollTop() != 0) ? backtotop.css({'bottom':bottom+'px'}).fadeIn() : backtotop.fadeOut();  

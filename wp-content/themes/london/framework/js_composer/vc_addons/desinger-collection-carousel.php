@@ -143,28 +143,28 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
 }
 
 vc_map( array(
-    "name" => __( "Desinger Collection Carousel", THEME_LANGUAGE),
+    "name" => __( "Desinger Collection Carousel", THEME_LANG),
     "base" => "desinger_collection_carousel",
     "category" => __('by Cuongdv'),
     "wrapper_class" => "clearfix",
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
             "admin_label" => true,
         ),
         array(
             "type" => "dropdown",
-        	"heading" => __("Data source", THEME_LANGUAGE),
+        	"heading" => __("Data source", THEME_LANG),
         	"param_name" => "source",
         	"value" => array(
-                __('All', THEME_LANGUAGE) => '',
-                __('Specific Posts', THEME_LANGUAGE) => 'posts',
+                __('All', THEME_LANG) => '',
+                __('Specific Posts', THEME_LANG) => 'posts',
         	),
             "admin_label" => true,
             'std' => '',
-        	"description" => __("Select content type for your testimonials.", THEME_LANGUAGE)
+        	"description" => __("Select content type for your testimonials.", THEME_LANG)
         ),
         array(
 			"type" => "kt_posts",
@@ -184,7 +184,7 @@ vc_map( array(
     	),
         array(
             "type" => "kt_heading",
-            "heading" => __("Product Items to Show?", THEME_LANGUAGE),
+            "heading" => __("Product Items to Show?", THEME_LANG),
             "param_name" => "items_show",
             "value" => "6",
         ),
@@ -192,7 +192,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Desktop", THEME_LANGUAGE),
+			"heading" => __("On Desktop", THEME_LANG),
 			"param_name" => "desktop",
 			"value" => "4",
 			"min" => "1",
@@ -203,7 +203,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Tablet", THEME_LANGUAGE),
+			"heading" => __("On Tablet", THEME_LANG),
 			"param_name" => "tablet",
 			"value" => "2",
 			"min" => "1",
@@ -214,7 +214,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Mobile", THEME_LANGUAGE),
+			"heading" => __("On Mobile", THEME_LANG),
 			"param_name" => "mobile",
 			"value" => "1",
 			"min" => "1",

@@ -75,11 +75,28 @@ add_action('login_head', 'kt_custom_login_logo');
  * @access      public
  */
 function kt_setting_css() {
+<<<<<<< HEAD
     $accent = kt_option('styling_accent', '');
+=======
+    $accent = kt_option('styling_accent', '#000000');
+    
+    $accent_brighter = kt_colour_brightness($accent, 0.8);
+    $accent_brighter_b = kt_colour_brightness($accent, 0.6);
+    
+    $accent_darker = kt_colour_brightness($accent, -0.8);
+    
+>>>>>>> origin/master
     $header_opacity = kt_option('header_layout_opacity', '0.8');
     $header_sticky_opacity = kt_option('header_sticky_opacity', '0.8');
     
+    //echo "$accent $accent_brighter $accent_brighter_b";
     
+    /**
+     * 000000 => $accent
+     * 333333 => $accent_brighter
+     * 666666 => $accent_brighter_b
+     */
+     
     ?>
     <style type="text/css">
         <?php if( $accent !='' ){ ?>
@@ -88,23 +105,13 @@ function kt_setting_css() {
         ::selection{ background:<?php echo $accent; ?>; }
         .button, 
         .btn-default,
-        .highlight.highlight1,
-        .header-layout1 .shopping_cart > a:hover,
         .site-branding .site-logo.logo-circle,
         .tp-bullets.simplebullets.round .bullet.selected,
-        .widget_tag_cloud a,
-        .widget_product_tag_cloud a, 
-        .widget_tag_cloud a,
-        #calendar_wrap caption,
-        .sidebar .widget-container .widget-title,
-        .woocommerce span.onsale,
+        .highlight.highlight1,
         .kt-owl-carousel .owl-buttons div:hover,
         .carousel-heading-top .owl-buttons div:hover,
-        body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
-        body .wpb_content_element .wpb_tabs_nav li:hover,
-        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
-        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover,
         .mCSB_scrollTools,
+<<<<<<< HEAD
         /*
         .woocommerce ul.products .button:hover,
         .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:hover, 
@@ -123,28 +130,84 @@ function kt_setting_css() {
         .woocommerce .summary .single_add_to_cart_button:hover,
         ul.kt_social_icons.large li a:hover, 
         ul.kt_social_icons.large li a:focus{
+=======
+        #calendar_wrap tbody td#today
+        
+        
+        {
+>>>>>>> origin/master
             background-color: <?php echo $accent; ?>;
         }
+        
         .button, 
-        .btn-default,
-        blockquote, 
-        .blockquote-reverse, 
-        blockquote.pull-right,
+        .btn-default{
+            border-color: <?php echo $accent; ?>;
+        }
+        #calendar_wrap thead th{
+            color: <?php echo $accent; ?>;
+        }
+        
+        ul.navigation-mobile > li:hover > a, 
+        ul.navigation-mobile > li > a:hover,
+        ul.navigation-mobile > li.current-menu-item > a, 
+        ul.navigation-mobile > li.active-menu-item > a{
+            border-left-color: <?php echo $accent; ?>;
+        }
+        
+        
+        
+        .button:hover,
+        .button:focus, 
+        .btn-default.active, 
+        .btn-default.focus, 
+        .btn-default:active, 
+        .btn-default:focus, 
+        .btn-default:hover, 
+        .open > .dropdown-toggle.btn-default,
+        ul.kt_social_icons.large li a:hover, 
+        ul.kt_social_icons.large li a:focus,
+        #backtotop:hover,
+        .sidebar .widget-container .widget-title,
+        .widget_product_tag_cloud a, 
+        .widget_tag_cloud a,
+        body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
+        body .wpb_content_element .wpb_tabs_nav li:hover,
+        #calendar_wrap caption,
+        #calendar_wrap tbody td,
+        .shopping_cart > a span.cart-content-total,
+        .header-layout2 .header-content-bottom, 
+        .header-layout3 .header-content-bottom,
+        .blog-posts .post-item .entry-date-time,
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover{
+            background-color: <?php echo $accent_brighter; ?>;
+        }
+        
+        .button:hover,
+        .button:focus, 
+        .btn-default.active, 
+        .btn-default.focus, 
+        .btn-default:active, 
+        .btn-default:focus, 
+        .btn-default:hover, 
+        .open > .dropdown-toggle.btn-default,
+        ul.kt_social_icons.large li a:hover, 
+        ul.kt_social_icons.large li a:focus,
         body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
         body .wpb_content_element .wpb_tabs_nav li:hover,
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover{
-            border-color: <?php echo $accent; ?>;
+            border-color: <?php echo $accent_brighter; ?>;
         }
-        ul.navigation-mobile > li:hover > a, 
-        ul.navigation-mobile > li > a:hover,
-        ul.navigation-mobile > li.current-menu-item > a{
-            border-left-color: <?php echo $accent; ?>;
+        
+        .shopping_cart > a span.cart-content-total:before{
+            border-right-color: <?php echo $accent_brighter; ?>;
         }
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a:after,
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
-            border-top-color: <?php echo $accent; ?>;
+            border-top-color: <?php echo $accent_brighter; ?>;
         }
+<<<<<<< HEAD
 
         #backtotop,
         #calendar_wrap tbody td,
@@ -166,6 +229,33 @@ function kt_setting_css() {
         }
         <?php } ?>
 
+=======
+        
+        .woocommerce span.onsale,
+        #backtotop{
+            background-color: <?php echo $accent_brighter_b; ?>;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        .header-layout1.header-container{
+            background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
+        }
+        
+        #header.is-sticky{
+            background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
+        }
+        
+>>>>>>> origin/master
     </style>
     <?php
 

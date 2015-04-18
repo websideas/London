@@ -92,13 +92,13 @@ class WPBakeryShortCode_Categories_Top_Sellers extends WPBakeryShortCode {
 
 // Add your Visual Composer logic here
 vc_map( array(
-    "name" => __( "Categories top sellers", THEME_LANGUAGE),
+    "name" => __( "Categories top sellers", THEME_LANG),
     "base" => "categories_top_sellers",
     "category" => __('by Cuongdv'),
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
             "admin_label" => true,
         ),

@@ -25,23 +25,23 @@ get_header(); ?>
                     <div class="img-404">
                         <img alt="Page not found" src="<?php echo get_template_directory_uri() ?>/assets/images/img-404.jpg">
                     </div>
-                    <h1><?php _e('This page is not available', THEME_LANGUAGE) ?></h1>
+                    <h1><?php _e('This page is not available', THEME_LANG) ?></h1>
 
                     <p >
-                        <?php _e('We\'re sorry, but the Web address you\'ve entered is no longer available.', THEME_LANGUAGE ); ?>
+                        <?php _e('We\'re sorry, but the Web address you\'ve entered is no longer available.', THEME_LANG ); ?>
                     </p>
 
-                    <h3><?php _e('To find a product, please type its name in the field below.', THEME_LANGUAGE ); ?></h3>
+                    <h3><?php _e('To find a product, please type its name in the field below.', THEME_LANG ); ?></h3>
                     <form class="std" method="post" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 
                         <div class="text-center">
-                            <label for="s"><?php _e('Search this site:', THEME_LANGUAGE ) ?></label>
+                            <label for="s"><?php _e('Search this site:', THEME_LANG ) ?></label>
                             <input type="text" class="form-control grey search_query" name="s" >
-                            <button class="btn btn-default button button-small" value="OK" name="Submit" type="submit"><span><?php _e('Ok', THEME_LANGUAGE ) ?></span></button>
+                            <button class="btn btn-default button button-small" value="OK" name="Submit" type="submit"><span><?php _e('Ok', THEME_LANG ) ?></span></button>
                         </div>
 
                     </form>
-                    <div class="buttons"><a title="<?php _e('Home', 'THEME_LANGUAGE'); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-default button button-medium"><span><i class="icon-chevron-left left"></i><?php _e('Home page', THEME_LANGUAGE ); ?></span></a></div>
+                    <div class="buttons"><a title="<?php _e('Home', 'THEME_LANG'); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-default button button-medium"><span><i class="icon-chevron-left left"></i><?php _e('Home page', THEME_LANG ); ?></span></a></div>
                 </div>
             </div>
         </div><!-- .row -->

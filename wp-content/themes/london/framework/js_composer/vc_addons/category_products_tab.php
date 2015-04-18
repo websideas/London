@@ -30,8 +30,8 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
         
         
         $tabs = array( 
-            'new-arrivals' => __( 'New Arrivals',THEME_LANGUAGE ),
-            'best-sellers' => __( 'Best Sellers',THEME_LANGUAGE ) 
+            'new-arrivals' => __( 'New Arrivals',THEME_LANG ),
+            'best-sellers' => __( 'Best Sellers',THEME_LANG ) 
         );
         
         $output = '';
@@ -106,7 +106,7 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
 
 
 vc_map( array(
-    "name" => __( "Category Products Tab", THEME_LANGUAGE),
+    "name" => __( "Category Products Tab", THEME_LANG),
     "base" => "category_products_tab",
     "category" => __('by Cuongdv'),
     "params" => array(
@@ -118,7 +118,7 @@ vc_map( array(
 		),
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'Border in heading', THEME_LANGUAGE ),
+			'heading' => __( 'Border in heading', THEME_LANG ),
 			'param_name' => 'border_heading',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
 		),

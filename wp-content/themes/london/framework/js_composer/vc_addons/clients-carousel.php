@@ -59,17 +59,17 @@ class WPBakeryShortCode_Clients_Carousel extends WPBakeryShortCode {
 }
 
 vc_map( array(
-    "name" => __( "Clients Carousel", THEME_LANGUAGE),
+    "name" => __( "Clients Carousel", THEME_LANG),
     "base" => "clients_carousel",
     "category" => __('by Cuongdv'),
-    "description" => __( "Recent Posts Carousel", THEME_LANGUAGE),
+    "description" => __( "Recent Posts Carousel", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
-            "description" => __( "Mailchimp title", THEME_LANGUAGE ),
+            "description" => __( "Mailchimp title", THEME_LANG ),
             "admin_label" => true,
         ),
         array(
@@ -87,14 +87,14 @@ vc_map( array(
 		),
         array(
           "type" => "kt_heading",
-          "heading" => __("Items to Show?", THEME_LANGUAGE),
+          "heading" => __("Items to Show?", THEME_LANG),
           "param_name" => "items_show",
         ),
         array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Desktop", THEME_LANGUAGE),
+			"heading" => __("On Desktop", THEME_LANG),
 			"param_name" => "desktop",
 			"value" => "5",
 			"min" => "1",
@@ -105,7 +105,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Tablet", THEME_LANGUAGE),
+			"heading" => __("On Tablet", THEME_LANG),
 			"param_name" => "tablet",
 			"value" => "3",
 			"min" => "1",
@@ -116,7 +116,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Mobile", THEME_LANGUAGE),
+			"heading" => __("On Mobile", THEME_LANG),
 			"param_name" => "mobile",
 			"value" => "2",
 			"min" => "1",

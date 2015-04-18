@@ -38,7 +38,7 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
         if ( isset ( $api_key ) && !empty ( $api_key ) ) {
             
             if(!$content) 
-                $content = __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', THEME_LANGUAGE);
+                $content = __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', THEME_LANG);
             
             $uniqeID    = uniqid();
             $output .= '<div class="'.esc_attr( $elementClass ).'" id="mailchimp-wrapper-'.$uniqeID.'">';
@@ -56,8 +56,8 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
             $output .= ($text_before) ? '<div class="mailchimp-before">'.$text_before.'</div>' : '';
             
             $output .= '<form class="mailchimp-form clearfix mailchimp-layout-'.$layout.'" action="#" method="post">';
-                $email = '<input name="email" class="form-control" required="" type="email" placeholder="'.__('E-mail address', THEME_LANGUAGE).'"/>';
-                $button = '<button class="btn btn-default mailchimp-submit" data-loading="'.__('Loading ...', THEME_LANG).'" data-text="'.__('Subscribe', THEME_LANG).'"  type="submit">'.__('Subscribe', THEME_LANGUAGE).'</button>';
+                $email = '<input name="email" class="form-control" required="" type="email" placeholder="'.__('E-mail address', THEME_LANG).'"/>';
+                $button = '<button class="btn btn-default mailchimp-submit" data-loading="'.__('Loading ...', THEME_LANG).'" data-text="'.__('Subscribe', THEME_LANG).'"  type="submit">'.__('Subscribe', THEME_LANG).'</button>';
                 if($layout == 'one'){
                     $text_repate = '<div class="input-group">%s<div class="input-group-btn">%s</div></div>'; 
                 }else{
@@ -85,67 +85,67 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
 }
 
 vc_map( array(
-    "name" => __( "Mailchimp", THEME_LANGUAGE),
+    "name" => __( "Mailchimp", THEME_LANG),
     "base" => "mailchimp",
     "category" => __('by Cuongdv'),
-    "description" => __( "Mailchimp", THEME_LANGUAGE),
+    "description" => __( "Mailchimp", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
-            "description" => __( "Mailchimp title", THEME_LANGUAGE ),
+            "description" => __( "Mailchimp title", THEME_LANG ),
             "admin_label" => true,
         ),
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'Border in heading', THEME_LANGUAGE ),
+			'heading' => __( 'Border in heading', THEME_LANG ),
 			'param_name' => 'border_heading',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
 		),
         array(
         	'type' => 'dropdown',
-        	'heading' => __( 'Newsletter layout', THEME_LANGUAGE ),
+        	'heading' => __( 'Newsletter layout', THEME_LANG ),
         	'param_name' => 'layout',
         	'admin_label' => true,
         	'value' => array(
-        		__( 'One line', THEME_LANGUAGE ) => 'one',
-        		__( 'Two line', THEME_LANGUAGE ) => "two"
+        		__( 'One line', THEME_LANG ) => 'one',
+        		__( 'Two line', THEME_LANG ) => "two"
         	),
-        	'description' => __( 'Select your layout', THEME_LANGUAGE )
+        	'description' => __( 'Select your layout', THEME_LANG )
         ),
         array(
             "type" => "kt_mailchimp",
-            "heading" => __("Select List", THEME_LANGUAGE),
+            "heading" => __("Select List", THEME_LANG),
             "param_name" => "mailchimp_list",
-            "description" => __("", THEME_LANGUAGE)
+            "description" => __("", THEME_LANG)
         ),
         array(
             "type" => 'checkbox',
-            "heading" => __( 'Double opt-in', THEME_LANGUAGE ),
+            "heading" => __( 'Double opt-in', THEME_LANG ),
             "param_name" => 'opt_in',
-            "description" => __("", THEME_LANGUAGE),
+            "description" => __("", THEME_LANG),
             "value" => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
         ),
         array(
           "type" => "textarea",
-          "heading" => __("Text before form", THEME_LANGUAGE),
+          "heading" => __("Text before form", THEME_LANG),
           "param_name" => "text_before",
-          "description" => __("", THEME_LANGUAGE)
+          "description" => __("", THEME_LANG)
         ),
         array(
           "type" => "textarea",
-          "heading" => __("Text after form", THEME_LANGUAGE),
+          "heading" => __("Text after form", THEME_LANG),
           "param_name" => "text_after",
-          "description" => __("", THEME_LANGUAGE)
+          "description" => __("", THEME_LANG)
         ),
         array(
           "type" => "textarea_html",
-          "heading" => __("Success Message", THEME_LANGUAGE),
+          "heading" => __("Success Message", THEME_LANG),
           "param_name" => "content",
-          'value' => __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', THEME_LANGUAGE), 
-          "description" => __("", THEME_LANGUAGE)
+          'value' => __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', THEME_LANG), 
+          "description" => __("", THEME_LANG)
         ),
         array(
         	'type' => 'dropdown',
@@ -164,22 +164,22 @@ vc_map( array(
         ),
         array(
           "type" => "kt_heading",
-          "heading" => __("Min height for item", THEME_LANGUAGE),
+          "heading" => __("Min height for item", THEME_LANG),
           "param_name" => "items_show",
-          "description" => __("Please include unit it. (Ex. 300px). ", THEME_LANGUAGE)
+          "description" => __("Please include unit it. (Ex. 300px). ", THEME_LANG)
         ),
         array(
 			"type" => "textfield",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Desktop", THEME_LANGUAGE),
+			"heading" => __("On Desktop", THEME_LANG),
 			"param_name" => "desktop",
 	  	),
 		array(
 			"type" => "textfield",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Tablet", THEME_LANGUAGE),
+			"heading" => __("On Tablet", THEME_LANG),
 			"param_name" => "tablet",
 			"step" => "5",
 	  	),
@@ -187,7 +187,7 @@ vc_map( array(
 			"type" => "textfield",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Mobile", THEME_LANGUAGE),
+			"heading" => __("On Mobile", THEME_LANG),
 			"param_name" => "mobile",
 	  	),
         array(

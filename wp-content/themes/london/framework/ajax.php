@@ -14,7 +14,7 @@ if ( !defined('ABSPATH')) exit;
 function wp_ajax_frontend_mailchimp_callback() {
     check_ajax_referer( 'ajax_frontend', 'security' );
     
-    $output = array( 'error'=> 1, 'msg' => __('Error', THEME_LANGUAGE));
+    $output = array( 'error'=> 1, 'msg' => __('Error', THEME_LANG));
     $api_key = kt_option('mailchimp_api');
     $email = ($_POST['email']) ? $_POST['email'] : '';
     
@@ -31,10 +31,10 @@ function wp_ajax_frontend_mailchimp_callback() {
                 }
             }
         }else{
-            $output['msg'] = __('Email address seems invalid.', THEME_LANGUAGE);
+            $output['msg'] = __('Email address seems invalid.', THEME_LANG);
         }
     }else{
-        $output['msg'] = __('Email address is required field.', THEME_LANGUAGE);
+        $output['msg'] = __('Email address is required field.', THEME_LANG);
     }
     
     echo json_encode($output);

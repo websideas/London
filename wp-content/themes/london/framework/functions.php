@@ -291,7 +291,9 @@ add_action('wp_head', 'kt_blog_favicon');
  * @since 1.0
  */
 add_action( 'theme_head_bottom', 'theme_head_bottom_addthis_script', 50 );
-function theme_head_bottom_addthis_script(){ ?>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52724564406b05c9" async="async"></script>
+function theme_head_bottom_addthis_script(){ 
+    $addthis_id = kt_option('addthis_id');
+    ?>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo $addthis_id; ?>" async="async"></script>
     <?php
 }
