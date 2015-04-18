@@ -645,7 +645,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'       => 'styling_accent',
                         'type'     => 'color',
                         'title'    => __( 'Theme Accent Color', THEME_LANG ),
-                        'default'  => '#000000',
+                        'default'  => '',
                         'transparent' => false,
                     ),
                     array(

@@ -75,13 +75,14 @@ add_action('login_head', 'kt_custom_login_logo');
  * @access      public
  */
 function kt_setting_css() {
-    $accent = kt_option('styling_accent', '#000000');
+    $accent = kt_option('styling_accent', '');
     $header_opacity = kt_option('header_layout_opacity', '0.8');
     $header_sticky_opacity = kt_option('header_sticky_opacity', '0.8');
     
     
     ?>
     <style type="text/css">
+        <?php if( $accent !='' ){ ?>
         ::-moz-selection{ background:<?php echo $accent; ?>; }
         ::-webkit-selection{ background:<?php echo $accent; ?>; }
         ::selection{ background:<?php echo $accent; ?>; }
@@ -104,17 +105,20 @@ function kt_setting_css() {
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover,
         .mCSB_scrollTools,
+        /*
         .woocommerce ul.products .button:hover,
         .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:hover, 
         .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:hover, 
         .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:hover, 
         .woocommerce .functional-buttons .product.compare-button a:hover, 
-        .woocommerce .functional-buttons .product-quick-view:hover, 
+        .woocommerce .functional-buttons .product-quick-view:hover,
+
         .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:focus, 
         .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:focus, 
         .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:focus, 
         .woocommerce .functional-buttons .product.compare-button a:focus, 
         .woocommerce .functional-buttons .product-quick-view:focus,
+        */
         #calendar_wrap tbody td#today,
         .woocommerce .summary .single_add_to_cart_button:hover,
         ul.kt_social_icons.large li a:hover, 
@@ -141,12 +145,6 @@ function kt_setting_css() {
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
             border-top-color: <?php echo $accent; ?>;
         }
-        .header-layout1.header-container{
-            background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
-        }
-        #header.is-sticky{
-            background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
-        }
 
         #backtotop,
         #calendar_wrap tbody td,
@@ -159,9 +157,18 @@ function kt_setting_css() {
         .shopping_cart > a span.cart-content-total::before{
             border-right-color: <?php echo $accent; ?>;
         }
-        
+
+        .header-layout1.header-container{
+            background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
+        }
+        #header.is-sticky{
+            background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
+        }
+        <?php } ?>
+
     </style>
-    <?php 
+    <?php
+
 }
 add_action('wp_head', 'kt_setting_css');
 

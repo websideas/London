@@ -10,12 +10,13 @@ Tasks:
 - Page boxed mod - OK
 - Move VC to plugin folder - OK
 - breadcrumbs for post, archives,...
-- Check Header scripts - ?
-- Add this ID settings in admin - ?
+- Check Header scripts(js  css) file header.php - ?
+- AddThis ID settings in admin - ?
 - Change post type ks_designer to designer - OK
 - Add Meta box for product to select designer - Anh lam chon product trong desinger
 - Please note shortcode 
     [yith_compare_button] plugin is not activated (see: product listing when hover a product)  - dont understand
+ - add option show Page title
     
 Question:
     - Header for page ?
