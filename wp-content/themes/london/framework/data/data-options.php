@@ -721,28 +721,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'header_layout2_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Header layout 2 &3 settings', THEME_LANG ),
-                    ),
-                    array(
-                        'id'       => 'header_bottom_background',
-                        'type'     => 'background',
-                        'title'    => __( 'Woocommerce category Background', THEME_LANG ),
-                        'background-repeat' => false,
-                        'background-attachment' => false,
-                        'background-position' => false,
-                        'background-image' => false,
-                        'background-size' => false,
-                        'preview' => false,
-                        'default'   => array( ),
-                        'output'      => array( '.header-layout2 .header-content-bottom', '.header-layout3 .header-content-bottom' ),
-                    ),
-                    array(
-                        'id'   => 'divide_id',
-                        'type' => 'divide'
-                    ),
-                    array(
                         'id'   => 'header_sticky_heading',
                         'type' => 'heading',
                         'title'    => __( 'Header sticky settings', THEME_LANG ),
@@ -1197,12 +1175,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                             '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > span',
                             '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li .widget-title' 
                         ),
-                        'default'  => array(
-                            'color'       => '#666666',
-                            'font-size'   => '30px',
-                            'font-weight' => 'Normal',
-                            'line-height' => '38px'
-                        ),
+                        'default'  => array( ),
                     )
                 )
             );
@@ -1286,7 +1259,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id' => 'mailchimp_api',
                         'type' => 'text',
                         'title' => __('Mailchimp API KEY', THEME_LANG), 
-                        'subtitle' => __('To use mailchimp newsletter subscribe widget you have to enter your API KEY', THEME_LANGUAGE),
+                        'subtitle' => __('To use mailchimp newsletter subscribe widget you have to enter your API KEY', THEME_LANG),
                         'default' => ''
                     ),
                 )
@@ -1497,7 +1470,25 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'desc'			=> '',
                 'icon_class'	=> 'icon_star_alt',
             );
-            
+            /**
+			 *	Social Share
+			 **/
+			$this->sections[] = array(
+				'id'			=> 'social-share',
+				'title'			=> __( 'Social Share', THEME_LANG ),
+				'desc'			=> '',
+                'subsection' => true,
+				'fields'		=> array(
+                    array(
+						'id' => 'addthis_id',
+						'type' => 'text',
+						'title' => __('Addthis ID', THEME_LANG),
+						'subtitle' => __("Your Addthis ID", THEME_LANG),
+						'desc' => '',
+						'default' => ''
+					),
+                )
+            );
             /**
 			 *	Advanced Custom CSS
 			 **/

@@ -1024,7 +1024,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     font-size: 14px;
 }
 .woocommerce span.onsale{
-    background: #4a4a4a;
+    background: #666666;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -1199,6 +1199,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce .functional-buttons .yith-wcwl-add-to-wishlist a,
 .woocommerce .functional-buttons .product.compare-button a{
     float: left;
+    text-decoration: none;
     font-size: 0;
     height: 40px;
     line-height: 0;

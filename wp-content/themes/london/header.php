@@ -17,7 +17,6 @@
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 	<![endif]-->
     <link href='http://fonts.googleapis.com/css?family=Dosis:400,200,300,500,600,700' rel='stylesheet' type='text/css' />
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52724564406b05c9" async="async"></script>
 	<?php wp_head(); ?>
     <?php do_action( 'theme_head_bottom' ); ?>
 </head>

@@ -33,7 +33,6 @@ function theme_setup() {
 	 * Enable support for Post Formats
 	 */
 	//add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
-    add_theme_support( 'post-formats', array('gallery', 'link', 'image', 'video') );
     
     /**
 	 * Let WordPress manage the document title.
@@ -69,9 +68,9 @@ function theme_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus(array(
-        'primary' => __('Main menu', THEME_LANGUAGE),
-        'top'	  => __( 'Top Menu', THEME_LANGUAGE ),
-        'bottom'	  => __( 'Bottom Menu', THEME_LANGUAGE ),
+        'primary' => __('Main menu', THEME_LANG),
+        'top'	  => __( 'Top Menu', THEME_LANG ),
+        'bottom'	  => __( 'Bottom Menu', THEME_LANG ),
     ));
 
 }

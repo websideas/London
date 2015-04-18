@@ -132,20 +132,20 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
 
 // Add your Visual Composer logic here
 vc_map( array(
-    "name" => __( "Taxonomy Woocommerce", THEME_LANGUAGE),
+    "name" => __( "Taxonomy Woocommerce", THEME_LANG),
     "base" => "taxonomy_woo",
     "category" => __('by Cuongdv'),
-    "description" => __( "Taxonomy Woocommerce", THEME_LANGUAGE),
+    "description" => __( "Taxonomy Woocommerce", THEME_LANG),
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
             "admin_label" => true,
         ),
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'Border in heading', THEME_LANGUAGE ),
+			'heading' => __( 'Border in heading', THEME_LANG ),
 			'param_name' => 'border_heading',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
 		),
@@ -155,7 +155,7 @@ vc_map( array(
 			'heading' => __( 'Category', 'js_composer' ),
 			'param_name' => 'category',
             "placeholder" => 'Please select your category',
-            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", LANGUAGE_ZONE)
+            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", 'js_composer')
         ),
         array(
 			'type' => 'textfield',
@@ -194,9 +194,9 @@ vc_map( array(
 		),
         array(
           "type" => "textarea_html",
-          "heading" => __("Content", THEME_LANGUAGE),
+          "heading" => __("Content", THEME_LANG),
           "param_name" => "content",
-          "description" => __("Enter content of taxonomy", THEME_LANGUAGE)
+          "description" => __("Enter content of taxonomy", THEME_LANG)
         ),
         array(
         	'type' => 'dropdown',
@@ -222,17 +222,17 @@ vc_map( array(
         // Carousel
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'AutoPlay', THEME_LANGUAGE ),
+			'heading' => __( 'AutoPlay', THEME_LANG ),
 			'param_name' => 'autoplay',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
             'group' => __( 'Carousel settings', THEME_LANG )
 		),
         array(
 			'type' => 'checkbox',
-            'heading' => __( 'Navigation', THEME_LANGUAGE ),
+            'heading' => __( 'Navigation', THEME_LANG ),
 			'param_name' => 'navigation',
 			'value' => array( __( "Don't use Navigation", 'js_composer' ) => 'false' ),
-            'description' => __( "Don't display 'next' and 'prev' buttons.", THEME_LANGUAGE ),
+            'description' => __( "Don't display 'next' and 'prev' buttons.", THEME_LANG ),
             'group' => __( 'Carousel settings', THEME_LANG )
 		),
         array(
@@ -250,7 +250,7 @@ vc_map( array(
     	),
         array(
 			"type" => "kt_number",
-			"heading" => __("Slide Speed", THEME_LANGUAGE),
+			"heading" => __("Slide Speed", THEME_LANG),
 			"param_name" => "slidespeed",
 			"value" => "200",
             "suffix" => __("milliseconds", THEME_LANG),
@@ -259,7 +259,7 @@ vc_map( array(
 	  	),
         array(
           "type" => "kt_heading",
-          "heading" => __("Items to Show?", THEME_LANGUAGE),
+          "heading" => __("Items to Show?", THEME_LANG),
           "param_name" => "items_show",
           "value" => "6",
           'group' => __( 'Carousel settings', THEME_LANG )
@@ -268,7 +268,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Desktop", THEME_LANGUAGE),
+			"heading" => __("On Desktop", THEME_LANG),
 			"param_name" => "desktop",
 			"value" => "3",
 			"min" => "1",
@@ -280,7 +280,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Tablet", THEME_LANGUAGE),
+			"heading" => __("On Tablet", THEME_LANG),
 			"param_name" => "tablet",
 			"value" => "2",
 			"min" => "1",
@@ -292,7 +292,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Mobile", THEME_LANGUAGE),
+			"heading" => __("On Mobile", THEME_LANG),
 			"param_name" => "mobile",
 			"value" => "1",
 			"min" => "1",

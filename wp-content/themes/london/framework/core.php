@@ -143,7 +143,7 @@ if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/f
 }
 if (file_exists( FW_DATA . 'data-options.php' ) ) {
     require_once( FW_DATA . 'data-options.php' );
-    require_once( FW_DATA . 'data-options-example.php' );
+    //require_once( FW_DATA . 'data-options-example.php' );
 }
 
 if (is_admin() ) {

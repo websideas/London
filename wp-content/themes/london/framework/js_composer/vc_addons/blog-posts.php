@@ -101,14 +101,14 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
 
 // Add your Visual Composer logic here
 vc_map( array(
-    "name" => __( "Blog Posts", THEME_LANGUAGE),
+    "name" => __( "Blog Posts", THEME_LANG),
     "base" => "list_blog_posts",
     "category" => __('by Cuongdv'),
-    "description" => __( "Display blog posts", THEME_LANGUAGE),
+    "description" => __( "Display blog posts", THEME_LANG),
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
             "admin_label" => true,
             'description' => __( 'Leave empty to hide.', 'js_composer' )
@@ -138,7 +138,7 @@ vc_map( array(
 			'param_name' => 'category',
             'multiple' => true,
             "placeholder" => 'Please select your category',
-            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", LANGUAGE_ZONE)
+            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", 'js_composer')
         ),
         array(
 			'type' => 'textfield',
@@ -179,7 +179,7 @@ vc_map( array(
 
         array(
             'type' => 'checkbox',
-            'heading' => __( 'Pagination', THEME_LANGUAGE ),
+            'heading' => __( 'Pagination', THEME_LANG ),
             'param_name' => 'pagination',
             'value' => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
         ),

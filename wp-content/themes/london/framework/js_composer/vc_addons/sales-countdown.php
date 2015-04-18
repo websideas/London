@@ -102,22 +102,22 @@ class WPBakeryShortCode_Sales_Countdown_Carousel extends WPBakeryShortCode {
 }
 
 vc_map( array(
-    "name" => __( "Sales Countdown Carousel", THEME_LANGUAGE),
+    "name" => __( "Sales Countdown Carousel", THEME_LANG),
     "base" => "sales_countdown_carousel",
     "category" => __('by Cuongdv'),
-    "description" => __( "", THEME_LANGUAGE),
+    "description" => __( "", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => __( "Title", THEME_LANGUAGE ),
+            "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
-            "description" => __( "Title", THEME_LANGUAGE ),
+            "description" => __( "Title", THEME_LANG ),
             "admin_label" => true,
         ),
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'Border in heading', THEME_LANGUAGE ),
+			'heading' => __( 'Border in heading', THEME_LANG ),
 			'param_name' => 'border_heading',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
 		),
@@ -178,17 +178,17 @@ vc_map( array(
         // Carousel
         array(
 			'type' => 'checkbox',
-			'heading' => __( 'AutoPlay', THEME_LANGUAGE ),
+			'heading' => __( 'AutoPlay', THEME_LANG ),
 			'param_name' => 'autoplay',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
             'group' => __( 'Carousel settings', THEME_LANG )
 		),
         array(
 			'type' => 'checkbox',
-            'heading' => __( 'Navigation', THEME_LANGUAGE ),
+            'heading' => __( 'Navigation', THEME_LANG ),
 			'param_name' => 'navigation',
 			'value' => array( __( "Don't use Navigation", 'js_composer' ) => 'false' ),
-            'description' => __( "Don't display 'next' and 'prev' buttons.", THEME_LANGUAGE ),
+            'description' => __( "Don't display 'next' and 'prev' buttons.", THEME_LANG ),
             'group' => __( 'Carousel settings', THEME_LANG )
 		),
         array(
@@ -206,7 +206,7 @@ vc_map( array(
     	),
         array(
 			"type" => "kt_number",
-			"heading" => __("Slide Speed", THEME_LANGUAGE),
+			"heading" => __("Slide Speed", THEME_LANG),
 			"param_name" => "slidespeed",
 			"value" => "200",
             "suffix" => __("milliseconds", THEME_LANG),
@@ -215,7 +215,7 @@ vc_map( array(
 	  	),
         array(
           "type" => "kt_heading",
-          "heading" => __("Items to Show?", THEME_LANGUAGE),
+          "heading" => __("Items to Show?", THEME_LANG),
           "param_name" => "items_show",
           "value" => "6",
           'group' => __( 'Carousel settings', THEME_LANG )
@@ -224,7 +224,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Desktop", THEME_LANGUAGE),
+			"heading" => __("On Desktop", THEME_LANG),
 			"param_name" => "desktop",
 			"value" => "2",
 			"min" => "1",
@@ -236,7 +236,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Tablet", THEME_LANGUAGE),
+			"heading" => __("On Tablet", THEME_LANG),
 			"param_name" => "tablet",
 			"value" => "1",
 			"min" => "1",
@@ -248,7 +248,7 @@ vc_map( array(
 			"type" => "kt_number",
 			"class" => "",
 			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-			"heading" => __("On Mobile", THEME_LANGUAGE),
+			"heading" => __("On Mobile", THEME_LANG),
 			"param_name" => "mobile",
 			"value" => "1",
 			"min" => "1",
