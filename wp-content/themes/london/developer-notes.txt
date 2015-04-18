@@ -5,13 +5,17 @@ Problems:
 
 Tasks:
 - Update all site data
-- 6  home versions
-- Logo when scroll down
-- Page boxed mod
-- Move VC to plugin folder
-- breackcrumbs for post, archives,...
-- Check Header scripts
-- Add this ID settings in admin
-- Change post type ks_designer to designer
-- Add Meta box for product to select designer
-- Please note shortcode [yith_compare_button] plugin is not activated (see: product listing when hover a product)
+- 6 home versions - Thay co 3 ?
+- Logo when scroll down - OK
+- Page boxed mod - OK
+- Move VC to plugin folder - OK
+- breadcrumbs for post, archives,...
+- Check Header scripts - ?
+- Add this ID settings in admin - ?
+- Change post type ks_designer to designer - OK
+- Add Meta box for product to select designer - Anh lam chon product trong desinger
+- Please note shortcode 
+    [yith_compare_button] plugin is not activated (see: product listing when hover a product)  - dont understand
+    
+Question:
+    - Header for page ?
