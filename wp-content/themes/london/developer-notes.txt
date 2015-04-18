@@ -33,3 +33,4 @@ Question:
 - Remove file /london/assets/css/skin-blue.css, london/assets/css/skin-dark.css this inherit from styling options (Genaral skin)
 - Check logo background when change header layout
 - Style for compare products page
+- Next and back slider to css 3 check http://codepen.io/andreasstorm/pen/ClguF
