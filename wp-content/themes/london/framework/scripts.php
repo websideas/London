@@ -75,17 +75,16 @@ add_action('login_head', 'kt_custom_login_logo');
  * @access      public
  */
 function kt_setting_css() {
-<<<<<<< HEAD
+
     $accent = kt_option('styling_accent', '');
-=======
+
     $accent = kt_option('styling_accent', '#000000');
     
     $accent_brighter = kt_colour_brightness($accent, 0.8);
     $accent_brighter_b = kt_colour_brightness($accent, 0.6);
     
     $accent_darker = kt_colour_brightness($accent, -0.8);
-    
->>>>>>> origin/master
+
     $header_opacity = kt_option('header_layout_opacity', '0.8');
     $header_sticky_opacity = kt_option('header_sticky_opacity', '0.8');
     
@@ -111,7 +110,6 @@ function kt_setting_css() {
         .kt-owl-carousel .owl-buttons div:hover,
         .carousel-heading-top .owl-buttons div:hover,
         .mCSB_scrollTools,
-<<<<<<< HEAD
         /*
         .woocommerce ul.products .button:hover,
         .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:hover, 
@@ -130,12 +128,9 @@ function kt_setting_css() {
         .woocommerce .summary .single_add_to_cart_button:hover,
         ul.kt_social_icons.large li a:hover, 
         ul.kt_social_icons.large li a:focus{
-=======
         #calendar_wrap tbody td#today
-        
-        
+
         {
->>>>>>> origin/master
             background-color: <?php echo $accent; ?>;
         }
         
@@ -207,7 +202,6 @@ function kt_setting_css() {
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
             border-top-color: <?php echo $accent_brighter; ?>;
         }
-<<<<<<< HEAD
 
         #backtotop,
         #calendar_wrap tbody td,
@@ -228,24 +222,11 @@ function kt_setting_css() {
             background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
         }
         <?php } ?>
-
-=======
         
         .woocommerce span.onsale,
         #backtotop{
             background-color: <?php echo $accent_brighter_b; ?>;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         .header-layout1.header-container{
             background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
@@ -254,8 +235,7 @@ function kt_setting_css() {
         #header.is-sticky{
             background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
         }
-        
->>>>>>> origin/master
+
     </style>
     <?php
 

@@ -26,7 +26,7 @@
       <file leaf-file-name="data-options.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="647" column="41" selection-start="31272" selection-end="31272" vertical-scroll-proportion="0.0" vertical-offset="14416" max-vertical-offset="36639">
+            <state line="647" column="41" selection-start="31272" selection-end="31272" vertical-scroll-proportion="0.0" vertical-offset="14881" max-vertical-offset="36432">
               <folding />
             </state>
           </provider>
@@ -35,27 +35,17 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="689" column="59" selection-start="14269" selection-end="14269" vertical-scroll-proportion="0.0" vertical-offset="15847" max-vertical-offset="54234">
+            <state line="689" column="49" selection-start="14599" selection-end="14599" vertical-scroll-proportion="0.0" vertical-offset="15847" max-vertical-offset="55315">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="scripts.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="44" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0" vertical-offset="529" max-vertical-offset="4140">
-              <folding>
-                <marker date="1429358057000" expanded="true" signature="2294:6342" placeholder="..." />
-                <marker date="1429358057000" expanded="true" signature="4479:4544" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="4999:5060" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="5207:5273" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="5491:5556" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="5856:5921" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="5980:6047" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="6089:6183" placeholder="{...}" />
-                <marker date="1429358057000" expanded="true" signature="6209:6310" placeholder="{...}" />
-              </folding>
+            <state line="229" column="8" selection-start="8160" selection-end="8160" vertical-scroll-proportion="0.60667753" vertical-offset="4522" max-vertical-offset="5750">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,7 +80,7 @@
       <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="132" selection-start="738" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="437" max-vertical-offset="2116">
+            <state line="19" column="23" selection-start="738" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="437" max-vertical-offset="2093">
               <folding />
             </state>
           </provider>
@@ -99,19 +89,8 @@
       <file leaf-file-name="functions-core.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="20" selection-start="369" selection-end="380" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="5934">
-              <folding>
-                <marker date="1429290999000" expanded="true" signature="2025:2237" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="6541:7222" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="6682:7184" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="7577:8926" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="7645:8925" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="7683:7793" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="7831:8879" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="7870:8143" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="8197:8446" placeholder="..." />
-                <marker date="1429290999000" expanded="true" signature="8494:8864" placeholder="..." />
-              </folding>
+            <state line="20" column="20" selection-start="369" selection-end="380" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="5911">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,13 +98,8 @@
       <file leaf-file-name="functions.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="6946">
-              <folding>
-                <marker date="1429286098000" expanded="true" signature="5704:5863" placeholder="..." />
-                <marker date="1429286098000" expanded="true" signature="5757:5844" placeholder="..." />
-                <marker date="1429286098000" expanded="true" signature="6175:6537" placeholder="..." />
-                <marker date="1429286098000" expanded="true" signature="6211:6475" placeholder="..." />
-              </folding>
+            <state line="8" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="6992">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wishlist-view.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="wishlist-view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/wishlist-view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="41" selection-start="2601" selection-end="2601" vertical-scroll-proportion="-2.8870568" vertical-offset="4468" max-vertical-offset="5681">
+            <state line="48" column="41" selection-start="2601" selection-end="2601" vertical-scroll-proportion="5.3076925" vertical-offset="1104" max-vertical-offset="5681">
               <folding />
             </state>
           </provider>
@@ -160,7 +134,7 @@
       <file leaf-file-name="data-plugins.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="34" selection-start="1774" selection-end="1774" vertical-scroll-proportion="0.0" vertical-offset="1127" max-vertical-offset="2599">
+            <state line="41" column="34" selection-start="1774" selection-end="1774" vertical-scroll-proportion="0.0" vertical-offset="943" max-vertical-offset="2599">
               <folding />
             </state>
           </provider>
@@ -194,7 +168,7 @@
       <file leaf-file-name="class-feed.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-includes/class-feed.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="16" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0" vertical-offset="2132" max-vertical-offset="3358">
+            <state line="135" column="16" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0" vertical-offset="3105" max-vertical-offset="3358">
               <folding />
             </state>
           </provider>
@@ -343,10 +317,10 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/developer-notes.txt" />
         <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/index.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php" />
       </list>
     </option>
   </component>
@@ -382,7 +356,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -923,6 +896,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -980,7 +954,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980143" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24503574" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24702145" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1143,25 +1117,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="689" column="59" selection-start="14269" selection-end="14269" vertical-scroll-proportion="0.0" vertical-offset="15533" max-vertical-offset="54234">
+        <state line="689" column="49" selection-start="14599" selection-end="14599" vertical-scroll-proportion="0.0" vertical-offset="15847" max-vertical-offset="55315">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="44" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0" vertical-offset="529" max-vertical-offset="4140">
-          <folding>
-            <marker date="1429358057000" expanded="true" signature="2294:6342" placeholder="..." />
-            <marker date="1429358057000" expanded="true" signature="4479:4544" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="4999:5060" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="5207:5273" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="5491:5556" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="5856:5921" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="5980:6047" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="6089:6183" placeholder="{...}" />
-            <marker date="1429358057000" expanded="true" signature="6209:6310" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1188,7 +1145,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="132" selection-start="738" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="437" max-vertical-offset="2116">
+        <state line="19" column="23" selection-start="738" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="437" max-vertical-offset="2093">
           <folding />
         </state>
       </provider>
@@ -1196,30 +1153,14 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="20" selection-start="369" selection-end="380" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="5934">
-          <folding>
-            <marker date="1429290999000" expanded="true" signature="2025:2237" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="6541:7222" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="6682:7184" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="7577:8926" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="7645:8925" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="7683:7793" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="7831:8879" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="7870:8143" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="8197:8446" placeholder="..." />
-            <marker date="1429290999000" expanded="true" signature="8494:8864" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="6946">
-          <folding>
-            <marker date="1429286098000" expanded="true" signature="5704:5863" placeholder="..." />
-            <marker date="1429286098000" expanded="true" signature="5757:5844" placeholder="..." />
-            <marker date="1429286098000" expanded="true" signature="6175:6537" placeholder="..." />
-            <marker date="1429286098000" expanded="true" signature="6211:6475" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1351,7 +1292,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/wishlist-view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="41" selection-start="2601" selection-end="2601" vertical-scroll-proportion="-2.8870568" vertical-offset="4468" max-vertical-offset="5681">
+        <state line="48" column="41" selection-start="2601" selection-end="2601" vertical-scroll-proportion="5.3076925" vertical-offset="1104" max-vertical-offset="5681">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="229" column="8" selection-start="8160" selection-end="8160" vertical-scroll-proportion="0.60667753" vertical-offset="4522" max-vertical-offset="5750">
           <folding />
         </state>
       </provider>
