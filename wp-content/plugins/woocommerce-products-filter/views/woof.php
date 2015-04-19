@@ -225,7 +225,11 @@
     ?>
 
     <div class="woof_container woof_checkbox_instock_container">
-        <input type="checkbox" class="woof_checkbox_instock" id="woof_checkbox_instock" name="stock" value="0" <?php checked('instock', isset($_REQUEST['stock']) ? 'instock' : '', true) ?> />&nbsp;&nbsp;<label for="woof_checkbox_instock"><?php _e('In stock only', 'woocommerce-products-filter') ?></label>
+        <div class="iw">
+            <label for="woof_checkbox_instock">
+                <input type="checkbox" class="woof_checkbox_instock" id="woof_checkbox_instock" name="stock" value="0" <?php checked('instock', isset($_REQUEST['stock']) ? 'instock' : '', true) ?> />
+                &nbsp;&nbsp;<?php _e('In stock only', 'woocommerce-products-filter') ?></label>
+        </div>
     </div>
 
     <div class="woo_submit_search_form_container">
