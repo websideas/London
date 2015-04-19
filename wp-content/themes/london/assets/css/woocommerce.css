@@ -2302,3 +2302,11 @@ ul.product-categories > li.cat-parent.current-cat > a{
     font-weight: 700;
     margin: 0 4px 0 0;
 }
+
+/*
+variations_form cart swatches Plugin
+*/
+.variations_form.swatches .variations-table tbody tr  td{
+    padding-bottom: 15px;
+}
+#variations_clear { display: block ; margin-bottom: 25px;}

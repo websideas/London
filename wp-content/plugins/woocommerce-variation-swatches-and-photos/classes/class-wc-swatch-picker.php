@@ -109,7 +109,6 @@ class WC_Swatch_Picker {
 							continue;
 						}
 
-
 						if ( $this->swatch_type_options[$lookup_name]['type'] == 'term_options' ) {
 							$size = apply_filters( 'woocommerce_swatches_size_for_product', $this->size, get_the_ID(), $st_name );
 							$swatch_term = new WC_Swatch_Term( 'swatches_id', $term->term_id, $taxonomy_lookup_name, $selected_value == $term->slug, $size );

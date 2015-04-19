@@ -112,8 +112,14 @@ jQuery(function () {
     });
 
     jQuery('.woof  .iw  label  input:checkbox, .woof  li  label  input:radio').each(function(){
-        jQuery(this).parents('.iw').addClass('js-check');
-        jQuery(this).parents('label').prepend('<span></span>');
+        var p = jQuery(this).parents('.iw');
+        p.addClass('js-check');
+        if(  jQuery('.woof-tax-thumb', p ).length > 0  ){
+
+        }else{
+            jQuery(this).parents('label').prepend('<span class="woof-tax-thumb-auto"></span>');
+        }
+
         if( jQuery(this).is(':checked') ){
             jQuery(this).parents('.iw').addClass('js-checked');
         }else{

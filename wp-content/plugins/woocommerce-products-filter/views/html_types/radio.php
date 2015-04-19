@@ -33,11 +33,14 @@ if (!function_exists('woof_draw_radio_childs'))
                 {
                     continue;
                 }
+
+                $thumb =  woof_get_tax_thumb( $term['term_id'], $tax_slug );
                 ?>
 
                 <li>
                     <div class="iw">
                         <label for="<?php echo 'woof_' . $inique_id ?>">
+                            <?php echo $thumb; ?>
                             <input type="radio" id="<?php echo 'woof_' . $inique_id ?>" class="woof_radio_term" data-slug="<?php echo $term['slug'] ?>" name="<?php echo $tax_slug ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> />
                             &nbsp;<?php echo $term['name'] ?> <?php echo $count_string ?>
                         </label>
@@ -85,10 +88,12 @@ if (!function_exists('woof_draw_radio_childs'))
         {
             continue;
         }
+        $thumb =  woof_get_tax_thumb( $term['term_id'], $tax_slug );
         ?>
         <li>
             <div class="iw">
                 <label for="<?php echo 'woof_' . $inique_id ?>">
+                    <?php echo $thumb; ?>
                     <input type="radio" id="<?php echo 'woof_' . $inique_id ?>" class="woof_radio_term" data-slug="<?php echo $term['slug'] ?>" name="<?php echo $tax_slug ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> />
                     &nbsp;<?php echo $term['name'] ?> <?php echo $count_string ?>
                 </label>
