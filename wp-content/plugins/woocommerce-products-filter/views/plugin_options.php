@@ -8,7 +8,6 @@
             <ul>
                 <li><a href="#tabs-1"><?php _e("Taxonomies", 'woocommerce-currency-switcher') ?></a></li>
                 <li><a href="#tabs-2"><?php _e("Options", 'woocommerce-currency-switcher') ?></a></li>
-                <li><a href="#tabs-3"><?php _e("Miscellaneous", 'woocommerce-currency-switcher') ?></a></li>
             </ul>
 
             <div id="tabs-1">
