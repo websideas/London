@@ -35,3 +35,5 @@ Question:
 - Check logo background when change header layout
 - Style for compare products page
 - Next and back slider to css 3 check http://codepen.io/andreasstorm/pen/ClguF
+
+- Check Out put HTML off widget product categories: wrong closing tag: <li class="cat-item cat-item-14"><a href="http://localhost/London/product-category/women/t-shirts/">T-shirts</a> <span class="count">(1)</a></span></li>
