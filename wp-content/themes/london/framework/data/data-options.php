@@ -258,6 +258,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type'     => 'media',
                         'url'      => true,
                         'compiler' => true,
+                        'default' =>THEME_IMG.'logo.png',
                         'title'    => __( 'Logo', THEME_LANG ),
                     ),
                     array(

@@ -436,7 +436,56 @@ select:not([multiple]) {
     border-color: #444;
     color: #FFF;
 }
+.kt-button-wrapper { text-align: center ;}
+.kt-button  {
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 42px 8px;
+    border: 1px solid #f0f0f0;
+    color: #666;
+    background: #ccc;
+    display: inline-block;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    display: inline-block;
+    position: relative;
+    transform: translateZ(0px);
+
+}
+.kt-button span {
+    display: block;
+}
+.kt-button .btn-title {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 7px 0;
+    text-transform: capitalize;
+}
+.btn-sub-title{
+     font-size: 14px; font-weight: normal;
+}
+
+.kt-button:hover:before {
+    bottom: -8px;
+    left: -8px;
+    right: -8px;
+    top: -8px;
+    border-color: #ddd;
+}
+.kt-button:before {
+    border: 4px solid #ccc;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.3s;
+    transition-property: top, right, bottom, left;
+}
 
 /* ==============================
    Owl carousel Theme
@@ -1526,6 +1575,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     -o-border-radius: 50%;
     -moz-border-radius: 50%;
     background: #000000;
+    display: block;
 }
 .header-container.header-fixed{
     position: fixed;

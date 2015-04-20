@@ -14,6 +14,7 @@ $composer_addons = array(
     'category_products_tab.php',
     'categories_top_sellers.php',
     'blog-posts.php',
+    'button.php',
 );
 
 foreach ( $composer_addons as $addon ) {

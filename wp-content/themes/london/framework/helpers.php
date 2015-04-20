@@ -166,7 +166,7 @@ function kt_get_logo(){
     $logo_default = kt_option( 'logo' );
     $logo_retina = kt_option( 'logo_retina' );
     
-    if(is_array($logo_default)){
+    if(is_array($logo_default)   && $logo_default['url'] !='' ){
         $logo['default'] = $logo_default['url'];
     }
     
