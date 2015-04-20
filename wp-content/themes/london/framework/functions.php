@@ -245,7 +245,7 @@ add_action( 'theme_after_footer', 'theme_after_footer_add_popup', 20 );
 function theme_after_footer_add_popup(){
     $enable_popup = kt_option( 'enable_popup' );
     $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
-    $content_popup = kt_option( 'content-popup' );
+    $content_popup = kt_option( 'content_popup' );
     $time_show = kt_option( 'time_show', 0 );
     
     if( $enable_popup == 1 ){ 
