@@ -30,6 +30,29 @@ function kt_get_page_id(  $ID , $post_type= 'page'){
 }
 
 
+/**
+ * Add breadcrumb
+ * 
+ */
+function kt_add_breadcrumb(){
+    if(is_page() || !is_singular('product')){
+    ?>
+        <?php if(function_exists('bcn_display')) { ?>
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <?php bcn_display(); ?>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
+    <?php
+    }
+}
+add_action('theme_before_content', 'kt_add_breadcrumb');
+
+
+
 
 /**
  * Extend the default WordPress body classes.
@@ -296,4 +319,18 @@ function theme_head_bottom_addthis_script(){
     ?>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo $addthis_id; ?>" async="async"></script>
     <?php
+}
+
+
+/**
+ * Add search to header
+ * 
+ * 
+ */
+function kt_search_form(){
+    if(kt_is_wc()){
+        get_product_search_form();
+    }else{
+        get_search_form();
+    }
 }

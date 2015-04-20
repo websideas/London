@@ -212,6 +212,7 @@ only screen and (min-resolution: 144dpi) {
 }
 @media (max-width: 360px) {
     *{}
+    .content-404 form{max-width: 320px;}
     .woocommerce table.shop_table td.actions .checkout-button, 
     .woocommerce table.shop_table td.actions input[name="update_cart"]{
         width:100%;

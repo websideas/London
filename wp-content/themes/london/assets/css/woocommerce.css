@@ -713,51 +713,6 @@
     line-height: 25px;
 }
 
-
-
-/** =========================
-    2. Woocommerce breadcrumb
-*** =========================*/
-.woocommerce-breadcrumb-wrapper{
-    margin-top: -30px;
-    margin-bottom: 30px;
-}
-.woocommerce .woocommerce-breadcrumb{
-    background: #f7f7f7;
-    border: medium none;
-    color: #666;
-    display: inline-block;
-    float: left;
-    font-size: 14px;
-    font-weight: 500;
-    height: 40px;
-    line-height: 40px;
-    overflow: hidden;
-    padding: 0 20px;
-    position: relative;
-    width: 100%;
-    z-index: 1;
-}
-
-.woocommerce-breadcrumb .navigation-pipe {
-    background: url("../images/navigation-pipe-bg.png") no-repeat center center;
-    display: inline-block;
-    text-indent: -999px;
-    width: 25px;
-}
-
-.woocommerce-breadcrumb .page-return {
-    background: url("../images/page-return-bg.png") no-repeat left center;
-    display: inline-block;
-    float: right;
-    padding: 0 0 0 15px;
-}
-.woocommerce .woocommerce-breadcrumb a:hover{
-    color: #333;
-}
-
-
-
 /** =========================
     3. Woocommerce widget
 *** =========================*/

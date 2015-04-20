@@ -215,7 +215,7 @@ add_action('woocommerce_before_main_content', 'london_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'london_wrapper_end', 10);
 
 function london_wrapper_start() {
-  echo '<div class="content-wrapper"><div class="container">';
+  echo '<div class="content-wrapper"><div class="container wc-container">';
 }
 
 function london_wrapper_end() {
@@ -468,3 +468,23 @@ function kt_woocommerce_before_cart_table( $args )
 
 	echo $html;
 }
+
+function kt_compare_css() {
+     
+    ?>
+    <style type="text/css">
+        table.compare-list .add-to-cart td a{
+            font-family: Dosis;
+            line-height: 1.42857;
+            padding: 9px 30px;
+            text-transform: none;
+        }
+        table.compare-list thead th, h1{
+            font-family:Dosis;
+            font-weight:300;
+        }
+    </style>
+    <?php
+
+}
+add_action('wp_head', 'kt_compare_css');

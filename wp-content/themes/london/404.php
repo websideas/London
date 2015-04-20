@@ -32,16 +32,8 @@ get_header(); ?>
                     </p>
 
                     <h3><?php _e('To find a product, please type its name in the field below.', THEME_LANG ); ?></h3>
-                    <form class="std" method="post" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-
-                        <div class="text-center">
-                            <label for="s"><?php _e('Search this site:', THEME_LANG ) ?></label>
-                            <input type="text" class="form-control grey search_query" name="s" >
-                            <button class="btn btn-default button button-small" value="OK" name="Submit" type="submit"><span><?php _e('Ok', THEME_LANG ) ?></span></button>
-                        </div>
-
-                    </form>
-                    <div class="buttons"><a title="<?php _e('Home', 'THEME_LANG'); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-default button button-medium"><span><i class="icon-chevron-left left"></i><?php _e('Home page', THEME_LANG ); ?></span></a></div>
+                    <?php get_search_form(); ?>
+                    <div class="buttons"><a title="<?php _e('Home', THEME_LANG); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-default button button-medium"><span><i class="icon-chevron-left left"></i><?php _e('Home page', THEME_LANG ); ?></span></a></div>
                 </div>
             </div>
         </div><!-- .row -->

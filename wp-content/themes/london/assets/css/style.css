@@ -523,11 +523,19 @@ select:not([multiple]) {
     cursor: pointer;
     text-align: center;
     line-height: 31px;
+    position: relative;
+    overflow: hidden;
 }
 .carousel-heading-top .owl-buttons div.owl-prev,
 .kt-owl-carousel .owl-buttons div.owl-prev{
     /*background: url(../images/prev_slide_bg.png) 0 center no-repeat transparent;*/
 }
+.single-product-quickview-images .owl-buttons div.owl-next:after,
+.single-product-quickview-images .owl-buttons div.owl-prev:after,
+.carousel-heading-top .owl-buttons div.owl-next:after,
+.carousel-heading-top .owl-buttons div.owl-prev:after,
+.kt-owl-carousel .owl-buttons div.owl-next:after,
+.kt-owl-carousel .owl-buttons div.owl-prev:after,
 .single-product-quickview-images .owl-buttons div.owl-next:before,
 .single-product-quickview-images .owl-buttons div.owl-prev:before,
 .carousel-heading-top .owl-buttons div.owl-next:before,
@@ -541,11 +549,51 @@ select:not([multiple]) {
     font-size:27px;
     line-height: 35px;
     color:#dbdada;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
 }
+.single-product-quickview-images .owl-buttons div.owl-prev:after,
+.carousel-heading-top .owl-buttons div.owl-prev:after,
+.kt-owl-carousel .owl-buttons div.owl-prev:after{
+    left:-100%;
+}
+.single-product-quickview-images .owl-buttons div.owl-next:after,
+.carousel-heading-top .owl-buttons div.owl-next:after,
+.kt-owl-carousel .owl-buttons div.owl-next:after{
+    left:100%;
+}
+.single-product-quickview-images .owl-buttons div.owl-prev:after,
+.carousel-heading-top .owl-buttons div.owl-prev:after,
+.kt-owl-carousel .owl-buttons div.owl-prev:after,
 .single-product-quickview-images .owl-buttons div.owl-prev:before,
 .carousel-heading-top .owl-buttons div.owl-prev:before,
 .kt-owl-carousel .owl-buttons div.owl-prev:before{
     content: "\e801";
+}
+.single-product-quickview-images .owl-buttons div.owl-next:hover:after,
+.carousel-heading-top .owl-buttons div.owl-next:hover:after,
+.kt-owl-carousel .owl-buttons div.owl-next:hover:after,
+.single-product-quickview-images .owl-buttons div.owl-prev:hover:after,
+.carousel-heading-top .owl-buttons div.owl-prev:hover:after,
+.kt-owl-carousel .owl-buttons div.owl-prev:hover:after{
+    left:0;
+}
+.single-product-quickview-images .owl-buttons div.owl-prev:hover:before,
+.carousel-heading-top .owl-buttons div.owl-prev:hover:before,
+.kt-owl-carousel .owl-buttons div.owl-prev:hover:before{
+    left:100%;
+}
+.single-product-quickview-images .owl-buttons div.owl-next:hover:before,
+.carousel-heading-top .owl-buttons div.owl-next:hover:before,
+.kt-owl-carousel .owl-buttons div.owl-next:hover:before{
+    left:-100%;
 }
 
 
@@ -1021,6 +1069,50 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 	border-width: 5px;
 	margin-left: -5px;
 }
+
+/* ==============================
+   Breadcrumb
+   ============================== */
+.woocommerce-breadcrumb-wrapper{
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+.breadcrumb-wrapper .breadcrumbs,
+.woocommerce .woocommerce-breadcrumb{
+    background: #f7f7f7;
+    border: medium none;
+    color: #666;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.woocommerce-breadcrumb .navigation-pipe {
+    background: url("../images/navigation-pipe-bg.png") no-repeat center center;
+    display: inline-block;
+    text-indent: -999px;
+    width: 25px;
+}
+
+.woocommerce-breadcrumb .page-return {
+    background: url("../images/page-return-bg.png") no-repeat left center;
+    display: inline-block;
+    float: right;
+    padding: 0 0 0 15px;
+}
+.woocommerce .woocommerce-breadcrumb a:hover{
+    color: #333;
+}
+
+
 
 /* ==============================
    Main nav
@@ -2228,13 +2320,9 @@ a.comment-reply-link {
 
 /* 404 PAGE */
 .content-404 { text-align: center ; max-width: 840px; margin: 0px auto 50px; }
-.content-404 form { text-align: left; }
+.content-404 form { text-align: left; margin: 0 auto; max-width: 435px; }
+.content-404 form.searchform input[type="text"]{color: #000000;}
 .content-404  h1{ text-transform: uppercase; font-weight: bold;  font-size:  28px; margin-bottom: 0px; }
-.content-404 form .form-control {
-    max-width: 320px; display: inline-block; height: auto;
-    padding: 8px 12px; margin-top: 2px;
-}
-.content-404 form .btn { margin-top: -5px; }
 .content-404  p {
     text-transform: uppercase;  font-size: 16px; font-weight: bold;
     border-bottom: 1px solid #ccc;

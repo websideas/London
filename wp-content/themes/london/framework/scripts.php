@@ -100,9 +100,9 @@ function kt_setting_css() {
     <style type="text/css">
         <?php if( $accent !='' ){ ?>
 
-        ::-moz-selection{ background:<?php echo $accent; ?>; }
-        ::-webkit-selection{ background:<?php echo $accent; ?>; }
-        ::selection{ background:<?php echo $accent; ?>; }
+        ::-moz-selection{ background:<?php echo $accent; ?>; color: #FFFFFF;}
+        ::-webkit-selection{ background:<?php echo $accent; ?>; color: #FFFFFF;}
+        ::selection{ background:<?php echo $accent; ?>; color: #FFFFFF;}
 
         .button, 
         .btn-default,

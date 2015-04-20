@@ -32,7 +32,7 @@ if ( !defined('ABSPATH')) exit;
                     wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav', 'walker' => new KTMegaWalker() ) );
                 }
             ?>
-            <?php get_search_form(); ?>
+            <?php kt_search_form(); ?>
             <?php get_template_part( 'templates/headers/header', 'mobile'); ?>
         </div>
     </div>
