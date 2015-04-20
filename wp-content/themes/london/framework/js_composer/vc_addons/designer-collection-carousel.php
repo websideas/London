@@ -3,7 +3,7 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
+class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
         extract( shortcode_atts( array(
             'title' => '',
@@ -44,7 +44,7 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
         $atts['columns'] = 1;
         
         $elementClass = array(
-        	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'desinger-collection-wrapper ', $this->settings['base'], $atts ),
+        	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'designer-collection-wrapper ', $this->settings['base'], $atts ),
         	'extra' => $this->getExtraClass( $el_class ),
         	'css_animation' => $this->getCSSAnimation( $css_animation ),
             'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
@@ -55,59 +55,77 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
         
         $output = '';
         $output .= '<div class="'.esc_attr( $elementClass ).'">';
-            $heading_class = apply_filters('js_composer_heading', 'block-heading desinger-collection-carousel-heading');
-            $heading_class = apply_filters('desinger_collection_carousel_heading', $heading_class);
+            $heading_class = apply_filters('js_composer_heading', 'block-heading designer-collection-carousel-heading');
+            $heading_class = apply_filters('designer_collection_carousel_heading', $heading_class);
             $output .= ($title) ? '<h3 class="'.esc_attr($heading_class).'">'.$title.'</h3>' : '';
-            
+
+            $designer_ids  = array();
             $query = new WP_Query( $args );
-            if ( $query->have_posts() ) :
-                $desinger = false;
+            if ( $query->have_posts() ) {
+
                 $output .= '<div class="row">';
-                    $output .= '<div class="col-md-3 col-sm-3 col-xs-12 desinger-collection-carousel">';
+                    $output .= '<div class="col-md-3 col-sm-3 col-xs-12 designer-collection-carousel">';
                         $output .= '<div class="owl-carousel-wrapper">';
                             $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
+
                                 while ( $query->have_posts() ) : $query->the_post();
-                                    $output .= '<div class="desinger-collection-item">';
+
+                                    $designer_ids[] =  get_the_ID();
+
+                                    $output .= '<div class="designer-collection-item">';
                                         if(has_post_thumbnail()){
-                                            $desinger_image = get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
+                                            $designer_image = get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
                                         }else{
-                                            $desinger_image = apply_filters('desinger_image_placeholder', '<img src="'.THEME_IMG.'desingner-placeholder.png" alt="">');
+                                            $designer_image = apply_filters('designer_image_placeholder', '<img src="'.THEME_IMG.'desingner-placeholder.png" alt="">');
                                                                                     
                                         }
                                         $output .= sprintf(
-                                                        '<a href="#" title="%s" class="desinger-collection-link" data-id="%s">%s%s</a>',
+                                                        '<a href="#" title="%s" class="designer-collection-link" data-id="%s">%s%s</a>',
                                                         __('Click on image to load products of the collection', THEME_LANG),
                                                         get_the_ID(),
-                                                        $desinger_image,
+                                                        $designer_image,
                                                         '<span><i class="fa fa-spinner fa-spin"></i></span>'
                                                     );                                        
                                         $output .= sprintf(
                                                         '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
                                                         get_the_title(),
-                                                        rwmb_meta( 'kt_description' )
+                                                        rwmb_meta( '_kt_description' )
                                                     );
-                                        $output .= rwmb_meta( 'kt_info' );
-                                    $output .= '</div><!-- .desinger-collection-item -->';
-                                    if(!$desinger){
-                                        $desinger = get_the_ID();
-                                    }
+                                        $output .= rwmb_meta( '_kt_info' );
+                                    $output .= '</div><!-- .designer-collection-item -->';
+
                                 endwhile; wp_reset_postdata();
+
                             $output .= '</div><!-- .owl-carousel.kt-owl-carousel -->';
                         $output .= '</div><!-- .owl-carousel-wrapper -->';
-                    $output .= '</div><!--.desinger-collection-carousel -->';
+                    $output .= '</div><!--.designer-collection-carousel -->';
                     
                     
                     if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ){
-                        $output .= '<div class="col-md-9 col-sm-9 col-xs-12 desinger-collection-woocommerce">';
-                            $product_ids = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $desinger);
-                            if(count($product_ids)){
+
+                        /// ------
+                        $output .= '<div class="col-md-9 col-sm-9 col-xs-12 designer-collection-woocommerce">';
+
+                        foreach( $designer_ids as $designer_id ){
+                            $output .= '<div class="designer-products designer-id-'.$designer_id.'">';
+
                                 $args = array(
-                        			'posts_per_page'	=> -1,
+                        			'posts_per_page'	=> 9,
                         			'post_status' 		=> 'publish',
                         			'post_type' 		=> 'product',
-                        			'post__in'			=> array_merge( array( 0 ), $product_ids )
+                                    'meta_query' => array(
+                                        array(
+                                            'key'     => '_kt_designer',
+                                            'value'   => $designer_id,
+                                            'compare' => '=',
+                                        ),
+                                    ),
                         		);
-                                $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
+
+                                $args =  apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) ;
+
+
+                                $products = new WP_Query( $args );
                                 
                                 global $woocommerce_loop;
                                 $woocommerce_loop['columns'] =  $atts['columns'];
@@ -126,16 +144,22 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
                                         $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
                                 endif;
                                 wp_reset_postdata();
-                            }
-                        $output .= '</div><!--.desinger-collection-woocommerce -->';
+
+                            $output .= '</div><!--.designer-products -->';
+                        }// end loop designers
+
+                        $output .= '</div><!--.designer-collection-woocommerce -->';
                     }
-                    
+
+                     // ----
                     
                     
                 $output .= '</div><!-- .row -->';
-            else:
-                wp_reset_postdata();
-            endif;
+            } else{
+
+            }
+            wp_reset_postdata();
+
         $output .= '</div>';
 
     	return $output;
@@ -144,7 +168,7 @@ class WPBakeryShortCode_Desinger_Collection_Carousel extends WPBakeryShortCode {
 
 vc_map( array(
     "name" => __( "Desinger Collection Carousel", THEME_LANG),
-    "base" => "desinger_collection_carousel",
+    "base" => "designer_collection_carousel",
     "category" => __('by Cuongdv'),
     "wrapper_class" => "clearfix",
     "params" => array(

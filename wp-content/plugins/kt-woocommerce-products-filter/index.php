@@ -1,10 +1,10 @@
 <?php
 /*
-  Plugin Name: WooCommerce Products Filter
-  Plugin URI: http://woocommerce-filter.com/
+  Plugin Name: KT WooCommerce Products Filter
+  Plugin URI: http://kutethemes.com
   Description: WooCommerce Products Filter. Easy & Quick!
-  Author: realmag777
-  Version: 1.0.5
+  Author: realmag777: http://woocommerce-filter.com/. Moded by SaT(shrimp2t@gmail.com)
+  Version: 2.0
   Author URI: http://www.pluginus.net/
  */
 //https://wordpress.org/support/topic/filtering-by-attributes-stopped-working-after-update-to-232

@@ -34,7 +34,7 @@
         init_ProductQuickView();
         init_SaleCountDown();
         init_gridlistToggle();
-        init_desingerCollection();
+        init_designerCollection();
         
         init_carouselwoo();
         init_productcarouselwoo();
@@ -209,25 +209,25 @@
     /* ---------------------------------------------
      Desinger collection carousel
      --------------------------------------------- */
-    function init_desingerCollection(){
-        $('a.desinger-collection-link').on('click',function(e){
+    function init_designerCollection(){
+        $('a.designer-collection-link').on('click',function(e){
             e.preventDefault();
             
-            var $desinger = $(this),
-                $wrapper = $desinger.closest('.desinger-collection-wrapper'),
+            var $designer = $(this),
+                $wrapper = $designer.closest('.designer-collection-wrapper'),
                 $carousel = $wrapper.find('ul.products'),
                 $carouselData = $carousel.data('owlCarousel');
             
-            $desinger.addClass('loading');
+            $designer.addClass('loading');
             
             var data = {
-                action: 'frontend_desinger_collection',
+                action: 'frontend_designer_collection',
                 security : ajax_frontend.security,
-                desinger_id : $desinger.data('id')
+                designer_id : $designer.data('id')
             };
             
             $.post(ajax_frontend.ajaxurl, data, function(response) {
-                $desinger.removeClass('loading');
+                $designer.removeClass('loading');
                 for (var i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
                     $carouselData.removeItem(i);
                 }
@@ -279,25 +279,25 @@
     /* ---------------------------------------------
      Desinger collection carousel
      --------------------------------------------- */
-    function init_desingerCollection(){
-        $('a.desinger-collection-link').on('click',function(e){
+    function init_designerCollection(){
+        $('a.designer-collection-link').on('click',function(e){
             e.preventDefault();
             
-            var $desinger = $(this),
-                $wrapper = $desinger.closest('.desinger-collection-wrapper'),
+            var $designer = $(this),
+                $wrapper = $designer.closest('.designer-collection-wrapper'),
                 $carousel = $wrapper.find('ul.products'),
                 $carouselData = $carousel.data('owlCarousel');
             
-            $desinger.addClass('loading');
+            $designer.addClass('loading');
             
             var data = {
-                action: 'frontend_desinger_collection',
+                action: 'frontend_designer_collection',
                 security : ajax_frontend.security,
-                desinger_id : $desinger.data('id')
+                designer_id : $designer.data('id')
             };
             
             $.post(ajax_frontend.ajaxurl, data, function(response) {
-                $desinger.removeClass('loading');
+                $designer.removeClass('loading');
                 for (i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
                     $carouselData.removeItem(i);
                 }

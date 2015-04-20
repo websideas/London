@@ -780,30 +780,30 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 /*
  *  Desinger Collection Carousel
  */
-.desinger-collection-carousel,
-.desinger-collection-woocommerce{
+.designer-collection-carousel,
+.designer-collection-woocommerce{
     margin-bottom: 15px;
 }
-.desinger-collection-woocommerce .woocommerce-carousel-wrapper .owl-item li.product.type-product{
+.designer-collection-woocommerce .woocommerce-carousel-wrapper .owl-item li.product.type-product{
     padding: 0 2px 25px;
 }
-.desinger-collection-woocommerce .row{
+.designer-collection-woocommerce .row{
     margin-left: 0;
     margin-right: 0;
 }
-.desinger-collection-wrapper .desinger-collection-link{
+.designer-collection-wrapper .designer-collection-link{
     text-align: center;
 }
-.desinger-collection-wrapper .desinger-collection-link img{ 
+.designer-collection-wrapper .designer-collection-link img{
     margin: 0 auto; 
 }
-.desinger-collection-wrapper .desinger-collection-link,
-.desinger-collection-wrapper p.info{
+.designer-collection-wrapper .designer-collection-link,
+.designer-collection-wrapper p.info{
     display: block;
     margin-bottom: 15px;
     position: relative;
 }
-.desinger-collection-wrapper .desinger-collection-link span{
+.designer-collection-wrapper .designer-collection-link span{
     position: absolute;
     right: 0;
     top: 0;
@@ -815,10 +815,10 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     display: none;
     text-align: center;
 }
-.desinger-collection-wrapper .desinger-collection-link.loading span{
+.designer-collection-wrapper .designer-collection-link.loading span{
     display: block;
 }
-.desinger-collection-wrapper p.info .name{
+.designer-collection-wrapper p.info .name{
     border-bottom: 1px solid #ccc;
     display: inline-block;
     font-size: 18px;

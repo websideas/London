@@ -10,7 +10,7 @@ $composer_addons = array(
     'mailchimp.php',
     'recent-posts-carousel.php',
     'sales-countdown.php',
-    'desinger-collection-carousel.php',
+    'designer-collection-carousel.php',
     'category_products_tab.php',
     'categories_top_sellers.php',
     'blog-posts.php',

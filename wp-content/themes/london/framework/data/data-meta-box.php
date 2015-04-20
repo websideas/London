@@ -12,7 +12,7 @@ if ( !defined('ABSPATH')) exit;
 add_filter( 'rwmb_meta_boxes', 'kite_register_meta_boxes' );
 function kite_register_meta_boxes( $meta_boxes )
 {
-    $prefix = 'kt_';
+    $prefix = '_kt_';
     
     /**
      * For Layout option
@@ -39,22 +39,6 @@ function kite_register_meta_boxes( $meta_boxes )
                 'std'  => 'default'
             ),
 
-            /*
-           array(
-               'name' => __('Header layout', THEME_LANG),
-               'id' => $prefix . 'header',
-               'desc' => __("Please choose this page's layout.", THEME_LANG),
-               'type' => 'select',
-               'options' => array(
-                   'default' => __('Default option', THEME_LANG),
-                   'layout1' => __('Layout 1', THEME_LANG),
-                   'layout2' => __('Layout 2', THEME_LANG),
-                   'layout3' => __('Layout 3', THEME_LANG),
-               ),
-               'std' => 'default'
-           ),
-
-           */
             array(
                 'type' => 'divider',
                 'id' => 'fake_divider_id',
@@ -157,52 +141,36 @@ function kite_register_meta_boxes( $meta_boxes )
     
     
     /**
-     * For Designer
+     * For Products Designer
      * 
      */
     
     $meta_boxes[] = array(
         'id' => 'designer_meta_boxes',
-        'title' => 'Designer Options',
-        'pages' => array( 'kt_designer' ),
+        'title' => 'Designer',
+        'pages' => array( 'product' ),
         'context' => 'normal',
-        'priority' => 'high',
+        'priority' => 'default',
         'fields' => array(
+
             array(
-                'name' => __('Short description', THEME_LANG),
-                'id' => $prefix . 'description',
-                'type' => 'text',
-                'size' => 40,
-                'desc' => __('Please enter your short description', THEME_LANG)
-            ),
-            array(
-                'name' => __('Products', THEME_LANG),
-                'id' => $prefix . 'products',
+                'name' => __('Designer', THEME_LANG),
+                'id' => $prefix . 'designer',
                 'type' => 'post',
-                'query_args' => array('post_type' => 'product', 'posts_per_page' => '-1'),
-                'post_type' => 'product',
-                'multiple' => true,
+                'query_args' => array('post_type' => 'designer', 'posts_per_page' => '-1'),
+                'post_type' => 'designer',
+                'multiple' => false,
                 'size' => 5,
                 'placeholder' => ('Select your products'),
-                'desc' => __('Please Select product for this Designer', THEME_LANG),
+                'desc' => __('Please Select Designer for this product', THEME_LANG),
                 'field_type' => 'select_advanced'
             ),
-            array(
-                'name' => __( 'About Designer', THEME_LANG ),
-                'id' => "{$prefix}info",
-                'type' => 'wysiwyg',
-                'raw' => false,
-                'std' => "",
-                'options' => array( 'textarea_rows' => 20 ),
-            ),
-            
-            
+
         )
     );
-    
-    
-    
-    
-    
+
+
     return $meta_boxes;
-} 
+}
+
+

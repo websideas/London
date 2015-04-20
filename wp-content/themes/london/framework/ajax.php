@@ -51,14 +51,14 @@ add_action( 'wp_ajax_nopriv_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_cal
  * @since 1.0
  * @return json
  */
-function wp_ajax_frontend_desinger_collection_callback() {
+function wp_ajax_frontend_designer_collection_callback() {
     check_ajax_referer( 'ajax_frontend', 'security' );
     $output = array();
     
     global $woocommerce_loop;
     $woocommerce_loop['columns'] = 1;
     
-    $product_ids = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $_POST['desinger_id']);
+    $product_ids = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $_POST['designer_id']);
     if(count($product_ids)){
         $meta_query = WC()->query->get_meta_query();
         $args = array(
@@ -82,8 +82,8 @@ function wp_ajax_frontend_desinger_collection_callback() {
     echo json_encode($output);
     die();
 }
-add_action( 'wp_ajax_frontend_desinger_collection', 'wp_ajax_frontend_desinger_collection_callback' );
-add_action( 'wp_ajax_nopriv_frontend_desinger_collection', 'wp_ajax_frontend_desinger_collection_callback' );
+add_action( 'wp_ajax_frontend_designer_collection', 'wp_ajax_frontend_designer_collection_callback' );
+add_action( 'wp_ajax_nopriv_frontend_designer_collection', 'wp_ajax_frontend_designer_collection_callback' );
 
 /**
  * Desinger collection callback AJAX request 

@@ -13,7 +13,7 @@ Tasks:
 - Check Header scripts(js  css) file header.php - ?
 - AddThis ID settings in admin - ?
 - Change post type ks_designer to designer - OK
-- Add Meta box for product to select designer - Anh lam chon product trong desinger
+- Add Meta box for product to select designer - Anh lam chon product trong designer
 - Please note shortcode 
     [yith_compare_button] plugin is not activated (see: product listing when hover a product)  - dont understand
  - add option show Page title
@@ -35,7 +35,21 @@ Question:
 - Check logo background when change header layout
 - Style for compare products page
 - Next and back slider to css 3 check http://codepen.io/andreasstorm/pen/ClguF
-
 - Check Out put HTML off widget product categories: wrong closing tag: <li class="cat-item cat-item-14"><a href="http://localhost/London/product-category/women/t-shirts/">T-shirts</a> <span class="count">(1)</a></span></li>
-- add Tagline for page Like http://localhost/London/product-category/women/
 - Problems width next, back of carousel
+
+- add Tagline for page Like http://localhost/London/product-category/women/
+
+
+
+==========REPLACE METAKEY -====
+
+
+SELECT *
+FROM `ld_postmeta`
+WHERE meta_key LIKE 'kt_%'
+LIMIT 0 , 30
+-----
+
+UPDATE ld_postmeta
+SET meta_key = REPLACE(meta_key, 'kt', '_kt') WHere meta_key  LIKe 'kt_%'

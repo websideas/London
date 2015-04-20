@@ -50,7 +50,7 @@ function theme_body_classes( $classes ) {
     
     if(is_page() || is_singular('post')){
         $classes[] = 'layout-'.kt_getlayout($post->ID);
-        $classes[] = rwmb_meta('kt_extra_page_class');
+        $classes[] = rwmb_meta('_kt_extra_page_class');
     }else{
         $classes[] = 'layout-'.kt_option('layout');
     }
@@ -113,10 +113,10 @@ add_filter('kt_sidebar_class', 'kt_sidebar_class_callback', 10, 2);
 function kt_content_class_callback($classes){
     global $post;
     if(is_page()){
-        if(rwmb_meta('kt_remove_top')){
+        if(rwmb_meta('_kt_remove_top')){
             $classes .= ' remove_top_padding';
         }
-        if(rwmb_meta('kt_remove_bottom')){
+        if(rwmb_meta('_kt_remove_bottom')){
             $classes .= ' remove_bottom_padding';
         }
     }
@@ -148,14 +148,14 @@ function theme_slideshows_position_callback(){
     global $post;
     if(is_page() || is_singular('post')){
         
-        $slideshow = rwmb_meta('kt_slideshow_source');
+        $slideshow = rwmb_meta('_kt_slideshow_source');
         if($slideshow == 'revslider'){
-            $revslider = rwmb_meta('kt_rev_slider');
+            $revslider = rwmb_meta('_kt_rev_slider');
             if($revslider && class_exists( 'RevSlider' )){
                 echo putRevSlider($revslider);
             }
         }elseif($slideshow == 'layerslider'){
-            $layerslider = rwmb_meta('kt_layerslider');
+            $layerslider = rwmb_meta('_kt_layerslider');
             if($layerslider && is_plugin_active( 'LayerSlider/layerslider.php' )){
                 echo do_shortcode('[layerslider id="'.$layerslider.'"]');
             }
