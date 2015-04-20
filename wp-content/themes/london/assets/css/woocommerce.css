@@ -56,7 +56,6 @@
 }
 
 .woocommerce a.remove {
-    background: url("../images/remove_cart.png") no-repeat scroll center center rgba(0, 0, 0, 0);
     border: 1px solid #cccccc;
     color: #666;
     display: inline-block;
@@ -67,8 +66,18 @@
     text-align: center;
     overflow: hidden;
     text-decoration: none;
-    text-indent: -999px;
+    font-size:0;
     width: 15px;
+    position: relative;
+}
+.bag-products .bag-product a.remove:before,
+.woocommerce a.remove:before{
+    font-family: "kitethemes";
+    content:"\e807";
+    font-size: 24px;
+    left: -5px;
+    position: absolute;
+    top: -7px;
 }
 
 .woocommerce a.remove:hover {
@@ -592,7 +601,6 @@
     height: auto;
 }
 .bag-products .bag-product a.remove{
-    background: url(../images/remove_cart.png) no-repeat center center;
     left: 0;
     position: absolute;
     top: 14px;
@@ -605,6 +613,11 @@
     text-align: center;
     text-decoration: none;
     width: 30px;
+}
+.bag-products .bag-product a.remove:before{
+    font-size: 30px;
+    left: -1px;
+    top: 1px;
 }
 .bag-products .bag-product:hover a.remove{
     border-color: #000;
@@ -649,8 +662,10 @@
 }
 .mCSB_scrollTools{
     width: 10px;
+    background: #CCCCCC;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
     opacity: 1;
-    background: #000;
 }
 .mCSB_scrollTools .mCSB_draggerRail{
     border-radius: 0;
@@ -659,15 +674,20 @@
     -o-border-radius: 0;
 }
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-    background: #808080;
+    background: #000000;
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     -o-border-radius: 0;
     width: 10px;
 }
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, 
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
-    
+    background: #000000;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    opacity: 0.8;
 }
 
 /** =========================
@@ -765,7 +785,14 @@ ul.product-categories > li > a{
     font-weight: 500;
     line-height: 40px;
     padding: 0 34px 0 40px;
-    background: url(../images/cate_item_bg.png) no-repeat 20px center;
+}
+ul.product-categories > li > a:before{
+    content: '\e806';
+    font-family:"kitethemes";
+    font-size: 31px;
+    left: 9px;
+    position: absolute;
+    top: 3px;
 }
 ul.product-categories > li span.count{
     color: #fff;
@@ -807,9 +834,9 @@ ul.product-categories > li.current-cat > ul{
     display: block;
 }
 
-ul.product-categories > li.cat-parent.current-cat-parent > a,
-ul.product-categories > li.cat-parent.current-cat > a{
-    background-image: url(../images/cart_arrow_bg.png);
+ul.product-categories > li.cat-parent.current-cat-parent > a:before,
+ul.product-categories > li.cat-parent.current-cat > a:before{
+    content: '\e808';
 }
 
 /* === 3.2. Price filter ====*/
@@ -833,10 +860,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
     z-index: 1;
 }
 .woocommerce .widget_price_filter .ui-slider .ui-slider-handle{
-    background: #333333;
+    background: none;
     width: 7px;
     height: 15px;
-    background: url(../images/price_bg.png) no-repeat top left;
     
     cursor: ew-resize;
     margin-left: -0.5em;
@@ -844,6 +870,15 @@ ul.product-categories > li.cat-parent.current-cat > a{
     position: absolute;
     top: -0.3em;
     z-index: 2;
+}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle:before{
+    font-family:kitethemes;
+    content:"\e805";
+    font-size: 30px;
+    left: -11px;
+    position: absolute;
+    top: -1px;
+    color:#000;
 }
 .woocommerce .widget_price_filter .price_slider_amount .button{
     float: left;
@@ -1093,8 +1128,6 @@ ul.product-categories > li.cat-parent.current-cat > a{
     -o-transition: all 0.6s ease;
     transition: all ease 0.6s;
     width: 120px;
-    background: #333333;
-    padding: 0;
 }
 .woocommerce ul.products .product-image-container .button{
     position: absolute;
@@ -1296,7 +1329,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     position: relative!important;
     background: #000!important;
     opacity: 1!important;
-    cursor: pointer;
+    cursor: pointer!important;
 }
 .woocommerce .functional-buttons .compare-button .blockUI.blockOverlay:before{
     content: '\f110';

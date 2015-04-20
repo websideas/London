@@ -20,9 +20,9 @@ class WPBakeryShortCode_Contact_Info extends WPBakeryShortCode {
         $output .= '<div class="'.esc_attr( $css_class ).'">';
             $output .= ($title) ? '<h3 class="title_block">'.$title.'</h3>' : '';
             $output .= '<ul class="contact-info-ul">';
-            	$output .= ($address) ? '<li><i class="icon-map-marker"></i>'.$address.'</li>' : '';
-                $output .= ($phone) ? '<li><i class="icon-phone"></i>'.$phone.'</li>' : '';
-                $output .= ($email) ? '<li><i class="icon-envelope-alt"></i>'.__('Email: ', THEME_LANG).$email.'</li>' : '';
+            	$output .= ($address) ? '<li><i class="fa fa-map-marker"></i>'.$address.'</li>' : '';
+                $output .= ($phone) ? '<li><i class="fa fa-mobile"></i>'.$phone.'</li>' : '';
+                $output .= ($email) ? '<li><i class="fa fa-envelope"></i>'.__('Email: ', THEME_LANG).$email.'</li>' : '';
             $output .= '</ul>';
         $output .= '</div>';
         

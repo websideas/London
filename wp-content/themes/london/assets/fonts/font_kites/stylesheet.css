@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'kitethemes';
+    src: url('kitethemes.eot?76690004');
+    src: url('kitethemes.eot?76690004#iefix') format('embedded-opentype'),
+       url('kitethemes.woff?76690004') format('woff'),
+       url('kitethemes.ttf?76690004') format('truetype'),
+       url('kitethemes.svg?76690004#kitethemes') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

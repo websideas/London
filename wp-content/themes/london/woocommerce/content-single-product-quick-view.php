@@ -43,14 +43,8 @@ global $post, $product, $woocommerce;
         			$attachment_ids = $product->get_gallery_attachment_ids();
         			$attachment_count   = count( $attachment_ids );
                     
-                    
-        			if ( $attachment_count > 0 ) {
-        				$gallery = '[product-gallery]';
-        			} else {
-        				$gallery = '';
-        			}
         
-        			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a>', $image_link, $image_caption, $image ), $post->ID );
+        			echo apply_filters( 'woocommerce_single_product_image_html', $image , $post->ID );
                     
                     
                     // Display Attachment Images as well
@@ -73,7 +67,7 @@ global $post, $product, $woocommerce;
         						) );
         
         					// Display other items
-        					echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a>', $image_link, $image_title, $image ), $post->ID );
+        					echo apply_filters( 'woocommerce_single_product_image_html', $image, $post->ID );
         				}
         
         			endif;

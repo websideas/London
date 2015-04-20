@@ -111,19 +111,43 @@ function kt_setting_css() {
         .highlight.highlight1,
         .kt-owl-carousel .owl-buttons div:hover,
         .carousel-heading-top .owl-buttons div:hover,
-        .mCSB_scrollTools,
+        .single-product-quickview-images .owl-buttons div:hover,
+        
+        
+        .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+        .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, 
+        .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+        .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
         #calendar_wrap tbody td#today,
         .woocommerce .summary .single_add_to_cart_button:hover,
         ul.kt_social_icons.large li a:hover, 
         ul.kt_social_icons.large li a:focus
-        #calendar_wrap tbody td#today {
+        #calendar_wrap tbody td#today,
+        .header-layout1 .shopping_cart > a:hover,
+        .widget_product_tag_cloud a:hover, 
+        .widget_tag_cloud a:hover
+        {
             background-color: <?php echo $accent; ?>;
+        }
+        .woocommerce .functional-buttons .compare-button .blockUI.blockOverlay{
+            background-color: <?php echo $accent; ?>!important;
         }
         
         .button, 
-        .btn-default{
+        .btn-default,
+        .header-layout1 #woocommerce-nav > ul > li > a:hover,
+        .header-layout1 #main-nav > ul > li.current-menu-item > a, 
+        .header-layout1 #main-nav > ul > li > a:hover, 
+        .header-layout1 #main-nav > ul > li:hover > a,
+        .header-content .searchform input[type="text"],
+        .header-layout1 .shopping_cart > a,
+        #woocommerce-nav-mobile-wrapper,
+        #header-content-mobile a,
+        .woocommerce a.remove:hover{
             border-color: <?php echo $accent; ?>;
         }
+        .tp-bullets .tp-rightarrow.round::after, 
+        .tp-bullets .tp-leftarrow.round::after,
         #calendar_wrap thead th{
             color: <?php echo $accent; ?>;
         }
@@ -149,8 +173,6 @@ function kt_setting_css() {
         ul.kt_social_icons.large li a:focus,
         #backtotop:hover,
         .sidebar .widget-container .widget-title,
-        .widget_product_tag_cloud a, 
-        .widget_tag_cloud a,
         body .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, 
         body .wpb_content_element .wpb_tabs_nav li:hover,
         #calendar_wrap caption,
@@ -160,7 +182,11 @@ function kt_setting_css() {
         .header-layout3 .header-content-bottom,
         .blog-posts .post-item .entry-date-time,
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a, 
-        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover{
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover,
+        .widget_product_tag_cloud a, 
+        .widget_tag_cloud a,
+        .woocommerce .widget_price_filter .ui-slider .ui-slider-range
+        {
             background-color: <?php echo $accent_brighter; ?>;
         }
         
@@ -189,31 +215,73 @@ function kt_setting_css() {
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
             border-top-color: <?php echo $accent_brighter; ?>;
         }
-
-        #backtotop,
-        #calendar_wrap tbody td,
-        .blog-posts .post-item .entry-date-time,
-        .woocommerce ul.products .product-image-container .button,
-        .woocommerce ul.products .product-image-container .functional-buttons,
-        .shopping_cart > a span.cart-content-total{
-            background-color: <?php echo $accent; ?>;
+        
+        .woocommerce .widget_price_filter .ui-slider .ui-slider-handle::before{
+            color: <?php echo $accent_brighter; ?>;
         }
-        .shopping_cart > a span.cart-content-total::before{
-            border-right-color: <?php echo $accent; ?>;
-        }
-
-        #header.is-sticky{
-            background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
-        }
-
-        .header-layout1.header-container{
-            background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
-        }
-
+        
+        
+        
         .woocommerce span.onsale,
         #backtotop{
             background-color: <?php echo $accent_brighter_b; ?>;
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        .woocommerce ul.products .button,
+        .woocommerce .functional-buttons,
+        .woocommerce .summary .single_add_to_cart_button,
+        table.compare-list .add-to-cart td a{
+            background-color: <?php echo $accent_brighter; ?>;
+        }
+        .woocommerce ul.products .button:hover,
+        .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:hover, 
+        .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:hover, 
+        .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:hover, 
+        .woocommerce .functional-buttons .product.compare-button a:hover, 
+        .woocommerce .functional-buttons .product-quick-view:hover, 
+        .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:focus, 
+        .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:focus, 
+        .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:focus, 
+        .woocommerce .functional-buttons .product.compare-button a:focus, 
+        .woocommerce .functional-buttons .product-quick-view:focus,
+        table.compare-list .add-to-cart td a:hover{
+            background-color: <?php echo $accent; ?>;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+        #header.is-sticky{
+            background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
+        }
+        .header-layout1.header-container{
+            background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
+        }
+        
+        
+        
+        
+        
+        
 
         <?php } ?>
 

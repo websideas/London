@@ -104,6 +104,7 @@ function london_scripts() {
     wp_enqueue_style( 'london-style', get_stylesheet_uri() );
     wp_enqueue_style( 'bootstrap-css', THEME_LIBS . 'bootstrap/css/bootstrap.min.css', array());
     wp_enqueue_style( 'font-awesome', THEME_FONTS . 'font-awesome/css/font-awesome.min.css', array());
+    wp_enqueue_style( 'font_kites', THEME_FONTS . 'font_kites/stylesheet.css', array());
     wp_enqueue_style( 'mCustomScrollbar-css', THEME_CSS . 'jquery.mCustomScrollbar.min.css', array());
     wp_enqueue_style( 'magnific-popup-css', THEME_CSS . 'magnific-popup.css', array());
     wp_enqueue_style( 'owl-carousel-css', THEME_LIBS . 'owl-carousel/owl.carousel.css', array());
@@ -113,7 +114,6 @@ function london_scripts() {
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
     wp_enqueue_style( 'woocommerce-css', THEME_CSS . 'woocommerce.css', array('london-main'));
-    //wp_enqueue_style( 'skin-css', THEME_CSS . 'skin-'.kt_option('theme_skin', 'dark').'.css', array('london-main'));
     wp_enqueue_style( 'queries-css', THEME_CSS . 'queries.css', array('london-main'));
     
 	// Load the Internet Explorer specific stylesheet.
