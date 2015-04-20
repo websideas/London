@@ -688,7 +688,7 @@ select:not([multiple]) {
     font-family:kitethemes;
     content:"\e803";
     position: absolute;
-    top:3px;
+    top:4px;
     left:0;
     font-size:32px;
     color:#000;

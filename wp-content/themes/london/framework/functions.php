@@ -37,11 +37,11 @@ function kt_get_page_id(  $ID , $post_type= 'page'){
 function kt_add_breadcrumb(){
     if( ! is_home() && ! is_front_page()  ){
 
-        $disable = false;
+        $show = true;
         if( is_page() || is_singular()  || is_front_page() ){
             $disable  = rwmb_meta( '_kt_show_breadcrumb' );
         }
-        if( $disable ){
+        if( $show ){
             ?>
                 <?php if(function_exists('breadcrumb_trail')) { ?>
                 <div class="breadcrumb-wrapper">
