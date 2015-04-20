@@ -12,9 +12,9 @@
         
         
         /* SIDEBAR =====================================================*/
-        var $sidebar_config = $('#kt_sidebar'),
-            $sidebar_left = $('#kt_left_sidebar').closest('.rwmb-field'),
-            $sidebar_right = $('#kt_right_sidebar').closest('.rwmb-field');
+        var $sidebar_config = $('#_kt_sidebar'),
+            $sidebar_left = $('#_kt_left_sidebar').closest('.rwmb-field'),
+            $sidebar_right = $('#_kt_right_sidebar').closest('.rwmb-field');
             
             
         function kt_sidebar(){
@@ -36,9 +36,9 @@
     	});
         
         /* Slideshow source =====================================================*/
-        var $slideshow_config = $('#kt_slideshow_source'),
-            $rev_slider = $('#kt_rev_slider').closest('.rwmb-field'),
-            $layerslider = $('#kt_layerslider').closest('.rwmb-field');
+        var $slideshow_config = $('#_kt_slideshow_source'),
+            $rev_slider = $('#_kt_rev_slider').closest('.rwmb-field'),
+            $layerslider = $('#_kt_layerslider').closest('.rwmb-field');
             
         function kt_slideshow(){
             $slideshow_value = $slideshow_config.val();

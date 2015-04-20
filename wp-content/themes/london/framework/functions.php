@@ -260,24 +260,6 @@ function theme_after_footer_add_popup(){
 }
 
 
-/**
- * Add share product 
- *
- * @since 1.0
- */
-add_action( 'woocommerce_single_product_summary', 'theme_share_product_add_share', 50 );
-function theme_share_product_add_share(){ 
-    global $post;
-    ?>
-    <div class="clearfix"></div>
-    <div class="product-details-share clearfix">
-        <ul class="share clearfix">
-            <li><a href="mailto:?subject=<?php echo get_the_title($post->ID); ?>&body=<?php echo get_permalink($post->ID); ?>"><i class="fa fa-envelope"></i></a></li>
-            <li><a href="javascript:print();"><i class="fa fa-print"></i></a></li>
-        </ul>
-        <div class="addthis_native_toolbox"></div>
-    </div><?php
-}
 
 
 function kt_blog_favicon() { 
@@ -316,9 +298,11 @@ add_action('wp_head', 'kt_blog_favicon');
 add_action( 'theme_head_bottom', 'theme_head_bottom_addthis_script', 50 );
 function theme_head_bottom_addthis_script(){ 
     $addthis_id = kt_option('addthis_id');
-    ?>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo $addthis_id; ?>" async="async"></script>
-    <?php
+    if($addthis_id){
+        ?>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo $addthis_id; ?>" async="async"></script>
+        <?php
+    }
 }
 
 

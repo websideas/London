@@ -40,14 +40,6 @@ get_header(); ?>
         <?php } ?>
     </div><!-- .row -->
     <?php
-		/**
-		 * woocommerce_after_main_content hook
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
-    <?php
     /**
      * @hooked
      */

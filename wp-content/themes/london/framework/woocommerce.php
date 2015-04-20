@@ -458,6 +458,31 @@ function custom_stock_totals($availability_html, $availability_text, $variation)
 }
 add_filter('woocommerce_stock_html', 'custom_stock_totals', 20, 3);
 
+
+/**
+ * Add share product 
+ *
+ * @since 1.0
+ */
+add_action( 'woocommerce_single_product_summary', 'theme_share_product_add_share', 50 );
+function theme_share_product_add_share(){ 
+    global $post;
+    $addthis_id = kt_option('addthis_id');
+    ?>
+    <div class="clearfix"></div>
+    <div class="product-details-share clearfix">
+        <ul class="share clearfix">
+            <li><a href="mailto:?subject=<?php echo get_the_title($post->ID); ?>&body=<?php echo get_permalink($post->ID); ?>"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="javascript:print();"><i class="fa fa-print"></i></a></li>
+        </ul>
+        <?php if($addthis_id){ ?>
+            <div class="addthis_native_toolbox"></div>
+        <?php } ?>
+    </div><?php
+}
+
+
+
 /* cart hooks */
 add_action('woocommerce_before_cart_table', 'kt_woocommerce_before_cart_table', 20);
 function kt_woocommerce_before_cart_table( $args )
