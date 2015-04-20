@@ -19,16 +19,29 @@ get_header(); ?>
     	/**
     	 * @hooked 
     	 */
-    	do_action( 'theme_before_main' ); ?>
+    	do_action( 'theme_before_main' );
+
+        the_post();
+        ?>
         <div class="row">    
             <div id="main" class="<?php echo apply_filters('kt_main_class', 'main-class', $sidebar['sidebar']); ?>">
                 <?php
+                if( rwmb_meta('_kt_show_title')  ){
+                ?>
+                <h1 class="page-title""><?php the_title(); ?></h1>
+                <?php
+                    if( rwmb_meta('_kt_show_taglitle') ){
+                        $tagline =  rwmb_meta('_kt_tagline');
+                        if( $tagline !='' ){ ?>
+                            <div class="term-description"><p><?php echo esc_html( $tagline ); ?></p></div>
+                        <?php } ?>
+                        <div class="clear"></div>
+                        <?php
+                    }
+                }
 
-                the_post();
                 // Include the page content template.
                 get_template_part( 'content', 'page' );
-
-
             	?>
             </div>
             <?php if($sidebar['sidebar'] != 'full'){ ?>

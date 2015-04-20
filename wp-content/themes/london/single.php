@@ -26,7 +26,8 @@ get_header(); ?>
                 the_post();
                 ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <h1 class="entry-title"><?php the_title(); ?></h1>
+                    <h1 class="page-title""><?php the_title(); ?></h1>
+                    <div class="clear"></div>
                     <div class="entry-meta-data">
                         <?php
                         printf( '<span class="author vcard">'.__('Posed by:', THEME_LANG ).' <a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
@@ -37,7 +38,8 @@ get_header(); ?>
                         ?>
                         <span class="date-time"><i class="fa fa-calendar-o"></i> <?php the_time( get_option( 'date_format' ) ); ?></span>
                         <span class="cat"><i class="fa fa-folder-o"></i> <?php the_category(', '); ?></span>
-                        <span class="comment-count"><i class="fa fa-comments"></i> <?php comments_number(
+                        <span class="comment-count">
+                            <i class="fa fa-comments"></i> <?php comments_number(
                                 __('Comments: 0', THEME_LANG),
                                 __('Comment: 1', THEME_LANG),
                                 __('Comments: %', THEME_LANG)

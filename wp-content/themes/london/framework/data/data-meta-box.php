@@ -26,6 +26,36 @@ function kite_register_meta_boxes( $meta_boxes )
         'priority' => 'high',
         'fields' => array(
 
+            // checkbox
+
+            array(
+                'name' => __( 'Page title', THEME_LANG ),
+                'id' => $prefix . 'show_title',
+                'desc' => __( "Show page title.", THEME_LANG ),
+                'type'  => 'checkbox',
+                'std'  =>'1'
+            ),
+
+            array(
+                'name' => __( 'Page Tagline', THEME_LANG ),
+                'id' => $prefix . 'show_taglitle',
+                'desc' => __( "Show page tagtitle.", THEME_LANG ),
+                'type'  => 'checkbox',
+                'std'  =>'1'
+            ),
+
+            array(
+                'name' => __( 'Tagline', THEME_LANG ),
+                'id' => $prefix . 'tagline',
+                'desc' => __( "Enter tagline for page.", THEME_LANG ),
+                'type'  => 'text',
+            ),
+
+            array(
+                'type' => 'divider',
+                'id' => 'fake_divider_id_1',
+            ),
+
             array(
                 'name'    => __( 'Header position', THEME_LANG ),
                 'type'     => 'select',

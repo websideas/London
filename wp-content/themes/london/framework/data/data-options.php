@@ -212,7 +212,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'left' => __('Left Sidebar', THEME_LANG),
                             'right' => __('Right Layout', THEME_LANG)
                         ),
-                        'default'  => 'full',
+                        'default'  => 'right',
                         'clear' => false,
 
                     ),

@@ -27,9 +27,18 @@ get_header(); ?>
                     ?>
                     <div class="list-blog-posts">
                         <?php
-                        the_archive_title( '<h2 class="block-heading">', '</h2>' );
-                        the_archive_description( '<div class="taxonomy-description">', '</div>' );
+                        if( is_home() ){
+                            ?>
+                            <h1 class="page-title"><?php _e('Blog', THEME_LANG ) ?></h1>
+                            <div class="term-description"><p><?php _e('Lastest posts', THEME_LANG ) ?></p></div>
+                            <?php
+                        }else{
+                            the_archive_title( '<h1 class="page-title">', '</h1>' );
+                            the_archive_description( '<div class="term-description"><p>', '</p></div>' );
+                        }
+
                         ?>
+                        <div class="clear"></div>
                         <div class="blog-posts">
                         <?php
                         while( have_posts() ){

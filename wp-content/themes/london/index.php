@@ -14,10 +14,13 @@
  * @since London 1.0
  */
 
-get_header();
 
-
-?>
-
-
-<?php get_footer(); ?>
+if( is_singular() ){
+    if( is_page( ) ){
+        include get_template_directory().'/page.php';
+    }else{
+        include get_template_directory().'/single.php';
+    }
+}else{
+    include get_template_directory().'/archive.php';
+}
