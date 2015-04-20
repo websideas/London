@@ -6,14 +6,10 @@ Problems:
 Tasks:
 - Update all site data
 - 6 home versions - Thay co 3 ?
-- Logo when scroll down - OK
-- Page boxed mod - OK
-- Move VC to plugin folder - OK
 - breadcrumbs for post, archives,...
 - Check Header scripts(js  css) file header.php - ?
 - AddThis ID settings in admin - ?
-- Change post type ks_designer to designer - OK
-- Add Meta box for product to select designer - Anh lam chon product trong designer
+
 - Please note shortcode 
     [yith_compare_button] plugin is not activated (see: product listing when hover a product)  - dont understand
  - add option show Page title
@@ -23,21 +19,16 @@ Question:
 =======
 - 6  home versions
 - Logo when scroll down
-- Page boxed mod
-- Move VC to plugin folder
 - breackcrumbs for post, archives,...
 - Check Header scripts
 - Add this ID settings in admin
-- Change post type ks_designer to designer
-- Add Meta box for product to select designer
 - Please note shortcode [yith_compare_button] plugin is not activated (see: product listing when hover a product)
-- Remove file /london/assets/css/skin-blue.css, london/assets/css/skin-dark.css this inherit from styling options (Genaral skin)
+- Remove file /london/assets/css/skin-blue.css, london/assets/css/skin-dark.css this inherit from styling options (Genaral skin) (OK)
 - Check logo background when change header layout
 - Style for compare products page
-- Next and back slider to css 3 check http://codepen.io/andreasstorm/pen/ClguF
 - Check Out put HTML off widget product categories: wrong closing tag: <li class="cat-item cat-item-14"><a href="http://localhost/London/product-category/women/t-shirts/">T-shirts</a> <span class="count">(1)</a></span></li>
 
-- (Ok )Problems width next, back of carousel
+- Problems width next, back of carousel (Ok )
 
 - add Tagline for page Like http://localhost/London/product-category/women/
 
