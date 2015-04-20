@@ -51,6 +51,16 @@ function kite_register_meta_boxes( $meta_boxes )
                 'type'  => 'text',
             ),
 
+            // data-meta-box.php
+
+            array(
+                'name' => __( 'Page breadcrumb', THEME_LANG ),
+                'id' => $prefix . 'show_breadcrumb',
+                'desc' => __( "Show page breadcrumb.", THEME_LANG ),
+                'type'  => 'checkbox',
+                'std'  =>'1'
+            ),
+
             array(
                 'type' => 'divider',
                 'id' => 'fake_divider_id_1',

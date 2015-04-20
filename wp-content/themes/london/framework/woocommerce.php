@@ -5,6 +5,7 @@
 if ( !defined('ABSPATH')) exit;
 
 
+
 /**
  * Define image sizes
  */
@@ -229,24 +230,13 @@ function london_wrapper_end() {
 add_action('woocommerce_cart_actions', 'woocommerce_button_proceed_to_checkout');
 
 /**
- * Woocommerce breadcrumb change order and navigation pipe
+ * remove WC breadcrumb
  * 
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
-add_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 5, 0);
+// remove WC breadcrumb
+remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20 );
 
-add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
-function jk_woocommerce_breadcrumbs() {
-    return array(
-        'delimiter' => '<span class="navigation-pipe">&#47;</span>',
-        'wrap_before' => '<div class="woocommerce-breadcrumb-wrapper"><div class="container"><nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
-        'wrap_after' => '</nav></div></div>',
-        'before' => '',
-        'after' => '',
-        'home' => _x( 'Home', 'breadcrumb', 'woocommerce' ),
-    );
-        
-} 
+
 
 
 /**

@@ -688,7 +688,7 @@ select:not([multiple]) {
     font-family:kitethemes;
     content:"\e803";
     position: absolute;
-    top:7px;
+    top:3px;
     left:0;
     font-size:32px;
     color:#000;
@@ -1073,9 +1073,9 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 /* ==============================
    Breadcrumb
    ============================== */
-.woocommerce-breadcrumb-wrapper{
-    margin-top: -30px;
-    margin-bottom: 30px;
+.woocommerce-breadcrumb-wrapper, .breadcrumb-wrapper{
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 .breadcrumb-wrapper .breadcrumbs,
 .woocommerce .woocommerce-breadcrumb{
@@ -1095,20 +1095,20 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     z-index: 1;
 }
 
-.woocommerce-breadcrumb .navigation-pipe {
+.woocommerce-breadcrumb .navigation-pipe, .breadcrumbs .navigation-pipe {
     background: url("../images/navigation-pipe-bg.png") no-repeat center center;
     display: inline-block;
     text-indent: -999px;
     width: 25px;
 }
 
-.woocommerce-breadcrumb .page-return {
+.woocommerce-breadcrumb .page-return, .breadcrumbs .page-return  {
     background: url("../images/page-return-bg.png") no-repeat left center;
     display: inline-block;
     float: right;
     padding: 0 0 0 15px;
 }
-.woocommerce .woocommerce-breadcrumb a:hover{
+.woocommerce .woocommerce-breadcrumb a:hover , .breadcrumbs a:hover{
     color: #333;
 }
 

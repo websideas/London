@@ -35,18 +35,23 @@ function kt_get_page_id(  $ID , $post_type= 'page'){
  * 
  */
 function kt_add_breadcrumb(){
-    if(is_page() || !is_singular('product')){
-    ?>
-        <?php if(function_exists('bcn_display')) { ?>
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
-                    <?php bcn_display(); ?>
+    if( ! is_home() && ! is_front_page()  ){
+
+        $disable = false;
+        if( is_page() || is_singular()  || is_front_page() ){
+            $disable  = rwmb_meta( '_kt_show_breadcrumb' );
+        }
+        if( $disable ){
+            ?>
+                <?php if(function_exists('breadcrumb_trail')) { ?>
+                <div class="breadcrumb-wrapper">
+                    <div class="container">
+                        <?php breadcrumb_trail(); ?>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <?php } ?>
-    <?php
+                <?php } ?>
+            <?php
+        }
     }
 }
 add_action('theme_before_content', 'kt_add_breadcrumb');
@@ -71,7 +76,7 @@ function theme_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
     
-    if(is_page() || is_singular('post')){
+    if( is_page() || is_singular('post')){
         $classes[] = 'layout-'.kt_getlayout($post->ID);
         $classes[] = rwmb_meta('_kt_extra_page_class');
     }else{

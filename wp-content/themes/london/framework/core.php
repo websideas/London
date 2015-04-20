@@ -86,6 +86,12 @@ require_once ( FW_DIR . 'helpers.php' );
 require_once ( FW_DIR . 'scripts.php' );
 
 /**
+ * Breadcrumbs
+ *
+ */
+require_once ( FW_DIR . 'breadcrumbs.php' );
+
+/**
  * support for woocommerce helpers
  *
  */
