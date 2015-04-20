@@ -42,11 +42,6 @@ function kt_register_plugins() {
             'slug' => 'woocommerce',
             'required' => true,
         ),
-		array(
-            'name' => 'Breadcrumb NavXT',
-            'slug' => 'breadcrumb-navxt',
-            'required' => false,
-        ),
         array(
             'name' => 'Contact Form 7',
             'slug' => 'contact-form-7',
