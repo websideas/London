@@ -10,6 +10,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
             'source' => 'all',
             'posts' => '',
             'max_items' => 10,
+            'num_products' =>  9,
             'css_animation' => '',
             'orderby' => 'date',
             'meta_key' => '',
@@ -52,7 +53,8 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
         
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
         
-        
+        $id = uniqid('dc-');
+
         $output = '';
         $output .= '<div class="'.esc_attr( $elementClass ).'">';
             $heading_class = apply_filters('js_composer_heading', 'block-heading designer-collection-carousel-heading');
@@ -66,7 +68,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                 $output .= '<div class="row">';
                     $output .= '<div class="col-md-3 col-sm-3 col-xs-12 designer-collection-carousel">';
                         $output .= '<div class="owl-carousel-wrapper">';
-                            $output .= '<div class="owl-carousel kt-owl-carousel" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
+                            $output .= '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_carousel_cb" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
 
                                 while ( $query->have_posts() ) : $query->the_post();
 
@@ -104,13 +106,13 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                     if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ){
 
                         /// ------
-                        $output .= '<div class="col-md-9 col-sm-9 col-xs-12 designer-collection-woocommerce">';
+                        $output .= '<div id="'.$id.'-products" class="col-md-9 col-sm-9 col-xs-12 designer-collection-woocommerce">';
 
                         foreach( $designer_ids as $designer_id ){
                             $output .= '<div class="designer-products designer-id-'.$designer_id.'">';
 
                                 $args = array(
-                        			'posts_per_page'	=> 9,
+                        			'posts_per_page'	=> $num_products,
                         			'post_status' 		=> 'publish',
                         			'post_type' 		=> 'product',
                                     'meta_query' => array(
@@ -121,25 +123,21 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                         ),
                                     ),
                         		);
-
                                 $args =  apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) ;
-
-
                                 $products = new WP_Query( $args );
-                                
+
                                 global $woocommerce_loop;
                                 $woocommerce_loop['columns'] =  $atts['columns'];
                                 
                                 if ( $products->have_posts() ) :
                                         $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
-                                        $output .= '<div class="woocommerce-carousel-wrapper" data-theme="style-navigation-bottom" data-itemscustom="'.$itemscustom.'">';
+                                        $output .= '<div class="woocommerce-carousel-wrapper" data-theme="carousel-heading-top style-navigation-bottom" data-itemscustom="'.$itemscustom.'">';
                                             ob_start();
                                             woocommerce_product_loop_start();
                                             while ( $products->have_posts() ) : $products->the_post();
                                                 wc_get_template_part( 'content', 'product-normal' );
                                             endwhile; // end of the loop.
                                             woocommerce_product_loop_end();
-                                            
                                             $output .= '<div class="woocommerce  columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
                                         $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
                                 endif;
@@ -152,7 +150,6 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                     }
 
                      // ----
-                    
                     
                 $output .= '</div><!-- .row -->';
             } else{
@@ -184,7 +181,7 @@ vc_map( array(
         	"param_name" => "source",
         	"value" => array(
                 __('All', THEME_LANG) => '',
-                __('Specific Posts', THEME_LANG) => 'posts',
+                __('Specific Designer', THEME_LANG) => 'posts',
         	),
             "admin_label" => true,
             'std' => '',
@@ -200,12 +197,23 @@ vc_map( array(
 		),
         array(
     		'type' => 'textfield',
-    		'heading' => __( 'Total items', 'js_composer' ),
+    		'heading' => __( 'How many designer to show ?', 'js_composer' ),
     		'param_name' => 'max_items',
     		'value' => 10, // default value
     		'param_holder_class' => 'vc_not-for-custom',
-    		'description' => __( 'Set max limit for items in grid or enter -1 to display all (limited to 1000).', 'js_composer' )
+    		'description' => __( 'Set max limit for items  or enter -1 to display all (limited to 1000).', 'js_composer' )
     	),
+
+
+        array(
+            'type' => 'textfield',
+            'heading' => __( 'How many products per designer to show ?', 'js_composer' ),
+            'param_name' => 'num_products',
+            'value' => 9, // default value
+            'param_holder_class' => 'vc_not-for-custom',
+            'description' => __( 'Set max limit for items or enter -1 to display all (limited to 1000).', 'js_composer' )
+        ),
+
         array(
             "type" => "kt_heading",
             "heading" => __("Product Items to Show?", THEME_LANG),

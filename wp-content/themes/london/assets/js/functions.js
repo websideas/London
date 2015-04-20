@@ -1,3 +1,4 @@
+
 (function($){
     "use strict"; // Start of use strict
     
@@ -34,8 +35,6 @@
         init_ProductQuickView();
         init_SaleCountDown();
         init_gridlistToggle();
-        init_designerCollection();
-        
         init_carouselwoo();
         init_productcarouselwoo();
         init_woocategories_products();
@@ -206,37 +205,8 @@
             });
         });
     }
-    /* ---------------------------------------------
-     Desinger collection carousel
-     --------------------------------------------- */
-    function init_designerCollection(){
-        $('a.designer-collection-link').on('click',function(e){
-            e.preventDefault();
-            
-            var $designer = $(this),
-                $wrapper = $designer.closest('.designer-collection-wrapper'),
-                $carousel = $wrapper.find('ul.products'),
-                $carouselData = $carousel.data('owlCarousel');
-            
-            $designer.addClass('loading');
-            
-            var data = {
-                action: 'frontend_designer_collection',
-                security : ajax_frontend.security,
-                designer_id : $designer.data('id')
-            };
-            
-            $.post(ajax_frontend.ajaxurl, data, function(response) {
-                $designer.removeClass('loading');
-                for (var i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
-                    $carouselData.removeItem(i);
-                }
-                $.each( response, function( i, val ) {
-                    $carouselData.addItem(val);
-                });
-            }, 'json');
-        });
-    }
+
+
     /* ---------------------------------------------
      Woo categories products
      --------------------------------------------- */
@@ -275,39 +245,8 @@
         	return false;
         });
     }
-    
-    /* ---------------------------------------------
-     Desinger collection carousel
-     --------------------------------------------- */
-    function init_designerCollection(){
-        $('a.designer-collection-link').on('click',function(e){
-            e.preventDefault();
-            
-            var $designer = $(this),
-                $wrapper = $designer.closest('.designer-collection-wrapper'),
-                $carousel = $wrapper.find('ul.products'),
-                $carouselData = $carousel.data('owlCarousel');
-            
-            $designer.addClass('loading');
-            
-            var data = {
-                action: 'frontend_designer_collection',
-                security : ajax_frontend.security,
-                designer_id : $designer.data('id')
-            };
-            
-            $.post(ajax_frontend.ajaxurl, data, function(response) {
-                $designer.removeClass('loading');
-                for (i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
-                    $carouselData.removeItem(i);
-                }
-                $.each( response, function( i, val ) {
-                    $carouselData.addItem(val);
-                });
-            }, 'json');
-        });
-    }
-    
+
+
     /* ---------------------------------------------
      Grid list Toggle
      --------------------------------------------- */
@@ -544,6 +483,8 @@
             sync2.trigger("owl.goTo", num-1)
         }
     }
+
+
     /* ---------------------------------------------
      Owl carousel
      --------------------------------------------- */
@@ -559,7 +500,9 @@
                 owlTheme = objCarousel.data('theme'),
                 owlitemsCustom = objCarousel.data('itemscustom'),
                 owlSlideSpeed = objCarousel.data('slidespeed'),
+                func_cb = objCarousel.data('js-callback'),
                 owlSingleItem = true;
+
 
 
             if(typeof owlNavigation === "undefined"){
@@ -594,6 +537,8 @@
                 owlSingleItem = false;
             }
 
+            func_cb =  window[ func_cb ];
+
             var options = {
                 items: owlItems,
                 slideSpeed: owlSlideSpeed,
@@ -605,22 +550,71 @@
                 theme: owlTheme,
                 autoPlay: owlAutoPlay,
                 stopOnHover: true,
+                addClassActive : true,
                 itemsCustom: owlitemsCustom,
                 afterInit : function(elem){ 
                     if(owlTheme == 'style-navigation-top'){
                         var that = this;
                         that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'))
                     }
+
+                    if( typeof func_cb === 'function'){
+                        func_cb( 'afterInit',   elem );
+                    }
+
                 },
                 afterUpdate: function(elem) {
-                    /*if (elem.closest(".isotope-container").length > 0) {
-                        elem.closest(".isotope-container").isotope("layout");
-                    }*/
+                    if( typeof func_cb === 'function'){
+                        func_cb( 'afterUpdate',   elem );
+                    }
+                },
+                afterMove : function ( elem ){
+                    if( typeof func_cb === 'function'){
+                        func_cb( 'afterUpdate',   elem );
+                    }
                 }
             };
             objCarousel.owlCarousel(options);
             
         });
     }
+
+
+
+
     
 })(jQuery); // End of use strict
+
+
+/* ---------------------------------------------
+ Desinger collection callback
+ --------------------------------------------- */
+
+function designer_carousel_cb( _type, elem ){
+    "use strict"; // Start of use strict
+    var id = elem.attr('id');
+    var pwid=  jQuery('#'+id+'-products');
+    jQuery('.designer-products', pwid );
+
+    if( _type === 'afterInit' ){
+
+        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-link').data('id');
+        jQuery('.designer-products', pwid).not( jQuery(  '.designer-id-'+id_designer , pwid)  ) .hide();
+    }
+
+    if( _type === 'afterUpdate' ){
+        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-link').data('id');
+        pwid.css({
+            'height': pwid.height()+'px',
+            'overflow': 'hidden',
+            'display' : 'block'
+        });
+        jQuery('.designer-products', pwid).fadeOut(200, function(){
+            jQuery('.designer-products', pwid).hide();
+            jQuery(  '.designer-id-'+id_designer , pwid). fadeIn (200, function (){
+                pwid.removeAttr('style');
+            });
+        });
+
+    }
+}

@@ -45,45 +45,7 @@ function wp_ajax_frontend_mailchimp_callback() {
 add_action( 'wp_ajax_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_callback' );
 add_action( 'wp_ajax_nopriv_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_callback' );
 
-/**
- * Desinger collection callback AJAX request 
- *
- * @since 1.0
- * @return json
- */
-function wp_ajax_frontend_designer_collection_callback() {
-    check_ajax_referer( 'ajax_frontend', 'security' );
-    $output = array();
-    
-    global $woocommerce_loop;
-    $woocommerce_loop['columns'] = 1;
-    
-    $product_ids = rwmb_meta('kt_products', array('type' => 'post', 'multiple' => true), $_POST['designer_id']);
-    if(count($product_ids)){
-        $meta_query = WC()->query->get_meta_query();
-        $args = array(
-			'posts_per_page'	=> -1,
-			'post_status' 		=> 'publish',
-			'post_type' 		=> 'product',
-			'post__in'			=> array_merge( array( 0 ), $product_ids ),
-            'meta_query' 		=> $meta_query,
-		);
-        $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
-        if ( $products->have_posts() ) :
-                while ( $products->have_posts() ) : $products->the_post();
-                    ob_start();
-                    wc_get_template_part( 'content', 'product-normal' );
-                    $output[] = ob_get_clean();
-                endwhile; // end of the loop.
-        endif;
-        wp_reset_postdata();
-    }
-    
-    echo json_encode($output);
-    die();
-}
-add_action( 'wp_ajax_frontend_designer_collection', 'wp_ajax_frontend_designer_collection_callback' );
-add_action( 'wp_ajax_nopriv_frontend_designer_collection', 'wp_ajax_frontend_designer_collection_callback' );
+
 
 /**
  * Desinger collection callback AJAX request 

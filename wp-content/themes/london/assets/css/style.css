@@ -793,6 +793,8 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 }
 .designer-collection-wrapper .designer-collection-link{
     text-align: center;
+    min-height: 130px;
+    display: block;
 }
 .designer-collection-wrapper .designer-collection-link img{
     margin: 0 auto; 
@@ -826,6 +828,18 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     line-height: normal;
     padding-bottom: 5px;
 }
+.style-navigation-bottom .owl-buttons {
+    top: auto !important;
+    left: auto !important;
+    position: inherit;
+
+}
+.designer-collection-carousel .style-navigation-center .owl-buttons div {
+    top: 115px;
+    margin-top: 0px;
+}
+
+
 /*
  *  Category products tabs
  */
