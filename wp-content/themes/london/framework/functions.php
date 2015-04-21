@@ -29,6 +29,23 @@ function kt_get_page_id(  $ID , $post_type= 'page'){
     return $ID;
 }
 
+/**
+ *
+ * Detect plugin.
+ *
+ * @param $plugin example: 'plugin-directory/plugin-file.php'
+ */
+
+function kt_is_active_plugin(   $plugin ){
+    if(  !function_exists( 'is_plugin_active' ) ){
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    }
+    // check for plugin using plugin name
+    return is_plugin_active( $plugin ) ;
+}
+
+
+
 
 /**
  * Add breadcrumb
@@ -46,7 +63,19 @@ function kt_add_breadcrumb(){
                 <?php if(function_exists('breadcrumb_trail')) { ?>
                 <div class="breadcrumb-wrapper">
                     <div class="container">
-                        <?php breadcrumb_trail(); ?>
+                        <?php
+                        if( is_woocommerce() ){
+                            woocommerce_breadcrumb(
+                                array(
+                                    'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
+                                    'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '>',
+
+                            ) );
+                        }else{
+                            breadcrumb_trail();
+                        }
+
+                        ?>
                     </div>
                 </div>
                 <?php } ?>
@@ -212,15 +241,7 @@ function theme_slideshows_position_callback(){
  */
 add_action( 'theme_before_content', 'theme_before_content_add_title', 20 );
 function theme_before_content_add_title(){
-    /*
-    ?>
-    <div class="page-title-container">
-        <div class="container">
-            <?php wp_title(); ?>
-        </div>
-    </div>
-    <?php
-    */
+
 }
 
 
@@ -305,7 +326,7 @@ function theme_head_bottom_addthis_script(){
     $addthis_id = kt_option('addthis_id');
     if($addthis_id){
         ?>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo $addthis_id; ?>" async="async"></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo esc_attr( $addthis_id ); ?>" async="async"></script>
         <?php
     }
 }
@@ -322,4 +343,26 @@ function kt_search_form(){
     }else{
         get_search_form();
     }
+}
+
+
+
+/**
+ * This code filters the categories widget to include the post count inside the link
+ */
+add_filter('wp_list_categories', 'kt_cat_count_span');
+function kt_cat_count_span($links) {
+    $links = str_replace('</a> (', ' (', $links);
+    $links = str_replace(')', ')</a>', $links);
+    return $links;
+}
+
+/**
+ * This code filters the Archive widget to include the post count inside the link
+ */
+add_filter('get_archives_link', 'kt_archive_count_span');
+function kt_archive_count_span($links) {
+    $links = str_replace('</a>&nbsp;(', ' (', $links);
+    $links = str_replace(')', ')</a>', $links);
+    return $links;
 }
