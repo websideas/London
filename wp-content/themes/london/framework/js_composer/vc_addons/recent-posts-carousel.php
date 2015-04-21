@@ -331,7 +331,6 @@ vc_map( array(
           "type" => "kt_heading",
           "heading" => __("Items to Show?", THEME_LANG),
           "param_name" => "items_show",
-          "value" => "6",
           'group' => __( 'Carousel settings', THEME_LANG )
         ),
         array(

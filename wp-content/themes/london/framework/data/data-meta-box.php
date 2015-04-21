@@ -208,7 +208,29 @@ function kite_register_meta_boxes( $meta_boxes )
 
         )
     );
+    
+    /**
+     * For Testimonial
+     * 
+     */
+    
+    $meta_boxes[] = array(
+        'id' => 'testimonial_meta_boxes',
+        'title' => 'Testimonial Options',
+        'pages' => array( 'testimonial' ),
+        'context' => 'normal',
+        'priority' => 'default',
+        'fields' => array(
+            
+            array(
+                'name' => __( 'Regency', THEME_LANG ),
+                'id' => $prefix . 'testimonial_regency',
+                'desc' => __( "Testimonial Regency.", THEME_LANG ),
+                'type'  => 'text',
+            ),
 
+        )
+    );
 
     return $meta_boxes;
 }

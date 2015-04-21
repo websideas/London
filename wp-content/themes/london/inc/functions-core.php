@@ -57,7 +57,7 @@ function theme_setup() {
         add_image_size( 'screen_square', 1170, 1170, true);
         add_image_size( 'haft', 570);
         add_image_size( 'recent_posts', 570, 380, true);
-        add_image_size( 'small', 105, 105, true );
+        add_image_size( 'small', 170, 170, true );
         add_image_size( 'blog-post', 1040, 390, true );
 
     }

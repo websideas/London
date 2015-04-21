@@ -632,6 +632,23 @@ select:not([multiple]) {
 .style-navigation-center .owl-buttons div.owl-next{
     right: 0;
 }
+
+.kt_product_carousel{ padding-bottom:35px; }
+.kt_testimonial.style-navigation-center .owl-buttons div,
+.kt_product_carousel.style-navigation-center .owl-buttons div{
+    top:auto;
+    bottom:30px;
+}
+.kt_testimonial.style-navigation-center .owl-buttons div.owl-prev,
+.kt_product_carousel.style-navigation-center .owl-buttons div.owl-prev{
+    left: auto;
+    right:50%;
+}
+.kt_testimonial.style-navigation-center .owl-buttons div.owl-next,
+.kt_product_carousel.style-navigation-center .owl-buttons div.owl-next{
+    right: auto;
+    left:50%;
+}
 /*
  * Navigation bottom
  */
@@ -688,7 +705,7 @@ select:not([multiple]) {
     font-family:kitethemes;
     content:"\e803";
     position: absolute;
-    top:4px;
+    top:7px;
     left:0;
     font-size:32px;
     color:#000;
@@ -2494,7 +2511,7 @@ WIDGET
     background: #333;
     border-radius:0;
     border:none;
-    color:#a4a4a4; 
+    color:#FFFFFF; 
 }
 .widget_product_tag_cloud a:hover,
 .widget_product_tag_cloud a:focus,
@@ -2638,4 +2655,58 @@ END SOCIAL
     font-size: 0;
     text-indent:0;
     background: none;
+}
+
+
+
+.kt_testimonial_wrap .module-title,
+.kt_product_carousel_wrap .module-title{
+    padding:15px;
+    text-align: center;
+    color:#fff;
+    background: #333;
+    font-family:Dosis;
+}
+.kt_testimonial_wrap .module-title h3.title,
+.kt_product_carousel_wrap .module-title h3.title{
+    margin-bottom:10px;
+    font-size:30px;
+    font-weight:200;
+}
+
+
+.kt_testimonial .testimonial-item{
+    padding:125px 20px 20px;
+    border:1px solid #ccc;
+    text-align: center;
+    position: relative;
+    margin-top:60px;
+}
+.kt_testimonial .testimonial-item.no-image{
+    padding-top:20px;
+}
+.kt_testimonial .testimonial-item .avatar{
+    width:170px;
+    border:1px solid #cecece;
+    position: absolute;
+    top:-55px;
+    left:50%;
+    margin-left:-85px;
+}
+.kt_testimonial .testimonial-item .avatar img{
+    width:100%;
+    height:auto;
+}
+.kt_testimonial .testimonial-item h3.name{
+    font-size:18px;
+    font-weight:200;
+    color:#666;
+    margin-bottom:10px;
+}
+.kt_testimonial .testimonial-item h3.name span{
+    font-size:14px;
+    color:#999;
+}
+.kt_testimonial .testimonial-item .desc{
+    color:#666;
 }

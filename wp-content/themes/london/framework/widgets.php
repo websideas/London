@@ -29,6 +29,15 @@ if ( function_exists('register_sidebar')) {
 		'after_title' => '</h3>',
 	) );
     
+    register_sidebar( array(
+		'name' => __( 'Blog Widget Area', THEME_LANG),
+		'id' => 'blog-widget-area',
+		'description' => __( 'The blog widget area', THEME_LANG),
+		'before_widget' => '<section id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</section>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
     
     $count = 4;
     

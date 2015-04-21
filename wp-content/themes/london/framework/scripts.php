@@ -112,8 +112,7 @@ function kt_setting_css() {
         .kt-owl-carousel .owl-buttons div:hover,
         .carousel-heading-top .owl-buttons div:hover,
         .single-product-quickview-images .owl-buttons div:hover,
-        
-        
+        .designer-collection-wrapper .designer-collection-link span,
         .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
         .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, 
         .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,

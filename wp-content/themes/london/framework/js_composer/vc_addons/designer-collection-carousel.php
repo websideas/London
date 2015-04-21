@@ -78,8 +78,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                         if(has_post_thumbnail()){
                                             $designer_image = get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
                                         }else{
-                                            $designer_image = apply_filters('designer_image_placeholder', '<img src="'.THEME_IMG.'desingner-placeholder.png" alt="">');
-                                                                                    
+                                            $designer_image = apply_filters('designer_placeholder', '<img src="'.THEME_IMG.'desingner-placeholder.png" alt="">');
                                         }
                                         $output .= sprintf(
                                                         '<a href="#" title="%s" class="designer-collection-link" data-id="%s">%s%s</a>',

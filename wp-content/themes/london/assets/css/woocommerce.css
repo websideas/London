@@ -1088,6 +1088,7 @@ ul.product-categories > li.cat-parent.current-cat > a:before{
     position: absolute;
     left: -130px;
     margin-left: 0;
+    padding: 0;
     /* Firefox */
     top: -moz-calc(50% - 45px);
     /* WebKit */
@@ -1261,6 +1262,10 @@ ul.product-categories > li.cat-parent.current-cat > a:before{
     background: #000;
     color: #FFF;
 }
+.woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:hover,
+.woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:hover,
+.woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a:focus,
+.woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a:focus,
 .woocommerce .functional-buttons .product.compare-button a.added,
 .woocommerce .functional-buttons .yith-wcwl-wishlistexistsbrowse a,
 .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a{
@@ -1321,29 +1326,40 @@ ul.product-categories > li.cat-parent.current-cat > a:before{
 }
 .woocommerce ul.products.lists .product-image-container{
     float: left;
-    width: 30%;
+    width: 34%;
     border: none;
     margin: 0;
     padding: 0;
 }
 .woocommerce ul.products.lists .product-meta-wrapper{
     float: left;
-    width: 70%;
-    padding: 0 20px;
+    width: 45%;
+    padding: 0 15px;
+}
+.woocommerce ul.products.lists .product-item-tools{
+    float: left;
+    padding: 0 15px 0;
+    width: 21%;
 }
 .woocommerce ul.products.lists .product-image-container .button,
-.woocommerce ul.products.lists .product-image-container .functional-buttons{
+.woocommerce ul.products.lists .product-image-container .functional-buttons,
+.woocommerce ul.products.lists .product-meta-wrapper span.price{
     display: none;
 }
 .woocommerce ul.products.lists .product-meta-wrapper .added_to_cart,
 .woocommerce ul.products.lists .product-meta-wrapper .product-short-description,
 .woocommerce ul.products.lists .product-meta-wrapper .star-rating,
-.woocommerce ul.products.lists .product-meta-wrapper .product-item-tools{
+.woocommerce ul.products.lists .product-item-tools{
     display: block;
+}
+.woocommerce ul.products.lists .product-item-tools span.price{
+    margin: 55px 0 15px;
 }
 .woocommerce ul.products.lists .product-item-tools .button{
     float: left;
-    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 120px;
 }
 .woocommerce ul.products.lists h5{
     font-size: 18px;

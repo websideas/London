@@ -173,6 +173,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'title'    => __( 'Back to top', THEME_LANG ),
                         'default'  => true,
                     ),
+                    array(
+                        'id'       => 'designer_placeholder',
+                        'type'     => 'media',
+                        'url'      => true,
+                        'compiler' => true,
+                        'default' =>THEME_IMG.'designer_placeholder.png',
+                        'title'    => __( 'Logo', THEME_LANG ),
+                    ),
                 )
             );
 

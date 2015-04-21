@@ -15,6 +15,8 @@ $composer_addons = array(
     'categories_top_sellers.php',
     'blog-posts.php',
     'button.php',
+    'widget_products_carousel.php',
+    'widget_testimonials.php'
 );
 
 foreach ( $composer_addons as $addon ) {

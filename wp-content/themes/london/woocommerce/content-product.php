@@ -131,19 +131,17 @@ $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' co
         		do_action( 'woocommerce_after_shop_loop_item' ); 
         
         	?>
-            
-            <div class="product-item-tools clearfix">
-                <?php
-            		/**
-            		 * woocommerce_after_shop_loop_item hook
-            		 *
-            		 * @hooked woocommerce_template_loop_price - 10
-            		 */
-            		do_action( 'woocommerce_shop_loop_item_tools' ); 
-            
-            	?>
-            </div>
-            
+        </div>
+        <div class="product-item-tools clearfix">
+            <?php
+        		/**
+        		 * woocommerce_after_shop_loop_item hook
+        		 *
+        		 * @hooked woocommerce_template_loop_price - 10
+        		 */
+        		do_action( 'woocommerce_shop_loop_item_tools' ); 
+        
+        	?>
         </div>
         
     </div>

@@ -3,69 +3,7 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-// Add your Visual Composer logic here
-vc_map( array(
-    "name" => __( "Taxonomy Woocommerce", THEME_LANG),
-    "base" => "taxonomy_woo",
-    "category" => __('by Theme-WI'),
-    "description" => __( "Taxonomy Woocommerce", THEME_LANG),
-    "params" => array(
-        array(
-            "type" => "taxonomy",
-            "taxonomy" => "product_cat",
-            "class" => "",
-            "heading" => __("Category", THEME_LANG),
-            "param_name" => "taxonomy",
-            "value" => '',
-            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", LANGUAGE_ZONE)
-        ),
-        array(
-          "type" => "textfield",
-          "heading" => __("Number Product", THEME_LANG),
-          "param_name" => "number",
-          "description" => __("Enter number of Product", THEME_LANG)
-        ),
-        array(
-            "type" => "dropdown",
-        	"heading" => __("Order by",THEME_LANG),
-        	"param_name" => "orderby",
-        	"value" => array(
-        		__('None', THEME_LANG) => 'none',
-                __('ID', THEME_LANG) => 'ID',
-                __('Author', THEME_LANG) => 'author',
-                __('Name', THEME_LANG) => 'name',
-                __('Date', THEME_LANG) => 'date',
-                __('Modified', THEME_LANG) => 'modified',
-                __('Rand', THEME_LANG) => 'rand'
-        	),
-            'std' => 'date',
-        	"description" => __("Select how to sort retrieved posts.",THEME_LANG),
-        ),
-        array(
-            "type" => "dropdown",
-        	"heading" => __("Order way",THEME_LANG),
-        	"param_name" => "order",
-        	"value" => array(
-                __('ASC', THEME_LANG) => 'ASC',
-                __('DESC', THEME_LANG) => 'DESC'
-        	),
-            'std' => 'DESC',
-        	"description" => __("Designates the ascending or descending order.",THEME_LANG),
-        ),
-        array(
-          "type" => "textarea_html",
-          "heading" => __("Content", THEME_LANG),
-          "param_name" => "content",
-          "description" => __("Enter content of taxonomy", THEME_LANG)
-        ),
-        array(
-            "type" => "textfield",
-            "heading" => __( "Extra class name", "js_composer" ),
-            "param_name" => "el_class",
-            "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
-        ),
-    ),
-));
+
 
 
 
@@ -150,3 +88,69 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
         return $output;
     }
 }
+
+
+
+// Add your Visual Composer logic here
+vc_map( array(
+    "name" => __( "Taxonomy Woocommerce", THEME_LANG),
+    "base" => "taxonomy_woo",
+    "category" => __('by Theme-WI'),
+    "description" => __( "Taxonomy Woocommerce", THEME_LANG),
+    "params" => array(
+        array(
+            "type" => "taxonomy",
+            "taxonomy" => "product_cat",
+            "class" => "",
+            "heading" => __("Category", THEME_LANG),
+            "param_name" => "taxonomy",
+            "value" => '',
+            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", LANGUAGE_ZONE)
+        ),
+        array(
+          "type" => "textfield",
+          "heading" => __("Number Product", THEME_LANG),
+          "param_name" => "number",
+          "description" => __("Enter number of Product", THEME_LANG)
+        ),
+        array(
+            "type" => "dropdown",
+        	"heading" => __("Order by",THEME_LANG),
+        	"param_name" => "orderby",
+        	"value" => array(
+        		__('None', THEME_LANG) => 'none',
+                __('ID', THEME_LANG) => 'ID',
+                __('Author', THEME_LANG) => 'author',
+                __('Name', THEME_LANG) => 'name',
+                __('Date', THEME_LANG) => 'date',
+                __('Modified', THEME_LANG) => 'modified',
+                __('Rand', THEME_LANG) => 'rand'
+        	),
+            'std' => 'date',
+        	"description" => __("Select how to sort retrieved posts.",THEME_LANG),
+        ),
+        array(
+            "type" => "dropdown",
+        	"heading" => __("Order way",THEME_LANG),
+        	"param_name" => "order",
+        	"value" => array(
+                __('ASC', THEME_LANG) => 'ASC',
+                __('DESC', THEME_LANG) => 'DESC'
+        	),
+            'std' => 'DESC',
+        	"description" => __("Designates the ascending or descending order.",THEME_LANG),
+        ),
+        array(
+          "type" => "textarea_html",
+          "heading" => __("Content", THEME_LANG),
+          "param_name" => "content",
+          "description" => __("Enter content of taxonomy", THEME_LANG)
+        ),
+        array(
+            "type" => "textfield",
+            "heading" => __( "Extra class name", "js_composer" ),
+            "param_name" => "el_class",
+            "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
+        ),
+    ),
+));
