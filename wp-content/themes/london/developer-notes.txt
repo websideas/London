@@ -10,7 +10,6 @@ Tasks:
 - 6  home versions
 - Add this ID settings in admin
 - Check logo background when change header layout
-- Style for compare products page
 
 
 ==========REPLACE METAKEY -====

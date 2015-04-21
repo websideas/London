@@ -85,9 +85,9 @@ if ( ! class_exists( 'KT_config' ) ) {
                     // Choose an priority for the admin bar menu
                     'global_variable'      => '',
                     // Set a different name for your global variable other than the opt_name
-                    'dev_mode'             => true,
+                    'dev_mode'             => false,
                     // Show the time the page took to load, etc
-                    'update_notice'        => true,
+                    'update_notice'        => false,
                     // If dev_mode is enabled, will notify developer of updated versions available in the GitHub Repo
                     'customizer'           => true,
                     // Enable basic customizer support
@@ -160,21 +160,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                 'desc'   => __( '', THEME_LANG ),
                 'icon_class'	=> 'icon_cogs'
             );
-            $this->sections[] = array(
-                'id' 	=> 'general_global',
-                'title'  => __( 'Global', THEME_LANG ),
-                'desc'   => __( '', THEME_LANG ),
-                'subsection' => true,
-                'fields' => array(
-                    //Import Demo Content
-                    array(
-                        'id'       => 'backtotop',
-                        'type'     => 'switch',
-                        'title'    => __( 'Back to top', THEME_LANG ),
-                        'default'  => true,
-                    ),
-                )
-            );
+
 
             global $wp_registered_sidebars;
             $sidebars = array();
@@ -443,6 +429,14 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'subsection' => true,
 				'fields'		=> array(
                     // Footer settings
+
+                    array(
+                        'id'       => 'backtotop',
+                        'type'     => 'switch',
+                        'title'    => __( 'Back to top', THEME_LANG ),
+                        'default'  => true,
+                    ),
+
                     array(
                         'id'   => 'footer_heading',
                         'type' => 'heading',
@@ -612,19 +606,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                 )
             );
             
-            /**
-			 *	Menu
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'menu',
-				'title'			=> __( 'Menu', THEME_LANG ),
-				'desc'			=> '',
-                'subsection' => true,
-				'fields'		=> array(
-                
-                
-                )
-            );
+
             /**
 			 *	Styling
 			 **/
@@ -1207,20 +1189,23 @@ if ( ! class_exists( 'KT_config' ) ) {
 						"default"	=> false,
 						'on'		=> __( 'On', THEME_LANG ),
 						'off'		=> __( 'Off', THEME_LANG ),
+                        'required' => array('enable_popup','equals', 1)
 					),
                     array(
                         'id' => 'time_show',
                         'type' => 'text',
                         'title' => __('Time to show', THEME_LANG), 
                         'desc' => __('Unit: s', THEME_LANG),
-                        'default' => __('0', THEME_LANG)
+                        'default' => __('0', THEME_LANG),
+                        'required' => array('enable_popup','equals', 1)
                     ),
                     array(
                         'id' => 'time_show_again',
                         'type' => 'text',
                         'title' => __('Time to show again', THEME_LANG),
                         'desc' => __('Unit: minutes', THEME_LANG), 
-                        'default' => __('300', THEME_LANG)
+                        'default' => __('300', THEME_LANG),
+                        'required' => array('enable_popup','equals', 1)
                     ),
                     array(
                         'id'       => 'popup_background',
@@ -1235,12 +1220,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'background-size'   => 'cover',
                             'background-position' => 'center center',
                         ),
+                        'required' => array('enable_popup','equals', 1)
                     ),
                     array(
                         'id'       => 'content_popup',
                         'type'     => 'editor',
                         'title'    => __( 'Content Popup', THEME_LANG ),
                         'subtitle' => __( '', THEME_LANG ),
+                        'required' => array('enable_popup','equals', 1),
                         'default'  => __('<h3 class="title-top">SIGN UP FOR OUR NEWSLETTER &amp; PROMOTIONS !</h3><p><img src="'.THEME_IMG.'popup_image.png" /></p>[mailchimp opt_in="yes" mailchimp_list="9306fec7e3" text_before="YOUR ENTIRE ORDER WHEN YOU SIGN UP TODAY !" layout="one"]Success! Check your inbox or spam folder for a message containing a confirmation link.[/mailchimp]', THEME_LANG),
                     ),
                 )
@@ -1368,10 +1355,20 @@ if ( ! class_exists( 'KT_config' ) ) {
             );
             $this->sections[] = array(
 				'id'			=> 'social',
-				'title'			=> __( 'Social Profiles', THEME_LANG ),
-				'desc'			=> __('Social account', THEME_LANG),
+				'title'			=> __( 'Socials', THEME_LANG ),
+				'desc'			=> __('Social and share settings', THEME_LANG),
 				'icon_class'	=> 'social_facebook',
 				'fields'		=> array(
+
+                    array(
+                        'id' => 'addthis_id',
+                        'type' => 'text',
+                        'title' => __('Addthis ID', THEME_LANG),
+                        'subtitle' => __("Your Addthis ID", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
+
                     array(
 						'id' => 'twitter_username',
 						'type' => 'text',
@@ -1471,25 +1468,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'desc'			=> '',
                 'icon_class'	=> 'icon_star_alt',
             );
-            /**
-			 *	Social Share
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'social-share',
-				'title'			=> __( 'Social Share', THEME_LANG ),
-				'desc'			=> '',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-						'id' => 'addthis_id',
-						'type' => 'text',
-						'title' => __('Addthis ID', THEME_LANG),
-						'subtitle' => __("Your Addthis ID", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					),
-                )
-            );
+
             /**
 			 *	Advanced Custom CSS
 			 **/

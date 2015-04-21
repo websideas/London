@@ -314,7 +314,7 @@ function theme_head_bottom_addthis_script(){
     $addthis_id = kt_option('addthis_id');
     if($addthis_id){
         ?>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo $addthis_id; ?>" async="async"></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-<?php echo esc_attr( $addthis_id ); ?>" async="async"></script>
         <?php
     }
 }
