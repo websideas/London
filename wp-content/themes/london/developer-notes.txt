@@ -8,8 +8,6 @@ Tasks:
 - Check Header scripts(js  css) file header.php - ?
 - AddThis ID settings in admin - ?
 - 6  home versions
-- Logo when scroll down
-- Check Header scripts
 - Add this ID settings in admin
 - Check logo background when change header layout
 - Style for compare products page

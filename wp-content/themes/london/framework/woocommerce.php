@@ -237,8 +237,6 @@ add_action('woocommerce_cart_actions', 'woocommerce_button_proceed_to_checkout')
 remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20 );
 
 
-
-
 /**
  * Change columns of shop
  * 
@@ -561,3 +559,9 @@ if ( ! function_exists( 'woocommerce_content' ) ) {
         }
     }
 }
+
+
+if( file_exists( FW_DIR . 'plugins/yith-woocommerce-compare/class.yith-woocompare-frontend.php' ) ){
+    require_once ( FW_DIR . 'plugins/yith-woocommerce-compare/class.yith-woocompare-frontend.php' );
+}
+

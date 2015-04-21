@@ -29,6 +29,23 @@ function kt_get_page_id(  $ID , $post_type= 'page'){
     return $ID;
 }
 
+/**
+ *
+ * Detect plugin.
+ *
+ * @param $plugin example: 'plugin-directory/plugin-file.php'
+ */
+
+function kt_is_active_plugin(   $plugin ){
+    if(  !function_exists( 'is_plugin_active' ) ){
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    }
+    // check for plugin using plugin name
+    return is_plugin_active( $plugin ) ;
+}
+
+
+
 
 /**
  * Add breadcrumb
@@ -212,15 +229,7 @@ function theme_slideshows_position_callback(){
  */
 add_action( 'theme_before_content', 'theme_before_content_add_title', 20 );
 function theme_before_content_add_title(){
-    /*
-    ?>
-    <div class="page-title-container">
-        <div class="container">
-            <?php wp_title(); ?>
-        </div>
-    </div>
-    <?php
-    */
+
 }
 
 

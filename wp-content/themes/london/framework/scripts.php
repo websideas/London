@@ -219,21 +219,12 @@ function kt_setting_css() {
         .woocommerce .widget_price_filter .ui-slider .ui-slider-handle::before{
             color: <?php echo $accent_brighter; ?>;
         }
-        
-        
-        
+
         .woocommerce span.onsale,
         #backtotop{
             background-color: <?php echo $accent_brighter_b; ?>;
         }
-        
-        
-        
-        
-        
-        
-        
-        
+
         .woocommerce ul.products .button,
         .woocommerce .functional-buttons,
         .woocommerce .summary .single_add_to_cart_button,
@@ -254,21 +245,6 @@ function kt_setting_css() {
         table.compare-list .add-to-cart td a:hover{
             background-color: <?php echo $accent; ?>;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
 
         #header.is-sticky{
             background-color: <?php echo kt_hex2rgba($accent, $header_sticky_opacity) ?>;
@@ -276,12 +252,6 @@ function kt_setting_css() {
         .header-layout1.header-container{
             background-color: <?php echo kt_hex2rgba($accent, $header_opacity) ?>;
         }
-        
-        
-        
-        
-        
-        
 
         <?php } ?>
 
