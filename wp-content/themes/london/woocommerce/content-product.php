@@ -119,8 +119,8 @@ $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' co
             
             	</a>
             </h5>
-            
-            
+
+
         	<?php
         
         		/**
@@ -128,7 +128,7 @@ $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' co
         		 *
         		 * @hooked woocommerce_template_loop_price - 10
         		 */
-        		do_action( 'woocommerce_after_shop_loop_item' ); 
+        		do_action( 'woocommerce_after_shop_loop_item' );
         
         	?>
             

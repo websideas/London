@@ -1044,6 +1044,8 @@ ul.product-categories > li.cat-parent.current-cat > a:before{
     display: block;
     overflow: hidden;
     position: relative;
+    min-height: 189px;
+
 }
 .woocommerce ul.products li.product a img.product-img{
     box-shadow: none;

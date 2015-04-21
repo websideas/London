@@ -9,6 +9,7 @@ if ( !defined('ABSPATH')) exit;
  */
 
 if ( function_exists('register_sidebar')) {
+
 	register_sidebar( array(
 		'name' => __( 'Primary Widget Area', THEME_LANG),
 		'id' => 'primary-widget-area',
@@ -69,45 +70,7 @@ if ( function_exists('register_sidebar')) {
     }
 
 }
-/**
- * This code filters the categories widget to include the post count inside the link
- */
-add_filter('wp_list_categories', 'cat_count_span');
-function cat_count_span($links) {
-    $links = str_replace('</a> (', ' (', $links);
-    $links = str_replace(')', ')</a>', $links);
-    return $links;
-}
-
-/**
- * This code filters the Archive widget to include the post count inside the link
- */
-add_filter('get_archives_link', 'archive_count_span');
-    function archive_count_span($links) {
-    $links = str_replace('</a>&nbsp;(', ' (', $links);
-    $links = str_replace(')', ')</a>', $links);
-    return $links;
-}
 
 
 
-/**
- * Include widgets.
- *
- */
 
-/* Widgets list */
-/*
-$kt_widgets = array(
-	'widget_mailchimp.php',
-    'widget_facebooklike.php',
-    'widget_socials.php',
-    'widget_article.php'
-);
-
-foreach ( $kt_widgets as $kt_widget ) {
-	if ( $file_path = locate_template( THEME_WIDGETS . $kt_widget ) ) {
-		require_once( $file_path );
-	}
-}
-*/
