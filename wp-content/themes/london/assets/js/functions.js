@@ -597,7 +597,6 @@ function designer_carousel_cb( _type, elem ){
     jQuery('.designer-products', pwid );
 
     if( _type === 'afterInit' ){
-
         var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-link').data('id');
         jQuery('.designer-products', pwid).not( jQuery(  '.designer-id-'+id_designer , pwid)  ) .hide();
     }
@@ -609,12 +608,10 @@ function designer_carousel_cb( _type, elem ){
             'overflow': 'hidden',
             'display' : 'block'
         });
-        jQuery('.designer-products', pwid).fadeOut(200, function(){
-            jQuery('.designer-products', pwid).hide();
-            jQuery(  '.designer-id-'+id_designer , pwid). fadeIn (200, function (){
-                pwid.removeAttr('style');
-            });
-        });
+        jQuery('.designer-products', pwid).hide(0);
 
+        jQuery(  '.designer-id-'+id_designer , pwid). fadeIn (500, function (){
+            pwid.removeAttr('style');
+        });
     }
 }

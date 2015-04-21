@@ -176,8 +176,37 @@ function kite_register_meta_boxes( $meta_boxes )
 			),
         )
     );
-     
-    
+
+
+    /**
+     * For Products Designer
+     *
+     */
+
+    $meta_boxes[] = array(
+        'id' => 'designer_meta_boxes',
+        'title' => 'Designer Info',
+        'pages' => array( 'designer' ),
+        'context' => 'normal',
+        'priority' => 'default',
+        'fields' => array(
+           
+            array(
+                'name' => __('Position', THEME_LANG),
+                'id' => $prefix . 'description',
+                'desc' => "",
+                'type'  => 'text',
+            ),
+
+            array(
+                'name' => __('Info', THEME_LANG),
+                'id' => $prefix . 'info',
+                'desc' => "",
+                'type'  => 'wysiwyg',
+            ),
+
+        )
+    );
     
     
     /**
@@ -192,7 +221,6 @@ function kite_register_meta_boxes( $meta_boxes )
         'context' => 'normal',
         'priority' => 'default',
         'fields' => array(
-
             array(
                 'name' => __('Designer', THEME_LANG),
                 'id' => $prefix . 'designer',
