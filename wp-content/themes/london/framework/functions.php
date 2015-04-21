@@ -63,7 +63,19 @@ function kt_add_breadcrumb(){
                 <?php if(function_exists('breadcrumb_trail')) { ?>
                 <div class="breadcrumb-wrapper">
                     <div class="container">
-                        <?php breadcrumb_trail(); ?>
+                        <?php
+                        if( is_woocommerce() ){
+                            woocommerce_breadcrumb(
+                                array(
+                                    'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
+                                    'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '>',
+
+                            ) );
+                        }else{
+                            breadcrumb_trail();
+                        }
+
+                        ?>
                     </div>
                 </div>
                 <?php } ?>
