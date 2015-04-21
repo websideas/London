@@ -5,33 +5,14 @@ Problems:
 
 Tasks:
 - Update all site data
-- 6 home versions - Thay co 3 ?
-- breadcrumbs for post, archives,...
 - Check Header scripts(js  css) file header.php - ?
 - AddThis ID settings in admin - ?
-
-- Please note shortcode 
-    [yith_compare_button] plugin is not activated (see: product listing when hover a product)  - dont understand
- - add option show Page title
-    
-Question:
-    - Header for page ?
-=======
 - 6  home versions
 - Logo when scroll down
-- breackcrumbs for post, archives,...
 - Check Header scripts
 - Add this ID settings in admin
-- Please note shortcode [yith_compare_button] plugin is not activated (see: product listing when hover a product)
-- Remove file /london/assets/css/skin-blue.css, london/assets/css/skin-dark.css this inherit from styling options (Genaral skin) (OK)
 - Check logo background when change header layout
 - Style for compare products page
-- Check Out put HTML off widget product categories: wrong closing tag: <li class="cat-item cat-item-14"><a href="http://localhost/London/product-category/women/t-shirts/">T-shirts</a> <span class="count">(1)</a></span></li>
-
-- Problems width next, back of carousel (Ok )
-
-- add Tagline for page Like http://localhost/London/product-category/women/
-
 
 
 ==========REPLACE METAKEY -====
