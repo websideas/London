@@ -24,11 +24,16 @@ html, body{
     margin: 0 auto;
 }
 body.layout-boxed {
-	
+	background: url("../images/mainbg.jpg") repeat top center #979797 ;
+    background-size: 100%;
+}
+body.layout-boxed #page_outter{
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+    padding: 0 5px;
+    max-width: 1180px;
 }
 body.layout-boxed #page {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-    max-width: 1170px;
     width: 100%;
     background: #FFF;
 }
@@ -542,12 +547,12 @@ select:not([multiple]) {
 .carousel-heading-top .owl-buttons div.owl-prev:before,
 .kt-owl-carousel .owl-buttons div.owl-next:before,
 .kt-owl-carousel .owl-buttons div.owl-prev:before{
-    content: "\e800";
-    font-family: 'kitethemes';
+    content: "\e807";
+    font-family: 'fontkite';
     font-weight: normal;
     font-style: normal;
-    font-size:27px;
-    line-height: 35px;
+    font-size:30px;
+    line-height: 32px;
     color:#dbdada;
     position: absolute;
     top:0;
@@ -575,7 +580,7 @@ select:not([multiple]) {
 .single-product-quickview-images .owl-buttons div.owl-prev:before,
 .carousel-heading-top .owl-buttons div.owl-prev:before,
 .kt-owl-carousel .owl-buttons div.owl-prev:before{
-    content: "\e801";
+    content: "\e800";
 }
 .single-product-quickview-images .owl-buttons div.owl-next:hover:after,
 .carousel-heading-top .owl-buttons div.owl-next:hover:after,
@@ -700,16 +705,16 @@ select:not([multiple]) {
 }
 .tp-bullets .tp-rightarrow.round:after,
 .tp-bullets .tp-leftarrow.round:after{
-    font-family:kitethemes;
-    content:"\e803";
+    font-family:fontkite;
+    content:"\e808";
     position: absolute;
-    top:7px;
+    top:4px;
     left:0;
-    font-size:32px;
+    font-size:30px;
     color:#000;
 }
 .tp-bullets .tp-rightarrow.round:after{
-    content:"\e804";
+    content:"\e802";
 }
 .tp-bullets .tp-rightarrow.round:hover,
 .tp-bullets .tp-leftarrow.round:hover{
@@ -1472,7 +1477,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     margin-left: 5px;
 }
 i.icon-cart{
-    font-family: "kitethemes";
+    font-family: "fontkite";
     font-style: normal;
     font-weight: normal;
 }
@@ -1687,25 +1692,25 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     position: relative;
 }
 .shopping_cart > a:after{
-    bottom: -8px;
-    content: "\e808";
-    font-family:kitethemes;
+    bottom: -5px;
+    content: "\e805";
+    font-family:fontkite;
     display: none;
     height: 10px;
-    left: 2px;
+    left: 12px;
     position: absolute;
     width: 10px;
-    font-size:30px;
+    font-size:10px;
     height: 8px;
     color:#ccc;
 }
 .shopping_cart > a:before{
-    font-family:kitethemes;
-    content:"\e802";
-    font-size: 32px;
+    font-family:fontkite;
+    content:"\e803";
+    font-size: 20px;
     position: absolute;
-    left: -6px;
-    top: 3px;
+    left: 0;
+    top: -1px;
 }
 .shopping_cart > a{
     padding-left: 27px;
@@ -2490,13 +2495,13 @@ WIDGET
 .sidebar .widget_meta ul li a:before,
 .sidebar .widget_archive ul li a:before,
 .sidebar .widget_categories ul li a:before{
-    font-family:kitethemes;
-    content:"\e806";
-    font-size:33px;
-    color:#ccc;
-    left:-3px;
-    top:3px;
+    font-family:fontkite;
+    content:"\e801";
+    font-size: 10px;
+    left: 7px;
     position: absolute;
+    top: 13px;
+    color:#ccc;
 }
 .sidebar .widget_rss ul li{
     padding:10px 0 10px 30px;
@@ -2534,7 +2539,7 @@ WIDGET
 .sidebar .widget_pages ul li ul.children li ul.children,
 .sidebar .widget_nav_menu ul li ul.sub-menu li ul.sub-menu,
 .sidebar .widget_categories ul li ul.children li ul.children{
-    padding-left:20px;
+    padding-left:25px;
 } 
 .sidebar .widget_pages ul li ul.children li a,
 .sidebar .widget_nav_menu ul li ul.sub-menu li a,
@@ -2740,7 +2745,7 @@ END SOCIAL
 #cboxClose:before{
     position: absolute;
     content:"\e807";
-    font-family:"kitethemes";
+    font-family:"fontkite";
     font-size: 50px;
     left: -15px;
     position: absolute;

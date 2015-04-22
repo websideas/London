@@ -72,12 +72,12 @@
 }
 .bag-products .bag-product a.remove:before,
 .woocommerce a.remove:before{
-    font-family: "kitethemes";
-    content:"\e807";
-    font-size: 24px;
-    left: -5px;
+    font-family: "fontkite";
+    content:"\e809";
+    font-size: 9px;
+    left: 3px;
     position: absolute;
-    top: -7px;
+    top: -8px;
 }
 
 .woocommerce a.remove:hover {
@@ -615,9 +615,9 @@
     width: 30px;
 }
 .bag-products .bag-product a.remove:before{
-    font-size: 30px;
-    left: -1px;
-    top: 1px;
+    font-size: 15px;
+    left: 7px;
+    top: 0;
 }
 .bag-products .bag-product:hover a.remove{
     border-color: #000;
@@ -742,12 +742,12 @@ ul.product-categories > li > a{
     padding: 0 34px 0 40px;
 }
 ul.product-categories > li > a:before{
-    content: '\e806';
-    font-family:"kitethemes";
-    font-size: 31px;
-    left: 9px;
+    content: '\e801';
+    font-family:"fontkite";
+    font-size: 10px;
+    left: 20px;
     position: absolute;
-    top: 3px;
+    top: 1px;
 }
 ul.product-categories > li span.count{
     color: #fff;
@@ -791,7 +791,7 @@ ul.product-categories > li.current-cat > ul{
 
 ul.product-categories > li.cat-parent.current-cat-parent > a:before,
 ul.product-categories > li.cat-parent.current-cat > a:before{
-    content: '\e808';
+    content: '\e805';
 }
 
 /* === 3.2. Price filter ====*/
@@ -827,12 +827,12 @@ ul.product-categories > li.cat-parent.current-cat > a:before{
     z-index: 2;
 }
 .woocommerce .widget_price_filter .ui-slider .ui-slider-handle:before{
-    font-family:kitethemes;
-    content:"\e805";
-    font-size: 30px;
-    left: -11px;
+    font-family:fontkite;
+    content:"\e806";
+    font-size: 20px;
+    left: -7px;
     position: absolute;
-    top: -1px;
+    top: -2px;
     color:#000;
 }
 .woocommerce .widget_price_filter .price_slider_amount .button{

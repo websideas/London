@@ -118,9 +118,6 @@ require_once (RWMB_DIR . 'meta-box.php');
 
 if ( class_exists( 'RW_Meta_Box' ) ) {
     
-    // Add Extensions of metabox
-	require_once (FW_EXT_DIR . 'meta-box-tabs/meta-box-tabs.php');
-    
     // Add fields to metabox
     require_once (FW_EXT_CUSTOM_DIR . 'meta-box-custom.php');
     
@@ -135,6 +132,9 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
  * 
  */
 
+
+
+
 if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/framework.php' ) ) {
     
     
@@ -143,9 +143,36 @@ if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/f
     // Add fields to redux
     require_once (FW_EXT_CUSTOM_DIR . 'redux-framework-custom.php');
 }
+
+
+
+if(!function_exists('redux_register_custom_extension_loader')) :
+	function redux_register_custom_extension_loader($ReduxFramework) {
+		$path = FW_EXT_DIR . '/ReduxCoreExt/';
+		$folders = scandir( $path, 1 );		   
+		foreach($folders as $folder) {
+			if ($folder === '.' or $folder === '..' or !is_dir($path . $folder) ) {
+				continue;	
+			} 
+			$extension_class = 'ReduxFramework_Extension_' . $folder;
+			if( !class_exists( $extension_class ) ) {
+				// In case you wanted override your override, hah.
+				$class_file = $path . $folder . '/extension_' . $folder . '.php';
+				$class_file = apply_filters( 'redux/extension/'.$ReduxFramework->args['opt_name'].'/'.$folder, $class_file );
+				if( $class_file ) {
+					require_once( $class_file );
+					$extension = new $extension_class( $ReduxFramework );
+				}
+			}
+		}
+	}
+	// Modify {$redux_opt_name} to match your opt_name
+	add_action("redux/extensions/".THEME_OPTIONS."/before", 'redux_register_custom_extension_loader', 0);
+endif;
+
+
 if (file_exists( FW_DATA . 'data-options.php' ) ) {
     require_once( FW_DATA . 'data-options.php' );
-    //require_once( FW_DATA . 'data-options-example.php' );
 }
 
 if (is_admin() ) {
@@ -216,3 +243,10 @@ if ( class_exists( 'Vc_Manager', false ) ) {
  *
  */
 require_once ( FW_DIR . 'woocommerce.php' );
+
+
+
+
+
+
+
