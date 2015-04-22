@@ -187,12 +187,16 @@
             $max_h = 0 ;
             if ($woof_settings['tax_type'][$tax_slug] == 'radio' OR $woof_settings['tax_type'][$tax_slug] == 'checkbox')
             {
+                $max_h = $this->settings['tax_block_height'][$tax_slug];
                 if ($this->settings['tax_block_height'][$tax_slug] > 0)
                 {
                     $woof_container_styles = "max-height:{$this->settings['tax_block_height'][$tax_slug]}px; overflow-y: hidden;";
-                    $max_h = $this->settings['tax_block_height'][$tax_slug];
+
                 }
+
             }
+
+
             //***
             //https://wordpress.org/support/topic/adding-classes-woof_container-div
             $primax_class = sanitize_key(WOOF_HELPER::wpml_translate($taxonomies_info[$tax_slug]->label));
@@ -201,9 +205,9 @@
                 <div class="woof_container_inner woof_container_inner_<?php echo $primax_class ?>">
                     <?php
                     ?>
-                    <h3><?php echo WOOF_HELPER::wpml_translate($taxonomies_info[$tax_slug]->label) ?></h3>
+                    <h3 class="<?php echo $max_h < 0  ? 'closed' : ''; ?>"><?php echo WOOF_HELPER::wpml_translate($taxonomies_info[$tax_slug]->label) ?></h3>
                     <div class="wmhw"   <?php if (!empty($woof_container_styles)): ?>style="<?php echo $woof_container_styles ?>"<?php endif; ?>>
-                        <div class="woof_ci">
+                        <div class="woof_ci" <?php echo  $max_h < 0 ? 'style=" display: none;"' : ''; ?>>
                         <?php
                         switch ($woof_settings['tax_type'][$tax_slug])
                         {

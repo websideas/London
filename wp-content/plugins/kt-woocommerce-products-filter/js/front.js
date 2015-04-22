@@ -155,8 +155,16 @@ jQuery(function () {
 
     jQuery('.woof_container h3').click( function(){
         var p  =  jQuery(this).parents('.woof_container');
-        jQuery(this).toggleClass('closed');
-        jQuery('.woof_ci',p).slideToggle(200);
+        if( jQuery(this).hasClass('closed')){
+            jQuery(this).toggleClass('closed');
+            jQuery('.woof_ci',p).slideDown(200);
+        }else{
+            jQuery(this).toggleClass('closed');
+            jQuery('.woof_ci',p).slideUp(200);
+        }
+
+        return false;
+
     });
 
 

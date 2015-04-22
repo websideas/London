@@ -267,7 +267,7 @@ function kt_woo_shop_columns( $columns ) {
             return 4;
         }
     }
-    return $columns;
+    return $cols ;
 }
 
 
