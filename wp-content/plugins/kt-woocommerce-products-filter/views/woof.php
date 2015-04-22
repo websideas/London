@@ -184,41 +184,46 @@
             $args['woof_autosubmit'] = get_option('woof_autosubmit');
             //***
             $woof_container_styles = "";
+            $max_h = 0 ;
             if ($woof_settings['tax_type'][$tax_slug] == 'radio' OR $woof_settings['tax_type'][$tax_slug] == 'checkbox')
             {
                 if ($this->settings['tax_block_height'][$tax_slug] > 0)
                 {
-                    $woof_container_styles = "max-height:{$this->settings['tax_block_height'][$tax_slug]}px; overflow-y: auto;";
+                    $woof_container_styles = "max-height:{$this->settings['tax_block_height'][$tax_slug]}px; overflow-y: hidden;";
+                    $max_h = $this->settings['tax_block_height'][$tax_slug];
                 }
             }
             //***
             //https://wordpress.org/support/topic/adding-classes-woof_container-div
             $primax_class = sanitize_key(WOOF_HELPER::wpml_translate($taxonomies_info[$tax_slug]->label));
             ?>
-            <div class="woof_container woof_container_<?php echo $counter++ ?> woof_container_<?php echo $primax_class ?>" <?php if (!empty($woof_container_styles)): ?>style="<?php echo $woof_container_styles ?>"<?php endif; ?>>
+            <div class="woof_container <?php echo $max_h >0 ? 'is-max-h': ''; ?> woof_container_<?php echo $counter++ ?> woof_container_<?php echo $primax_class ?>" >
                 <div class="woof_container_inner woof_container_inner_<?php echo $primax_class ?>">
                     <?php
                     ?>
                     <h3><?php echo WOOF_HELPER::wpml_translate($taxonomies_info[$tax_slug]->label) ?></h3>
-                    <div class="woof_ci">
-                    <?php
-                    switch ($woof_settings['tax_type'][$tax_slug])
-                    {
-                        case 'checkbox':
-                            echo $this->render_html(WOOF_PATH . 'views/html_types/checkbox.php', $args);
-                            break;
-                        case 'select':
-                            echo $this->render_html(WOOF_PATH . 'views/html_types/select.php', $args);
-                            break;
-                        case 'mselect':
-                            echo $this->render_html(WOOF_PATH . 'views/html_types/mselect.php', $args);
-                            break;
-                        default:
-                            echo $this->render_html(WOOF_PATH . 'views/html_types/radio.php', $args);
-                            break;
-                    }
-                    ?>
+                    <div class="wmhw"   <?php if (!empty($woof_container_styles)): ?>style="<?php echo $woof_container_styles ?>"<?php endif; ?>>
+                        <div class="woof_ci">
+                        <?php
+                        switch ($woof_settings['tax_type'][$tax_slug])
+                        {
+                            case 'checkbox':
+                                echo $this->render_html(WOOF_PATH . 'views/html_types/checkbox.php', $args);
+                                break;
+                            case 'select':
+                                echo $this->render_html(WOOF_PATH . 'views/html_types/select.php', $args);
+                                break;
+                            case 'mselect':
+                                echo $this->render_html(WOOF_PATH . 'views/html_types/mselect.php', $args);
+                                break;
+                            default:
+                                echo $this->render_html(WOOF_PATH . 'views/html_types/radio.php', $args);
+                                break;
+                        }
+                        ?>
+                        </div>
                     </div>
+                    <a href="#" class="view-full-h closed" data-max-height="<?php echo $max_h; ?>"><span></span></a>
                 </div>
             </div>
             <?php

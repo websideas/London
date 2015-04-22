@@ -160,9 +160,6 @@ jQuery(function () {
     });
 
 
-
-
-
     //***
     jQuery('ul.woof_childs_list').parent('li').addClass('woof_childs_list_li');
     //***
@@ -173,6 +170,33 @@ jQuery(function () {
         }
     });
     */
+
+    // max-height-toggle
+    jQuery('.is-max-h').each(function(){
+        var p = jQuery( this );
+        jQuery('.view-full-h', p).click(  function(){
+            var a = jQuery(this);
+            var h = jQuery('.woof_ci', p).height();
+            var mh= a.data('max-height');
+            if(a.hasClass('closed') ){
+                a.removeClass('closed');
+                jQuery( ".wmhw", p ).animate({
+                    maxHeight: h
+                }, 500, function() {
+                    // Animation complete.
+                });
+
+            }else{
+                a.addClass('closed');
+                jQuery( ".wmhw", p ).animate({
+                    maxHeight: mh
+                }, 500, function() {
+                    // Animation complete.
+                });
+            }
+            return false;
+        } );
+    });
 
 });
 

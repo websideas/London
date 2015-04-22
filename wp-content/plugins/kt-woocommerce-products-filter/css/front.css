@@ -114,3 +114,37 @@ li.woof_childs_list_li{
 }
 .woof_radio_term_reset  { margin-left: 5px; display: none; }
 .js-checked .woof_radio_term_reset  {display: inline-block; }
+.view-full-h {
+    border-top: 1px solid #ccc;
+    display: none;
+    margin: 15px auto 0;
+    position: relative;
+    text-align: center;
+    width: 80%;
+}
+.view-full-h span {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #ccc;
+    color: #ccc;
+    display: inline-block;
+    font-size: 16px;
+    height: 16px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    text-align: center;
+    top: -10px;
+    width: 30px;
+    line-height: 13px;
+}
+
+.view-full-h span:before{
+    content: "\f107";
+    font-family: "fontawesome";
+
+}
+.view-full-h span.closed {
+    content: "\f106";
+    font-family: "fontawesome";
+}
+.is-max-h .view-full-h { display: block; }
