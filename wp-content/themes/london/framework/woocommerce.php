@@ -5,6 +5,19 @@
 if ( !defined('ABSPATH')) exit;
 
 
+function kt_wc_loop_shop_per_page( $number ){
+    $num = kt_option('loop_shop_per_page');
+    $num =  intval( $num );
+    if( $num <=0 ){
+        $num = $number;
+    }
+    return $num;
+}
+
+add_filter('loop_shop_per_page', 'kt_wc_loop_shop_per_page' );
+
+
+
 
 /**
  * Define image sizes
@@ -242,13 +255,17 @@ remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20 );
  * 
  */
 
-add_filter( 'loop_shop_columns', 'london_woo_shop_columns' );
-function london_woo_shop_columns( $columns ) {
-    $layout = kt_option('shop_sidebar','full');
-    if($layout == 'left' || $layout == 'right'){
-        return 3;
-    }else{
-        return 4;
+add_filter( 'loop_shop_columns', 'kt_woo_shop_columns' );
+function kt_woo_shop_columns( $columns ) {
+    $cols =  kt_option('shop_gird_cols');
+    $cols = intval(  $cols );
+    if( $cols <= 0 ){
+        $layout = kt_option('shop_sidebar','full');
+        if($layout == 'left' || $layout == 'right'){
+            return 3;
+        }else{
+            return 4;
+        }
     }
     return $columns;
 }
@@ -479,28 +496,6 @@ function kt_woocommerce_before_cart_table( $args )
 
 	echo $html;
 }
-
-function kt_compare_css() {
-     
-    ?>
-    <style type="text/css">
-        table.compare-list .add-to-cart td a{
-            font-family: Dosis;
-            line-height: 1.42857;
-            padding: 9px 30px;
-            text-transform: none;
-        }
-        table.compare-list thead th, h1{
-            font-family:Dosis;
-            font-weight:300;
-        }
-    </style>
-    <?php
-
-}
-add_action('wp_head', 'kt_compare_css');
-
-
 
 
 

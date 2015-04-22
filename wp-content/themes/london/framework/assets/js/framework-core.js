@@ -38,19 +38,27 @@
         /* Slideshow source =====================================================*/
         var $slideshow_config = $('#_kt_slideshow_source'),
             $rev_slider = $('#_kt_rev_slider').closest('.rwmb-field'),
-            $layerslider = $('#_kt_layerslider').closest('.rwmb-field');
-            
+            $layerslider = $('#_kt_layerslider').closest('.rwmb-field'),
+            $custom_bg = $('._kt_custom_bg');
+
         function kt_slideshow(){
             $slideshow_value = $slideshow_config.val();
             if ($slideshow_value == "revslider") {
                 $rev_slider.show();
                 $layerslider.hide();
+                $custom_bg.hide();
             }else if($slideshow_value == "layerslider"){
                 $rev_slider.hide();
                 $layerslider.show();
+                $custom_bg.hide();
+            }else if($slideshow_value == "custom_bg"){
+                $rev_slider.hide();
+                $layerslider.hide();
+                $custom_bg.show();
             }else{
                 $rev_slider.hide();
                 $layerslider.hide();
+                $custom_bg.hide();
             }
         }
         kt_slideshow();

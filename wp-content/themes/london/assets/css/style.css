@@ -1371,9 +1371,6 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 
 
 
-
-
-
 /* ==============================
    Header
    ============================== */
@@ -1548,16 +1545,6 @@ i.icon-cart{
 	-webkit-transform: rotate3d(0, 0, 1, -45deg);
 	transform: rotate3d(0, 0, 1, -45deg);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 #mobile-nav-holder{
@@ -2004,7 +1991,19 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 }
 
 
-
+/* Page image cover */
+.page-bg-cover {
+    background: #d8d7d5;
+}
+.page-bg-cover .cover-img {
+    height: 300px;
+    display: block;
+    background-position: top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 
 

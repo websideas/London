@@ -91,11 +91,7 @@ require_once ( FW_DIR . 'scripts.php' );
  */
 require_once ( FW_DIR . 'breadcrumbs.php' );
 
-/**
- * support for woocommerce helpers
- *
- */
-require_once ( FW_DIR . 'woocommerce.php' );
+
 
 /**
  * get custom walker for wp_nav_menu
@@ -111,7 +107,7 @@ require_once ( FW_EXT_DIR .'shortcodes/shortcodes.php' );
 
 /**
  * Include the meta-box plugin.
- * 
+ *
  */
 
 
@@ -220,3 +216,10 @@ if ( class_exists( 'Vc_Manager', false ) ) {
  */
 
 require_once ( FW_DIR . 'widgets/designer.php' );
+
+
+/**
+ * support for woocommerce helpers
+ *
+ */
+require_once ( FW_DIR . 'woocommerce.php' );
