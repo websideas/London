@@ -420,7 +420,7 @@
             singleItem : true,
             slideSpeed : 1000,
             navigation: false,
-            pagination:false,
+            pagination: false,
             afterAction : syncPosition,
             responsiveRefreshRate : 200,
         });
