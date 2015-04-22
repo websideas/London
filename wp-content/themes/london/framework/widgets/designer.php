@@ -30,13 +30,13 @@ class KT_WC_Designer extends WC_Widget {
         $this->settings           = array(
             'title'  => array(
                 'type'  => 'text',
-                'std'   => __( 'Products', 'woocommerce' ),
+                'std'   => __( 'Designer', THEME_LANG  ),
                 'label' => __( 'Title', 'woocommerce' )
             ),
 
             'design_ids'  => array(
                 'type'  => 'text',
-                'std'   => __( 'Products', 'woocommerce' ),
+                'std'   => __( '', 'woocommerce' ),
                 'label' => __( 'Designer ID(s)', THEME_LANG ),
                 'desc' => __( 'Separated by commas', THEME_LANG ),
             ),
