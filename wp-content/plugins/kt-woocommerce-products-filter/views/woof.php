@@ -5,6 +5,9 @@
 
     global $_chosen_attributes, $wpdb, $wp;
 
+    $woof_hide_price_filter = (int) get_option('woof_hide_price_filter');
+    if( $woof_hide_price_filter != 1 ){
+
     $min_price = isset( $_GET['min_price'] ) ? esc_attr( $_GET['min_price'] ) : '';
     $max_price = isset( $_GET['max_price'] ) ? esc_attr( $_GET['max_price'] ) : '';
     // Remember current filters/search
@@ -85,6 +88,8 @@
 		';
 
     wp_reset_postdata();
+
+    } // end if $woof_hide_price_filter
     ?>
 
     <?php
@@ -221,7 +226,8 @@
     }
 
 //***
-    $woof_autosubmit = (int) get_option('woof_autosubmit');
+    $woof_hide_in_stock = (int) get_option('woof_hide_in_stock');
+    if( $woof_hide_in_stock != 1 ){
     ?>
 
     <div class="woof_container woof_checkbox_instock_container">
@@ -231,6 +237,7 @@
                 &nbsp;&nbsp;<?php _e('In stock only', 'woocommerce-products-filter') ?></label>
         </div>
     </div>
+    <?php } ?>
 
     <div class="woo_submit_search_form_container">
 

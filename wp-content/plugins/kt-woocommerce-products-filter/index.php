@@ -444,6 +444,32 @@ final class WOOF
                 'desc_tip' => true
             ),
 
+            array(
+                'name' => __('Hide filter by stock', 'woocommerce-products-filter'),
+                'id' => 'woof_hide_in_stock',
+                'type' => 'select',
+                'class' => 'chosen_select',
+                'css' => 'min-width:300px;',
+                'options' => array(
+                    0 => __('No', 'woocommerce-products-filter'),
+                    1 => __('Yes', 'woocommerce-products-filter')
+                ),
+                'desc_tip' => true
+            ),
+
+            array(
+                'name' => __('Hide filter by price', 'woocommerce-products-filter'),
+                'id' => 'woof_hide_price_filter',
+                'type' => 'select',
+                'class' => 'chosen_select',
+                'css' => 'min-width:300px;',
+                'options' => array(
+                    0 => __('No', 'woocommerce-products-filter'),
+                    1 => __('Yes', 'woocommerce-products-filter')
+                ),
+                'desc_tip' => true
+            ),
+
             array('type' => 'sectionend', 'id' => 'woof_general_settings')
         );
 

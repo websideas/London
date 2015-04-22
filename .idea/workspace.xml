@@ -28,7 +28,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="223" column="34" selection-start="5556" selection-end="5569" vertical-scroll-proportion="-9.769231" vertical-offset="4875" max-vertical-offset="9545">
               <folding>
+                <marker date="1429674700000" expanded="true" signature="1284:1975" placeholder="..." />
+                <marker date="1429674700000" expanded="true" signature="1328:1952" placeholder="..." />
                 <marker date="1429674700000" expanded="true" signature="5649:5671" placeholder="..." />
+                <marker date="1429674700000" expanded="true" signature="8987:9146" placeholder="..." />
+                <marker date="1429674700000" expanded="true" signature="9040:9127" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -99,25 +103,65 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/woocommerce.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="528" column="61" selection-start="19813" selection-end="19844" vertical-scroll-proportion="-16.653847" vertical-offset="11711" max-vertical-offset="13087">
-              <folding />
+              <folding>
+                <marker date="1429669746000" expanded="true" signature="2065:4750" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="2095:4735" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="2414:2664" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="15226:15713" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="15299:15499" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="15506:15706" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="18267:18686" placeholder="..." />
+                <marker date="1429669746000" expanded="true" signature="18303:18567" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wc-template-hooks.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-hooks.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="33" selection-start="1685" selection-end="1685" vertical-scroll-proportion="-9.538462" vertical-offset="1040" max-vertical-offset="4669">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="woocommerce.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="woocommerce.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="966" column="1" selection-start="20876" selection-end="20876" vertical-scroll-proportion="0.3329114" vertical-offset="21955" max-vertical-offset="53360">
+            <state line="966" column="1" selection-start="20876" selection-end="20876" vertical-scroll-proportion="0.0" vertical-offset="21955" max-vertical-offset="53360">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin_options.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="12.384615" vertical-offset="322" max-vertical-offset="2001">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="helper.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/helper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="20" selection-start="3493" selection-end="3493" vertical-scroll-proportion="14.153846" vertical-offset="2645" max-vertical-offset="3887">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="461" column="47" selection-start="17125" selection-end="17147" vertical-scroll-proportion="-34.846153" vertical-offset="9536" max-vertical-offset="16629">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="woof.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="36" selection-start="253" selection-end="253" vertical-scroll-proportion="0.15144032" vertical-offset="0" max-vertical-offset="6026">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,7 +190,14 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/archive.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1610">
-              <folding />
+              <folding>
+                <marker date="1429526052000" expanded="true" signature="395:2752" placeholder="..." />
+                <marker date="1429526052000" expanded="true" signature="523:2627" placeholder="..." />
+                <marker date="1429526052000" expanded="true" signature="640:2310" placeholder="..." />
+                <marker date="1429526052000" expanded="true" signature="770:2228" placeholder="..." />
+                <marker date="1429526052000" expanded="true" signature="1483:1817" placeholder="..." />
+                <marker date="1429526052000" expanded="true" signature="2477:2572" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -257,7 +308,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-products-filter/js/html_types/select.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-products-filter/js/html_types/mselect.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-products-filter/js/html_types/radio.js" />
@@ -270,7 +320,6 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-products-filter/views/html_types/radio.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-products-filter/helper.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-products-filter/css/front.css" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php" />
         <option value="$PROJECT_DIR$/london.sql" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/desinger-collection-carousel.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/ajax.php" />
@@ -308,6 +357,8 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php" />
       </list>
     </option>
   </component>
@@ -400,84 +451,6 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="themes">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="london">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="London">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wp-content">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="themes">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="london">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="assets">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="London">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wp-content">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="themes">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="london">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="assets">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="css">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="London">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wp-content">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="plugins">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -501,6 +474,54 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="woocommerce">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="London">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wp-content">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="plugins">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="kt-woocommerce-products-filter">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="London">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wp-content">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="plugins">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="kt-woocommerce-products-filter">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -573,7 +594,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36193448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36193448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -610,26 +631,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/single-product/short-description.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="35" selection-start="301" selection-end="301" vertical-scroll-proportion="-12.384615" vertical-offset="0" max-vertical-offset="529" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/searchform.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/price.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/loop/sale-flash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="0" selection-end="426" vertical-scroll-proportion="-13.269231" vertical-offset="0" max-vertical-offset="483" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/sale-flash.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="-18.576923" vertical-offset="0" max-vertical-offset="621">
@@ -844,14 +845,16 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/woocommerce.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="528" column="61" selection-start="19813" selection-end="19844" vertical-scroll-proportion="-16.653847" vertical-offset="11711" max-vertical-offset="13087">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-hooks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="33" selection-start="1685" selection-end="1685" vertical-scroll-proportion="-9.538462" vertical-offset="1040" max-vertical-offset="4669">
-          <folding />
+          <folding>
+            <marker date="1429669746000" expanded="true" signature="2065:4750" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="2095:4735" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="2414:2664" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="15226:15713" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="15299:15499" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="15506:15706" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="18267:18686" placeholder="..." />
+            <marker date="1429669746000" expanded="true" signature="18303:18567" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -883,7 +886,14 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/archive.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1610">
-          <folding />
+          <folding>
+            <marker date="1429526052000" expanded="true" signature="395:2752" placeholder="..." />
+            <marker date="1429526052000" expanded="true" signature="523:2627" placeholder="..." />
+            <marker date="1429526052000" expanded="true" signature="640:2310" placeholder="..." />
+            <marker date="1429526052000" expanded="true" signature="770:2228" placeholder="..." />
+            <marker date="1429526052000" expanded="true" signature="1483:1817" placeholder="..." />
+            <marker date="1429526052000" expanded="true" signature="2477:2572" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -912,7 +922,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="223" column="34" selection-start="5556" selection-end="5569" vertical-scroll-proportion="-9.769231" vertical-offset="4875" max-vertical-offset="9545">
           <folding>
+            <marker date="1429674700000" expanded="true" signature="1284:1975" placeholder="..." />
+            <marker date="1429674700000" expanded="true" signature="1328:1952" placeholder="..." />
             <marker date="1429674700000" expanded="true" signature="5649:5671" placeholder="..." />
+            <marker date="1429674700000" expanded="true" signature="8987:9146" placeholder="..." />
+            <marker date="1429674700000" expanded="true" signature="9040:9127" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -945,8 +959,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="966" column="1" selection-start="20876" selection-end="20876" vertical-scroll-proportion="0.3329114" vertical-offset="21955" max-vertical-offset="53360">
+        <state line="966" column="1" selection-start="20876" selection-end="20876" vertical-scroll-proportion="0.0" vertical-offset="21955" max-vertical-offset="53360">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="20" selection-start="3493" selection-end="3493" vertical-scroll-proportion="14.153846" vertical-offset="2645" max-vertical-offset="3887">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-hooks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="33" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.2019544" vertical-offset="1040" max-vertical-offset="4669">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="12.384615" vertical-offset="322" max-vertical-offset="2001">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="461" column="47" selection-start="17125" selection-end="17147" vertical-scroll-proportion="-34.846153" vertical-offset="9536" max-vertical-offset="16629">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="36" selection-start="253" selection-end="253" vertical-scroll-proportion="0.15144032" vertical-offset="0" max-vertical-offset="6026">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
