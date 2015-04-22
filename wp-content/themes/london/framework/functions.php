@@ -216,7 +216,16 @@ function theme_slideshows_position_callback(){
             if($layerslider && is_plugin_active( 'LayerSlider/layerslider.php' )){
                 echo do_shortcode('[layerslider id="'.$layerslider.'"]');
             }
+        }elseif($slideshow == 'custom_bg'){
+            $img = rwmb_meta('_kt_custom_bg');
+            $image = wp_get_attachment_url( $img );
+
+            if ( $image ) {
+                echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
+            }
         }
+
+
     }elseif ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
         if(is_product_category()){
             
@@ -225,12 +234,44 @@ function theme_slideshows_position_callback(){
                 $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
                 $image = wp_get_attachment_url( $thumbnail_id );
                 if ( $image ) {
-                    echo sprintf(
-                        '<div class="category-slide-container"><div class="container">%s</div></div>',
-                        '<img src="' . $image . '" alt="" class="img-responsive" />'
-                    );
+                    echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
                 } 
+        }else{
+
+            // shop page
+            if ( is_post_type_archive( 'product' ) && get_query_var( 'paged' ) == 0 ) {
+                $shop_page   = wc_get_page_id( 'shop' ) ;
+
+                if ( $shop_page ) {
+                    $slideshow = rwmb_meta('_kt_slideshow_source', false, $shop_page);
+                    if($slideshow == 'revslider'){
+                        $revslider = rwmb_meta('_kt_rev_slider',  false, $shop_page);
+                        if($revslider && class_exists( 'RevSlider' )){
+                            echo putRevSlider($revslider);
+                        }
+                    }elseif($slideshow == 'layerslider'){
+                        $layerslider = rwmb_meta('_kt_layerslider', false, $shop_page );
+                        if($layerslider && is_plugin_active( 'LayerSlider/layerslider.php' )){
+                            echo do_shortcode('[layerslider id="'.$layerslider.'"]');
+                        }
+                    }elseif($slideshow == 'custom_bg'){
+                        $img = rwmb_meta('_kt_custom_bg', false, $shop_page );
+                        $image = wp_get_attachment_url( $img );
+
+                        if ( $image ) {
+                            echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
+                        }
+                    }
+
+                }
+            }
+
         }
+
+        /*
+
+        */
+
     }
 }
 

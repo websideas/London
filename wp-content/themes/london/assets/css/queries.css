@@ -132,11 +132,18 @@ only screen and (min-resolution: 144dpi) {
     .woocommerce ul.products li.first-tablet{
         clear: both;
     }
+
+    .page-bg-cover .cover-img {
+        height: 200px;
+    }
+
 }
 /* 10. Styles for devices(<=480px ) */
 @media (max-width: 480px) {
     *{}
-    
+    .page-bg-cover .cover-img {
+        height: 150px;
+    }
     .woocommerce ul.products li.product{
         width: 100%;
     }

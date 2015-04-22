@@ -26,7 +26,7 @@ get_header(); ?>
                 the_post();
                 ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <h1 class="page-title""><?php the_title(); ?></h1>
+                    <h1 class="page-title"><?php the_title(); ?></h1>
                     <div class="clear"></div>
                     <div class="entry-meta-data">
                         <?php

@@ -92,6 +92,7 @@ function kite_register_meta_boxes( $meta_boxes )
                     '' => __('Select Option', THEME_LANG),
                     'revslider' => __('Revolution Slider', THEME_LANG),
                     'layerslider' => __('Layer Slider', THEME_LANG),
+                    'custom_bg' => __('Custom Image', THEME_LANG),
                 ),
             ),
             array(
@@ -106,6 +107,17 @@ function kite_register_meta_boxes( $meta_boxes )
                 'default' => true,
                 'type' => 'layerslider'
             ),
+
+            array(
+                'name' => __('Select Image', THEME_LANG),
+                'id' => $prefix . 'custom_bg',
+                'default' => true,
+                'class' => $prefix . 'custom_bg',
+                'type' => 'image_advanced'
+            ),
+
+
+
             array(
                 'type' => 'divider',
                 'id' => 'fake_divider_id',

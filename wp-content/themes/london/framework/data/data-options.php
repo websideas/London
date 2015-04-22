@@ -642,6 +642,19 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'active'   => '#000000',
                         )
                     ),
+                    array(
+                        'id'       => 'default_cover_background',
+                        'type'     => 'background',
+                        'title'    => __( 'Cover Background', THEME_LANG ),
+                        'background-repeat' => false,
+                        'background-attachment' => false,
+                        'background-position' => false,
+                        'background-image' => false,
+                        'background-size' => false,
+                        'preview' => false,
+                        'default'   => array( ),
+                        'output'      => array( '.page-bg-cover' ),
+                    )
 
                 )
             );
@@ -719,6 +732,8 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'resolution'    => 0.1,
                         'display_value' => 'text'
                     ),
+
+
                 )
             );
             
@@ -855,29 +870,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     )
                 )
             );
-            /**
-			 *	Styling Main Navigation
-			 **/
-            $this->sections[] = array(
-				'id'			=> 'styling-woocommerce',
-				'title'			=> __( 'Woocommerce', THEME_LANG ),
-				'subsection' => true,
-                'fields'		=> array(
-                    array(
-                        'id'       => 'woocommerce_category_background',
-                        'type'     => 'background',
-                        'title'    => __( 'Woocommerce category Background', THEME_LANG ),
-                        'background-repeat' => false,
-                        'background-attachment' => false,
-                        'background-position' => false,
-                        'background-image' => false,
-                        'background-size' => false,
-                        'preview' => false,
-                        'default'   => array( ),
-                        'output'      => array( '.woocommerce .category-slide-container' ),
-                    )
-                )
-            );
+
             
             /**
 			 *	Typography
@@ -1308,6 +1301,28 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'default'  => 'grid'
                     ),
+
+                    array(
+                        'id'       => 'loop_shop_per_page',
+                        'type'     => 'text',
+                        'title'    => __( 'Number of products displayed per page', THEME_LANG ),
+                        'default'  => '18'
+                    ),
+
+                    array(
+                        'id'       => 'shop_gird_cols',
+                        'type'     => 'select',
+                        'title'    => __( 'Number column to display width gird mod', THEME_LANG ),
+                        'options'  => array(
+                            '2' => 2,
+                            '3' => 3,
+                            '4' => 4,
+                            '6' => 6,
+                        ),
+                        'default'  => 3,
+                    ),
+
+
                     // For Single Products
                     array(
                         'id'   => 'divide_id',

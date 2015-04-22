@@ -28,7 +28,7 @@ get_header(); ?>
                 <?php
                 if( rwmb_meta('_kt_show_title')  ){
                 ?>
-                <h1 class="page-title""><?php the_title(); ?></h1>
+                <h1 class="page-title"><?php the_title(); ?></h1>
                 <?php
                     if( rwmb_meta('_kt_show_taglitle') ){
                         $tagline =  rwmb_meta('_kt_tagline');

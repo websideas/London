@@ -195,7 +195,7 @@ if (!function_exists('kt_option')){
         if($option === FALSE){
             return FALSE;
         }
-        $kt_options = get_option(THEME_OPTIONS);
+        $kt_options = get_option( THEME_OPTIONS );
         if(isset($kt_options[$option]) && $kt_options[$option] !== ''){
             return $kt_options[$option];
         }else{
