@@ -245,8 +245,10 @@ if ( class_exists( 'Vc_Manager', false ) ) {
 require_once ( FW_DIR . 'woocommerce.php' );
 
 
-
-
-
+/**
+ * Add importer
+ *
+ */
+require_once ( FW_DIR . 'importer.php' );
 
 
