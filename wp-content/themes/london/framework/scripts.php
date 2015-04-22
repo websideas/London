@@ -80,12 +80,13 @@ add_action('login_head', 'kt_custom_login_logo');
  * @return      void
  * @access      public
  */
-function kt_setting_css() {
-
-    $accent = kt_option('styling_accent', '');
-
-    //$accent = kt_option('styling_accent', '#000000');
+function kt_setting_script() {
     
+    $tracking_code = kt_option('advanced_tracking_code');
+    echo $tracking_code;
+    
+    $advanced_css = kt_option('advanced_editor_css');
+    $accent = kt_option('styling_accent', '');
     $accent_brighter = kt_colour_brightness($accent, 0.8);
     $accent_brighter_b = kt_colour_brightness($accent, 0.6);
     
@@ -104,6 +105,7 @@ function kt_setting_css() {
      
     ?>
     <style type="text/css">
+        <?php echo $advanced_css; ?>
         <?php if( $accent !='' ){ ?>
 
         ::-moz-selection{ background:<?php echo $accent; ?>; color: #FFFFFF;}
@@ -130,14 +132,12 @@ function kt_setting_css() {
         #calendar_wrap tbody td#today,
         .header-layout1 .shopping_cart > a:hover,
         .widget_product_tag_cloud a:hover, 
-        .widget_tag_cloud a:hover
-        {
+        .widget_tag_cloud a:hover{
             background-color: <?php echo $accent; ?>;
         }
         .woocommerce .functional-buttons .compare-button .blockUI.blockOverlay{
             background-color: <?php echo $accent; ?>!important;
         }
-        
         .button, 
         .btn-default,
         .header-layout1 #woocommerce-nav > ul > li > a:hover,
@@ -163,9 +163,6 @@ function kt_setting_css() {
         ul.navigation-mobile > li.active-menu-item > a{
             border-left-color: <?php echo $accent; ?>;
         }
-        
-        
-        
         .button:hover,
         .button:focus, 
         .btn-default.active, 
@@ -263,8 +260,20 @@ function kt_setting_css() {
         <?php } ?>
 
     </style>
+    
     <?php
 
 }
-add_action('wp_head', 'kt_setting_css');
+add_action('wp_head', 'kt_setting_script');
 
+/**
+ * Add advanced js to footer
+ * 
+ */
+function kt_setting_script_footer() {
+    $advanced_js = kt_option('advanced_editor_js');
+    if($advanced_js){
+        echo sprintf('<script type="text/javascript">%s</script>', $advanced_js);
+    }
+}
+add_action('wp_footer', 'kt_setting_script_footer', 100);

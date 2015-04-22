@@ -1472,7 +1472,22 @@ if ( ! class_exists( 'KT_config' ) ) {
 					)
                 )
             );
-
+            
+            /**
+			 *	Import Demo
+			 **/
+            $this->sections[] = array(
+                 'id' => 'wbc_importer_section',
+                 'title'  => esc_html__( 'Demo Content', 'framework' ),
+                 'desc'   => esc_html__( 'Description Goes Here', 'framework' ),
+                 'icon'   => 'el-icon-website',
+                 'fields' => array(
+                     array(
+                         'id'   => 'wbc_demo_importer',
+                         'type' => 'wbc_importer'
+                     )
+                 )
+            );
             
             /**
 			 *	Advanced
@@ -1488,13 +1503,13 @@ if ( ! class_exists( 'KT_config' ) ) {
 			 *	Advanced Custom CSS
 			 **/
 			$this->sections[] = array(
-				'id'			=> 'advanced-css',
+				'id'			=> 'advanced_css',
 				'title'			=> __( 'Custom CSS', THEME_LANG ),
 				'desc'			=> '',
                 'subsection' => true,
 				'fields'		=> array(
                     array(
-                        'id'       => 'advanced-editor-css',
+                        'id'       => 'advanced_editor_css',
                         'type'     => 'ace_editor',
                         'title'    => __( 'CSS Code', THEME_LANG ),
                         'subtitle' => __( 'Paste your CSS code here.', THEME_LANG ),
@@ -1508,13 +1523,13 @@ if ( ! class_exists( 'KT_config' ) ) {
 			 *	Advanced Custom CSS
 			 **/
 			$this->sections[] = array(
-				'id'			=> 'advanced-js',
+				'id'			=> 'advanced_js',
 				'title'			=> __( 'Custom JS', THEME_LANG ),
 				'desc'			=> '',
                 'subsection' => true,
 				'fields'		=> array(
                     array(
-                        'id'       => 'advanced-editor-js-content',
+                        'id'       => 'advanced_editor_js',
                         'type'     => 'ace_editor',
                         'title'    => __( 'JS Code', THEME_LANG ),
                         'subtitle' => __( 'Paste your JS code here.', THEME_LANG ),
@@ -1529,36 +1544,50 @@ if ( ! class_exists( 'KT_config' ) ) {
 			 *	Advanced Tracking Code
 			 **/
 			$this->sections[] = array(
-				'id'			=> 'advanced-tracking',
+				'id'			=> 'advanced_tracking',
 				'title'			=> __( 'Tracking Code', THEME_LANG ),
 				'desc'			=> '',
                 'subsection' => true,
 				'fields'		=> array(
                     array(
-                        'id'       => 'tracking-code',
+                        'id'       => 'advanced_tracking_code',
                         'type'     => 'textarea',
                         'title'    => __( 'Tracking Code', THEME_LANG ),
                         'desc'     => __( 'Paste your Google Analytics (or other) tracking code here. This will be added into the header template of your theme. Please put code inside script tags.', THEME_LANG ),
                     )
                 )
             );
+            
+            $info_arr = array();
+            $theme = wp_get_theme();
+            
+            $info_arr[] = "<li><span>".__('Theme Name:', THEME_LANG)." </span>". $theme->get('Name').'</li>';
+            $info_arr[] = "<li><span>".__('Theme Version:', THEME_LANG)." </span>". $theme->get('Version').'</li>';
+            $info_arr[] = "<li><span>".__('Theme URI:', THEME_LANG)." </span>". $theme->get('ThemeURI').'</li>';
+            $info_arr[] = "<li><span>".__('Author:', THEME_LANG)." </span>". $theme->get('Author').'</li>';
+            
+            $system_info = sprintf("<div class='troubleshooting'><ul>%s</ul></div>", implode('', $info_arr));
+            
+            
             /**
-			 *	Advanced Tracking Code
+			 *	Advanced Troubleshooting
 			 **/
 			$this->sections[] = array(
-				'id'			=> 'advanced-troubleshooting',
+				'id'			=> 'advanced_troubleshooting',
 				'title'			=> __( 'Troubleshooting', THEME_LANG ),
 				'desc'			=> '',
                 'subsection' => true,
 				'fields'		=> array(
                     array(
-                        'id'       => 'troubleshooting',
-                        'type'     => 'textarea',
-                        'title'    => __( 'Troubleshooting', THEME_LANG ),
-                    )
+                        'id'       => 'opt-raw_info_4',
+                        'type'     => 'raw',
+                        'title'    => __( '', 'redux-framework-demo' ),
+                        'content'  => $system_info,
+                        'full_width' => true
+                    ),
                 )
             );
-            //
+            
             
             
         }

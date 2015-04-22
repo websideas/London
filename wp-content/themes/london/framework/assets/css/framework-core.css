@@ -143,7 +143,26 @@ div#post-body .rwmb-select{
     width: 174px;
     box-shadow: none;
 }
-
+/*==================================
+* Troubleshooting
+===================================*/
+.form-table td fieldset .troubleshooting{
+    
+}
+.form-table td fieldset .troubleshooting ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.form-table td fieldset .troubleshooting li {
+    background: none repeat scroll 0 0 #f3f3f3;
+    line-height: 30px;
+    margin-bottom: 3px!important;
+    padding: 0 8px;
+}
+.form-table td fieldset .troubleshooting li span{
+    font-weight: bold;
+}
 /*==================================
 * Icon for post type
 ===================================*/
