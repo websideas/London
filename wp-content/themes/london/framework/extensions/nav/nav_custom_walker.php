@@ -357,6 +357,8 @@ class KTMegaWalker extends Walker_Nav_Menu{
 			}
 		}
         
+        $item_output = '';
+        
 		$item_output .= $args->before;
         
         $megamenu_columnlink = ($this->megamenu_enable && $depth == 1) ? get_post_meta( $item->ID, '_menu_item_megamenu_columnlink', true ) : false;

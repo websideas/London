@@ -124,7 +124,6 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
         
         	?>
             
-            <?php echo $sale_price_dates_to; ?>
          </div><!-- .sales-countdown-right -->
     </div><!-- .row -->
 </li>

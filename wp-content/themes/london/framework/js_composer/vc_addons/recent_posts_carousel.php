@@ -119,7 +119,7 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
                 while ( $query->have_posts() ) : $query->the_post();
                     $output .= '<div class="recent-posts-item">';
                         $output .= '<a href="'.get_permalink().'" class="entry-thumbnail">';
-                            $output .= get_the_post_thumbnail( $post->ID, 'recent_posts', array('class'=>"first-img product-img"));
+                            $output .= get_the_post_thumbnail( get_the_ID(), 'recent_posts', array('class'=>"first-img product-img"));
                         $output .= '</a>';
                         
                         $output .= '<h5 class="entry-title"><a href="'.get_permalink().'">'.get_the_title().'</a></h5>';

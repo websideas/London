@@ -25,7 +25,7 @@ class WP_Widget_KT_Image extends WP_Widget {
             if($instance['link']){
                 echo "<a href='".esc_attr($instance['link'])."' target='".esc_attr($instance['target'])."'>";
             }
-            echo "<img src='".$attachment['url']."' alt='".esc_attr($instance['alt'])."' title='".esc_attr($instance['title'])."'/>";
+            echo "<img src='".$attachment['url']."' alt='".esc_attr($attachment['alt'])."' title='".esc_attr($attachment['title'])."'/>";
             if($instance['link']){
                 echo "</a>";
             }

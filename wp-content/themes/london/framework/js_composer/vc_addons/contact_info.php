@@ -11,6 +11,7 @@ class WPBakeryShortCode_Contact_Info extends WPBakeryShortCode {
             'phone' => '',
             'email' => '',
             'el_class' => '',
+            'css' => ''
         ), $atts ) );
         
         $el_class = $this->getExtraClass($el_class);
@@ -69,6 +70,12 @@ vc_map( array(
             "heading" => __( "Extra class name", "js_composer"),
             "param_name" => "el_class",
             "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
-        )
+        ),
+        array(
+            "type" => "textfield",
+            "heading" => __( "Extra class name", "js_composer"),
+            "param_name" => "el_class",
+            "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
+        ),
     ),
 ));
