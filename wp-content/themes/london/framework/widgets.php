@@ -81,5 +81,20 @@ if ( function_exists('register_sidebar')) {
 }
 
 
+/**
+ * Include widgets.
+ *
+ */
+
+/* Widgets list */
+$themedev_widgets = array(
+	'widget_kt_image.php'
+);
+
+foreach ( $themedev_widgets as $themedev_widget ) {
+	if ( $file_path = locate_template( FW_WIDGETS . $themedev_widget ) ) {
+		require_once( $file_path );
+	}
+}
 
 

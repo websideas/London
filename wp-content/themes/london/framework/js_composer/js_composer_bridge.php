@@ -5,15 +5,15 @@ if ( !defined('ABSPATH')) exit;
 
 $composer_addons = array(
     'categories_products.php',
-    'contact-info.php',
-    'clients-carousel.php',
+    'contact_info.php',
+    'clients_carousel.php',
     'mailchimp.php',
-    'recent-posts-carousel.php',
-    'sales-countdown.php',
-    'designer-collection-carousel.php',
+    'recent_posts_carousel.php',
+    'sales_countdown.php',
+    'designer_collection_carousel.php',
     'category_products_tab.php',
     'categories_top_sellers.php',
-    'blog-posts.php',
+    'blog_posts.php',
     'button.php',
     'widget_products_carousel.php',
     'widget_testimonials.php'
