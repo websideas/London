@@ -5,10 +5,10 @@ if ( !defined('ABSPATH')) exit;
 
 // Add your Visual Composer logic here
 vc_map( array(
-    "name" => __( "Widget Products Carousel", THEME_LANGUAGE ),
+    "name" => __( "Widget Products Carousel", THEME_LANG ),
     "base" => "widget_products_carousel",
     "category" => __('by Cuongdv'),
-    "description" => __( "Widget Products Carousel", THEME_LANGUAGE ),
+    "description" => __( "Widget Products Carousel", THEME_LANG ),
     "params" => array(
         array(
             "type" => "textfield",
@@ -19,71 +19,71 @@ vc_map( array(
         ),
         array(
             "type" => "textfield",
-            "heading" => __("Sub title", THEME_LANGUAGE),
+            "heading" => __("Sub title", THEME_LANG),
             "param_name" => "sub_title"
         ),
         array(
             "type" => "kt_taxonomy",
             "taxonomy" => "product_cat",
             "class" => "",
-            "heading" => __("Category", THEME_LANGUAGE),
+            "heading" => __("Category", THEME_LANG),
             "param_name" => "taxonomy",
             "value" => '',
             'multiple' => true,
-            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed. if nothing selected will show all of categories.", LANGUAGE_ZONE)
+            "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed. if nothing selected will show all of categories.", THEME_LANG)
         ),
         array(
             "type" => "dropdown",
-        	"heading" => __("Show",THEME_LANGUAGE),
+        	"heading" => __("Show",THEME_LANG),
         	"param_name" => "show",
         	"value" => array(
-                __( 'Latest Products', THEME_LANGUAGE ) => '',
-				__( 'Featured Products', THEME_LANGUAGE ) => 'featured',
-				__( 'On-sale Products', THEME_LANGUAGE ) => 'onsale',
+                __( 'Latest Products', THEME_LANG ) => '',
+				__( 'Featured Products', THEME_LANG ) => 'featured',
+				__( 'On-sale Products', THEME_LANG ) => 'onsale',
         	),
             'std' => '',
-        	"description" => __("",THEME_LANGUAGE),
+        	"description" => __("",THEME_LANG),
         ),
         array(
             "type" => "textfield",
-            "heading" => __("Number Product", THEME_LANGUAGE),
+            "heading" => __("Number Product", THEME_LANG),
             "param_name" => "number",
             "value" => 12,
-            "description" => __("Enter number of Product", THEME_LANGUAGE)
+            "description" => __("Enter number of Product", THEME_LANG)
         ),
         array(
             "type" => "textfield",
-            "heading" => __("Product per columns", THEME_LANGUAGE),
+            "heading" => __("Product per columns", THEME_LANG),
             "param_name" => "product_column",
             "value" => 3,
-            "description" => __("Enter number product on columns", THEME_LANGUAGE)
+            "description" => __("Enter number product on columns", THEME_LANG)
         ),
         array(
             "type" => "dropdown",
-        	"heading" => __("Order by",THEME_LANGUAGE),
+        	"heading" => __("Order by",THEME_LANG),
         	"param_name" => "orderby",
         	"value" => array(
-        		__('None', THEME_LANGUAGE) => 'none',
-                __('ID', THEME_LANGUAGE) => 'ID',
-                __('Author', THEME_LANGUAGE) => 'author',
-                __('Name', THEME_LANGUAGE) => 'name',
-                __('Date', THEME_LANGUAGE) => 'date',
-                __('Modified', THEME_LANGUAGE) => 'modified',
-                __('Rand', THEME_LANGUAGE) => 'rand'
+        		__('None', THEME_LANG) => 'none',
+                __('ID', THEME_LANG) => 'ID',
+                __('Author', THEME_LANG) => 'author',
+                __('Name', THEME_LANG) => 'name',
+                __('Date', THEME_LANG) => 'date',
+                __('Modified', THEME_LANG) => 'modified',
+                __('Rand', THEME_LANG) => 'rand'
         	),
             'std' => 'date',
-        	"description" => __("Select how to sort retrieved posts.",THEME_LANGUAGE),
+        	"description" => __("Select how to sort retrieved posts.",THEME_LANG),
         ),
         array(
             "type" => "dropdown",
-        	"heading" => __("Order way",THEME_LANGUAGE),
+        	"heading" => __("Order way",THEME_LANG),
         	"param_name" => "order",
         	"value" => array(
-                __('ASC', THEME_LANGUAGE) => 'ASC',
-                __('DESC', THEME_LANGUAGE) => 'DESC'
+                __('ASC', THEME_LANG) => 'ASC',
+                __('DESC', THEME_LANG) => 'DESC'
         	),
             'std' => 'DESC',
-        	"description" => __("Designates the ascending or descending order.",THEME_LANGUAGE),
+        	"description" => __("Designates the ascending or descending order.",THEME_LANG),
         ),
         // Carousel
         array(

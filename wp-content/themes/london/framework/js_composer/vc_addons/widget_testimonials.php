@@ -5,10 +5,10 @@ if ( !defined('ABSPATH')) exit;
 
 // Add your Visual Composer logic here
 vc_map( array(
-    "name" => __( "Testimonials", THEME_LANGUAGE ),
+    "name" => __( "Testimonials", THEME_LANG ),
     "base" => "carousel_testimonials",
     "category" => __('by Cuongdv'),
-    "description" => __( "Carousel Testimonials", THEME_LANGUAGE ),
+    "description" => __( "Carousel Testimonials", THEME_LANG ),
     "params" => array(
         array(
             "type" => "textfield",
@@ -19,42 +19,42 @@ vc_map( array(
         ),
         array(
             "type" => "textfield",
-            "heading" => __("Sub title", THEME_LANGUAGE),
+            "heading" => __("Sub title", THEME_LANG),
             "param_name" => "sub_title"
         ),
         array(
             "type" => "textfield",
-            "heading" => __("Number Product", THEME_LANGUAGE),
+            "heading" => __("Number Product", THEME_LANG),
             "param_name" => "number",
             "value" => 4,
-            "description" => __("Enter number of Product", THEME_LANGUAGE)
+            "description" => __("Enter number of Product", THEME_LANG)
         ),
         array(
             "type" => "dropdown",
-        	"heading" => __("Order by",THEME_LANGUAGE),
+        	"heading" => __("Order by",THEME_LANG),
         	"param_name" => "orderby",
         	"value" => array(
-        		__('None', THEME_LANGUAGE) => 'none',
-                __('ID', THEME_LANGUAGE) => 'ID',
-                __('Author', THEME_LANGUAGE) => 'author',
-                __('Name', THEME_LANGUAGE) => 'name',
-                __('Date', THEME_LANGUAGE) => 'date',
-                __('Modified', THEME_LANGUAGE) => 'modified',
-                __('Rand', THEME_LANGUAGE) => 'rand'
+        		__('None', THEME_LANG) => 'none',
+                __('ID', THEME_LANG) => 'ID',
+                __('Author', THEME_LANG) => 'author',
+                __('Name', THEME_LANG) => 'name',
+                __('Date', THEME_LANG) => 'date',
+                __('Modified', THEME_LANG) => 'modified',
+                __('Rand', THEME_LANG) => 'rand'
         	),
             'std' => 'date',
-        	"description" => __("Select how to sort retrieved posts.",THEME_LANGUAGE),
+        	"description" => __("Select how to sort retrieved posts.",THEME_LANG),
         ),
         array(
             "type" => "dropdown",
-        	"heading" => __("Order way",THEME_LANGUAGE),
+        	"heading" => __("Order way",THEME_LANG),
         	"param_name" => "order",
         	"value" => array(
-                __('ASC', THEME_LANGUAGE) => 'ASC',
-                __('DESC', THEME_LANGUAGE) => 'DESC'
+                __('ASC', THEME_LANG) => 'ASC',
+                __('DESC', THEME_LANG) => 'DESC'
         	),
             'std' => 'DESC',
-        	"description" => __("Designates the ascending or descending order.",THEME_LANGUAGE),
+        	"description" => __("Designates the ascending or descending order.",THEME_LANG),
         ),
         // Carousel
         array(
