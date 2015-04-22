@@ -589,14 +589,13 @@
 
 
 /* ---------------------------------------------
- Desinger collection callback
+ Designer collection callback
  --------------------------------------------- */
 
 function designer_carousel_cb( _type, elem ){
     "use strict"; // Start of use strict
     var id = elem.attr('id');
     var pwid=  jQuery('#'+id+'-products');
-    jQuery('.designer-products', pwid );
 
     if( _type === 'afterInit' ){
         var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-link').data('id');
@@ -616,4 +615,23 @@ function designer_carousel_cb( _type, elem ){
             pwid.removeAttr('style');
         });
     }
+}
+
+function designer_widget_cb( _type, elem ){
+
+    "use strict"; // Start of use strict
+    var id = elem.attr('id');
+    var pwid=  jQuery('#widget-'+id );
+
+    if( _type === 'afterInit' ){
+        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-items-ins').data('did');
+        jQuery('div', pwid).not( jQuery(  '.designer-id-'+id_designer , pwid)  ) .hide();
+    }
+
+    if( _type === 'afterUpdate' ){
+        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-items-ins').data('did');
+        jQuery('div', pwid).hide(0);
+        jQuery(  '.designer-id-'+id_designer , pwid).show(0);
+    }
+
 }

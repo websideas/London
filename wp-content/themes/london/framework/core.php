@@ -213,3 +213,10 @@ if ( class_exists( 'Vc_Manager', false ) ) {
 	}
     add_action( 'init', 'kt_js_composer_bridge', 20 );
 }
+
+
+/**
+ * THEME WIDGETS
+ */
+
+require_once ( FW_DIR . 'widgets/designer.php' );

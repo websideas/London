@@ -640,6 +640,14 @@ select:not([multiple]) {
     margin-top: 5px;
     padding-right: 15px;
 }
+.widget_designer .style-navigation-bottom .owl-controls {
+    padding-left: 15px;
+    border-top: 1px solid #cccccc;
+    padding-top: 15px;
+}
+.widget_designer .style-navigation-bottom .owl-controls .owl-prev {
+    float: left;
+}
 /*
  * Visiable navigation
  */
@@ -2631,8 +2639,28 @@ WIDGET
 	line-height: 12px;
 	text-transform: uppercase;
 }
-
 /*==== End Calendar ====*/
+
+/*====  Designer collection ====*/
+.widget_designer .widget-title, .sidebar .widget-container.widget_designer .widget-title,  .widget-container.widget_designer .widget-title {
+    font-size: 30px;
+    font-weight: 500; text-align: center;
+    padding: 15px;
+}
+.sidebar .widget-container.widget_designer .widget-title.des-labels , .widget-container.widget_designer .widget-title.des-labels  {
+    font-size: 14px;
+    margin-top: -20px; padding-top: 0px;
+    line-height: 1.4;
+}
+.widget_designer .des-labels div { display: none; }
+.widget_designer .des-labels div:first-child {
+    display: block;
+}
+
+/*====  End Designer collection ====*/
+
+
+
 /** ================================================
 END WIDGET
 /** ================================================ */
