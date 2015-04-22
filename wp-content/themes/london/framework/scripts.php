@@ -24,9 +24,15 @@ if ( !function_exists( 'kt_admin_enqueue_scripts' ) ) {
         wp_register_style( 'admin-style', FW_CSS.'theme-admin.css',array( 'elegant_font', 'font-awesome', 'framework-core'));
         wp_enqueue_style('admin-style');
         
+        wp_enqueue_script( 'kt_image', FW_JS.'kt_image.js', array('jquery'), FW_VER, true);
+        
+        wp_localize_script( 'kt_image', 'kt_image_lange', array(
+            'frameTitle' => __('Select your image')
+        ));
+        
         wp_register_script( 'framework-core', FW_JS.'framework-core.js', array('jquery', 'jquery-ui-tabs'), FW_VER, true);
         wp_enqueue_script('framework-core');
-
+        
     } // End kt_admin_enqueue_scripts.
 }
 

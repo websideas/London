@@ -113,6 +113,7 @@ class WPBakeryShortCode_Carousel_Testimonials extends WPBakeryShortCode {
             'css' => '',
             'el_class' => '',
         ), $atts ) );
+        
         $args = array(
             'post_type' => 'testimonial',
             'orderby' => $orderby,
@@ -120,22 +121,23 @@ class WPBakeryShortCode_Carousel_Testimonials extends WPBakeryShortCode {
             'posts_per_page' => $number
         );
         $query = new WP_Query( $args );
+        
         ob_start();
+        
+        $data_carousel = array(
+            "autoplay" => $autoplay,
+            "navigation" => $navigation,
+            "slidespeed" => $slidespeed,
+            "theme" => 'style-navigation-bottom',
+            "autoheight" => 'false'
+        );
+        
+        $elementClass = array(
+            'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
+        );
+        $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
+        
         if ( $query->have_posts() ){ ?>
-            <?php 
-                $data_carousel = array(
-                    "autoplay" => $autoplay,
-                    "navigation" => $navigation,
-                    "slidespeed" => $slidespeed,
-                    "theme" => 'style-navigation-bottom',
-                    "autoheight" => 'false'
-                );
-                
-                $elementClass = array(
-                    'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
-                );
-                $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
-            ?>
             <div class="carousel-testimonials-wrapper">
                 <?php if($title || $sub_title){ ?>
                     <div class="block-heading">
@@ -160,6 +162,7 @@ class WPBakeryShortCode_Carousel_Testimonials extends WPBakeryShortCode {
                 </div>
             </div>
         <?php }
+        
         $output = ob_get_clean();
         
         return $output;

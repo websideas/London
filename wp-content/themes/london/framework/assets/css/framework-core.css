@@ -103,6 +103,18 @@ input.cmn-toggle-round-flat:checked + label:after {
   margin-left: 42px;
   background-color: #8ce196;
 }
+/*==================================
+* Widget KT image
+===================================*/
+.kt_image_preview{
+    display: none;
+    text-align: center;
+}
+.kt_image_preview img{
+    padding: 2px;
+    border: 1px solid #CCC;
+    max-width: 100%;
+}
 
 /*==================================
 * Custom stype for metabox

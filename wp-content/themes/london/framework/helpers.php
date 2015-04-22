@@ -117,19 +117,68 @@ function kt_colour_brightness($hex, $percent) {
 }
 
 /**
-* Function to get options in front-end
-* @param int $option The option we need from the DB
-* @param string $default If $option doesn't exist in DB return $default value
-* @return string
+* Function to get sidebars
+* 
+* @return array
 */
 
 if (!function_exists('kt_sidebars')){
-    function kt_sidebars( $option=false, $default=false ){
+    function kt_sidebars( ){
         $sidebars = array();
         foreach ( $GLOBALS['wp_registered_sidebars'] as $item ) {
             $sidebars[$item['id']] = $item['name'];
         }
         return $sidebars;
+    }
+}
+
+/**
+* Function to get image sizes
+* 
+* @return array
+*/
+
+if (!function_exists('kt_get_image_sizes')){
+    function kt_get_image_sizes( $size = '' ) {
+
+            global $_wp_additional_image_sizes;
+    
+            $sizes = array();
+            $get_intermediate_image_sizes = get_intermediate_image_sizes();
+    
+            // Create the full array with sizes and crop info
+            foreach( $get_intermediate_image_sizes as $_size ) {
+    
+                    if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
+    
+                            $sizes[ $_size ]['width'] = get_option( $_size . '_size_w' );
+                            $sizes[ $_size ]['height'] = get_option( $_size . '_size_h' );
+                            $sizes[ $_size ]['crop'] = (bool) get_option( $_size . '_crop' );
+    
+                    } elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
+    
+                            $sizes[ $_size ] = array( 
+                                    'width' => $_wp_additional_image_sizes[ $_size ]['width'],
+                                    'height' => $_wp_additional_image_sizes[ $_size ]['height'],
+                                    'crop' =>  $_wp_additional_image_sizes[ $_size ]['crop']
+                            );
+    
+                    }
+    
+            }
+    
+            // Get only 1 size if found
+            if ( $size ) {
+    
+                    if( isset( $sizes[ $size ] ) ) {
+                            return $sizes[ $size ];
+                    } else {
+                            return false;
+                    }
+    
+            }
+    
+            return $sizes;
     }
 }
 

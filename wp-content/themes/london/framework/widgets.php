@@ -87,14 +87,14 @@ if ( function_exists('register_sidebar')) {
  */
 
 /* Widgets list */
-$themedev_widgets = array(
-	'widget_kt_image.php'
+$kt_widgets = array(
+	'kt_image.php',
+    'designer.php',
+    'testimonial_carousel.php'
 );
 
-foreach ( $themedev_widgets as $themedev_widget ) {
-	if ( $file_path = locate_template( FW_WIDGETS . $themedev_widget ) ) {
-		require_once( $file_path );
-	}
+foreach ( $kt_widgets as $widget ) {
+	require_once( FW_WIDGETS . $widget );
 }
 
 

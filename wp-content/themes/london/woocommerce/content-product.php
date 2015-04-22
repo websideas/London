@@ -78,9 +78,14 @@ $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' co
                         }
                 	}
                 }
+                if ( has_post_thumbnail() ) {
+        			$image_thumb =  get_the_post_thumbnail( $post->ID, 'shop_catalog', array('class'=>"first-img product-img"));
+        		} elseif ( wc_placeholder_img_src() ) {
+        			$image_thumb = wc_placeholder_img( 'shop_catalog' );
+        		}
             ?>
             <a href="<?php the_permalink(); ?>" class="product-thumbnail <?php if($attachment) echo "product-thumbnail-effect"; ?>">
-                <?php echo get_the_post_thumbnail( $post->ID, 'shop_catalog', array('class'=>"first-img product-img")) ?>
+                <?php echo $image_thumb; ?>
                 <?php echo $attachment; ?>
             </a>
             <?php

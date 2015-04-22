@@ -1101,7 +1101,19 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     font-weight:200;
 }
 
-
+.sidebar .widget-container.widget_kt_testimonials_carousel h3.widget-title{
+    text-align: center;
+    font-size:30px;
+    font-family:Dosis;
+    font-weight:200;
+    padding:15px;
+}
+.sidebar .widget-container.widget_kt_testimonials_carousel h3.widget-title span.sub-title{
+    display: block;
+    font-size:14px;
+    line-height: normal;
+    margin-top:8px;
+}
 .kt_testimonial .testimonial-item{
     padding:125px 20px 20px;
     border:1px solid #ccc;
@@ -2173,7 +2185,9 @@ h2.widgettitle a.rsswidget,
     margin: -20px -20px 20px;
     padding: 5px 5px 5px 20px;
 }
-
+.sidebar .widget-container.widget_kt_image{
+    padding: 0;
+}
 .sidebar .widget-container > ul.product-categories{
     background-color: #666666;
     margin: -20px -20px -25px;

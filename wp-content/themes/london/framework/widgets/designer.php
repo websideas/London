@@ -26,7 +26,7 @@ class KT_WC_Designer extends WC_Widget {
         $this->widget_cssclass    = 'woocommerce widget_designer';
         $this->widget_description = __( 'Display a list of designer products on your site.', THEME_LANG );
         $this->widget_id          = 'kt_desinger';
-        $this->widget_name        = __( 'Designer Products', THEME_LANG );
+        $this->widget_name        = __( 'KT Designer Products', THEME_LANG );
         $this->settings           = array(
             'title'  => array(
                 'type'  => 'text',
@@ -204,7 +204,7 @@ class KT_WC_Designer extends WC_Widget {
             }
         echo '</div>';
 
-        echo '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_widget_cb"   data-theme="carousel-heading-top style-navigation-bottom" data-autoheight="false" data-pagination="false">';
+        echo '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_widget_cb" data-theme="style-navigation-bottom" data-autoheight="false" data-pagination="false">';
 
         foreach( $design_ids as $design_id ){
 
