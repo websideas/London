@@ -189,7 +189,9 @@ function kt_setting_script() {
         .widget_tag_cloud a,
         .woocommerce .widget_price_filter .ui-slider .ui-slider-range,
         .kt_testimonial_wrap .module-title, 
-        .kt_product_carousel_wrap .module-title
+        .kt_product_carousel_wrap .module-title,
+        .carousel-testimonials-wrapper .block-heading, 
+        .widget-products-carousel-wrapper .block-heading
         {
             background-color: <?php echo $accent_brighter; ?>;
         }

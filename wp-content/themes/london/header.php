@@ -27,59 +27,60 @@
 	 * @hooked 
 	 */
 	do_action( 'theme_body_top' ); ?>
-    <div id="page">
-        <?php 
-            if($position == 'below'){
-                /**
-            	 * @hooked theme_slideshows_position_callback 10
-            	 */
-            	do_action( 'theme_slideshows_position' );
-            } 
-        ?>
-        
-        <?php
-    	/**
-    	 * @hooked 
-    	 */
-    	do_action( 'theme_before_header' ); ?>
-        <?php $header_layout = kt_get_header_layout(); ?>
-        <div class="header-<?php echo $header_layout ?> <?php echo apply_filters('theme_header_class', 'header-container', $position) ?>">
-            <div id="woocommerce-nav-mobile-wrapper">
-                <div class="container">
-                    <?php woocommerce_get_tool('woocommerce-nav-mobile');?>
-                </div>
-            </div><!-- #woocommerce-nav-mobile-wrapper -->
-            <header id="header" class="<?php echo apply_filters('theme_header_content_class', 'header-content') ?>">
-                <?php get_template_part( 'templates/headers/header',  $header_layout); ?>
-            </header><!-- #header -->
-            <div id="mobile-nav-holder">
-                <?php
-                    if ( has_nav_menu( 'primary' ) ) {  
-                        wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav-mobile', 'menu_class' => 'menu navigation-mobile', 'walker' => new KTMenuWalker() ) );
-                    }
-                ?>
-            </div>
-        </div><!-- .header-container -->
-        
-        <?php 
-            if($position != 'below'){
-                /**
-            	 * @hooked theme_slideshows_position_callback 10
-            	 */
-            	do_action( 'theme_slideshows_position' );
-            } 
-         ?>
-        
-        <?php
-    	/**
-    	 * @hooked theme_before_content_add_title 10
-         * 
-    	 */
-    	do_action( 'theme_before_content' , $position); ?>
-        
-        <div id="content" class="<?php echo apply_filters('themdev_content_class', 'site-content') ?>">
+    <div id="page_outter">
+        <div id="page">
+            <?php 
+                if($position == 'below'){
+                    /**
+                	 * @hooked theme_slideshows_position_callback 10
+                	 */
+                	do_action( 'theme_slideshows_position' );
+                } 
+            ?>
+            
             <?php
-    		/**
-    		 * @hooked
-    		 */
-    		do_action( 'theme_content_top' ); ?>
+        	/**
+        	 * @hooked 
+        	 */
+        	do_action( 'theme_before_header' ); ?>
+            <?php $header_layout = kt_get_header_layout(); ?>
+            <div class="header-<?php echo $header_layout ?> <?php echo apply_filters('theme_header_class', 'header-container', $position) ?>">
+                <div id="woocommerce-nav-mobile-wrapper">
+                    <div class="container">
+                        <?php woocommerce_get_tool('woocommerce-nav-mobile');?>
+                    </div>
+                </div><!-- #woocommerce-nav-mobile-wrapper -->
+                <header id="header" class="<?php echo apply_filters('theme_header_content_class', 'header-content') ?>">
+                    <?php get_template_part( 'templates/headers/header',  $header_layout); ?>
+                </header><!-- #header -->
+                <div id="mobile-nav-holder">
+                    <?php
+                        if ( has_nav_menu( 'primary' ) ) {  
+                            wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav-mobile', 'menu_class' => 'menu navigation-mobile', 'walker' => new KTMenuWalker() ) );
+                        }
+                    ?>
+                </div>
+            </div><!-- .header-container -->
+            
+            <?php 
+                if($position != 'below'){
+                    /**
+                	 * @hooked theme_slideshows_position_callback 10
+                	 */
+                	do_action( 'theme_slideshows_position' );
+                } 
+             ?>
+            
+            <?php
+        	/**
+        	 * @hooked theme_before_content_add_title 10
+             * 
+        	 */
+        	do_action( 'theme_before_content' , $position); ?>
+            
+            <div id="content" class="<?php echo apply_filters('themdev_content_class', 'site-content') ?>">
+                <?php
+        		/**
+        		 * @hooked
+        		 */
+        		do_action( 'theme_content_top' ); ?>

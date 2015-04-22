@@ -553,17 +553,13 @@
                 addClassActive : true,
                 itemsCustom: owlitemsCustom,
                 afterInit : function(elem){ 
-                    if(owlTheme == 'style-navigation-top'){
+                    if(owlTheme == 'style-navigation-top' && owlNavigation){
                         var that = this;
-                        if(owlPagination){
-                            that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'));    
-                        }
+                        that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'));
                     }
-
                     if( typeof func_cb === 'function'){
                         func_cb( 'afterInit',   elem );
                     }
-
                 },
                 afterUpdate: function(elem) {
                     if( typeof func_cb === 'function'){
