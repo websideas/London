@@ -147,7 +147,7 @@ function london_scripts() {
     ));
     
 }
-add_action( 'wp_enqueue_scripts', 'london_scripts' );
+add_action( 'wp_enqueue_scripts', 'london_scripts' , 99999999 );
 
 /**
  * Add scroll to top
