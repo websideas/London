@@ -161,11 +161,12 @@
             $(".video, .resp-media, .post-media").fitVids();
             $(".work-full-media").fitVids();
         }
-        
-        $('.post-media-video video').mediaelementplayer();
-        
-        // Responsive audio
-        $('.post-media-audio audio').mediaelementplayer();
+
+        if( $.fn.mediaelementplayer ) {
+            $('.post-media-video video').mediaelementplayer();
+            // Responsive audio
+            $('.post-media-audio audio').mediaelementplayer();
+        }
         
         $( ".category-products-tab-wrapper" ).tabs();
         
@@ -537,6 +538,10 @@
                 owlSingleItem = false;
             }
 
+            //owlSingleItem = true;
+            //owlItems = 6;
+           // owlitemsCustom = false;
+
             func_cb =  window[ func_cb ];
 
             var options = {
@@ -546,7 +551,7 @@
                 pagination: owlPagination,
                 autoHeight: owlAutoheight,
                 navigation: owlNavigation,
-                navigationText: false,
+                navigationText : ["", ""],
                 theme: owlTheme,
                 autoPlay: owlAutoPlay,
                 stopOnHover: true,
@@ -572,16 +577,13 @@
                     }
                 }
             };
-
+           // console.debug( options );
             objCarousel.owlCarousel(options);
             
         });
     }
 
 
-
-
-    
 })(jQuery); // End of use strict
 
 
