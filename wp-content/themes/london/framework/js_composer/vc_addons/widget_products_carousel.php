@@ -189,6 +189,8 @@ class WPBakeryShortCode_Widget_Products_Carousel extends WPBakeryShortCode {
                     "autoplay" => $autoplay,
                     "navigation" => $navigation,
                     "slidespeed" => $slidespeed,
+                    "theme" => 'style-navigation-bottom',
+                    "autoheight" => 'false'
                 );
                 
                 $elementClass = array(
@@ -197,10 +199,10 @@ class WPBakeryShortCode_Widget_Products_Carousel extends WPBakeryShortCode {
                 $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
             ?>
             
-            <div class="kt_product_carousel_wrap woocommerce<?php echo ' '.$el_class; ?>">
+            <div class="widget-products-carousel-wrapper woocommerce <?php echo esc_attr($el_class); ?>">
                 <?php if($title || $sub_title){ ?>
-                    <div class="module-title">
-                        <?php if($title){ ?><h3 class="title"><?php echo $title; ?></h3><?php } ?>
+                    <div class="block-heading">
+                        <?php if($title){ ?><h3><?php echo $title; ?></h3><?php } ?>
                         <?php if($sub_title){ ?><div class="sub_title"><?php echo $sub_title; ?></div><?php } ?>
                     </div>
                 <?php } ?>

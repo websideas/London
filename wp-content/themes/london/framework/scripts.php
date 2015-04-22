@@ -184,7 +184,9 @@ function kt_setting_css() {
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover,
         .widget_product_tag_cloud a, 
         .widget_tag_cloud a,
-        .woocommerce .widget_price_filter .ui-slider .ui-slider-range
+        .woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+        .kt_testimonial_wrap .module-title, 
+        .kt_product_carousel_wrap .module-title
         {
             background-color: <?php echo $accent_brighter; ?>;
         }

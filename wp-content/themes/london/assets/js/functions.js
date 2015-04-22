@@ -555,7 +555,9 @@
                 afterInit : function(elem){ 
                     if(owlTheme == 'style-navigation-top'){
                         var that = this;
-                        that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'))
+                        if(owlPagination){
+                            that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'));    
+                        }
                     }
 
                     if( typeof func_cb === 'function'){

@@ -127,6 +127,8 @@ class WPBakeryShortCode_Carousel_Testimonials extends WPBakeryShortCode {
                     "autoplay" => $autoplay,
                     "navigation" => $navigation,
                     "slidespeed" => $slidespeed,
+                    "theme" => 'style-navigation-bottom',
+                    "autoheight" => 'false'
                 );
                 
                 $elementClass = array(
@@ -134,25 +136,27 @@ class WPBakeryShortCode_Carousel_Testimonials extends WPBakeryShortCode {
                 );
                 $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
             ?>
-            <div class="kt_testimonial_wrap">
+            <div class="carousel-testimonials-wrapper">
                 <?php if($title || $sub_title){ ?>
-                    <div class="module-title">
-                        <?php if($title){ ?><h3 class="title"><?php echo $title; ?></h3><?php } ?>
+                    <div class="block-heading">
+                        <?php if($title){ ?><h3><?php echo $title; ?></h3><?php } ?>
                         <?php if($sub_title){ ?><div class="sub_title"><?php echo $sub_title; ?></div><?php } ?>
                     </div>
                 <?php } ?>
-                <div class="kt_testimonial kt-owl-carousel<?php echo ' '.esc_attr( $elementClass ); ?>" <?php echo render_data_carousel($data_carousel); ?>>
-                    <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                        <div class="testimonial-item<?php if(!has_post_thumbnail()){ echo ' no-image'; } ?>">
-                            <?php if( has_post_thumbnail() ){ ?>
-                                <div class="avatar"><?php the_post_thumbnail('small'); ?></div>
-                            <?php } ?>
-                            <h3 class="name"><?php the_title(); ?> <span><?php echo rwmb_meta('_kt_testimonial_regency'); ?></span></h3>
-                            <?php if( get_the_content() ){ ?>
-                                <div class="desc"><?php the_content(); ?></div>
-                            <?php } ?>
-                        </div>
-                    <?php endwhile; wp_reset_postdata(); ?>
+                <div class="carousel-testimonials-content <?php echo esc_attr( $elementClass ); ?>">
+                    <div class="kt_testimonial kt-owl-carousel" <?php echo render_data_carousel($data_carousel); ?>>
+                        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                            <div class="testimonial-item<?php if(!has_post_thumbnail()){ echo ' no-image'; } ?>">
+                                <?php if( has_post_thumbnail() ){ ?>
+                                    <div class="avatar"><?php the_post_thumbnail('small'); ?></div>
+                                <?php } ?>
+                                <h3 class="name"><?php the_title(); ?> <span><?php echo rwmb_meta('_kt_testimonial_regency'); ?></span></h3>
+                                <?php if( get_the_content() ){ ?>
+                                    <div class="desc"><?php the_content(); ?></div>
+                                <?php } ?>
+                            </div>
+                        <?php endwhile; wp_reset_postdata(); ?>
+                    </div>
                 </div>
             </div>
         <?php }
