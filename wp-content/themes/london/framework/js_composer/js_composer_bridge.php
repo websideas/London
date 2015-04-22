@@ -17,7 +17,8 @@ $composer_addons = array(
     'button.php',
     'widget_products_carousel.php',
     'widget_testimonials.php',
-    'gitem_post_meta.php'
+    'vc_gitem_post_metadata.php',
+    'designer_products.php'
 );
 
 foreach ( $composer_addons as $addon ) {

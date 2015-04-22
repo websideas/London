@@ -9,12 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 if( class_exists( 'WC_Widget' ) ){
 
 /**
- * List products. One widget to rule them all.
+ * List products if desiner
  *
- * @author   WooThemes
  * @category Widgets
  * @package  WooCommerce/Widgets
- * @version  2.3.0
+ * @version  1.0
  * @extends  WC_Widget
  */
 class KT_WC_Designer extends WC_Widget {

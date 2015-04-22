@@ -572,6 +572,7 @@
                     }
                 }
             };
+
             objCarousel.owlCarousel(options);
             
         });
