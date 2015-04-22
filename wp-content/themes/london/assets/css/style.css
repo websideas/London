@@ -617,6 +617,13 @@ select:not([multiple]) {
 .kt-owl-carousel .owl-buttons div.owl-prev:hover{
     background-position: -74px center;
 }
+.kt-owl-carousel.style-navigation-top { position: relative ; }
+.kt-owl-carousel.style-navigation-top .owl-buttons {
+    position: absolute;
+    top: -73px;
+    right: 16px;
+}
+
 
 /*
  * Navigation Center
@@ -2282,6 +2289,7 @@ h2.widgettitle a.rsswidget,
 { margin-left: 15px; }
 .list-blog-posts .navigation .nav-links span ,  .entry-content .page-links span { colo: #000; font-weight: bold; }
 .taxonomy-description { font-size: 16px; font-weight: bold;  margin-bottom: 30px; }
+.entry-content > .vc_row:last-child {  margin-bottom: 0px; }
 
 /** ================================================
 SINGLE POST - ENTRY POST
@@ -2745,3 +2753,7 @@ END SOCIAL
 }
 
 
+/* VC COMPOSER MODED */
+.vc_gitem-zone-mini {
+
+}
