@@ -44,7 +44,20 @@ function kt_is_active_plugin(   $plugin ){
     return is_plugin_active( $plugin ) ;
 }
 
+/**
+ * Change the path to the directory that contains demo data folders.
+ *
+ * @param [string] $demo_directory_path
+ *
+ * @return [string]
+ */
 
+function wbc_change_demo_directory_path( $demo_directory_path ) {
+	$demo_directory_path = THEME_DIR.'dummy-data/';
+	return $demo_directory_path;
+
+}
+add_filter('wbc_importer_dir_path', 'wbc_change_demo_directory_path' );
 
 
 /**

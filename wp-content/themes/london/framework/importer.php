@@ -4,24 +4,6 @@
 if ( !defined('ABSPATH')) exit;
 
 
-if ( !function_exists( 'wbc_change_demo_directory_path' ) ) {
-	/**
-	 * Change the path to the directory that contains demo data folders.
-	 *
-	 * @param [string] $demo_directory_path
-	 *
-	 * @return [string]
-	 */
-
-	function wbc_change_demo_directory_path( $demo_directory_path ) {
-		$demo_directory_path = FW_DIR.'dummy-data/';
-		return $demo_directory_path;
-
-	}
-    add_filter('wbc_importer_dir_path', 'wbc_change_demo_directory_path' );
-}
-
-
 /************************************************************************
 * Extended Example:
 * Way to set menu, import revolution slider, and set home page.
@@ -43,13 +25,14 @@ if ( !function_exists( 'kt_wbc_extended_imported' ) ) {
 			$wbc_sliders_array = array(
 				'demo1' => 'slide1.zip'
 			);
-
+            
+            
 			if ( isset( $demo_active_import[$current_key]['directory'] ) && !empty( $demo_active_import[$current_key]['directory'] ) && array_key_exists( $demo_active_import[$current_key]['directory'], $wbc_sliders_array ) ) {
 				$wbc_slider_import = $wbc_sliders_array[$demo_active_import[$current_key]['directory']];
-
-				if ( file_exists( $demo_directory_path.$wbc_slider_import ) ) {
+                $revslider = THEME_DIR.'dummy-data/revslider/'.$wbc_slider_import;
+				if ( file_exists( $revslider ) ) {
 					$slider = new RevSlider();
-					$slider->importSliderFromPost( true, true, $demo_directory_path.$wbc_slider_import );
+					$slider->importSliderFromPost( true, true, $revslider );
 				}
 			}
 		}
