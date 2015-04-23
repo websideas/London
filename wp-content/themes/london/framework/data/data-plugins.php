@@ -50,16 +50,22 @@ function kt_register_plugins() {
         array(
             'name'      => 'YITH WooCommerce Compare',
             'slug'      => 'yith-woocommerce-compare',
-            'required'  => true,
+            'required'  => false,
         ),
         array(
             'name' => 'YITH WooCommerce Wishlist', // The plugin name
             'slug' => 'yith-woocommerce-wishlist', // The plugin slug (typically the folder name)
-            'required' => true, // If false, the plugin is only 'recommended' instead of required
+            'required' => false, // If false, the plugin is only 'recommended' instead of required
         ),
         array(
             'name' => 'Contact Form 7',
             'slug' => 'contact-form-7',
+            'required' => false,
+        ),
+        array(
+            'name' => 'WooCommerce Products filter',
+            'slug' => 'kt-woocommerce-products-filter',
+            'source'  => THEME_DIR . 'recommend-plugins/kt-woocommerce-products-filter.zip', // The plugin source
             'required' => false,
         ),
         array(
