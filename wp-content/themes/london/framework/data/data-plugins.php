@@ -67,7 +67,7 @@ function kt_register_plugins() {
             'slug' => 'contact-form-7',
             'required' => false,
         ),
-<<<<<<< HEAD
+
         array(
             'name' => 'WooCommerce Products filter',
             'slug' => 'kt-woocommerce-products-filter',
@@ -84,9 +84,8 @@ function kt_register_plugins() {
             'slug' => 'regenerate-thumbnails',
             'required' => false,
         ),
-=======
-        
->>>>>>> origin/master
+
+
     );
   
     // Change this to your theme text domain, used for internationalising strings
