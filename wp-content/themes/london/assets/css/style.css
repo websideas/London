@@ -2763,6 +2763,7 @@ END SOCIAL
 
 
 /* VC COMPOSER MODED */
-.vc_gitem-zone-mini {
-
+.vc_grid.vc_row .vc_grid-item .vc_btn {
+    margin-bottom: 0px;
 }
+.vc_grid-item .entry-meta-data { margin-bottom: 0px; }
