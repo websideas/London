@@ -136,12 +136,12 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 
 
 if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/framework.php' ) ) {
-    
-    
+
     require_once( FW_EXT_DIR . 'ReduxCore/framework.php' );
-    
     // Add fields to redux
     require_once (FW_EXT_CUSTOM_DIR . 'redux-framework-custom.php');
+
+
 }
 
 
@@ -171,8 +171,11 @@ if(!function_exists('redux_register_custom_extension_loader')) :
 endif;
 
 
-if (file_exists( FW_DATA . 'data-options.php' ) ) {
-    require_once( FW_DATA . 'data-options.php' );
+add_action('init', 'kt_admin_options_init');
+function  kt_admin_options_init(){
+    if (file_exists( FW_DATA . 'data-options.php' ) ) {
+        require_once( FW_DATA . 'data-options.php' );
+    }
 }
 
 if (is_admin() ) {

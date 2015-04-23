@@ -96,13 +96,19 @@
         $('.woocommerce-countdown').each(function(){
             var $this = $(this), 
                 finalDate = $(this).data('time');
-            $this.countdown(finalDate, function(event) {
-                $this.html(event.strftime(''
-                     + '<div><span>%D</span> days</div>'
-                     + '<div><span>%H</span> hr</div>'
-                     + '<div><span>%M</span> min</div>'
-                     + '<div><span>%S</span> sec</div>'));
+
+            $this.countdown({
+                until: new Date( finalDate ),
+                format: 'dHMS',
+                compact: true,
+                padZeroes: true,
+                serverSync: new Date( ajax_frontend.current_date ),
+               // until: shortly,
+                //onExpiry: liftOff,
+                layout: '<div><span>{dnn}</span> days</div><div><span>{hn}</span> hr</div><div><span>{mn}</span> min</div><div><span>{sn}</span> sec</div>'
             });
+
+
         });
     }
     /* ---------------------------------------------

@@ -63,9 +63,9 @@ if ( ! class_exists( 'KT_config' ) ) {
                 //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
                 'allow_sub_menu'       => false,
                 // Show the sections below the admin menu item or not
-                'menu_title'           => __( 'Theme Options', THEME_LANG ),
+                'menu_title'           => __( 'London', THEME_LANG ),
                 
-                'page_title'           => __( 'Theme Options - '.$theme->get( 'Name' ), THEME_LANG ),
+                'page_title'           => __( 'London Theme Options - ', THEME_LANG ),
                 // You will need to generate a Google API key to use this feature.
                 // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
                 // You will need to generate a Google API key to use this feature.
@@ -95,13 +95,13 @@ if ( ! class_exists( 'KT_config' ) ) {
                     //'disable_save_warn' => true,                    // Disable the save warning when a user changes a field
 
                     // OPTIONAL -> Give you extra features
-                    'page_priority'        => null,
+                    'page_priority'        => 61,
                     // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
                     'page_parent'          => 'themes.php',
                     // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
                     'page_permissions'     => 'manage_options',
                     // Permissions needed to access the options panel.
-                    'menu_icon'            => '',
+                    'menu_icon'            => 'dashicons-art',
                     // Specify a custom URL to an icon
                     'last_tab'             => '',
                     // Force your panel to always open to a specific tab (by id)
