@@ -61,7 +61,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                 // Version that appears at the top of your panel
                 'menu_type'            => 'menu',
                 //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
-                'allow_sub_menu'       => true,
+                'allow_sub_menu'       => false,
                 // Show the sections below the admin menu item or not
                 'menu_title'           => __( 'Theme Options', THEME_LANG ),
                 
