@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="functions.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="functions.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="579" column="14" selection-start="20658" selection-end="20658" vertical-scroll-proportion="0.0" vertical-offset="12983" max-vertical-offset="14766">
+            <state line="117" column="40" selection-start="4060" selection-end="4060" vertical-scroll-proportion="0.9202552" vertical-offset="1537" max-vertical-offset="15134">
               <folding />
             </state>
           </provider>
@@ -53,17 +53,43 @@
       <file leaf-file-name="functions-core.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="174.8077" vertical-offset="4545" max-vertical-offset="5773">
+            <state line="140" column="21" selection-start="5275" selection-end="5287" vertical-scroll-proportion="-30.076923" vertical-offset="2438" max-vertical-offset="5796">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/core.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="0" selection-start="3931" selection-end="3931" vertical-scroll-proportion="0.6555375" vertical-offset="3151" max-vertical-offset="6049">
+            <state line="171" column="0" selection-start="3930" selection-end="3930" vertical-scroll-proportion="-29.192308" vertical-offset="3174" max-vertical-offset="6049">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="206.65384" vertical-offset="5373" max-vertical-offset="6601">
+              <folding>
+                <marker date="1429757650000" expanded="true" signature="3063:10059" placeholder="..." />
+                <marker date="1429757650000" expanded="true" signature="4415:4480" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="4559:4634" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="5126:5187" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="5317:5371" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="5584:5650" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="7008:7082" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="7755:7825" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="7892:7968" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="8187:8261" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="8349:8412" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="8466:8542" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="8730:8804" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="9698:9763" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="9790:9891" placeholder="{...}" />
+                <marker date="1429757650000" expanded="true" signature="9932:10026" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-meta-box.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/assets/js/framework-core.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/single.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/queries.css" />
@@ -129,15 +153,17 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/widget_testimonials.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/designer_collection_carousel.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/widgets.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/twentyfifteen/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/style.css" />
         <option value="$PROJECT_DIR$/wp-config.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/designer_products.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/core.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.countdown.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.countdown.min.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js" />
       </list>
     </option>
   </component>
@@ -595,37 +621,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/libs/owl-carousel/owl.carousel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1511" column="29" selection-start="52731" selection-end="52731" vertical-scroll-proportion="0.0" vertical-offset="33545" max-vertical-offset="34891">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/js_composer/include/classes/shortcodes/paginator/class-vc-pageable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="31" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.0" vertical-offset="1748" max-vertical-offset="2668" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/class/MCAPI.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2861" column="29" selection-start="174346" selection-end="174355" vertical-scroll-proportion="6.769231" vertical-offset="66155" max-vertical-offset="67344" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/yith-woocommerce-wishlist/includes/class.yith-wcwl-install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="42" selection-start="1825" selection-end="1846" vertical-scroll-proportion="-10.769231" vertical-offset="1376" max-vertical-offset="5980">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/woocommerce.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="163" selection-start="2983" selection-end="2983" vertical-scroll-proportion="3.0" vertical-offset="2217" max-vertical-offset="13087">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/widgets/testimonial_carousel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="127" column="53" selection-start="7781" selection-end="7781" vertical-scroll-proportion="-112.34615" vertical-offset="0" max-vertical-offset="3266">
@@ -642,7 +637,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="24" selection-start="742" selection-end="742" vertical-scroll-proportion="-0.88461536" vertical-offset="644" max-vertical-offset="4255">
           <folding>
-            <element signature="e#6#219#0" expanded="true" />
+            <element signature="e#6#219#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -790,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="268" column="12" selection-start="10091" selection-end="10091" vertical-scroll-proportion="-237.07692" vertical-offset="0" max-vertical-offset="6601">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/class/class-tgm-plugin-activation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="217" column="33" selection-start="8647" selection-end="8647" vertical-scroll-proportion="-9.192307" vertical-offset="4522" max-vertical-offset="47886">
@@ -867,13 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="579" column="14" selection-start="20658" selection-end="20658" vertical-scroll-proportion="0.0" vertical-offset="12983" max-vertical-offset="14766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/widget_testimonials.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="167" column="23" selection-start="6624" selection-end="6682" vertical-scroll-proportion="0.0" vertical-offset="3841" max-vertical-offset="4025">
@@ -884,13 +865,6 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="10" selection-start="3387" selection-end="3387" vertical-scroll-proportion="-39.653847" vertical-offset="533" max-vertical-offset="3151">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="174.8077" vertical-offset="4545" max-vertical-offset="5773">
           <folding />
         </state>
       </provider>
@@ -941,7 +915,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="0" selection-start="3931" selection-end="3931" vertical-scroll-proportion="0.6555375" vertical-offset="3151" max-vertical-offset="6049">
+        <state line="171" column="0" selection-start="3930" selection-end="3930" vertical-scroll-proportion="-29.192308" vertical-offset="3174" max-vertical-offset="6049">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="206.65384" vertical-offset="5373" max-vertical-offset="6601">
+          <folding>
+            <marker date="1429757650000" expanded="true" signature="3063:10059" placeholder="..." />
+            <marker date="1429757650000" expanded="true" signature="4415:4480" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="4559:4634" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="5126:5187" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="5317:5371" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="5584:5650" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="7008:7082" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="7755:7825" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="7892:7968" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="8187:8261" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="8349:8412" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="8466:8542" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="8730:8804" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="9698:9763" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="9790:9891" placeholder="{...}" />
+            <marker date="1429757650000" expanded="true" signature="9932:10026" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/jquery.countdown.package-2.0.2/jquery.plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="436" selection-end="436" vertical-scroll-proportion="0.31180224" vertical-offset="0" max-vertical-offset="8027">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/jquery.countdown.package-2.0.2/jquery.countdown.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="55" selection-start="0" selection-end="13975" vertical-scroll-proportion="0.01853344" vertical-offset="0" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/jquery.countdown.package-2.0.2/jquery.plugin.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="70" selection-start="0" selection-end="3178" vertical-scroll-proportion="0.055600323" vertical-offset="0" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.countdown.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="17154" selection-end="17154" vertical-scroll-proportion="0.33360192" vertical-offset="0" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.countdown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="70" selection-start="3385" selection-end="3385" vertical-scroll-proportion="0.18930042" vertical-offset="0" max-vertical-offset="1215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="21" selection-start="5275" selection-end="5287" vertical-scroll-proportion="-30.076923" vertical-offset="2438" max-vertical-offset="5796">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="40" selection-start="4060" selection-end="4060" vertical-scroll-proportion="0.9202552" vertical-offset="1537" max-vertical-offset="15134">
           <folding />
         </state>
       </provider>

@@ -137,7 +137,8 @@ function london_scripts() {
 	
     wp_localize_script( 'london-script', 'ajax_frontend', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'security' => wp_create_nonce( 'ajax_frontend' )
+        'security' => wp_create_nonce( 'ajax_frontend' ),
+        'current_date' => date_i18n('Y-m-d H:i:s')
     ));
 
     
