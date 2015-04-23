@@ -33,11 +33,14 @@ function theme_setup() {
 	 * Enable support for Post Formats
 	 */
 	//add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
-    
-    /**
-	 * Let WordPress manage the document title.
+
+    /*
+    * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+    * provide it for us.
 	 */
-    add_theme_support( 'title-tag' );
+	add_theme_support( 'title-tag' );
     
     /**
 	 * Allow shortcodes in widgets.
@@ -80,13 +83,8 @@ endif;
  * @return void
  */
 if ( ! function_exists( 'kt_meta_title' ) ) {
-	function kt_meta_title() { ?>
-		<title><?php if ( function_exists( 'wpseo_auto_load' ) ) { ?> 
-            <?php wp_title(); ?>
-            <?php }else{ ?>
-		     <?php wp_title( '|', true, 'right' ); ?><?php bloginfo('name'); ?>
-		<?php }  ?></title>
-	<?php }
+	function kt_meta_title() {
+	}
 }
 
 
