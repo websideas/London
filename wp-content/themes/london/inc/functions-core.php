@@ -141,9 +141,11 @@ function london_scripts() {
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'security' => wp_create_nonce( 'ajax_frontend' )
     ));
+
     
 }
 add_action( 'wp_enqueue_scripts', 'london_scripts' , 99999999 );
+
 
 /**
  * Add scroll to top

@@ -218,7 +218,7 @@
                 objul = obj.closest('ul'),
                 $wrapper = obj.closest('.categories-products-wrapper'),
                 $carousel = $wrapper.find('ul.products'),
-                $carouselData = $carousel.data('owlCarousel');
+                $carouselData = $carousel.data('KTowlCarousel');
         	
             obj.addClass('loading');
         	objul.find('li').removeClass('active');
@@ -290,7 +290,7 @@
     				},
                     callbacks: {
     	        		open: function() {
-    	        		     $('.single-product-quickview-images').owlCarousel({
+    	        		     $('.single-product-quickview-images').KTowlCarousel({
             					theme: "style-navigation-center",
             					singleItem: true,
             					autoHeight: true,
@@ -392,7 +392,7 @@
                 wooNavigation = true;
             }
             
-            wooCarousel.owlCarousel({
+            wooCarousel.KTowlCarousel({
     			theme: wooCarouselTheme,
     			items : 1,
                 autoPlay: wooAutoPlay,
@@ -417,7 +417,7 @@
     
     function init_productcarouselwoo(){
          
-        sync1.owlCarousel({
+        sync1.KTowlCarousel({
             singleItem : true,
             slideSpeed : 1000,
             navigation: false,
@@ -426,7 +426,7 @@
             responsiveRefreshRate : 200,
         });
         
-        sync2.owlCarousel({
+        sync2.KTowlCarousel({
             theme : 'woocommerce-thumbnails',
             items : 3,
             itemsCustom : [[768,3],[479,2]],
@@ -453,12 +453,12 @@
             .removeClass("synced")
             .eq(current)
             .addClass("synced")
-        if($("#sync2").data("owlCarousel") !== undefined){
+        if($("#sync2").data("KTowlCarousel") !== undefined){
             center(current)
         }
     }
     function center(number){
-        var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
+        var sync2visible = sync2.data("KTowlCarousel").owl.visibleItems;
         
         var num = number;
         var found = false;
@@ -577,8 +577,8 @@
                     }
                 }
             };
-           // console.debug( options );
-            objCarousel.owlCarousel(options);
+            console.debug( options );
+            objCarousel.KTowlCarousel(options);
             
         });
     }
