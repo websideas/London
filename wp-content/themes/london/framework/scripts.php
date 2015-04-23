@@ -27,7 +27,7 @@ if ( !function_exists( 'kt_admin_enqueue_scripts' ) ) {
         wp_enqueue_script( 'kt_image', FW_JS.'kt_image.js', array('jquery'), FW_VER, true);
         
         wp_localize_script( 'kt_image', 'kt_image_lange', array(
-            'frameTitle' => __('Select your image')
+            'frameTitle' => __('Select your image', THEME_LANG )
         ));
         
         wp_register_script( 'framework-core', FW_JS.'framework-core.js', array('jquery', 'jquery-ui-tabs'), FW_VER, true);

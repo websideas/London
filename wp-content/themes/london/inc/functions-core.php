@@ -158,7 +158,6 @@ function theme_after_footer_top_addscroll(){
 }
 
 
-
 function kt_excerpt_more( $more ) {
     return '...';
 }

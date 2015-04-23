@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WP_Widget_KT_Image extends WP_Widget {
 
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_kt_image', 'description' => __( 'Image for widget.') );
-		parent::__construct('kt_image', __('KT image'), $widget_ops);
+		$widget_ops = array('classname' => 'widget_kt_image', 'description' => __( 'Image for widget.', THEME_LANG ) );
+		parent::__construct('kt_image', __('KT image', THEME_LANG ), $widget_ops);
 	}
 
 	public function widget( $args, $instance ) {
@@ -77,7 +77,7 @@ class WP_Widget_KT_Image extends WP_Widget {
 		</p>
         <p>
             <?php $sizes = kt_get_image_sizes(); ?>
-			<label for="<?php echo $this->get_field_id('size'); ?>"><?php _e( 'Image size:' ); ?></label>
+			<label for="<?php echo $this->get_field_id('size'); ?>"><?php _e( 'Image size:', THEME_LANG ); ?></label>
 			<select name="<?php echo $this->get_field_name('size'); ?>" id="<?php echo $this->get_field_id('size'); ?>" class="widefat">
                 <?php foreach($sizes as $key => $size){ ?>
     				<option value="<?php echo $key; ?>"<?php selected( $instance['size'], $key ); ?>><?php echo ucfirst($key); ?> (<?php echo $size['width'] .'x'. $size['height'] ?>)</option>

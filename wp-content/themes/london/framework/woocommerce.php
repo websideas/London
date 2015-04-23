@@ -91,7 +91,7 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                 <?php
                     if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
                         echo "<li class='checkout-link'>";
-                    	echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
+                    	echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' , THEME_LANG ) . '">' . __( 'Checkout', THEME_LANG ) . '</a>';
                         echo "</li>";
                     endif;
                 ?>
@@ -100,7 +100,7 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                         $count = array();
             	       
                 		if( is_user_logged_in() ) {
-                		    $count = $wpdb->get_results( $wpdb->prepare( 'SELECT COUNT(*) as `cnt` FROM `' . YITH_WCWL_TABLE . '` WHERE `user_id` = %d', get_current_user_id()  ), ARRAY_A );
+                		    $count = $wpdb->get_results( $wpdb->prepare( 'SELECT COUNT(*) as `cnt` FROM `' . YITH_WCWL_ITEMS_TABLE . '` WHERE `user_id` = %d', get_current_user_id()  ), ARRAY_A );
                 		    $count = $count[0]['cnt'];
                 		} elseif( yith_usecookies() ) {
                 		    $count[0]['cnt'] = count( yith_getcookie( 'yith_wcwl_products' ) );

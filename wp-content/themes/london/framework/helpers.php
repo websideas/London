@@ -195,7 +195,13 @@ if (!function_exists('kt_option')){
         if($option === FALSE){
             return FALSE;
         }
-        $kt_options = get_option( THEME_OPTIONS );
+        $kt_options = wp_cache_get( THEME_OPTIONS );
+        if(  !$kt_options ){
+            $kt_options = get_option( THEME_OPTIONS );
+            wp_cache_delete( THEME_OPTIONS );
+            wp_cache_add( THEME_OPTIONS, $kt_options );
+        }
+
         if(isset($kt_options[$option]) && $kt_options[$option] !== ''){
             return $kt_options[$option];
         }else{

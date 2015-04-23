@@ -34,7 +34,7 @@ class WPBakeryShortCode_Contact_Info extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Contact info", THEME_LANG),
     "base" => "contact_info",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Contact info", THEME_LANG),
     "params" => array(
         array(

@@ -103,7 +103,7 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Blog Posts", THEME_LANG),
     "base" => "list_blog_posts",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Display blog posts", THEME_LANG),
     "params" => array(
         array(

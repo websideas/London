@@ -152,7 +152,7 @@ class WPBakeryShortCode_Recent_Posts_Carousel extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Recent Posts Carousel", THEME_LANG),
     "base" => "recent_posts_carousel",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Recent Posts Carousel", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(

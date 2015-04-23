@@ -104,7 +104,7 @@ class WPBakeryShortCode_Sales_Countdown_Carousel extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Sales Countdown Carousel", THEME_LANG),
     "base" => "sales_countdown_carousel",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(

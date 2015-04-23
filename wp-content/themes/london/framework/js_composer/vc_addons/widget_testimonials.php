@@ -7,7 +7,7 @@ if ( !defined('ABSPATH')) exit;
 vc_map( array(
     "name" => __( "Testimonials", THEME_LANG ),
     "base" => "carousel_testimonials",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Carousel Testimonials", THEME_LANG ),
     "params" => array(
         array(

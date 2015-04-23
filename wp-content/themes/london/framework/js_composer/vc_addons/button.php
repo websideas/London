@@ -51,7 +51,7 @@ class WPBakeryShortCode_KT_Button extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "KT Button", THEME_LANG),
     "base" => "kt_button",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Custom button", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(

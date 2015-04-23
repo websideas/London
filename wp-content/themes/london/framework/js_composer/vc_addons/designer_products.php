@@ -47,7 +47,7 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Designer Products", THEME_LANG),
     "base" => "designer_products",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "wrapper_class" => "clearfix",
     "params" => array(
         array(

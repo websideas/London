@@ -134,7 +134,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Taxonomy Woocommerce", THEME_LANG),
     "base" => "taxonomy_woo",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Taxonomy Woocommerce", THEME_LANG),
     "params" => array(
         array(

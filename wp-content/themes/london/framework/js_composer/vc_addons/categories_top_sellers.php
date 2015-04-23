@@ -94,7 +94,7 @@ class WPBakeryShortCode_Categories_Top_Sellers extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Categories top sellers", THEME_LANG),
     "base" => "categories_top_sellers",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "params" => array(
         array(
             "type" => "textfield",

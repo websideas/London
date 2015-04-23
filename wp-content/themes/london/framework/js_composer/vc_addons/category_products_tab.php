@@ -108,7 +108,7 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Category Products Tab", THEME_LANG),
     "base" => "category_products_tab",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "params" => array(
         array(
 			"type" => "kt_taxonomy",

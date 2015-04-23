@@ -61,27 +61,27 @@ class kt_testimonials_carousel extends WP_Widget {
         ?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>">
-                <?php _e('Title:'); ?></label>
+                <?php _e('Title:', THEME_LANG ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
                 name="<?php echo $this->get_field_name('title'); ?>" type="text"
                 value="<?php echo  esc_attr($title);?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('sub_title'); ?>">
-                <?php _e('Sub title:'); ?></label>
+                <?php _e('Sub title:', THEME_LANG ); ?></label>
             <textarea class="widefat" id="<?php echo $this->get_field_id('sub_title'); ?>"
                 name="<?php echo $this->get_field_name('sub_title'); ?>"><?php echo  esc_attr($sub_title);?></textarea>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('number'); ?>">
-                <?php _e('Number of posts to show:'); ?> </label>
+                <?php _e('Number of posts to show:', THEME_LANG ); ?> </label>
             <input type="text" class="widefat" value="<?php echo  esc_attr($number);?>"
                 id="<?php echo $this->get_field_id('number'); ?>"
                 name="<?php echo $this->get_field_name('number'); ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('orderby'); ?>">
-                <?php _e('Order by:', 'theme-dev-language'); ?></label>
+                <?php _e('Order by:', THEME_LANG ); ?></label>
             <select class="widefat" id="<?php echo $this->get_field_id('orderby'); ?>" name="<?php echo $this->get_field_name('orderby'); ?>">
                 <option <?php if ( 'name' == $orderby ) echo 'selected="selected"'; ?> value="name"><?php _e('Name','theme-dev-language') ?></option>
                 <option <?php if ( 'id' == $orderby ) echo 'selected="selected"'; ?> value="id"><?php _e('ID','theme-dev-language') ?></option>
@@ -94,38 +94,38 @@ class kt_testimonials_carousel extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('order'); ?>">
-                <?php _e('Order:'); ?></label>
+                <?php _e('Order:', THEME_LANG ); ?></label>
             <select class="widefat" id="<?php echo $this->get_field_id('order'); ?>" name="<?php echo $this->get_field_name('order'); ?>">
-                <option <?php if ( 'DESC' == $order || $order == '' ) echo 'selected="selected"'; ?> value="DESC"><?php _e('Desc','theme-dev-language') ?></option>
-                <option <?php if ( 'ASC' == $order ) echo 'selected="selected"'; ?> value="ASC"><?php _e('Asc','theme-dev-language') ?></option>
+                <option <?php if ( 'DESC' == $order || $order == '' ) echo 'selected="selected"'; ?> value="DESC"><?php _e('Desc',THEME_LANG ) ?></option>
+                <option <?php if ( 'ASC' == $order ) echo 'selected="selected"'; ?> value="ASC"><?php _e('Asc', THEME_LANG ) ?></option>
             </select>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('autoplay'); ?>">
-                <?php _e('Autoplay:'); ?></label>
+                <?php _e('Autoplay:', THEME_LANG ); ?></label>
             <select class="widefat" id="<?php echo $this->get_field_id('autoplay'); ?>" name="<?php echo $this->get_field_name('autoplay'); ?>">
-                <option <?php if ( 'false' == $autoplay ) echo 'selected="selected"'; ?> value="false"><?php _e('False','theme-dev-language') ?></option>
-                <option <?php if ( 'true' == $autoplay ) echo 'selected="selected"'; ?> value="true"><?php _e('True','theme-dev-language') ?></option>
+                <option <?php if ( 'false' == $autoplay ) echo 'selected="selected"'; ?> value="false"><?php _e('False',THEME_LANG ) ?></option>
+                <option <?php if ( 'true' == $autoplay ) echo 'selected="selected"'; ?> value="true"><?php _e('True',THEME_LANG ) ?></option>
             </select>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('navigation'); ?>">
-                <?php _e('Show Navigation:'); ?></label>
+                <?php _e('Show Navigation:', THEME_LANG ); ?></label>
             <select class="widefat" id="<?php echo $this->get_field_id('navigation'); ?>" name="<?php echo $this->get_field_name('navigation'); ?>">
-                <option <?php if ( 'true' == $navigation ) echo 'selected="selected"'; ?> value="true"><?php _e('True','theme-dev-language') ?></option>
-                <option <?php if ( 'false' == $navigation ) echo 'selected="selected"'; ?> value="false"><?php _e('False','theme-dev-language') ?></option>
+                <option <?php if ( 'true' == $navigation ) echo 'selected="selected"'; ?> value="true"><?php _e('True',THEME_LANG ) ?></option>
+                <option <?php if ( 'false' == $navigation ) echo 'selected="selected"'; ?> value="false"><?php _e('False', THEME_LANG ) ?></option>
             </select>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('slidespeed'); ?>">
-                <?php _e('Slidespeed:'); ?> </label>
+                <?php _e('Slidespeed:', THEME_LANG ); ?> </label>
             <input type="text" class="widefat" value="<?php echo  esc_attr($slidespeed);?>"
                 id="<?php echo $this->get_field_id('slidespeed'); ?>"
                 name="<?php echo $this->get_field_name('slidespeed'); ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('el_class'); ?>">
-                <?php _e('Custom class:'); ?> </label>
+                <?php _e('Custom class:', THEME_LANG ); ?> </label>
             <input type="text" class="widefat" value="<?php echo  esc_attr($el_class);?>"
                 id="<?php echo $this->get_field_id('el_class'); ?>"
                 name="<?php echo $this->get_field_name('el_class'); ?>" />

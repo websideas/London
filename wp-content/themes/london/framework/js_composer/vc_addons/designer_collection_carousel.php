@@ -165,7 +165,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Designer Collection Carousel", THEME_LANG),
     "base" => "designer_collection_carousel",
-    "category" => __('by Cuongdv'),
+    "category" => ___('by Theme', THEME_LANG ),
     "wrapper_class" => "clearfix",
     "params" => array(
         array(

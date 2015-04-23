@@ -87,7 +87,7 @@ class WPBakeryShortCode_Mailchimp extends WPBakeryShortCode {
 vc_map( array(
     "name" => __( "Mailchimp", THEME_LANG),
     "base" => "mailchimp",
-    "category" => __('by Cuongdv'),
+    "category" => __('by Theme', THEME_LANG ),
     "description" => __( "Mailchimp", THEME_LANG),
     "wrapper_class" => "clearfix",
     "params" => array(
