@@ -56,7 +56,7 @@ function kt_add_breadcrumb(){
 
         $show = true;
         if( is_page() || is_singular()  || is_front_page() ){
-            $disable  = rwmb_meta( '_kt_show_breadcrumb' );
+            $show  = rwmb_meta( '_kt_show_breadcrumb' );
         }
         if( $show ){
             ?>

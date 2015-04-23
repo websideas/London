@@ -31,6 +31,7 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
 
 
+        echo '<div class="vc-designer-product-wrapper">';
         echo '<div class="sidebar '.$elementClass.'">';
         the_widget( 'KT_WC_Designer', $atts,  array(
             'before_widget' => '<section  class="widget-container woocommerce widget_designer">',
@@ -39,6 +40,11 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
             'after_title' => '</h3>',
         ) );
         echo '</div>';
+        echo '</div>';
+
+
+        $output = ob_get_clean();
+        return $output;
 
 
     }

@@ -577,7 +577,7 @@
                     }
                 }
             };
-            console.debug( options );
+            //console.debug( options );
             objCarousel.KTowlCarousel(options);
             
         });
