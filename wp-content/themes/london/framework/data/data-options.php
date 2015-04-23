@@ -1301,7 +1301,16 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'default'  => 'grid'
                     ),
-
+                    array(
+                        'id'       => 'shop_products_effect',
+                        'type'     => 'select',
+                        'title'    => __( 'Shop product effect', THEME_LANG ),
+                        'options'  => array(
+                            'center' => __('Center', THEME_LANG ),
+                            'bottom' => __('Bottom', THEME_LANG )
+                        ),
+                        'default'  => 'center'
+                    ),
                     array(
                         'id'       => 'loop_shop_per_page',
                         'type'     => 'text',

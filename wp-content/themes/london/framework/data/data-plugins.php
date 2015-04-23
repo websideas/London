@@ -67,26 +67,12 @@ function kt_register_plugins() {
             'slug' => 'contact-form-7',
             'required' => false,
         ),
-<<<<<<< HEAD
         array(
             'name' => 'WooCommerce Products filter',
             'slug' => 'kt-woocommerce-products-filter',
             'source'  => THEME_DIR . 'recommend-plugins/kt-woocommerce-products-filter.zip', // The plugin source
             'required' => false,
-        ),
-        array(
-            'name'      => 'Black Studio TinyMCE Widget',
-            'slug'      => 'black-studio-tinymce-widget',
-            'required'  => false,
-        ),
-        array(
-            'name' => 'Regenerate Thumbnails',
-            'slug' => 'regenerate-thumbnails',
-            'required' => false,
-        ),
-=======
-        
->>>>>>> origin/master
+        )
     );
   
     // Change this to your theme text domain, used for internationalising strings

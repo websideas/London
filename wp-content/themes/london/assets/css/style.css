@@ -1696,7 +1696,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     position: relative;
 }
 .shopping_cart > a:after{
-    bottom: -5px;
+    bottom: 1px;
     content: "\e805";
     font-family:fontkite;
     display: none;
@@ -1704,7 +1704,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     left: 12px;
     position: absolute;
     width: 10px;
-    font-size:10px;
+    font-size:9px;
     height: 8px;
     color:#ccc;
 }
@@ -1873,7 +1873,7 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     padding: 0px 15px 0px 38px;
 }
 .header-layout1 .shopping_cart > a:before{
-    left:2px;
+    left:8px;
 }
 .header-layout1 .shopping_cart > a > .cart-content-text{
     display: none;

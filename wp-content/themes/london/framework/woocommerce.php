@@ -287,6 +287,10 @@ function woocommerce_product_loop_start_callback($classes){
         $products_layout = kt_option('shop_products_layout', 'grid');
         $classes .= ' '.$products_layout;
     }
+    
+    $effect = kt_option('shop_products_effect', 'center');
+    $classes .= ' effect-'.$effect;
+    
     return $classes;
 }
 add_filter( 'woocommerce_gridlist_toggle', 'woocommerce_gridlist_toggle_callback' );
@@ -321,7 +325,7 @@ function woocommerce_single_product_carousel_callback( $columns ) {
 }
 
 /**
- * Change hook of archive-product.php
+ * Add functional-buttons for archive-product.php
  * 
  */
 function woocommerce_shop_loop_item_action_action_add(){
@@ -337,10 +341,22 @@ function woocommerce_shop_loop_item_action_action_add(){
 }
 
 /**
+ * Add functional-buttons for effect bottom
+ * 
+ */
+function woocommerce_shop_loop_item_tools_bottom_functional(){
+    if(class_exists('YITH_WCWL_UI')){
+        echo do_shortcode('[yith_wcwl_add_to_wishlist]');    
+    }
+    if(defined( 'YITH_WOOCOMPARE' )){
+        echo do_shortcode('[yith_compare_button]');
+    }
+}
+
+/**
  * Change hook of archive-product.php
  * 
  */
-
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 add_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20);
 
@@ -358,13 +374,12 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_ad
 
 add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_rating', 5);
 add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_single_excerpt', 7);
-
 add_action( 'woocommerce_shop_loop_item_image', 'woocommerce_template_loop_product_thumbnail', 5);
-add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_template_loop_add_to_cart', 5);
 
-add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_template_loop_price', 5);
-add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_template_loop_add_to_cart', 10);
-add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_shop_loop_item_action_action_add', 15);
+add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_template_loop_price', 10);
+add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_template_loop_add_to_cart', 15);
+add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_shop_loop_item_action_action_add', 20);
+
 
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 20);
@@ -372,7 +387,51 @@ add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
 add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_show_product_loop_sale_flash', 10);
 
-add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_shop_loop_item_action_action_add', 10);
+
+
+
+
+
+$effect = kt_option('shop_products_effect', 'center');
+if($effect == 'center'){
+    add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_shop_loop_item_action_action_add', 10);
+    add_action( 'woocommerce_shop_loop_item_after_image', 'woocommerce_template_loop_add_to_cart', 5);    
+}else{
+    add_action( 'woocommerce_shop_loop_item_after_image', 'kt_woocommerce_shop_loop_item_quickview', 10);
+    add_action( 'woocommerce_shop_loop_item_tools_bottom', 'woocommerce_template_loop_rating', 10);
+    add_action( 'woocommerce_shop_loop_item_tools_bottom', 'woocommerce_template_loop_add_to_cart', 15);
+    add_action( 'woocommerce_shop_loop_item_tools_bottom', 'woocommerce_shop_loop_item_tools_bottom_functional', 20);
+    
+}
+
+
+function kt_woocommerce_shop_loop_item_quickview(){
+    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span>'.__('Quick view', THEME_LANG).'</span><i class="fa fa-spinner fa-spin"></i></a>';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 add_action( 'woocommerce_after_shop_loop_item_sale', 'woocommerce_after_shop_loop_item_sale_sale_price', 10, 2);
