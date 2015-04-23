@@ -98,10 +98,13 @@ if ( ! class_exists( 'RWMB_RevSlider_Field' )){
             $options[''] = __('Select Option', THEME_LANG);
             
             if ( class_exists( 'RevSlider' ) ) {
-                $slider = new RevSlider();
-                $arrSliders = $slider->getArrSlidersShort();
-                foreach ( $arrSliders as $key => $entry ) {
-                    $options[$key] = $entry;
+                $revSlider = new RevSlider();
+                $arrSliders = $revSlider->getArrSliders();
+                
+                if(!empty($arrSliders)){
+					foreach($arrSliders as $slider){
+					   $options[$slider->getParam("alias")] = $slider->getParam("title");
+					}
                 }
             }
 
