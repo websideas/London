@@ -49,7 +49,7 @@
                                 $max_height = $woof_settings['tax_block_height'][$key];
                             }
                             ?>
-                            <input type="text" name="woof_settings[tax_block_height][<?php echo $key ?>]" placeholder="<?php _e('Max height of  the block', 'woocommerce-products-filter') ?>" value="<?php echo $max_height ?>" />&nbsp;<img class="help_tip" data-tip="<?php _e('Max-height (px). Works if the taxonomy view is radio or checkbox. 0 means no max-height.', 'woocommerce-products-filter') ?>" src="<?php echo WP_PLUGIN_URL ?>/woocommerce/assets/images/help.png" height="16" width="16" />&nbsp;
+                            <input type="text" name="woof_settings[tax_block_height][<?php echo $key ?>]" placeholder="<?php _e('Max height of  the block', 'woocommerce-products-filter') ?>" value="<?php echo $max_height ?>" />&nbsp;<img class="help_tip" data-tip="<?php _e('Max-height (px). Works if the taxonomy view is radio or checkbox. 0 means no max-height, -1 to hide option by default.', 'woocommerce-products-filter') ?>" src="<?php echo WP_PLUGIN_URL ?>/woocommerce/assets/images/help.png" height="16" width="16" />&nbsp;
                             <input <?php echo(@in_array($key, @array_keys($this->settings['tax'])) ? 'checked="checked"' : '') ?> type="checkbox" name="woof_settings[tax][<?php echo $key ?>]" value="1" />&nbsp;
                             <?php echo $tax->labels->name ?>&nbsp;
                         </li>

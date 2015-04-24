@@ -35,10 +35,8 @@
       <file leaf-file-name="framework-core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/js/framework-core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="56" selection-start="1276" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1771">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="40" column="56" selection-start="1276" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="920" max-vertical-offset="1771">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,28 +53,25 @@
       <file leaf-file-name="woof.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="262" column="9" selection-start="10671" selection-end="10671" vertical-scroll-proportion="-42.46154" vertical-offset="4922" max-vertical-offset="6279">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#10061#10668#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin_options.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="68" selection-start="398" selection-end="398" vertical-scroll-proportion="-5.3076925" vertical-offset="0" max-vertical-offset="2024">
+            <state line="262" column="9" selection-start="10671" selection-end="10671" vertical-scroll-proportion="0.0" vertical-offset="4922" max-vertical-offset="6279">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="front.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="plugin_options.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="362" selection-start="3435" selection-end="3435" vertical-scroll-proportion="0.7382716" vertical-offset="276" max-vertical-offset="2024">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="front.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/css/front.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="90" selection-start="198" selection-end="198" vertical-scroll-proportion="0.09170654" vertical-offset="0" max-vertical-offset="3979">
+            <state line="3" column="37" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3979">
               <folding />
             </state>
           </provider>
@@ -85,7 +80,7 @@
       <file leaf-file-name="pagination.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/pagination.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="828">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966">
               <folding>
                 <marker date="1428457567000" expanded="true" signature="336:996" placeholder="..." />
               </folding>
@@ -96,7 +91,7 @@
       <file leaf-file-name="woocommerce.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="28" selection-start="886" selection-end="886" vertical-scroll-proportion="-20.346153" vertical-offset="0" max-vertical-offset="1150">
+            <state line="33" column="28" selection-start="886" selection-end="886" vertical-scroll-proportion="0.0" vertical-offset="759" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -105,10 +100,8 @@
       <file leaf-file-name="loop-start.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/loop-start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="71" selection-start="181" selection-end="211" vertical-scroll-proportion="-8.846154" vertical-offset="0" max-vertical-offset="368">
-              <folding>
-                <element signature="e#6#118#0" expanded="true" />
-              </folding>
+            <state line="10" column="71" selection-start="181" selection-end="211" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="368">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,7 +109,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="426" column="44" selection-start="15635" selection-end="15635" vertical-scroll-proportion="-23.884615" vertical-offset="9016" max-vertical-offset="16698">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="337.92307" vertical-offset="8786" max-vertical-offset="16698">
               <folding />
             </state>
           </provider>
@@ -125,7 +118,7 @@
       <file leaf-file-name="helper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="22" selection-start="5636" selection-end="5636" vertical-scroll-proportion="-39.26923" vertical-offset="2820" max-vertical-offset="4048">
+            <state line="167" column="22" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="3841" max-vertical-offset="4048">
               <folding />
             </state>
           </provider>
@@ -134,7 +127,7 @@
       <file leaf-file-name="woocommerce.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/woocommerce.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="575" column="13" selection-start="20687" selection-end="20687" vertical-scroll-proportion="-4.3846154" vertical-offset="13111" max-vertical-offset="14559">
+            <state line="575" column="13" selection-start="20687" selection-end="20687" vertical-scroll-proportion="0.0" vertical-offset="13225" max-vertical-offset="14559">
               <folding />
             </state>
           </provider>
@@ -205,11 +198,11 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/helper.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/js/front.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/css/front.css" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php" />
       </list>
     </option>
   </component>
@@ -1117,7 +1110,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25178713" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22517872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22676727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1230,16 +1223,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/widget_testimonials.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="23" selection-start="6624" selection-end="6682" vertical-scroll-proportion="0.85016286" vertical-offset="2797" max-vertical-offset="4025">
-          <folding />
-        </state>
+        <state line="167" column="23" selection-start="6624" selection-end="6682" vertical-scroll-proportion="0.85016286" vertical-offset="2797" max-vertical-offset="4025" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="10" selection-start="3387" selection-end="3387" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="2967">
-          <folding />
-        </state>
+        <state line="68" column="10" selection-start="3387" selection-end="3387" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="2967" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/extensions/ReduxCore/framework.php">
@@ -1269,9 +1258,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="0" selection-start="3930" selection-end="3930" vertical-scroll-proportion="0.0" vertical-offset="3933" max-vertical-offset="6049">
-          <folding />
-        </state>
+        <state line="171" column="0" selection-start="3930" selection-end="3930" vertical-scroll-proportion="0.0" vertical-offset="3933" max-vertical-offset="6049" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.countdown.min.js">
@@ -1281,51 +1268,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="21" selection-start="5275" selection-end="5287" vertical-scroll-proportion="0.0" vertical-offset="3220" max-vertical-offset="5796">
-          <folding />
-        </state>
+        <state line="140" column="21" selection-start="5275" selection-end="5287" vertical-scroll-proportion="0.0" vertical-offset="3220" max-vertical-offset="5796" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.countdown.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="3265" selection-end="3275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
-          <folding />
-        </state>
+        <state line="9" column="12" selection-start="3265" selection-end="3275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.magnific-popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="20" selection-start="109" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="47219">
-          <folding />
-        </state>
+        <state line="2" column="20" selection-start="109" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="47219" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/libs/bootstrap/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="25" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="53429">
-          <folding />
-        </state>
+        <state line="1" column="21" selection-start="25" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="53429" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/libs/jqzoom/js/jquery.jqzoom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="3" selection-start="70" selection-end="97" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="16951">
-          <folding />
-        </state>
+        <state line="2" column="3" selection-start="70" selection-end="97" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="16951" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/jquery.superfish.custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="29" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7452">
-          <folding />
-        </state>
+        <state line="4" column="29" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7452" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/libs/owl-carousel/owl.carousel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="6" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34891">
-          <folding />
-        </state>
+        <state line="27" column="6" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34891" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
@@ -1337,23 +1310,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1581" column="40" selection-start="71656" selection-end="71656" vertical-scroll-proportion="-29.384615" vertical-offset="35599" max-vertical-offset="37191">
-          <folding />
-        </state>
+        <state line="1581" column="40" selection-start="71656" selection-end="71656" vertical-scroll-proportion="-29.384615" vertical-offset="35599" max-vertical-offset="37191" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/cart/cart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="18" selection-start="948" selection-end="953" vertical-scroll-proportion="-26.538462" vertical-offset="0" max-vertical-offset="3864">
-          <folding />
-        </state>
+        <state line="36" column="18" selection-start="948" selection-end="953" vertical-scroll-proportion="-26.538462" vertical-offset="0" max-vertical-offset="3864" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-deprecated-functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="9" selection-start="7283" selection-end="7283" vertical-scroll-proportion="-15.884615" vertical-offset="6671" max-vertical-offset="16629">
-          <folding />
-        </state>
+        <state line="317" column="9" selection-start="7283" selection-end="7283" vertical-scroll-proportion="-15.884615" vertical-offset="6671" max-vertical-offset="16629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
@@ -1365,53 +1332,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="34" selection-start="3071" selection-end="3071" vertical-scroll-proportion="-2.3900652" vertical-offset="5373" max-vertical-offset="6601">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/woocommerce.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="575" column="13" selection-start="20687" selection-end="20687" vertical-scroll-proportion="-4.3846154" vertical-offset="13111" max-vertical-offset="14559">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="22" selection-start="5636" selection-end="5636" vertical-scroll-proportion="-39.26923" vertical-offset="2820" max-vertical-offset="4048">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/loop-start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="71" selection-start="181" selection-end="211" vertical-scroll-proportion="-8.846154" vertical-offset="0" max-vertical-offset="368">
-          <folding>
-            <element signature="e#6#118#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="28" selection-start="886" selection-end="886" vertical-scroll-proportion="-20.346153" vertical-offset="0" max-vertical-offset="1150">
-          <folding />
-        </state>
+        <state line="106" column="34" selection-start="3071" selection-end="3071" vertical-scroll-proportion="-2.3900652" vertical-offset="5373" max-vertical-offset="6601" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/yith-woocommerce-wishlist/assets/js/unminified/jquery.yith-wcwl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="43" selection-start="5185" selection-end="5472" vertical-scroll-proportion="0.0" vertical-offset="2733" max-vertical-offset="8372">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js">
@@ -1421,34 +1347,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/pagination.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
-          <folding>
-            <marker date="1428457567000" expanded="true" signature="336:996" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/js/framework-core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="56" selection-start="1276" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1771">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="68" selection-start="398" selection-end="398" vertical-scroll-proportion="-5.3076925" vertical-offset="0" max-vertical-offset="2024">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="426" column="44" selection-start="15635" selection-end="15635" vertical-scroll-proportion="-23.884615" vertical-offset="9016" max-vertical-offset="16698">
           <folding />
         </state>
       </provider>
@@ -1462,17 +1363,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="9" selection-start="10671" selection-end="10671" vertical-scroll-proportion="-42.46154" vertical-offset="4922" max-vertical-offset="6279">
+        <state line="262" column="9" selection-start="10671" selection-end="10671" vertical-scroll-proportion="0.0" vertical-offset="4922" max-vertical-offset="6279">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/pagination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#10061#10668#0" expanded="true" />
+            <marker date="1428457567000" expanded="true" signature="336:996" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="28" selection-start="886" selection-end="886" vertical-scroll-proportion="0.0" vertical-offset="759" max-vertical-offset="1380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/loop-start.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="71" selection-start="181" selection-end="211" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="22" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="3841" max-vertical-offset="4048">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/woocommerce.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="575" column="13" selection-start="20687" selection-end="20687" vertical-scroll-proportion="0.0" vertical-offset="13225" max-vertical-offset="14559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/yith-woocommerce-wishlist/assets/js/unminified/jquery.yith-wcwl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="43" selection-start="5185" selection-end="5472" vertical-scroll-proportion="0.0" vertical-offset="2733" max-vertical-offset="8372">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="337.92307" vertical-offset="8786" max-vertical-offset="16698">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/css/front.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="90" selection-start="198" selection-end="198" vertical-scroll-proportion="0.09170654" vertical-offset="0" max-vertical-offset="3979">
+        <state line="3" column="37" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3979">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/plugin_options.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="362" selection-start="3435" selection-end="3435" vertical-scroll-proportion="0.7382716" vertical-offset="276" max-vertical-offset="2024">
           <folding />
         </state>
       </provider>
