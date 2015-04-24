@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * remove the "Install the WooThemes Updater plugin to get updates" message
+*/
+remove_action( 'admin_notices', 'woothemes_updater_notice' );
+
 
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
