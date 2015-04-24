@@ -416,6 +416,8 @@ final class WOOF
                 ),
                 'desc_tip' => true
             ),
+
+            /*
             array(
                 'name' => __('Dynamic recount', 'woocommerce-products-filter'),
                 'desc' => __('Show count of items near taxonomies terms on the front dynamically. Must be switched on "Show count"', 'woocommerce-products-filter'),
@@ -429,6 +431,7 @@ final class WOOF
                 ),
                 'desc_tip' => true
             ),
+            */
 
             array(
                 'name' => __('Hide empty terms', 'woocommerce-products-filter'),

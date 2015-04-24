@@ -162,3 +162,10 @@ function woof_get_tax_thumb( $term_id = '', $taxonomy_slug  = '', $size = 'thumb
 
     return false;
 }
+
+
+function woof_product_list_classes( $class='' ){
+    return $class.' woof-products';
+}
+
+add_filter('woocommerce_product_loop_start','woof_product_list_classes');

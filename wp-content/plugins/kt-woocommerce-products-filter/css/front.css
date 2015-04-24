@@ -3,6 +3,7 @@
     margin-bottom: 25px;
     border-bottom: 1px solid #CCCCCC;
 }
+.woof_container:last-child { margin-bottom: 0px; padding-bottom: 0px; border-bottom: 0px; }
 
 .woof_container .price_label {
     text-align: left;
@@ -84,7 +85,7 @@ li.woof_childs_list_li{
     position: relative;
     text-align: center;
     background: #ffffff;
-    float: left;margin-top: 2px;
+    float: left;margin-top: 0px;
     overflow: hidden;
 }
 .woof_list_radio .js-check span{
@@ -106,7 +107,7 @@ li.woof_childs_list_li{
     font-size: 12px;
     left: 3px;
     position: absolute;
-    top: -4px;
+    top: -3px;
     color: #666666;
 }
 .js-check.js-checked span.woof-tax-thumb:before {
@@ -148,3 +149,19 @@ li.woof_childs_list_li{
     font-family: "fontawesome";
 }
 .is-max-h .view-full-h { display: block; }
+
+.relative { position: relative; }
+.woof-products-wrap{  min-height: 120px; display: block ;}
+.woof-loading {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid #cccccc;
+    height: 80px;
+    left: 50%;
+    line-height: 75px;
+    margin-left: -30px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    width: 80px;
+    font-size: 40px;
+}

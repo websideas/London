@@ -248,6 +248,7 @@
     </div>
     <?php } ?>
 
+    <?php /* ?>
     <div class="woo_submit_search_form_container">
 
         <?php if (isset($_GET['swoof'])): global $woof_link; ?>
@@ -259,6 +260,7 @@
         <?php endif; ?>
 
     </div>
+    */ ?>
 
 
 </div>

@@ -4,6 +4,7 @@
     <div class="section">
         <h3><?php printf(__('Products Filter Options v.%s', 'woocommerce-currency-switcher'), $this->version) ?></h3>
         <input type="hidden" name="woof_settings" value="" />
+        <input type="hidden" name="woof_show_count_dynamic" value="0">
         <div id="tabs">
             <ul>
                 <li><a href="#tabs-1"><?php _e("Taxonomies", 'woocommerce-currency-switcher') ?></a></li>
