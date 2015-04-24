@@ -112,6 +112,7 @@ function kt_setting_script() {
         ::-webkit-selection{ background:<?php echo $accent; ?>; color: #FFFFFF;}
         ::selection{ background:<?php echo $accent; ?>; color: #FFFFFF;}
 
+        .dropcap-rectangle,
         .button, 
         .btn-default,
         .site-branding .site-logo.logo-circle,
@@ -152,7 +153,10 @@ function kt_setting_script() {
         .header-layout1 .shopping_cart > a,
         #woocommerce-nav-mobile-wrapper,
         #header-content-mobile a,
-        .woocommerce a.remove:hover{
+        .woocommerce a.remove:hover,
+        blockquote, 
+        .blockquote-reverse, 
+        blockquote.pull-right{
             border-color: <?php echo $accent; ?>;
         }
         .tp-bullets .tp-rightarrow.round::after, 

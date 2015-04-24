@@ -3,50 +3,6 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-
-/**
- * Mailchimp callback AJAX request 
- *
- * @since 1.0
- * @return json
- */
-
-function wp_ajax_frontend_mailchimp_callback() {
-    check_ajax_referer( 'ajax_frontend', 'security' );
-    
-    $output = array( 'error'=> 1, 'msg' => __('Error', THEME_LANG));
-    $api_key = kt_option('mailchimp_api');
-    $email = ($_POST['email']) ? $_POST['email'] : '';
-    
-    if ($email) {
-        if(is_email($email)){
-            if ( isset ( $api_key ) && !empty ( $api_key ) ) {
-                $mcapi = new MCAPI($api_key);
-                $opt_in = apply_filters('sanitize_boolean', $_POST['opt_in']);
-                $mcapi->listSubscribe($_POST['list_id'], $email, null, 'html', $opt_in);
-                 if($mcapi->errorCode) {
-                    $output['msg'] = $mcapi->errorMessage;
-                }else{
-                    $output['error'] = 0;
-                }
-            }
-        }else{
-            $output['msg'] = __('Email address seems invalid.', THEME_LANG);
-        }
-    }else{
-        $output['msg'] = __('Email address is required field.', THEME_LANG);
-    }
-    
-    echo json_encode($output);
-    die();
-}
-
-
-add_action( 'wp_ajax_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_callback' );
-add_action( 'wp_ajax_nopriv_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_callback' );
-
-
-
 /**
  * Desinger collection callback AJAX request 
  *

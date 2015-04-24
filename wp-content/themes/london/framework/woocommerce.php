@@ -55,6 +55,8 @@ add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_im
 function custom_woocommerce_placeholder_img_src( $src ) {
 	return THEME_IMG . 'placeholder.png';
 }
+
+
 /**
  * Enable support for woocommerce after setip theme
  * 
@@ -334,7 +336,15 @@ function woocommerce_single_product_carousel_callback( $columns ) {
  * 
  */
 function woocommerce_shop_loop_item_action_action_add(){
-    echo "<div class='functional-buttons'>";
+    $count = 1;
+    if(class_exists('YITH_WCWL_UI')){
+        $count++;
+    }
+    if(defined( 'YITH_WOOCOMPARE' )){
+        $count++;
+    }
+    
+    echo "<div class='functional-buttons functional-button-".$count."'>";
     echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span></span><i class="fa fa-spinner fa-spin"></i></a>';
     if(class_exists('YITH_WCWL_UI')){
         echo do_shortcode('[yith_wcwl_add_to_wishlist]');    

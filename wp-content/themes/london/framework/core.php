@@ -36,11 +36,6 @@ define( 'FW_DATA', trailingslashit( FW_DIR . 'data' ) );
  */
 require_once ( FW_DIR . 'ajax.php' );
 
-/**
- * Get Mailchimp API
- *
- */
-require_once ( FW_CLASS . 'MCAPI.class.php' );
 
 /**
  * Get plugin require for theme

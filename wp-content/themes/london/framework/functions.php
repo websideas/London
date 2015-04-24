@@ -330,7 +330,7 @@ function theme_after_footer_add_popup(){
     
     if( $enable_popup == 1 ){ 
         if(!isset($_COOKIE['kt_popup'])){ ?>
-            <div id="popup-wrap" data-mobile="<?php echo $disable_popup_mobile; ?>" data-timeshow="<?php echo $time_show; ?>">     
+            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo $disable_popup_mobile; ?>" data-timeshow="<?php echo $time_show; ?>">     
                 <div class="white-popup-block">
                     <?php echo do_shortcode($content_popup); ?>
                 </div>
@@ -400,4 +400,12 @@ function kt_search_form(){
 }
 
 
-
+/**
+ * Change separator of breadcrumb
+ * 
+ */
+function kt_breadcrumb_trail_args( $args ){
+    $args['separator'] = "<i></i>";
+    return $args;
+}
+add_filter('breadcrumb_trail_args', 'kt_breadcrumb_trail_args');

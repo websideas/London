@@ -29,7 +29,6 @@
         init_popup();
         init_carousel();
         init_backtotop();
-        init_mailchimp();
         init_MainMenu();
         init_MobileMenu();
         init_ProductQuickView();
@@ -187,40 +186,6 @@
         
     }
     
-    /* ---------------------------------------------
-     Mailchimp
-     --------------------------------------------- */
-    function init_mailchimp(){
-        $('.mailchimp-form').submit(function(e){
-            e.preventDefault();
-            var $mForm = $(this),
-                $button = $mForm.find('.mailchimp-submit'),
-                $error = $mForm.find('.mailchimp-error').fadeOut(),
-                $success = $mForm.find('.mailchimp-success').fadeOut();
-            
-            $button.addClass('loading').html($button.data('loading'));
-            
-            var data = {
-                action: 'frontend_mailchimp',
-                security : ajax_frontend.security,
-                email: $mForm.find('input[name=email]').val(),
-                list_id: $mForm.find('input[name=list_id]').val(),
-                opt_in: $mForm.find('input[name=opt_in]').val()
-            };
-            
-            $.post(ajax_frontend.ajaxurl, data, function(response) {
-                $button.removeClass('loading').html($button.data('text'));
-                
-                if(response.error == '1'){
-                    $error.html(response.msg).fadeIn();
-                }else{
-                    $success.fadeIn();
-                }
-            });
-        });
-    }
-
-
     /* ---------------------------------------------
      Woo categories products
      --------------------------------------------- */

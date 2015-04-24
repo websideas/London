@@ -1227,26 +1227,6 @@ if ( ! class_exists( 'KT_config' ) ) {
             );
             
             /**
-			 *	Mailchimp
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'mailchimp',
-				'title'			=> __( 'Mailchimp', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_mail',
-				'icon'			=> '',
-				'fields'		=> array(
-                    array(
-                        'id' => 'mailchimp_api',
-                        'type' => 'text',
-                        'title' => __('Mailchimp API KEY', THEME_LANG), 
-                        'subtitle' => __('To use mailchimp newsletter subscribe widget you have to enter your API KEY', THEME_LANG),
-                        'default' => ''
-                    ),
-                )
-            );
-            
-            /**
 			 *	Woocommerce
 			 **/
 			$this->sections[] = array(
@@ -1326,7 +1306,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                             '2' => 2,
                             '3' => 3,
                             '4' => 4,
-                            '6' => 6,
                         ),
                         'default'  => 3,
                     ),
