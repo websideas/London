@@ -104,7 +104,7 @@ function kt_setting_script() {
      */
      
     ?>
-    <style type="text/css">
+    <style id="kt-theme-custom-css" type="text/css">
         <?php echo $advanced_css; ?>
         <?php if( $accent !='' ){ ?>
 

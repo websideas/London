@@ -151,18 +151,18 @@ function woocommerce_get_cart(){
     if ( kt_is_wc() ) {
         // Put your plugin code here
         global $woocommerce;
-        $cart_total = $woocommerce->cart->get_cart_total();
-		$cart_count = $woocommerce->cart->cart_contents_count;
+        $cart_total = WC()->cart->get_cart_total();
+		$cart_count = WC()->cart->cart_contents_count;
         
         $output .= '<div class="shopping_cart">';
-            $output .= '<a class="cart-contents" href="'.$woocommerce->cart->get_cart_url().'" title="'.__("View my shopping cart", THEME_LANG).'"><span class="cart-content-text">'.__('My Cart', THEME_LANG).'</span><span class="cart-content-total">'.$cart_total.'</span></a>';
+            $output .= '<a class="cart-contents" href="'.WC()->cart->get_cart_url().'" title="'.__("View my shopping cart", THEME_LANG).'"><span class="cart-content-text">'.__('My Cart', THEME_LANG).'</span><span class="cart-content-total">'.$cart_total.'</span></a>';
             
             $output .= '<div class="shopping-bag">';
             $output .= '<div class="shopping-bag-wrapper mCustomScrollbar">';
             $output .= '<div class="shopping-bag-content">';
-                if ( sizeof($woocommerce->cart->cart_contents)>0 ) {
+                if ( sizeof(WC()->cart->cart_contents)>0 ) {
                     $output .= '<div class="bag-products">';
-                    foreach ($woocommerce->cart->cart_contents as $cart_item_key => $cart_item) {
+                    foreach (WC()->cart->cart_contents as $cart_item_key => $cart_item) {
                         $bag_product = $cart_item['data']; 
                         
                         if ($bag_product->exists() && $cart_item['quantity']>0) {
@@ -170,11 +170,11 @@ function woocommerce_get_cart(){
         					$output .= '<figure><a class="bag-product-img" href="'.get_permalink($cart_item['product_id']).'">'.$bag_product->get_image().'</a></figure>';                      
         					$output .= '<div class="bag-product-details">';
             					$output .= '<div class="bag-product-title"><a href="'.get_permalink($cart_item['product_id']).'">' . apply_filters('woocommerce_cart_widget_product_title', $bag_product->get_title(), $bag_product) . '</a></div>';
-            					$output .= '<div class="bag-product-price">'.woocommerce_price($bag_product->get_price()).'</div>';
+            					$output .= '<div class="bag-product-price">'.wc_price($bag_product->get_price()).'</div>';
                                 $output .= '<div class="bag-product-qty">'.__('Qty: ', THEME_LANG).$cart_item['quantity'].'</div>';
                                 
         					$output .= '</div>';
-        					$output .= apply_filters( 'woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s"></a>', esc_url( $woocommerce->cart->get_remove_url( $cart_item_key ) ), __('Remove this item', 'woocommerce') ), $cart_item_key );
+        					$output .= apply_filters( 'woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s"></a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __('Remove this item', 'woocommerce') ), $cart_item_key );
         					
         					$output .= '</div>';
                         }
@@ -187,8 +187,8 @@ function woocommerce_get_cart(){
                 $output .= '<div class="bag-total">'.__('Cart subtotal: ', THEME_LANG).$cart_total.'</div><!-- .bag-total -->';
                 
                 $output .= '<div class="bag-buttons clearfix">';
-                    $output .= '<a href="'.esc_url( $woocommerce->cart->get_cart_url() ).'" class="btn btn-default btn-round pull-left">'.__('View cart', THEME_LANG).'</a>';
-                    $output .= '<a href="'.esc_url( $woocommerce->cart->get_checkout_url() ).'" class="btn btn-default btn-round pull-left">'.__('Checkout', THEME_LANG).'</a>';
+                    $output .= '<a href="'.esc_url( WC()->cart->get_cart_url() ).'" class="btn btn-default btn-round pull-left">'.__('View cart', THEME_LANG).'</a>';
+                    $output .= '<a href="'.esc_url( WC()->cart->get_checkout_url() ).'" class="btn btn-default btn-round pull-left">'.__('Checkout', THEME_LANG).'</a>';
                 $output .= '</div><!-- .bag-buttons -->';
             
             $output .= '</div><!-- .shopping-bag-content -->';
