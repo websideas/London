@@ -40,8 +40,9 @@ final class WOOF
                 add_filter("woocommerce_taxonomy_args_pa_{$att->attribute_name}", array($this, 'change_woo_att_data'));
             }
         }
-        //add_filter("woocommerce_taxonomy_args_pa_color", array($this, 'change_woo_att_data'));
+
     }
+
 
     public function init()
     {
@@ -107,6 +108,31 @@ final class WOOF
     {
         if ($wp_query->is_main_query())
         {
+
+            if ( isset( $_GET['max_price'] ) || isset( $_GET['min_price'] ) ) {
+
+                $min              = isset( $_GET['min_price'] ) ? floatval( $_GET['min_price'] ) : 0;
+                $max              = isset( $_GET['max_price'] ) ? floatval( $_GET['max_price'] ) : 9999999999;
+
+                $wp_query->is_post_type_archive = true;
+                $wp_query->is_tax = false;
+                $wp_query->is_tag = false;
+                $wp_query->is_home = false;
+                $wp_query->is_single = false;
+                $wp_query->is_posts_page = false;
+
+                $wp_query->set('meta_query', array(
+                    'relation' => 'AND',
+                        array(
+                            'key' => '_price',
+                            'type'    => 'numeric',
+                            'value' =>  array($min,  $max ),
+                            'compare' => 'BETWEEN'
+                        )
+                    )
+                );
+            }
+
             if (isset($_REQUEST['swoof']))
             {
                 $wp_query->set('post_type', 'product');
@@ -145,7 +171,10 @@ final class WOOF
                     }
                 }
             }
+
+         //var_dump( $wp_query );
         }
+
 
         return $wp_query;
     }

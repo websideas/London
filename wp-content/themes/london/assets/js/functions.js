@@ -52,6 +52,13 @@
             });
         }
 
+        jQuery( 'body' ).on( 'woof_products_added', function(){
+            init_gridlistToggle();
+            jQuery('form.woocommerce-ordering .orderby').on('change', function(){
+                jQuery(this).parents('form').submit();
+            });
+        } );
+
 
     });
     

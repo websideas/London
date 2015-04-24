@@ -2,7 +2,6 @@
 <div class="woof">
 
     <?php
-
     global $_chosen_attributes, $wpdb, $wp;
 
     $woof_hide_price_filter = (int) get_option('woof_hide_price_filter');

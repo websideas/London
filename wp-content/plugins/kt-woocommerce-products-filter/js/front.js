@@ -140,22 +140,8 @@ jQuery(function () {
             },
             success: function( response ) {
                 var response=  jQuery( response );
-                var products =  jQuery( products_selector , response).html();
-                jQuery( products_selector).html(  products );
-                // woocommerce-pagination
-                var pagination =  jQuery('.woocommerce-pagination', response).html();
-                if( pagination === undefined ){
-                    pagination ='';
-                }
-                jQuery('.woocommerce-pagination').html(pagination);
-
-                var count =  jQuery('.woocommerce-result-count', response).html();
-                jQuery('.woocommerce-result-count').html(count);
-
-                var order = jQuery('.woocommerce-ordering input:hidden', response );
-                jQuery('.woocommerce-ordering input:hidden').remove();
-                jQuery('.woocommerce-ordering').append( order );
-
+                
+                jQuery('#main').html( jQuery('#main', response).html() );
                 jQuery( 'body' ).trigger( 'woof_products_added' );
 
             }
@@ -164,8 +150,9 @@ jQuery(function () {
 
     });
 
-
-
+    if( containers.length > 0 ){
+        jQuery( 'body' ).trigger( 'woof_changed' );
+    }
 
     jQuery('.woof  .iw  label  input:checkbox, .woof  li  label  input:radio').each(function(){
         var p = jQuery(this).parents('.iw');
@@ -183,7 +170,6 @@ jQuery(function () {
         }
 
     });
-
 
     jQuery('.woof  .iw  label  input:checkbox').click(function(){
         if( jQuery(this).is(':checked') ){
