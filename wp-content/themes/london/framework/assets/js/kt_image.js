@@ -15,7 +15,7 @@
             var $button = $( this ),
                 $widget = $button.closest('.widget-content'),
                 $preview = $widget.find('.kt_image_preview'),
-                $preview_img = $preview.find('.kt_image_preview_img'),
+                $preview_img = $preview.find('img'),
                 $attachment = $widget.find('.kt_image_attachment'),
                 frame,
                 frameOptions = {

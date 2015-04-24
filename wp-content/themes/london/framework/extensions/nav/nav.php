@@ -30,7 +30,7 @@ if( ! class_exists( 'KT_MEGAMENU' ) ) {
     	 */
     	function __construct() {
     		
-            $this->custom_fields = array( 'icon', 'enable', 'width', 'columntitle', 'columnlink', 'position', 'columns', 'widget', 'clwidth', 'endrow', 'layout');
+            $this->custom_fields = array( 'icon', 'enable', 'width', 'columntitle', 'columnlink', 'position', 'columns', 'widget', 'clwidth', 'endrow', 'layout', 'image');
             
     		// add custom menu fields to menu
     		add_filter( 'wp_setup_nav_menu_item', array( $this, 'kt_add_custom_nav_fields' ) );

@@ -135,7 +135,11 @@ function kt_setting_script() {
         .widget_tag_cloud a:hover{
             background-color: <?php echo $accent; ?>;
         }
-        .woocommerce .functional-buttons .compare-button .blockUI.blockOverlay{
+        .woocommerce ul.products.effect-bottom .product-image-container .product-quick-view{
+            background-color: <?php echo kt_hex2rgba($accent, '0.6') ?>;
+        }
+        .woocommerce .compare-button .blockUI.blockOverlay,
+        .woocommerce .compare-button .blockUI.blockOverlay:before{
             background-color: <?php echo $accent; ?>!important;
         }
         .button, 
@@ -227,6 +231,7 @@ function kt_setting_script() {
         }
 
         .woocommerce span.onsale,
+        .woocommerce ul.products .added_to_cart,
         #backtotop{
             background-color: <?php echo $accent_brighter_b; ?>;
         }
@@ -248,7 +253,11 @@ function kt_setting_script() {
         .woocommerce .functional-buttons .yith-wcwl-add-button a.add_to_wishlist:focus, 
         .woocommerce .functional-buttons .product.compare-button a:focus, 
         .woocommerce .functional-buttons .product-quick-view:focus,
-        table.compare-list .add-to-cart td a:hover{
+        table.compare-list .add-to-cart td a:hover,
+        .woocommerce ul.products.effect-bottom .product-item-tools-bottom .button:hover, 
+        .woocommerce ul.products.effect-bottom .product-item-tools-bottom .yith-wcwl-add-to-wishlist:hover a, 
+        .woocommerce ul.products.effect-bottom .product-item-tools-bottom .compare-button:hover a,
+        .woocommerce ul.products.effect-bottom .product-item-tools-bottom .yith-wcwl-add-button .ajax-loading{
             background-color: <?php echo $accent; ?>;
         }
 

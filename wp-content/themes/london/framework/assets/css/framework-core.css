@@ -108,12 +108,27 @@ input.cmn-toggle-round-flat:checked + label:after {
 ===================================*/
 .kt_image_preview{
     display: none;
+    float: left;
+    margin: 10px 0;
+    position: relative;
     text-align: center;
 }
 .kt_image_preview img{
     padding: 2px;
     border: 1px solid #CCC;
     max-width: 100%;
+}
+.kt_image_preview i{
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 20px;
 }
 
 /*==================================

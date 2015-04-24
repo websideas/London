@@ -73,6 +73,28 @@ function kt_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                     </p>
                 </div>
                 <div class="megamenu-layout-depth-1">
+                    <p class="field-image description description-wide">
+                        <?php
+                            $preview = false;
+                            $img_preview = "";
+                            if($item->image){
+                                $file = get_thumbnail_attachment($item->image, 'full');
+                                $preview = true;
+                                $img_preview = $file['src'];
+                            }
+                        ?>
+                        <label for="menu-item-image-<?php echo $item_id; ?>">
+                            <?php _e( 'Menu image', THEME_LANG); ?><br />
+                            <input type="hidden" value="<?php esc_attr_e( $item->image ); ?>" name="menu-item-megamenu-image[<?php echo $item_id; ?>]" id="menu-item-image-<?php echo $item_id; ?>" class="widefat edit-menu-item-image" />
+                        </label>
+                        <span class="clearfix"></span>
+                        <span class="kt_image_preview" style="<?php if($preview){ echo "display: block;";} ?>">
+                            <img src="<?php echo $img_preview; ?>" alt="" title="" />
+                            <i class="fa fa-times"></i>
+                        </span>
+                        <span class="clearfix"></span>
+                        <input type="button" class="button-secondary kt_image_menu" value="<?php _e('Upload image', THEME_LANG); ?>" />
+                    </p>
                     <p class="field-clwidth description description-wide">
                         <label for="menu-item-clwidth-<?php echo $item_id; ?>">
                             <?php _e( 'Mega Menu Column Width - Overrides parent colum (in percentage, ex: 30%)', THEME_LANG); ?><br />

@@ -62,6 +62,63 @@
                 console.log('mouseup');
     		}
     	});
+        $( 'body' ).on( 'click', '.kt_image_preview i', function ( e ){
+            var $close = $( this ),
+                $field = $close.closest('.field-image'),
+                $preview = $field.find('.kt_image_preview'),
+                $preview_img = $field.find('img'),
+                $attachment = $field.find('.edit-menu-item-image');
+                
+            $attachment.val('');
+            $preview_img.attr('src', '').attr('alt', '');
+            $preview.hide();
+        });
+        
+        
+        
+        
+        $( 'body' ).on( 'click', '.kt_image_menu', function ( e ){
+            e.preventDefault();
+            
+                
+            var $button = $( this ),
+                $field = $button.closest('.field-image'),
+                $preview = $field.find('.kt_image_preview'),
+                $preview_img = $field.find('img'),
+                $attachment = $field.find('.edit-menu-item-image'),
+                frame,
+                frameOptions = {
+    				className: 'media-frame rwmb-file-frame',
+    				multiple : true,
+    				title    : kt_image_lange.frameTitle
+    			};
+                
+                
+            frame = wp.media( frameOptions );
+            
+            // Open media uploader
+            frame.open();
+            
+            frame.off( 'select' );
+            
+            // When an image is selected in the media frame...
+            frame.on( 'select', function() {
+              
+              // Get media attachment details from the frame state
+              var attachment = frame.state().get('selection').first().toJSON();
+              
+              $attachment.val(attachment.id);
+              
+              $preview_img
+                .attr('src', attachment.url)
+                .attr('alt', attachment.alt);
+                
+              $preview.css( 'display', 'block' );
+              
+              
+            });
+        });
+        
         
         
         

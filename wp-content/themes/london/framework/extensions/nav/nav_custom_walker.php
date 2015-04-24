@@ -368,6 +368,17 @@ class KTMegaWalker extends Walker_Nav_Menu{
         }else{
             $item_output .= '<span>';
         }
+        if(($this->megamenu_enable && $depth == 1)){
+            $image = get_post_meta( $item->ID, '_menu_item_megamenu_image', true );
+            if($image){
+                $file = get_thumbnail_attachment($image, 'full');
+                if($file['src']){
+                    $item_output .= sprintf('<img src="%s" alt="%s" title="%s" class="img-responsive"/>', $file['src'], $file['alt'], $file['title']);
+                }
+            }    
+        }
+        
+        
         
         $icon = get_post_meta( $item->ID, '_menu_item_megamenu_icon', true );
         $icon = ($icon) ? '<i class="icon-menu '.$icon.'"></i>' : '';

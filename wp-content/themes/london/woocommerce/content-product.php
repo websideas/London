@@ -158,5 +158,5 @@ $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' co
         		do_action( 'woocommerce_shop_loop_item_tools' ); 
         	?>
         </div>
-    </div>
+    </div><!-- .product-item-container -->
 </li>
