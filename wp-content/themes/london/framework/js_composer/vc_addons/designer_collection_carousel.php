@@ -9,6 +9,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
             'title' => '',
             'source' => 'all',
             'posts' => '',
+            'layout' => '1',
             'max_items' => 10,
             'num_products' =>  9,
             'css_animation' => '',
@@ -19,6 +20,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
             'tablet' => 2,
             'mobile' => 1,
             'el_class' => '',
+            'theme' => 'style-navigation-bottom',
             'css' => '',
         ), $atts ) );
         
@@ -48,7 +50,8 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
         	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'designer-collection-wrapper ', $this->settings['base'], $atts ),
         	'extra' => $this->getExtraClass( $el_class ),
         	'css_animation' => $this->getCSSAnimation( $css_animation ),
-            'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
+            'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' ),
+            'layout' => 'layout-collection-'.$layout
         );
         
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
@@ -57,36 +60,26 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
 
         $output = '';
         $output .= '<div class="'.esc_attr( $elementClass ).'">';
-            $heading_class = apply_filters('js_composer_heading', 'block-heading designer-collection-carousel-heading');
-            $heading_class = apply_filters('designer_collection_carousel_heading', $heading_class);
-            $output .= ($title) ? '<h3 class="'.esc_attr($heading_class).'">'.$title.'</h3>' : '';
-
+            
             $designer_ids  = array();
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) {
-
                 $output .= '<div class="row">';
-                    $output .= '<div class="col-md-3 col-sm-3 col-xs-12 designer-collection-carousel">';
+                    $layout = ($layout == 1) ? array('3', '9') : array('4', '8');
+                    $output .= '<div class="col-md-'.$layout[0].' col-sm-'.$layout[0].' designer-collection-border"></div>';
+                    $output .= '<div class="col-md-'.$layout[0].' col-sm-'.$layout[0].' col-xs-12 col-xs-height designer-collection-carousel">';
+                        $output .= '<div class="designer-collection-content">';
+                        $output .= ($title) ? '<h3>'.$title.'</h3>' : '';
                         $output .= '<div class="owl-carousel-wrapper">';
                             $output .= '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_carousel_cb" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
-
                                 while ( $query->have_posts() ) : $query->the_post();
 
                                     $designer_ids[] =  get_the_ID();
 
-                                    $output .= '<div class="designer-collection-item">';
+                                    $output .= '<div class="designer-collection-item" data-id="'.get_the_ID().'">';
                                         if(has_post_thumbnail()){
-                                            $designer_image = get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
-                                        }else{
-                                            $designer_image = apply_filters('designer_placeholder', '<img src="'.THEME_IMG.'desingner-placeholder.png" alt="">');
+                                            $output .= get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
                                         }
-                                        $output .= sprintf(
-                                                        '<a href="#" title="%s" class="designer-collection-link" data-id="%s">%s%s</a>',
-                                                        __('Click on image to load products of the collection', THEME_LANG),
-                                                        get_the_ID(),
-                                                        $designer_image,
-                                                        '<span><i class="fa fa-spinner fa-spin"></i></span>'
-                                                    );                                        
                                         $output .= sprintf(
                                                         '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
                                                         get_the_title(),
@@ -100,13 +93,15 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                             $output .= '</div><!-- .owl-carousel.kt-owl-carousel -->';
                         $output .= '</div><!-- .owl-carousel-wrapper -->';
                     $output .= '</div><!--.designer-collection-carousel -->';
+                    $output .= '</div><!-- .designer-collection-content -->';
                     
-                    
-                    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ){
+                    if ( kt_is_wc() ){
 
                         /// ------
-                        $output .= '<div id="'.$id.'-products" class="col-md-9 col-sm-9 col-xs-12 designer-collection-woocommerce">';
-
+                        $output .= '<div id="'.$id.'-products" class="col-md-'.$layout[1].' col-sm-'.$layout[1].' col-xs-12 col-xs-height designer-collection-woocommerce">';
+                        $output .= '<div class="designer-collection-content">';
+                        $output .= ($title) ? '<h3>&nbsp;</h3>' : '';
+                        
                         foreach( $designer_ids as $designer_id ){
                             $output .= '<div class="designer-products designer-id-'.$designer_id.'">';
 
@@ -130,7 +125,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                 
                                 if ( $products->have_posts() ) :
                                         $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
-                                        $output .= '<div class="woocommerce-carousel-wrapper" data-theme="carousel-heading-top style-navigation-bottom" data-itemscustom="'.$itemscustom.'">';
+                                        $output .= '<div class="woocommerce-carousel-wrapper" data-theme="'.$theme.'" data-itemscustom="'.$itemscustom.'">';
                                             ob_start();
                                             woocommerce_product_loop_start();
                                             while ( $products->have_posts() ) : $products->the_post();
@@ -144,12 +139,10 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
 
                             $output .= '</div><!--.designer-products -->';
                         }// end loop designers
-
+                        $output .= '</div><!-- .designer-collection-content -->';
                         $output .= '</div><!--.designer-collection-woocommerce -->';
                     }
 
-                     // ----
-                    
                 $output .= '</div><!-- .row -->';
             } else{
 
@@ -173,6 +166,15 @@ vc_map( array(
             "heading" => __( "Title", THEME_LANG ),
             "param_name" => "title",
             "admin_label" => true,
+        ),
+        array(
+            "type" => "dropdown",
+        	"heading" => __("Collection Layout", THEME_LANG),
+        	"param_name" => "layout",
+        	"value" => array(
+                __('Layout 1 - 1/4 + 3/4', THEME_LANG) => '1',
+                __('Layout 2 - 1/3 + 2/3', THEME_LANG) => '2',
+        	),
         ),
         array(
             "type" => "dropdown",
@@ -212,12 +214,21 @@ vc_map( array(
             'param_holder_class' => 'vc_not-for-custom',
             'description' => __( 'Set max limit for items or enter -1 to display all (limited to 1000).', 'js_composer' )
         ),
-
+        array(
+    		'type' => 'dropdown',
+    		'heading' => __( 'Products Carousel Theme',THEME_LANG ),
+    		'param_name' => 'theme',
+    		'value' => array(
+    			__( 'Navigation Center', THEME_LANG ) => 'style-navigation-center',
+                __( 'Navigation Bottom', THEME_LANG ) => 'style-navigation-bottom',
+    		),
+            'std' => 'style-navigation-bottom',
+            'description' => __( 'Please your theme for carousel', THEME_LANG )
+    	),
         array(
             "type" => "kt_heading",
             "heading" => __("Product Items to Show?", THEME_LANG),
-            "param_name" => "items_show",
-            "value" => "6",
+            "param_name" => "items_show"
         ),
         array(
 			"type" => "kt_number",

@@ -408,7 +408,7 @@
     			navigationText: false,
                 slideSpeed: wooSlideSpeed,
     			pagination: wooPagination,
-                afterInit : function(elem){ 
+                afterInit : function(elem){
                     if(wooCarouselTheme == 'style-navigation-top'){
                         var that = this;
                         that.owlControls.addClass('carousel-heading-top').prependTo(elem.closest('.carousel-wrapper-top'))
@@ -603,12 +603,12 @@ function designer_carousel_cb( _type, elem ){
     var pwid=  jQuery('#'+id+'-products');
 
     if( _type === 'afterInit' ){
-        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-link').data('id');
+        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-item').data('id');
         jQuery('.designer-products', pwid).not( jQuery(  '.designer-id-'+id_designer , pwid)  ) .hide();
     }
 
     if( _type === 'afterUpdate' ){
-        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-link').data('id');
+        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-collection-item').data('id');
         pwid.css({
             'height': pwid.height()+'px',
             'overflow': 'hidden',
