@@ -86,6 +86,26 @@ if ( function_exists('register_sidebar')) {
 
 }
 
+/**
+ * This code filters the categories widget to include the post count inside the link
+ */
+add_filter('wp_list_categories', 'kt_cat_count_span');
+function kt_cat_count_span($links) {
+    $links = str_replace('</a> (', ' (', $links);
+    $links = str_replace(')', ')</a>', $links);
+    return $links;
+}
+
+/**
+ * This code filters the Archive widget to include the post count inside the link
+ */
+add_filter('get_archives_link', 'kt_archive_count_span');
+function kt_archive_count_span($links) {
+    $links = str_replace('</a>&nbsp;(', ' (', $links);
+    $links = str_replace(')', ')</a>', $links);
+    return $links;
+}
+
 
 /**
  * Include widgets.

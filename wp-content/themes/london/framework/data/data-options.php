@@ -107,7 +107,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     // Force your panel to always open to a specific tab (by id)
                     'page_icon'            => 'icon-themes',
                     // Icon displayed in the admin panel next to your menu_title
-                    'page_slug'            => 'kitethemes_options',
+                    'page_slug'            => 'theme_options',
                     // Page slug used to denote the panel
                     'save_defaults'        => true,
                     // On load save the defaults to DB before user clicks save or not
