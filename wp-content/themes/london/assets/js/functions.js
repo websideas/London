@@ -629,12 +629,13 @@ function designer_widget_cb( _type, elem ){
     var pwid=  jQuery('#widget-'+id );
 
     if( _type === 'afterInit' ){
-        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-items-ins').data('did');
+        var id_designer =  jQuery('.owl-item.active', elem ).eq(0).find('.designer-items-ins').data('did');
         jQuery('div', pwid).not( jQuery(  '.designer-id-'+id_designer , pwid)  ) .hide();
+        jQuery(  '.designer-id-'+id_designer , pwid).show();
     }
 
     if( _type === 'afterUpdate' ){
-        var id_designer =  jQuery('.owl-item.active').eq(0).find('.designer-items-ins').data('did');
+        var id_designer =  jQuery('.owl-item.active', elem ).eq(0).find('.designer-items-ins').data('did');
         jQuery('div', pwid).hide(0);
         jQuery(  '.designer-id-'+id_designer , pwid).show(0);
     }

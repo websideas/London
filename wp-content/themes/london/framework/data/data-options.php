@@ -672,7 +672,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'       => 'styling_body_background',
                         'type'     => 'background',
                         'output'   => array( 'body' ),
-                        'title'    => __( 'Body Background', THEME_LANG ),
+                        'title'    => __( 'Body Background for full width mod', THEME_LANG ),
                         'subtitle' => __( 'Body background with image, color, etc.', THEME_LANG ),
                         'default'   => '#FFFFFF'
                     ),
@@ -680,7 +680,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'       => 'styling_boxed_background',
                         'type'     => 'background',
                         'output'   => array( 'body.layout-boxed #page' ),
-                        'title'    => __( 'Boxed Background', THEME_LANG ),
+                        'title'    => __( 'Boxed Background for boxed mod', THEME_LANG ),
                         'subtitle' => __( 'Body background with image, color, etc.', THEME_LANG ),
                         'default'   => '#'
                     ),
@@ -1488,7 +1488,7 @@ if ( ! class_exists( 'KT_config' ) ) {
             $this->sections[] = array(
                  'id' => 'wbc_importer_section',
                  'title'  => esc_html__( 'Demo Content', 'framework' ),
-                 'desc'   => esc_html__( 'Description Goes Here', 'framework' ),
+                 'desc'   => esc_html__( 'Chose a demo to import', 'framework' ),
                  'icon'   => 'el-icon-website',
                  'fields' => array(
                      array(
