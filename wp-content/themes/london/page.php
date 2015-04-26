@@ -39,7 +39,6 @@ get_header(); ?>
                         <?php
                     }
                 }
-
                 // Include the page content template.
                 get_template_part( 'content', 'page' );
             	?>

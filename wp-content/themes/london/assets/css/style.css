@@ -2354,10 +2354,35 @@ h2.widgettitle a.rsswidget,
 /** ================================================
 SINGLE POST - ENTRY POST
 /** ================================================ */
+.entry-content:after{ clear: both; content: " "; display: block; }
 .single .entry-meta-data { margin-bottom: 20px; }
 .single .entry-thumb img { padding: 10px; border: 1px solid #CCCCCC; width: 100%; }
-
-
+.entry-content .checkbox, .entry-content  .radio { display: inline-block ; margin-right: 5px; }
+.entry-content table {  width: 100%; }
+.entry-content table,  .entry-content table th, .entry-content table td {
+    border-collapse: collapse;
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+}
+.entry-content fieldset {
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+}
+.entry-content legend {
+    margin-bottom: auto;
+    width: auto;
+    border: 0px;
+    margin-left: 15px;
+    padding: 0px 15px;
+    font-size: 16px; font-weight: bold;
+}
+.entry-content input[type="text"],
+.entry-content textarea  {
+    width: 100%;
+}
+.entry-content textarea {
+    min-height: 120px;
+}
 
 /** ================================================
 COMMENTS
@@ -2467,8 +2492,8 @@ a.comment-reply-link {
 .comment-form textarea{
     width: 100%;
 }
-
-
+.comment-form .required { color:  #dd4c0c; }
+.form-allowed-tags { display: none; }
 
 /* 404 PAGE */
 .content-404 { text-align: center ; max-width: 840px; margin: 0px auto 50px; }

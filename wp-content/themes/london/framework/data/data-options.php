@@ -172,7 +172,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 
             $this->sections[] = array(
                 'id' 	=> 'general_layout',
-                'title'  => __( 'Layout', THEME_LANG ),
+                'title'  => __( 'General', THEME_LANG ),
                 'desc'   => __( '', THEME_LANG ),
                 'subsection' => true,
                 'fields' => array(
@@ -200,7 +200,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'default'  => 'right',
                         'clear' => false,
-
                     ),
                     array(
                         'id'       => 'sidebar_left',
@@ -222,6 +221,20 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'required' => array('sidebar','equals','right')
                         //'clear' => false
                     ),
+
+                    array(
+                        'id'       => 'show_page_comment',
+                        'type'     => 'select',
+                        'title'    => __( 'Show comments on page ?', THEME_LANG ),
+                        'options'  => array(
+                            'no' => __('No', THEME_LANG),
+                            'yes' => __('Yes', THEME_LANG),
+                        ),
+                        'default'  => 'no',
+                        'clear' => false,
+                    ),
+
+
                 )
             );
             
