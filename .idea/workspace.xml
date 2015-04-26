@@ -44,7 +44,7 @@
       <file leaf-file-name="front.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/js/front.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="338" column="3" selection-start="11204" selection-end="11204" vertical-scroll-proportion="0.523126" vertical-offset="7118" max-vertical-offset="8395">
+            <state line="281" column="7" selection-start="9546" selection-end="9546" vertical-scroll-proportion="0.6331738" vertical-offset="5669" max-vertical-offset="8579">
               <folding />
             </state>
           </provider>
@@ -1200,7 +1200,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/views/woof.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="9" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="6256" />
+        <state line="3" column="9" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="6256">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/loop/pagination.php">
@@ -1344,7 +1346,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/kt-woocommerce-products-filter/js/front.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="338" column="3" selection-start="11204" selection-end="11204" vertical-scroll-proportion="0.523126" vertical-offset="7118" max-vertical-offset="8395">
+        <state line="281" column="7" selection-start="9546" selection-end="9546" vertical-scroll-proportion="0.6331738" vertical-offset="5669" max-vertical-offset="8579">
           <folding />
         </state>
       </provider>

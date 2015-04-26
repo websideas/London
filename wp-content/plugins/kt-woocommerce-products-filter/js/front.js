@@ -258,11 +258,19 @@ function woof_get_submit_link() {
     woof_current_values = {};
 
     if( jQuery('.woof .min_price').length ){
-        woof_current_values.min_price = jQuery('.woof .min_price').val();
+        var data_min= jQuery('.woof .min_price').data('min');
+        var  min = jQuery('.woof .min_price').val();
+        if( data_min !==  min ){
+            woof_current_values.min_price = min;
+        }
     }
 
     if( jQuery('.woof .max_price').length ){
-        woof_current_values.max_price = jQuery('.woof .max_price').val();
+        var data_max= jQuery('.woof .max_price').data('max');
+        var  max = jQuery('.woof .max_price').val();
+        if( data_max !==  max ){
+           woof_current_values.max_price = max;
+        }
     }
 
     jQuery('.woof_checkbox_instock').each(function () {
@@ -336,7 +344,7 @@ function woof_get_submit_link() {
             }
         });
     }
-   
+
     if (Object.keys(woof_current_values).length === 1) {
         if ('stock' in woof_current_values) {
             //return woof_current_page_link;
