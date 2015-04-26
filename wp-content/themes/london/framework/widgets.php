@@ -80,6 +80,27 @@ if ( function_exists('register_sidebar')) {
             ) );
         }
 
+
+        $sidebars =  kt_option('custom_sidebars');
+        if( !empty( $sidebars ) && is_array( $sidebars ) ){
+            foreach( $sidebars as $sidebar ){
+                $sidebar =  wp_parse_args($sidebar, array('title'=>'','description'=>''));
+                if(  $sidebar['title'] !='' ){
+                    $id = sanitize_title( $sidebar['title'] );
+                    register_sidebar( array(
+                        'name' => $sidebar['title'],
+                        'id' => $id,
+                        'description' => $sidebar['description'],
+                        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+                        'after_widget' => '</div>',
+                        'before_title' => '<h3 class="widget-title">',
+                        'after_title' => '</h3>',
+                    ) );
+
+                }
+            }
+        }
+
     }
 
     add_action( 'widgets_init', 'kt_register_sidebars' );

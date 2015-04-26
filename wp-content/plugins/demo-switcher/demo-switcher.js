@@ -81,9 +81,10 @@ jQuery(document).ready(  function(){
     }// end function ds_actions
 
 
-    jQuery('head').append("<link id='demo-switcher' rel='stylesheet' href='demo-switcher/demo-switcher.css' type='text/css' media='all' />");
+    jQuery('head').append("<link id='demo-switcher' rel='stylesheet' href='"+demo_switcher_url+"/demo-switcher.css' type='text/css' media='all' />");
     jQuery.ajax({
-        url:  'demo-switcher/html.html',
+        url:  demo_switcher_url+'/html.php',
+        data: { url:  demo_switcher_url } ,
         dataType: 'html',
         success: function(  html ){
               jQuery('body').append(html);

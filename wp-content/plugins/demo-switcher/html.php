@@ -1,17 +1,31 @@
+<?php
+
+ $url =  esc_url( $_REQUEST['url'] );
+
+?>
+
 <div class="ds">
     <a href="#" class="ds-toggle"><i class="fa fa-cogs"></i></a>
     <div class="ds-panel">
         <div class="ds-heading">CUSTOMIZE</div>
+
+        <div class="ds-setting">
+            <div class="ds-label">Choose site mod</div>
+            <div class="ds-opt">
+                <a class="ds-site-bg " href="#" data-style="background: url('assets/images/patterns/crissXcross.png') repeat; "  ><img src="demo-switcher/images/patterns/crissXcross.png"></a>
+            </div>
+        </div>
+
         <div class="ds-setting">
             <div class="ds-label">Choose your Color</div>
             <div class="ds-opt">
                 <a class="ds-chang-skin" href="#" title="Default">Default</a>
-                <a class="ds-chang-skin" href="assets/css/skins/green.css" data-bg="#77BE33" title="Green">Green</a>
-                <a class="ds-chang-skin" href="assets/css/skins/pink.css" data-bg="#DE4A4A" title="Pink">Pink</a>
-                <a class="ds-chang-skin" href="assets/css/skins/greyish-blue.css" data-bg="#51758f" title="Greyish-Blue">Greyish-Blue</a>
-                <a class="ds-chang-skin" href="assets/css/skins/blue.css" data-bg="#00acec" title="Blue">Blue</a>
-                <a class="ds-chang-skin" href="assets/css/skins/yellow.css" data-bg="#ffc801" title="Yellow">Yellow</a>
-                <a class="ds-chang-skin" href="assets/css/skins/black.css" data-bg="#3a3a3a" title="Black">Black</a>
+                <a class="ds-chang-skin" href="green.css" data-bg="#77BE33" title="Green">Green</a>
+                <a class="ds-chang-skin" href="pink.css" data-bg="#DE4A4A" title="Pink">Pink</a>
+                <a class="ds-chang-skin" href="greyish-blue.css" data-bg="#51758f" title="Greyish-Blue">Greyish-Blue</a>
+                <a class="ds-chang-skin" href="blue.css" data-bg="#00acec" title="Blue">Blue</a>
+                <a class="ds-chang-skin" href="yellow.css" data-bg="#ffc801" title="Yellow">Yellow</a>
+                <a class="ds-chang-skin" href="black.css" data-bg="#3a3a3a" title="Black">Black</a>
             </div>
         </div>
 

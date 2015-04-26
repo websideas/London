@@ -235,9 +235,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
 
 
+
                 )
             );
-            
+
             /**
 			 *	Logos
 			 **/
@@ -622,6 +623,40 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
                     
                 )
+            );
+
+
+            /**
+             *	Sidebar
+             **/
+            $this->sections[] = array(
+                'id'			=> 'csidebar',
+                'title'			=> __( 'Sidebar Widgets', THEME_LANG ),
+                'desc'			=> '',
+                'subsection' => true,
+                'fields'		=> array(
+
+                    array(
+                        'id'          => 'custom_sidebars',
+                        'type'        => 'slides',
+                        'title'       => __('Slides Options', THEME_LANG ),
+                        'subtitle'    => __('Unlimited sidebar with drag and drop sortings.', THEME_LANG ),
+                        'desc'        => '',
+                        'class'       => 'slider-no-image-preview',
+                        'content_title' =>'Sidebar',
+                        'show' => array(
+                            'title' => true,
+                            'description' => true,
+                            'url' => false,
+                        ),
+                        'placeholder' => array(
+                            'title'           => __('Sidebar title', THEME_LANG ),
+                            'description'     => __('Sidebar Description', THEME_LANG ),
+                        ),
+                    ),
+
+                )
+
             );
             
 
