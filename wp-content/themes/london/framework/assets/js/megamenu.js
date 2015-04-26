@@ -12,7 +12,6 @@
         
         $(document).on('click', "input[name^='menu-item-megamenu-enable']:checkbox", function(){
     		reloadItems();
-            console.log('checkbox');
         });
         
         reloadItems();
@@ -59,7 +58,6 @@
         $( document ).on( 'mouseup', '.menu-item-bar', function( event, ui ) {
     		if( ! $( event.target ).is( 'a' )) {
     			setTimeout( reloadItems, 300 );
-                console.log('mouseup');
     		}
     	});
         $( 'body' ).on( 'click', '.kt_image_preview i', function ( e ){
