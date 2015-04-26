@@ -1,6 +1,7 @@
 <?php
 
  $url =   $_REQUEST['url'] ;
+$home_url =  $_REQUEST['home_url'];
 
 ?>
 
@@ -19,6 +20,15 @@
                 <a class="ds-ver " title="Version 5" href="http://kutethemes.ovicsoft.com/fashion/london-stars5/" data-style="background: url('<?php echo $url; ?>/images/demo-5.jpg') repeat; " ><img src="<?php echo $url; ?>/images/demo-5.jpg"></a>
             </div>
         </div>
+
+        <div class="ds-setting">
+            <div class="ds-label">Header possition</div>
+            <div class="ds-opt">
+                <a class="box-c" href="<?php echo $home_url; ?>" title="Default">Above Slider</a>
+                <a class="box-c" href="<?php echo $home_url; ?>home-header-bottom/" data-bg="#057000" title="Green">Below Slider</a>
+            </div>
+        </div>
+
 
         <div class="ds-setting">
             <div class="ds-label">Choose your Color</div>

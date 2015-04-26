@@ -63,6 +63,8 @@
     width: 72px;
     margin-bottom: 10px;
 }
-.ds .ds-ver:hover {
+.ds .ds-ver:hover, .ds .box-c:hover {
     border-color: #77BE33;
 }
+.ds .box-c { width: 100%; display: block ;  border: 3px solid #CCCCCC; text-transform: uppercase; padding: 4px 10px; text-align: center; margin-bottom: 5px; }
+.ds .box-c:last-child{ margin-bottom: 0px; }

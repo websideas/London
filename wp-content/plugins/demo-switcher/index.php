@@ -4,8 +4,8 @@
  * Plugin URI:
  * Description: London demo switcher
  * Version: 1
- * Author: WooThemes
- * Author URI: http://woothemes.com
+ * Author: KuteThemes
+ * Author URI: http://KuteThemes.com
  * Requires at least: 4.0
  * Tested up to: 4.2
  *
@@ -25,7 +25,11 @@ define('DSW_DIR', untrailingslashit( plugin_dir_path(__FILE__ ) )  );
 
 function dsw_scripts(){
     wp_enqueue_script( 'demo-switcher', DSW_URL . '/demo-switcher.js', array( 'jquery'), null, true );
-    wp_localize_script('demo-switcher', 'demo_switcher_url', DSW_URL );
+    wp_localize_script('demo-switcher', 'demo_switcher',  array(
+        'purl'=>   DSW_URL,
+        'hom_url' => home_url('/')
+
+) );
 }
 
 add_action( 'wp_enqueue_scripts', 'dsw_scripts' , 99999999 );

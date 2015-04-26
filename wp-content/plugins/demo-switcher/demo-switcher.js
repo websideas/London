@@ -80,10 +80,14 @@ jQuery(document).ready(  function(){
     }// end function ds_actions
 
 
-    jQuery('head').append("<link id='demo-switcher' rel='stylesheet' href='"+demo_switcher_url+"/demo-switcher.css' type='text/css' media='all' />");
+    jQuery('head').append("<link id='demo-switcher' rel='stylesheet' href='"+demo_switcher.purl+"/demo-switcher.css' type='text/css' media='all' />");
     jQuery.ajax({
-        url:  demo_switcher_url+'/html.php',
-        data: { url:  demo_switcher_url } ,
+        url:  demo_switcher.purl+'/html.php',
+        data: {
+            url:  demo_switcher.purl,
+            home_url:  demo_switcher.hom_url
+
+        } ,
         dataType: 'html',
         success: function(  html ){
               jQuery('body').append(html);
