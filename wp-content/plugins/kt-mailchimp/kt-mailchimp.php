@@ -10,7 +10,8 @@ Author URI: http://kutethemes.com
 
 
 // Prevent loading this file directly
-defined( 'ABSPATH' ) || exit;
+if ( !defined('ABSPATH')) exit;
+
 define( 'MAILCHIMP_VER', '1.0' );
 define( 'MAILCHIMP_PATH', plugin_dir_path(__FILE__));
 define( 'MAILCHIMP_URL', plugin_dir_url( __FILE__ ) );
@@ -23,16 +24,41 @@ define( 'MAILCHIMP_ASSETS', trailingslashit( MAILCHIMP_URL . 'assets' ) );
 require_once ( MAILCHIMP_PATH.'MCAPI.class.php' );
 
 class KT_Mailchimp{
- 
+    
+    /**
+     * Holds the values to be used in the fields callbacks
+     */
+    private $options;
+    
     public function __construct()
     {   
+        
+        $this->options = get_option( 'kt_mailchimp_option' );
+        
         // Add shortcode mailchimp
         add_shortcode('mailchimp', array($this, 'mailchimp_handler'));
         // Enqueue common styles and scripts
         add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
-         
+        
+        // Add ajax for frontend
+        add_action( 'wp_ajax_frontend_mailchimp', array( $this, 'frontend_mailchimp_callback') );
+        add_action( 'wp_ajax_nopriv_frontend_mailchimp', array( $this, 'frontend_mailchimp_callback') );
+        
+        if ( !$this->options['api_key'] ) {
+            add_action( 'admin_notices', array( $this, 'admin_notice' ));
+        }
+        
     }
- 
+
+    function admin_notice() {
+        
+        ?>
+        <div class="updated">
+            <p><?php _e( 'Please enter Mail Chimp API Key', 'kt_mailchimp' ); ?></p>
+        </div>
+        <?php
+    }
+
     public function mailchimp_handler( $atts, $content )
     {   
         
@@ -56,9 +82,8 @@ class KT_Mailchimp{
         
         $output = '';
         
-        $options = get_option( 'kt_mailchimp_option' );
         
-        if ( isset ( $options['api_key'] ) && !empty ( $options['api_key'] ) ) {
+        if ( isset ( $this->options['api_key'] ) && !empty ( $this->options['api_key'] ) ) {
             
             if(!$content) 
                 $content = __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', 'kt_mailchimp');
@@ -73,8 +98,8 @@ class KT_Mailchimp{
             $output .= ($text_before) ? '<div class="mailchimp-before">'.$text_before.'</div>' : '';
             
             $output .= '<form class="mailchimp-form clearfix mailchimp-layout-'.$layout.'" action="#" method="post">';
-                $email = '<input name="email" class="form-control" required="" type="email" placeholder="'.__('E-mail address', THEME_LANG).'"/>';
-                $button = '<button class="btn btn-default mailchimp-submit" data-loading="'.__('Loading ...', THEME_LANG).'" data-text="'.__('Subscribe', THEME_LANG).'"  type="submit">'.__('Subscribe', THEME_LANG).'</button>';
+                $email = '<input name="email" class="form-control" required="" type="email" placeholder="'.__('E-mail address', 'kt_mailchimp').'"/>';
+                $button = '<button class="btn btn-default mailchimp-submit" data-loading="'.__('Loading ...', 'kt_mailchimp').'" data-text="'.__('Subscribe', 'kt_mailchimp').'"  type="submit">'.__('Subscribe', 'kt_mailchimp').'</button>';
                 if($layout == 'one'){
                     $text_repate = '<div class="input-group">%s<div class="input-group-btn">%s</div></div>'; 
                 }else{
@@ -109,9 +134,62 @@ class KT_Mailchimp{
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'security' => wp_create_nonce( 'ajax_mailchimp' )
         ));
-        
-                
     }
+    
+    
+    /**
+     * Flag boolean.
+     * 
+     * @param $input string
+     * @return boolean
+     */
+    function kt_sanitize_boolean( $input = '' ) {
+    	return in_array($input, array('1', 'true', 'y', 'on'));
+    }
+    
+    /**
+     * Mailchimp callback AJAX request 
+     *
+     * @since 1.0
+     * @return json
+     */
+    
+    function frontend_mailchimp_callback() {
+        check_ajax_referer( 'ajax_mailchimp', 'security' );
+        
+        $output = array( 'error'=> 1, 'msg' => __('Error', 'kt_mailchimp'));
+        
+        $api_key = $this->options['api_key'];
+        $email = ($_POST['email']) ? $_POST['email'] : '';
+        
+        if ($email) {
+            if(is_email($email)){
+                if ( isset ( $api_key ) && !empty ( $api_key ) ) {
+                    $mcapi = new MCAPI($api_key);
+                    $opt_in = apply_filters(array($this, 'kt_sanitize_boolean'), $_POST['opt_in']);
+                    $mcapi->listSubscribe($_POST['list_id'], $email, null, 'html', $opt_in);
+                     if($mcapi->errorCode) {
+                        $output['msg'] = $mcapi->errorMessage;
+                    }else{
+                        $output['error'] = 0;
+                    }
+                }
+            }else{
+                $output['msg'] = __('Email address seems invalid.', 'kt_mailchimp');
+            }
+        }else{
+            $output['msg'] = __('Email address is required field.', 'kt_mailchimp');
+        }
+        
+        echo json_encode($output);
+        die();
+    }
+
+
+
+    
+    
+    
 }
  
 $kt_mailchimp = new KT_Mailchimp();
@@ -288,59 +366,136 @@ if( is_admin() )
 
 
 
-
-
-
-/**
- * Flag boolean.
- * 
- * @param $input string
- * @return boolean
- */
-function kt_sanitize_boolean( $input = '' ) {
-	return in_array($input, array('1', 'true', 'y', 'on'));
-}
-
-/**
- * Mailchimp callback AJAX request 
- *
- * @since 1.0
- * @return json
- */
-
-function wp_ajax_frontend_mailchimp_callback() {
-    check_ajax_referer( 'ajax_mailchimp', 'security' );
-    
-    $output = array( 'error'=> 1, 'msg' => __('Error', THEME_LANG));
+if ( class_exists( 'Vc_Manager', false ) ) {
     
     $options = get_option( 'kt_mailchimp_option' );
-    
     $api_key = $options['api_key'];
-    $email = ($_POST['email']) ? $_POST['email'] : '';
-    
-    if ($email) {
-        if(is_email($email)){
-            if ( isset ( $api_key ) && !empty ( $api_key ) ) {
-                $mcapi = new MCAPI($api_key);
-                $opt_in = apply_filters('kt_sanitize_boolean', $_POST['opt_in']);
-                $mcapi->listSubscribe($_POST['list_id'], $email, null, 'html', $opt_in);
-                 if($mcapi->errorCode) {
-                    $output['msg'] = $mcapi->errorMessage;
-                }else{
-                    $output['error'] = 0;
-                }
-            }
-        }else{
-            $output['msg'] = __('Email address seems invalid.', THEME_LANG);
+    $lists_arr = array();
+     
+    if ( isset ( $api_key ) && !empty ( $api_key ) ) {
+        $mcapi = new MCAPI($api_key);
+    	$lists = $mcapi->lists();
+        
+        foreach ($lists['data'] as $item) {
+            $lists_arr[$item['name']] = $item['id'];
         }
-    }else{
-        $output['msg'] = __('Email address is required field.', THEME_LANG);
     }
     
-    echo json_encode($output);
-    die();
+    vc_map( array(
+        "name" => __( "Mailchimp", 'kt_mailchimp'),
+        "base" => "mailchimp",
+        "category" => __('by Theme', 'kt_mailchimp' ),
+        "description" => __( "Mailchimp", 'kt_mailchimp'),
+        "wrapper_class" => "clearfix",
+        "params" => array(
+			array(
+                "type" => "textfield",
+                "heading" => __( "Title", 'kt_mailchimp' ),
+                "param_name" => "title",
+                "description" => __( "Mailchimp title", 'kt_mailchimp' ),
+                "admin_label" => true,
+            ),
+            array(
+            	'type' => 'dropdown',
+            	'heading' => __( 'Newsletter layout', 'kt_mailchimp' ),
+            	'param_name' => 'layout',
+            	'admin_label' => true,
+            	'value' => array(
+            		__( 'One line', 'kt_mailchimp' ) => 'one',
+            		__( 'Two line', 'kt_mailchimp' ) => "two"
+            	),
+            	'description' => __( 'Select your layout', 'kt_mailchimp' )
+            ),
+            array(
+            	'type' => 'dropdown',
+            	'heading' => __( 'Newsletter layout', 'kt_mailchimp' ),
+            	'param_name' => 'list',
+            	'admin_label' => true,
+            	'value' => $lists_arr,
+            	'description' => __( 'Select your layout', 'kt_mailchimp' )
+            ),
+            array(
+                "type" => 'checkbox',
+                "heading" => __( 'Double opt-in', 'kt_mailchimp' ),
+                "param_name" => 'opt_in',
+                "description" => __("", 'kt_mailchimp'),
+                "value" => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
+            ),
+            array(
+              "type" => "textarea",
+              "heading" => __("Text before form", 'kt_mailchimp'),
+              "param_name" => "text_before",
+              "description" => __("", 'kt_mailchimp')
+            ),
+            array(
+              "type" => "textarea",
+              "heading" => __("Text after form", 'kt_mailchimp'),
+              "param_name" => "text_after",
+              "description" => __("", 'kt_mailchimp')
+            ),
+            array(
+              "type" => "textarea_html",
+              "heading" => __("Success Message", 'kt_mailchimp'),
+              "param_name" => "content",
+              'value' => __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', 'kt_mailchimp'), 
+              "description" => __("", 'kt_mailchimp')
+            ),
+            array(
+            	'type' => 'dropdown',
+            	'heading' => __( 'CSS Animation', 'js_composer' ),
+            	'param_name' => 'css_animation',
+            	'admin_label' => true,
+            	'value' => array(
+            		__( 'No', 'js_composer' ) => '',
+            		__( 'Top to bottom', 'js_composer' ) => 'top-to-bottom',
+            		__( 'Bottom to top', 'js_composer' ) => 'bottom-to-top',
+            		__( 'Left to right', 'js_composer' ) => 'left-to-right',
+            		__( 'Right to left', 'js_composer' ) => 'right-to-left',
+            		__( 'Appear from center', 'js_composer' ) => "appear"
+            	),
+            	'description' => __( 'Select type of animation if you want this element to be animated when it enters into the browsers viewport. Note: Works only in modern browsers.', 'js_composer' )
+            ),
+            array(
+              "type" => "kt_heading",
+              "heading" => __("Min height for item", 'kt_mailchimp'),
+              "param_name" => "items_show",
+              "description" => __("Please include unit it. (Ex. 300px). ", 'kt_mailchimp')
+            ),
+            array(
+    			"type" => "textfield",
+    			"class" => "",
+    			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+    			"heading" => __("On Desktop", 'kt_mailchimp'),
+    			"param_name" => "desktop",
+    	  	),
+    		array(
+    			"type" => "textfield",
+    			"class" => "",
+    			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+    			"heading" => __("On Tablet", 'kt_mailchimp'),
+    			"param_name" => "tablet",
+    			"step" => "5",
+    	  	),
+    		array(
+    			"type" => "textfield",
+    			"class" => "",
+    			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+    			"heading" => __("On Mobile", 'kt_mailchimp'),
+    			"param_name" => "mobile",
+    	  	),
+            array(
+    			'type' => 'css_editor',
+    			'heading' => __( 'Css', 'js_composer' ),
+    			'param_name' => 'css',
+    			// 'description' => __( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'js_composer' ),
+    			'group' => __( 'Design options', 'js_composer' )
+    		),
+            array(
+                "type" => "textfield",
+                "heading" => __( "Extra class name", "js_composer"),
+                "param_name" => "el_class",
+                "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
+            ),
+		)
+	) );
 }
-
-
-add_action( 'wp_ajax_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_callback' );
-add_action( 'wp_ajax_nopriv_frontend_mailchimp', 'wp_ajax_frontend_mailchimp_callback' );

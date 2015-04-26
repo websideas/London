@@ -891,6 +891,9 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 .layout-collection-1 .woocommerce-carousel-wrapper li.product.type-product{
     padding: 0 2px 25px;
 }
+.layout-collection-1 .woocommerce-carousel-wrapper .style-navigation-bottom .owl-controls{
+    padding-right: 0;
+}
 
 .layout-collection-2 > .row{
     margin: 0;
@@ -927,7 +930,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 .designer-collection-wrapper .designer-collection-link,
 .designer-collection-wrapper p.info{
     display: block;
-    margin-bottom: 15px;
+    margin: 10px 0 15px;
     position: relative;
 }
 .designer-collection-wrapper .designer-collection-link span{
@@ -1135,7 +1138,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     border:1px solid #ccc;
     text-align: center;
     position: relative;
-    margin:75px 0 30px;
+    margin:75px 1px 30px;
 }
 .kt_testimonial .testimonial-item.no-image{
     padding-top:20px;
@@ -1736,17 +1739,16 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     position: relative;
 }
 .shopping_cart > a:after{
-    bottom: 1px;
+    bottom: -4px;
+    color: #000;
     content: "\e805";
-    font-family:fontkite;
     display: none;
-    height: 10px;
-    left: 12px;
+    font-family: fontkite;
+    font-size: 9px;
+    height: 8px;
+    left: 5px;
     position: absolute;
     width: 10px;
-    font-size:9px;
-    height: 8px;
-    color:#ccc;
 }
 .shopping_cart > a:before{
     font-family:fontkite;
@@ -1787,14 +1789,6 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 /*
  * Header other
  */
-.site-branding .site-logo.logo-circle{
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -o-border-radius: 50%;
-    -moz-border-radius: 50%;
-    background: #000000;
-    display: block;
-}
 .header-container.header-fixed{
     position: fixed;
 }
@@ -1852,6 +1846,14 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 
 .header-layout1.header-container{
     background: rgba(0, 0, 0, 0.8);
+}
+.header-layout1 .site-branding .site-logo.logo-circle{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    background: #000000;
+    display: block;
 }
 .header-layout1 #woocommerce-nav{
     float: right;
@@ -1915,12 +1917,18 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .header-layout1 .shopping_cart > a:before{
     left:8px;
 }
+.header-layout1 .shopping_cart > a:after{
+    bottom: 1px;
+    left: 13px;
+    color: #FFF;
+}
 .header-layout1 .shopping_cart > a > .cart-content-text{
     display: none;
 }
 .header-layout1 .shopping_cart > a:hover{
     text-decoration: none;
     background-color: #000;
+    color: #FFF;
 }
 .header-layout1 .shopping_cart > a span.cart-content-total{
     color: #ccc;
@@ -2033,22 +2041,13 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .header-layout3 .is-sticky .header-content-bottom{
     background: none;
 }
+
+
 /*
  * Header Layout 2
  */
-.header-layout3 .site-branding .site-logo{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*
- * Header Layout 3
- */
 .header-layout2 .site-branding{
     width: 10px;
-}
-.header-layout2 .header-contact-top{
-    
 }
 .header-layout2 #top-nav,
 .header-layout2 .header-contact{
@@ -2057,8 +2056,20 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
 .header-layout2 #woocommerce-nav{
     float: right;
 }
+/*
+ * Header Layout 3
+ */
 
-
+.header-layout3 .site-branding .site-logo{
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-layout3 .header-content-top{
+    margin: 22px 0;
+}
+.header-layout3 #top-nav, .header-layout3 #woocommerce-nav{
+    margin-bottom: 30px;
+}
 /* Page image cover */
 .page-bg-cover {
     background: #d8d7d5;
@@ -2546,6 +2557,7 @@ WIDGET
     position: absolute;
     top: 13px;
     color:#ccc;
+    fill:#ccc;
 }
 .sidebar .widget_rss ul li{
     padding:10px 0 10px 30px;
@@ -2787,21 +2799,23 @@ END SOCIAL
     background: #fff;
 }
 #cboxClose:before{
+    content:"\e809";
+    display: block;
+    font-family: "fontkite";
+    font-size: 16px;
+    height: 23px;
+    left: 0;
+    line-height: 23px;
     position: absolute;
-    content:"\e807";
-    font-family:"fontkite";
-    font-size: 50px;
-    left: -15px;
-    position: absolute;
-    top: 5px;    
+    text-align: center;
+    top: 0;
+    width: 23px;
 }
 #cboxClose{
     font-size: 0;
     text-indent:0;
     background: none;
 }
-
-
 
 
 /* VC COMPOSER MODED */

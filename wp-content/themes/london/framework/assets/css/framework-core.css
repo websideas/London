@@ -208,6 +208,16 @@ div#post-body .rwmb-select{
 
 
 /*==================================
+* WBC Importer
+===================================*/
+.theme-browser .theme .theme-name{
+    text-transform: capitalize;
+}
+.wbc_importer .theme-browser .theme .spinner{
+    display: none;
+}
+
+/*==================================
 * Responsive
 ===================================*/
 @media screen and (max-width:782px){

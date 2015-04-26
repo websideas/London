@@ -103,10 +103,13 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
         public function demoFiles() {
 
             $this->filesystem = $this->parent->filesystem->execute( 'object' );
-            $dir_array = $this->filesystem->dirlist( $this->demo_data_dir, false, true );
-
+            $dir_array = $this->filesystem->dirlist( $this->demo_data_dir, false, true);
+            
+            
+            
             if ( !empty( $dir_array ) && is_array( $dir_array ) ) {
-
+                //cuongdv custom
+                ksort($dir_array);
                 return $dir_array;
 
             }else{
@@ -114,6 +117,9 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
                 $dir_array = array();
 
                 $demo_directory = array_diff( scandir( $this->demo_data_dir ), array( '..', '.' ) );
+                
+                
+                
 
                 if ( !empty( $demo_directory ) && is_array( $demo_directory ) ) {
                     foreach ( $demo_directory as $key => $value ) {

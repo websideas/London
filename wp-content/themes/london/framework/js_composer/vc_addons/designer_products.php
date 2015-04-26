@@ -30,7 +30,8 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
         );
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
 
-
+        ob_start();
+        
         echo '<div class="vc-designer-product-wrapper">';
         echo '<div class="sidebar '.$elementClass.'">';
         the_widget( 'KT_WC_Designer', $atts,  array(

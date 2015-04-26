@@ -112,8 +112,6 @@ add_action('theme_before_content', 'kt_add_breadcrumb');
 function theme_body_classes( $classes ) {
     global $post;
     
-    $classes[] = 'theme-skin-'.kt_option('theme-skin', 'dark');
-    
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
@@ -375,8 +373,8 @@ add_action('wp_head', 'kt_blog_favicon');
  *
  * @since 1.0
  */
-add_action( 'theme_head_bottom', 'theme_head_bottom_addthis_script', 50 );
-function theme_head_bottom_addthis_script(){ 
+add_action( 'wp_head', 'wp_head_addthis_script', 50 );
+function wp_head_addthis_script(){ 
     $addthis_id = kt_option('addthis_id');
     if($addthis_id){
         ?>
@@ -405,7 +403,7 @@ function kt_search_form(){
  * 
  */
 function kt_breadcrumb_trail_args( $args ){
-    $args['separator'] = "<i></i>";
+    $args['separator'] = "&nbsp;";
     return $args;
 }
 add_filter('breadcrumb_trail_args', 'kt_breadcrumb_trail_args');

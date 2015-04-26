@@ -115,7 +115,7 @@ function kt_setting_script() {
         .dropcap-rectangle,
         .button, 
         .btn-default,
-        .site-branding .site-logo.logo-circle,
+        .header-layout1 .site-branding .site-logo.logo-circle,
         .tp-bullets.simplebullets.round .bullet.selected,
         .highlight.highlight1,
         .kt-owl-carousel .owl-buttons div:hover,

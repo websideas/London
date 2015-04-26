@@ -216,17 +216,27 @@ if (!function_exists('kt_option')){
  * 
  */
 function kt_get_logo(){
-
-    $logo = array('default' => THEME_IMG.'logo.png', 'retina' => false);
+    $logo = array();
+    
     $logo_default = kt_option( 'logo' );
     $logo_retina = kt_option( 'logo_retina' );
     
-    if(is_array($logo_default)   && $logo_default['url'] !='' ){
+    if(is_array($logo_default) && $logo_default['url'] !='' ){
         $logo['default'] = $logo_default['url'];
     }
     
-    if(is_array($logo_retina)){
+    if(is_array($logo_retina ) && $logo_retina['url'] !=''){
         $logo['retina'] = $logo_retina['url'];
+    }
+    
+    if(!count($logo)){
+        $layout = kt_option('header', 'layout1');
+        
+        if($layout == 'layout1'){
+            $logo = array('default' => THEME_IMG.'logo.png', 'retina' => THEME_IMG.'logo-retina.png');    
+        }elseif($layout == 'layout2' || $layout == 'layout3'){
+            $logo = array('default' => THEME_IMG.'logo-black.png', 'retina' => THEME_IMG.'logo-black-retina.png');
+        }
     }
     
     return $logo;

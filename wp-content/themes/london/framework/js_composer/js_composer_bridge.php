@@ -7,7 +7,6 @@ $composer_addons = array(
     'categories_products.php',
     'contact_info.php',
     'clients_carousel.php',
-    'mailchimp.php',
     'recent_posts_carousel.php',
     'sales_countdown.php',
     'designer_collection_carousel.php',

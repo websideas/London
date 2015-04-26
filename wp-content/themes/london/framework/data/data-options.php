@@ -1569,7 +1569,6 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'       => 'opt-raw_info_4',
                         'type'     => 'raw',
-                        'title'    => __( '', 'redux-framework-demo' ),
                         'content'  => $system_info,
                         'full_width' => true
                     ),
