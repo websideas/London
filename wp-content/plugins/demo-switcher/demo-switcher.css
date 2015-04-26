@@ -56,3 +56,13 @@
 }
 .ds-site-bg.active{  border-color: #77BE33; }
 .ds-site-bg {display: inline-block;  border: 3px solid #cccccc; }
+
+.ds .ds-ver {
+    border: 3px solid #CCCCCC;
+    display: inline-block;
+    width: 72px;
+    margin-bottom: 10px;
+}
+.ds .ds-ver:hover {
+    border-color: #77BE33;
+}

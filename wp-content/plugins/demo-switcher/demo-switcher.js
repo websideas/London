@@ -16,9 +16,9 @@ jQuery(document).ready(  function(){
 
             jQuery('.ds-chang-skin').removeClass('active');
             jQuery(this).addClass('active');
+            jQuery('#kt-theme-custom-css').remove();
 
             if( skin_url =='' || skin_url =='#' ){
-
                 jQuery('link#ds-skin').remove();
             }else{
                 if( jQuery('link#ds-skin').length > 0 ){
@@ -26,7 +26,6 @@ jQuery(document).ready(  function(){
                 }else{
                     jQuery('head').append("<link id='ds-skin' rel='stylesheet' href='"+skin_url+"' type='text/css' media='all' />");
                 }
-
             }
             return false;
         });
@@ -38,7 +37,7 @@ jQuery(document).ready(  function(){
             jQuery(this).addClass('active');
 
             var mod = jQuery(this).attr('data-mod') || '';
-            jQuery('body').removeClass('boxed-mod');
+            jQuery('body').removeClass('layout-boxed');
             jQuery('body').addClass(mod);
             jQuery(window).resize();
             jQuery('.ds-site-bg.active').click();
@@ -46,7 +45,7 @@ jQuery(document).ready(  function(){
         });
         ///------ CHANGE SITE BG------------
         jQuery('.ds-site-bg').click(function(){
-            if( ! jQuery('body').hasClass('boxed-mod') ){
+            if( ! jQuery('body').hasClass('layout-boxed') ){
                 jQuery('body').attr('style', '');
                 return false;
             }
