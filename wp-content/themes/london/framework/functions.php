@@ -279,10 +279,6 @@ function theme_slideshows_position_callback(){
 
         }
 
-        /*
-
-        */
-
     }
 }
 
