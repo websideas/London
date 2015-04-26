@@ -336,14 +336,7 @@ function woof_get_submit_link() {
             }
         });
     }
-    //***
-    if (Object.keys(woof_current_values).length === 2) {
-        if (('min_price' in woof_current_values) && ('max_price' in woof_current_values)) {
-            return woof_current_page_link + '?min_price=' + woof_current_values.min_price + '&max_price=' + woof_current_values.max_price;
-        }
-    }
-
-
+   
     if (Object.keys(woof_current_values).length === 1) {
         if ('stock' in woof_current_values) {
             //return woof_current_page_link;
