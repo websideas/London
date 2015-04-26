@@ -91,8 +91,8 @@ if ( function_exists('register_sidebar')) {
                         'name' => $sidebar['title'],
                         'id' => $id,
                         'description' => $sidebar['description'],
-                        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-                        'after_widget' => '</div>',
+                        'before_widget' => '<section id="%1$s" class="widget-container %2$s">',
+                        'after_widget' => '</section>',
                         'before_title' => '<h3 class="widget-title">',
                         'after_title' => '</h3>',
                     ) );
