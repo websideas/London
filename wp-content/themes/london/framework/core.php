@@ -131,12 +131,7 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 
 
 if ( !class_exists( 'ReduxFramework' ) && file_exists( FW_EXT_DIR . 'ReduxCore/framework.php' ) ) {
-
     require_once( FW_EXT_DIR . 'ReduxCore/framework.php' );
-    // Add fields to redux
-    require_once (FW_EXT_CUSTOM_DIR . 'redux-framework-custom.php');
-
-
 }
 
 

@@ -224,11 +224,11 @@ function kt_comments($comment, $args, $depth) {
             <div class="comment-entry entry-content">
                 <?php comment_text() ?>
                 <?php if ($comment->comment_approved == '0') : ?>
-                    <em><?php _e('Your comment is awaiting moderation.','sathemes') ?></em>
+                    <em><?php _e('Your comment is awaiting moderation.', THEME_LANG) ?></em>
                 <?php endif; ?>
             </div>
             <div class="comment-actions clear">
-                <?php edit_comment_link(__('(Edit)','sathemes'),'  ','') ?>
+                <?php edit_comment_link(__('(Edit)', THEME_LANG),'  ','') ?>
                 <?php comment_reply_link( array_merge( $args,
                     array('depth' => $depth,
                         'max_depth' => $args['max_depth'],

@@ -610,6 +610,11 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'navigation'
                     ),
                     array(
+                         'id'   => 'footer_socials',
+                         'type' => 'kt_socials',
+                         'title'    => __( 'Select your socials', THEME_LANG ),
+                    ),
+                    array(
                         'id'       => 'footer_copyright',
                         'type'     => 'editor',
                         'title'    => __( 'Footer Copyright Text', THEME_LANG ),
@@ -1384,12 +1389,18 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'desc' => '',
                         'default' => ''
                     ),
-
                     array(
 						'id' => 'twitter_username',
 						'type' => 'text',
 						'title' => __('Twitter', THEME_LANG),
 						'subtitle' => __("Your Twitter username (no @).", THEME_LANG),
+						'default' => ''
+                    ),
+                    array(
+						'id' => 'facebook_page_url',
+						'type' => 'text',
+						'title' => __('Facebook', THEME_LANG),
+						'subtitle' => __("Your Facebook page/profile url", THEME_LANG),
 						'default' => ''
                     ),
                     array(
@@ -1444,14 +1455,6 @@ if ( ! class_exists( 'KT_config' ) ) {
 						'type' => 'text',
 						'title' => __('Google+', THEME_LANG),
 						'subtitle' => __("Your Google+ page/profile URL", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					),
-					array(
-						'id' => 'email-address',
-						'type' => 'text',
-						'title' => __('Email', THEME_LANG),
-						'subtitle' => __("Your Email address", THEME_LANG),
 						'desc' => '',
 						'default' => ''
 					),

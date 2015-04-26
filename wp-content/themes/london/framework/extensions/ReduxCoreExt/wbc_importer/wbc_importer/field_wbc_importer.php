@@ -40,12 +40,15 @@ if ( !class_exists( 'ReduxFramework_wbc_importer' ) ) {
 
             if ( !empty( $class->demo_data_dir ) ) {
                 $this->demo_data_dir = $class->demo_data_dir;
+                //cuongdv custom
+                //$this->demo_data_url = site_url( str_replace( trailingslashit( str_replace( '\\', '/', ABSPATH ) ), '', $this->demo_data_dir ) );
                 $this->demo_data_url = site_url( str_replace( trailingslashit(  ABSPATH ), '', $this->demo_data_dir ) );
             }
 
             if ( empty( $this->extension_dir ) ) {
                 $this->extension_dir = trailingslashit( str_replace( '\\', '/', dirname( __FILE__ ) ) );
-                $this->extension_url = site_url( str_replace( trailingslashit( ABSPATH ), '', $this->extension_dir ) );
+                //$this->extension_url = site_url( str_replace( trailingslashit( ABSPATH ), '', $this->extension_dir ) );
+                $this->extension_url = site_url( str_replace( trailingslashit( str_replace( '\\', '/', ABSPATH ) ), '', $this->extension_dir ) );
             }
         }
 

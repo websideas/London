@@ -17,7 +17,6 @@ function kt_social_icons($atts, $content = null) {
     $skype = kt_option('skype_username');
     $linkedin = kt_option('linkedin_page_url');
     $googleplus = kt_option('googleplus_page_url');
-    $email_address = kt_option('email-address');
     $youtube = kt_option('youtube_username');
     $instagram = kt_option('instagram_username');
 	

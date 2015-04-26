@@ -15,13 +15,13 @@ add_action( 'admin_enqueue_scripts', 'kt_admin_enqueue_scripts' );
 if ( !function_exists( 'kt_admin_enqueue_scripts' ) ) {
     function kt_admin_enqueue_scripts(){
         
-        wp_register_style( 'font-awesome', THEME_FONTS.'font-awesome/css/font-awesome.min.css');
+        wp_register_style( 'kt-font-awesome', THEME_FONTS.'font-awesome/css/font-awesome.min.css');
         wp_register_style( 'elegant_font', THEME_FONTS.'elegant_font/style.css');
         wp_register_style( 'framework-core', FW_CSS.'framework-core.css');
         wp_register_style( 'chosen-style', FW_LIBS.'chosen/chosen.min.css');
         
         
-        wp_register_style( 'admin-style', FW_CSS.'theme-admin.css',array( 'elegant_font', 'font-awesome', 'framework-core'));
+        wp_register_style( 'admin-style', FW_CSS.'theme-admin.css',array( 'elegant_font', 'kt-font-awesome', 'framework-core'));
         wp_enqueue_style('admin-style');
         
         wp_enqueue_script( 'kt_image', FW_JS.'kt_image.js', array('jquery'), FW_VER, true);
