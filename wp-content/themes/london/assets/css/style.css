@@ -1949,7 +1949,11 @@ ul.navigation-mobile > li > ul.sub-menu-dropdown > li li.current-menu-item > a{
     margin-top: 12px;
 }
 .header-layout1 .is-sticky .site-branding .site-logo{
-    background: transparent;
+    background: transparent!important;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -o-border-radius: 0;
 }
 /*
  * Header Layout 2 & 3
@@ -2566,23 +2570,7 @@ WIDGET
     padding:10px 30px;
     border-bottom:1px solid #ccc;
     display: block;
-}
-.sidebar .widget_rss ul li:before,
-.sidebar .widget_pages ul li a:before,
-.sidebar .widget_recent_comments ul li:before,
-.sidebar .widget_recent_entries ul li:before,
-.sidebar .widget_nav_menu ul li a:before,
-.sidebar .widget_meta ul li a:before,
-.sidebar .widget_archive ul li a:before,
-.sidebar .widget_categories ul li a:before{
-    font-family:fontkite;
-    content:"\e801";
-    font-size: 10px;
-    left: 7px;
-    position: absolute;
-    top: 13px;
-    color:#ccc;
-    fill:#ccc;
+    background: url(../images/arrow-widget.png) no-repeat 9px 17px;
 }
 .sidebar .widget_rss ul li{
     padding:10px 0 10px 30px;

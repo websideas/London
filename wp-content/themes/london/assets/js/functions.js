@@ -38,25 +38,27 @@
         init_productcarouselwoo();
         init_woocategories_products();
         
-        //$('form.woocommerce-ordering select').customSelect();
-        
-        
         var $easyzoom = $('.easyzoom').easyZoom();
         woo_quantily();
 
-        if( typeof ( jQuery.mCustomScrollbar )!==undefined ){
-           // jQuery('.mCustomScrollbar').mCustomScrollbar();
+        if( typeof ( $.mCustomScrollbar ) !== undefined ){
             $(window).bind('wc_fragments_loaded wc_fragments_refreshed', function (){
-                jQuery('.mCustomScrollbar').mCustomScrollbar();
+                $('.mCustomScrollbar').mCustomScrollbar();
             });
         }
 
-        jQuery( 'body' ).on( 'woof_products_added', function(){
+        $( 'body' ).on( 'woof_products_added', function(){
             init_gridlistToggle();
-            jQuery('form.woocommerce-ordering .orderby').on('change', function(){
-                jQuery(this).parents('form').submit();
+            $('form.woocommerce-ordering .orderby').on('change', function(){
+                $(this).parents('form').submit();
             });
         } );
+
+        $( 'body' ).bind( 'added_to_cart', function() {
+            $('#woocommerce-nav .checkout-link').show();
+            $('#woocommerce-nav .shop-link').hide();
+        });
+        
 
 
     });

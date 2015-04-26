@@ -82,26 +82,28 @@ endif;
  * @since 1.0
  */
 function woocommerce_get_tool($id = 'woocommerce-nav'){
-    
     global $wpdb, $yith_wcwl, $woocommerce;
     if ( kt_is_wc() ) { ?>
         <nav class="woocommerce-nav-container" id="<?php echo $id; ?>">
             <ul class="menu">
-                    <?php /* if ( is_user_logged_in() ) { ?>
-                    <li class='logout-link'> 
-                        <a href="<?php echo wp_logout_url(); ?>"><?php _e('Logout', THEME_LANG) ?></a>
-                    </li>
-                    <?php } */ ?>
-                    <li class='my-account-link'>                        
-                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?php _e('My Account','woothemes'); ?></a>
-                    </li>
-                <?php
-                    if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-                        echo "<li class='checkout-link'>";
-                    	echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' , THEME_LANG ) . '">' . __( 'Checkout', THEME_LANG ) . '</a>';
-                        echo "</li>";
-                    endif;
+                <?php 
+                    $style_shop = $style_checkout = "none";
+                    if((sizeof( $woocommerce->cart->cart_contents) > 0)){
+                        $style_checkout = "inline-block";
+                    }else{
+                        $style_shop = "inline-block";
+                    }
                 ?>
+                <li class='shop-link' style="display: <?php echo $style_shop; ?>;">
+                    <?php $shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>
+                    <a href="<?php echo $shop_page_url; ?>" title="<?php _e('Shop', THEME_LANG); ?>"><?php _e('Shop', THEME_LANG); ?></a>                    
+                </li>            
+                <li class='my-account-link'>                        
+                    <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account', THEME_LANG); ?>"><?php _e('My Account', THEME_LANG); ?></a>
+                </li>
+                <li class='checkout-link' style="display: <?php echo $style_checkout; ?>;">
+                    <a href="<?php echo $woocommerce->cart->get_checkout_url(); ?>" title="<?php _e('Checkout', THEME_LANG); ?>"><?php _e('Checkout', THEME_LANG); ?></a>
+                </li>                
                 <?php 
                     if(class_exists('YITH_WCWL_UI')){
                         $count = array();
