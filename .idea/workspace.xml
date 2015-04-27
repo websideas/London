@@ -98,7 +98,7 @@
       <file leaf-file-name="theme-admin.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="263" column="70" selection-start="5881" selection-end="5881" vertical-scroll-proportion="0.8532695" vertical-offset="4979" max-vertical-offset="6233">
+            <state line="241" column="0" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.46810207" vertical-offset="4956" max-vertical-offset="6210">
               <folding />
             </state>
           </provider>
@@ -934,7 +934,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="263" column="70" selection-start="5881" selection-end="5881" vertical-scroll-proportion="0.8532695" vertical-offset="4979" max-vertical-offset="6233">
+        <state line="241" column="0" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.46810207" vertical-offset="4956" max-vertical-offset="6210">
           <folding />
         </state>
       </provider>
