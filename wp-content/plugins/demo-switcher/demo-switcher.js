@@ -56,6 +56,26 @@ jQuery(document).ready(  function(){
             jQuery(window).resize();
             return false;
         });
+        ///---------DS PANEL---------
+        jQuery(window).resize( function(){
+            var wh = jQuery(window).height();
+            var ds =  jQuery('.ds');
+            var op =  ds.offset();
+            var h = ds.height();
+            var th=  h+op.top;
+            jQuery('.ds-panel', ds).removeAttr('style');
+            ds.removeAttr('style');
+            if( wh -50 < th ){
+                ds.css({
+                   top:  '50px'
+                });
+                jQuery('.ds-panel', ds).css({
+                    height: (wh-100)+'px',
+                    overflow: 'auto'
+                });
+            }
+        });
+
         ///---------TOGGLE PANEL---------
         jQuery('.ds-toggle').click(function(){
             var t = jQuery(this);
