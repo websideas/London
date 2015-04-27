@@ -1035,7 +1035,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     margin-bottom: 0;
 }
 .categories-products-wrapper .categories-products-lists > ul li{
-    padding:14px 0;
+    padding:8px 0;
     border-bottom:1px solid #ccc;
     line-height: 1;
 }
@@ -1045,6 +1045,10 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 .categories-products-wrapper .categories-products-lists.no-description > ul li:last-child{
     border-bottom: none;
     padding-bottom: 0;
+}
+.categories-products-wrapper .categories-products-lists > ul li img{
+    vertical-align: middle;
+    margin: 0 17px 0 2px; 
 }
 .categories-products-wrapper .categories-products-lists > ul li a{
     font-size:14px;

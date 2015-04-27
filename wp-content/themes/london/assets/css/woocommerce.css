@@ -267,6 +267,8 @@
   text-align: left;
   width: 100%;
   border-collapse: separate;
+  border: none;
+  padding: 0;
 }
 
 .woocommerce table.shop_table th{

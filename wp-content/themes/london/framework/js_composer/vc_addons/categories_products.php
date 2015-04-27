@@ -56,6 +56,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
             }
             $category_args = array(
             	'taxonomy'  => 'product_cat',
+                'hide_empty' => 0,
             ); 
             
             $category_args['parent'] = ($category) ? $category : 0;
@@ -69,9 +70,16 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                     $output .= "<div class='categories-products-lists ".$class."'>";
                         $output .= "<ul data-order='".$order."' data-orderby='".$orderby."' data-per_page='".$per_page."' >";
                             foreach($categories as $item){
-                                $output .= "<li><a data-id='".$item->term_id."' href='#'>".$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                                $image = "";
+                                $thumbnail_id = get_woocommerce_term_meta( $item->term_id, 'icon_id', true );
+                                if ( $thumbnail_id ) {
+                                    $image = wp_get_attachment_thumb_url( $thumbnail_id );
+                                }
+                                
+                                
+                                $output .= "<li><a data-id='".$item->term_id."' href='#'>".$image."<img alt='".$item->name."' src='".THEME_IMG."icon-all.png'>".$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
                             }
-                            $output .= "<li><a data-id='".$category."' href='#'>".__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                            $output .= "<li><a data-id='".$category."' href='#'><img alt='".$item->name."' src='".THEME_IMG."icon-all.png'>".__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
                         $output .="</ul>";
                         if($content){ 
                             $output .= "<div class='content-taxonomy'>".$content."</div>"; 
