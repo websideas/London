@@ -128,7 +128,9 @@ class KT_WC_Admin_Taxonomies {
                             attachment = file_frame.state().get('selection').first().toJSON();
 
                             jQuery('#product_cat_icon_id').val( attachment.id );
-                            jQuery('#product_cat_icon img').attr('src', attachment.sizes.thumbnail.url );
+                            var image_url  = typeof   attachment.sizes.thumbnail.url !== undefined ? attachment.sizes.thumbnail.url : attachment.sizes.full.url;
+
+                            jQuery('#product_cat_icon img').attr('src', image_url );
                             jQuery('.icon_remove_image_button').show();
                         });
 
@@ -211,7 +213,11 @@ class KT_WC_Admin_Taxonomies {
                                 attachment = file_frame.state().get('selection').first().toJSON();
 
                                 jQuery('#product_cat_icon_id').val( attachment.id );
-                                jQuery('#product_cat_icon img').attr('src', attachment.sizes.thumbnail.url );
+
+                                jQuery('#product_cat_icon_id').val( attachment.id );
+                                var image_url  = typeof   attachment.sizes.thumbnail.url !== undefined ? attachment.sizes.thumbnail.url : attachment.sizes.full.url;
+
+                                jQuery('#product_cat_icon img').attr('src', image_url);
                                 jQuery('.icon_remove_image_button').show();
                             });
 
