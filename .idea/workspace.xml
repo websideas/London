@@ -86,10 +86,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo-switcher.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="demo-switcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/demo-switcher/demo-switcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="32" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.536664" vertical-offset="783" max-vertical-offset="2852">
+            <state line="63" column="32" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2852">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="theme-admin.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="263" column="70" selection-start="5881" selection-end="5881" vertical-scroll-proportion="0.8532695" vertical-offset="4979" max-vertical-offset="6233">
               <folding />
             </state>
           </provider>
@@ -140,7 +149,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/inc/functions-core.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/demo-switcher/html.html" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/framework-core.css" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-options.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/widgets.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/demo-switcher/skins/color-000000.css" />
@@ -156,6 +164,7 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/demo-switcher/demo-switcher.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/demo-switcher/demo-switcher.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css" />
       </list>
     </option>
   </component>
@@ -391,6 +400,70 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="ReduxCoreExt">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="London">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wp-content">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="themes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="london">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="framework">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="assets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="London">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wp-content">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="themes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="london">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="framework">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="assets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="css">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -711,11 +784,6 @@
         <state line="26" column="28" selection-start="551" selection-end="551" vertical-scroll-proportion="-1.8708134" vertical-offset="2944" max-vertical-offset="5359" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="264" column="19" selection-start="5875" selection-end="5875" vertical-scroll-proportion="0.8899522" vertical-offset="4956" max-vertical-offset="6233" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/extensions/ReduxCore/inc/fields/slides/field_slides.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="222" column="305" selection-start="14225" selection-end="14238" vertical-scroll-proportion="1.9119341" vertical-offset="2369" max-vertical-offset="5911" />
@@ -859,7 +927,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/demo-switcher/demo-switcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="32" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.536664" vertical-offset="783" max-vertical-offset="2852">
+        <state line="63" column="32" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2852">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/assets/css/theme-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="263" column="70" selection-start="5881" selection-end="5881" vertical-scroll-proportion="0.8532695" vertical-offset="4979" max-vertical-offset="6233">
           <folding />
         </state>
       </provider>
