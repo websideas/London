@@ -107,16 +107,16 @@ input.cmn-toggle-round-flat:checked + label:after {
 * Widget KT image
 ===================================*/
 .kt_image_preview{
+    border: 1px solid #ddd;
     display: none;
-    float: left;
     margin: 10px 0;
+    padding: 2px;
     position: relative;
     text-align: center;
 }
 .kt_image_preview img{
-    padding: 2px;
-    border: 1px solid #CCC;
     max-width: 100%;
+    display: block;
 }
 .kt_image_preview i{
     background: rgba(0, 0, 0, 0.6);
