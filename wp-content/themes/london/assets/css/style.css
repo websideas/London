@@ -715,29 +715,41 @@ select:not([multiple]) {
 .tp-bullets .tp-leftarrow.round:hover{
     opacity: 0.5;
 }
-.tp-leftarrow.default,.tp-rightarrow.default{
+.tp-leftarrow.default,
+.tp-rightarrow.default{
     height: 31px;
     margin: 0;
     padding: 0;
-    text-indent: -9999px;
     transition: background 0.8s ease 0s;
     -webkit-transition: background 0.8s ease 0s;
     -moz-transition: background 0.8s ease 0s;
     -o-transition: background 0.8s ease 0s;
     width: 74px;
+    background: rgba(255,255,255,0.5);
+    text-align: center;
 }
-.tp-leftarrow.default{
-    background: rgba(255,255,255,0.5) url(../images/prev_slide_bg.png) no-repeat 0 center;
+.tp-leftarrow.default:before,
+.tp-rightarrow.default:before{
+    color: #cccccc;
+    content: "\e807";
+    font-family: "fontkite";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: normal;
+    height: 100%;
+    left: 0;
+    line-height: 32px;
+    position: absolute;
+    top: 0;
+    transition: all 0.8s ease 0s;
+    width: 100%;
 }
-.tp-rightarrow.default{
-    background: rgba(255,255,255,0.5) url(../images/next_slide_bg.png) no-repeat -74px center;
+.tp-leftarrow.default:before{
+    content: "\e800";
 }
-.tp-leftarrow.default:hover,.tp-rightarrow.default:hover{
-    background-color:#333;
-    background-position: -74px center;
-}
+.tp-leftarrow.default:hover,
 .tp-rightarrow.default:hover{
-    background-position: 0 center;
+    background:#333;
 }
 .rev_slider img{ vertical-align: top; }
 /* ==============================
@@ -1293,7 +1305,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     list-style: none;
     top: 100%;
     left: 0;
-    z-index: 300;
+    z-index: 10500;
 
     -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;  /* For Safari 3.1 to 6.0 */
     -moz-transition: opacity 0.5s, -moz-transform 0.5s;
