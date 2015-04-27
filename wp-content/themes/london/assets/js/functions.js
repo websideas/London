@@ -59,7 +59,18 @@
             $('#woocommerce-nav .shop-link').hide();
         });
         
-
+        $( 'body' ).bind( 'added_to_wishlist', function() {
+            var data = {
+        		action: 'fronted_get_wishlist',
+        		security : ajax_frontend.security
+        	};
+        	$.post(ajax_frontend.ajaxurl, data, function(response) {
+                $('#woocommerce-nav .wishlist-link span').html('('+response.count+')')
+        	}, 'json');
+            
+        });
+        
+        
 
     });
     

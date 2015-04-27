@@ -82,13 +82,13 @@ endif;
  * @since 1.0
  */
 function woocommerce_get_tool($id = 'woocommerce-nav'){
-    global $wpdb, $yith_wcwl, $woocommerce;
+    global $wpdb, $yith_wcwl;
     if ( kt_is_wc() ) { ?>
         <nav class="woocommerce-nav-container" id="<?php echo $id; ?>">
             <ul class="menu">
                 <?php 
                     $style_shop = $style_checkout = "none";
-                    if((sizeof( $woocommerce->cart->cart_contents) > 0)){
+                    if((sizeof( WC()->cart->cart_contents) > 0)){
                         $style_checkout = "inline-block";
                     }else{
                         $style_shop = "inline-block";
@@ -102,7 +102,7 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                     <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account', THEME_LANG); ?>"><?php _e('My Account', THEME_LANG); ?></a>
                 </li>
                 <li class='checkout-link' style="display: <?php echo $style_checkout; ?>;">
-                    <a href="<?php echo $woocommerce->cart->get_checkout_url(); ?>" title="<?php _e('Checkout', THEME_LANG); ?>"><?php _e('Checkout', THEME_LANG); ?></a>
+                    <a href="<?php echo WC()->cart->get_checkout_url(); ?>" title="<?php _e('Checkout', THEME_LANG); ?>"><?php _e('Checkout', THEME_LANG); ?></a>
                 </li>                
                 <?php 
                     if(class_exists('YITH_WCWL_UI')){
@@ -151,9 +151,8 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
  * @since 1.0
  */
 function woocommerce_get_cart(){
-    $output = '';
     if ( kt_is_wc() ) {
-        // Put your plugin code here
+        
         global $woocommerce;
         $cart_total = WC()->cart->get_cart_total();
 		$cart_count = WC()->cart->cart_contents_count;
@@ -191,14 +190,18 @@ function woocommerce_get_cart(){
                 $output .= '<div class="bag-total">'.__('Cart subtotal: ', THEME_LANG).$cart_total.'</div><!-- .bag-total -->';
                 
                 $output .= '<div class="bag-buttons clearfix">';
-                    $output .= '<a href="'.esc_url( WC()->cart->get_cart_url() ).'" class="btn btn-default btn-round pull-left">'.__('View cart', THEME_LANG).'</a>';
-                    $output .= '<a href="'.esc_url( WC()->cart->get_checkout_url() ).'" class="btn btn-default btn-round pull-left">'.__('Checkout', THEME_LANG).'</a>';
+                    if ( sizeof(WC()->cart->cart_contents)>0 ) {
+                        $output .= '<a href="'.esc_url( WC()->cart->get_cart_url() ).'" class="btn btn-default pull-left">'.__('View cart', THEME_LANG).'</a>';
+                        $output .= '<a href="'.esc_url( WC()->cart->get_checkout_url() ).'" class="btn btn-default pull-left">'.__('Checkout', THEME_LANG).'</a>';
+                    }else{
+                        $output .= '<a href="'.get_page_link(wc_get_page_id('shop')).'" class="btn btn-default button-shop pull-left">'.__('Shop', THEME_LANG).'</a>';    
+                    }
+                    
                 $output .= '</div><!-- .bag-buttons -->';
             
             $output .= '</div><!-- .shopping-bag-content -->';
             $output .= '</div><!-- .shopping-bag-wrapper -->';
             $output .= '</div><!-- .shopping-bag -->';
-           //$output .= "<script type='text/javascript'>jQuery('.mCustomScrollbar').mCustomScrollbar();</script>";
         $output .= '</div><!-- .shopping_cart -->';
         
         
@@ -215,8 +218,6 @@ function woocommerce_get_cart(){
  * 
  */ 
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
-	global $woocommerce;
-	
     $fragments['.shopping_cart'] = woocommerce_get_cart();
 	return $fragments;
 }

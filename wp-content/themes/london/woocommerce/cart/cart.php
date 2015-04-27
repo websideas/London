@@ -113,15 +113,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 		<tr>
 			<td colspan="6" class="actions">
 
-				<?php if ( WC()->cart->coupons_enabled() ) { ?>
-					<div class="coupon">
-
-						<label for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
-
-						<?php do_action( 'woocommerce_cart_coupon' ); ?>
-
-					</div>
-				<?php } ?>
 
 				<input type="submit" class="button" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" />
 
@@ -143,7 +134,7 @@ do_action( 'woocommerce_before_cart' ); ?>
     
     <div class="row">
         
-        <?php woocommerce_cart_totals(); ?>
+        <?php do_action( 'woocommerce_cart_collaterals' ); ?>
         
         <?php woocommerce_shipping_calculator(); ?>
         
@@ -162,7 +153,7 @@ do_action( 'woocommerce_before_cart' ); ?>
             
     </div>
     
-	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
+	
 </div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>

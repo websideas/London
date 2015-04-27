@@ -276,6 +276,7 @@
     text-transform: uppercase;
     padding: 17px 12px;
     background: #ecf0f1;
+    border: none;
 }
 .woocommerce table.shop_table th.product-name{
     width: 50%;
@@ -283,6 +284,7 @@
 .woocommerce table.shop_table td{
   padding: 15px 12px;
   vertical-align: top;
+  border: none;
   border-top: 1px solid #cccccc;
 }
 .woocommerce table.shop_table td.product-remove,
@@ -314,8 +316,10 @@
 .woocommerce table.shop_table tfoot td,
 .woocommerce table.shop_table tfoot th {
     font-weight: 700;
+    border: none;
     border-top: 1px solid #cccccc;
     padding: 15px 12px;
+    
 }
 .woocommerce table.shop_table td.product-name .variation {
     margin: 0.25em 0;
@@ -2109,6 +2113,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
   padding: 0;
   width: 100%;
   border-left: 0;
+  border-right: 0;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals table tr:first-child td,
@@ -2147,6 +2152,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce-cart .cart-collaterals .cart_totals tr td,
 .woocommerce-cart .cart-collaterals .cart_totals tr th {
   border-top: 1px solid #ebe9eb;
+  border-bottom: none;
 }
 
 .woocommerce-cart .cart-collaterals .cross-sells ul.products li.product {

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2><?php _e( 'Cart Totals', 'woocommerce' ); ?></h2>
+	<h3><?php _e( 'Cart Totals', 'woocommerce' ); ?></h3>
 
 	<table cellspacing="0">
 
