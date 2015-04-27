@@ -14,12 +14,18 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
             'heading' => 'h2',
             'order' => '',
             'pagination' => '',
+            'excerpt_length' =>  50,
             'css' => '',
             'el_class' => '',
         ), $atts );
         extract($atts);
         
         $output = '';
+
+        $excerpt_length =  intval( $excerpt_length );
+
+        $exl_function = create_function('$n', 'return '.$excerpt_length.';');
+        add_filter( 'excerpt_length', $exl_function , 999 );
 
         $elementClass = array(
         	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'list-blog-posts ', $this->settings['base'], $atts ),
@@ -93,7 +99,9 @@ class WPBakeryShortCode_List_Blog_Posts extends WPBakeryShortCode {
 
             do_action('after_blog_posts_loop');
             $wp_query->reset_postdata();
-        $output .= "</div>";   
+        $output .= "</div>";
+
+       remove_filter('excerpt_length', $exl_function, 999 );
         
         return $output;
     }
@@ -146,6 +154,13 @@ vc_map( array(
 			'value' => 12,
 			'param_name' => 'per_page',
 			'description' => __( 'The "per_page" shortcode determines how many products to show on the page', 'js_composer' ),
+		),
+
+        array(
+			'type' => 'textfield',
+			'heading' => __( 'Excerpt length', 'js_composer' ),
+			'value' => 50,
+			'param_name' => 'excerpt_length',
 		),
         array(
 			'type' => 'dropdown',
