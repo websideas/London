@@ -28,7 +28,7 @@ if ( !function_exists( 'kt_wbc_extended_imported' ) ) {
 				'demo3' => 'slider3.zip'
 			);
 
-            foreach( $wbc_sliders_array as $k => $revslider ){
+            foreach( $wbc_sliders_array as $k => $wbc_slider_import ){
                 $revslider = THEME_DIR.'dummy-data/revslider/'.$wbc_slider_import;
                 if ( file_exists( $revslider ) ) {
                     $slider = new RevSlider();
