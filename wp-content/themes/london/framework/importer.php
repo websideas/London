@@ -23,19 +23,18 @@ if ( !function_exists( 'kt_wbc_extended_imported' ) ) {
 
 			//If it's demo3 or demo5
 			$wbc_sliders_array = array(
-				'demo1' => 'slide1.zip'
+				'demo1' => 'slider1.zip',
+				'demo2' => 'slider2.zip',
+				'demo3' => 'slider3.zip'
 			);
-            
-            
-			if ( isset( $demo_active_import[$current_key]['directory'] ) && !empty( $demo_active_import[$current_key]['directory'] ) && array_key_exists( $demo_active_import[$current_key]['directory'], $wbc_sliders_array ) ) {
-				$wbc_slider_import = $wbc_sliders_array[$demo_active_import[$current_key]['directory']];
+
+            foreach( $wbc_sliders_array as $k => $revslider ){
                 $revslider = THEME_DIR.'dummy-data/revslider/'.$wbc_slider_import;
-				if ( file_exists( $revslider ) ) {
-					$slider = new RevSlider();
-					$slider->importSliderFromPost( true, true, $revslider );
-				}
-			}
-		}
+                if ( file_exists( $revslider ) ) {
+                    $slider = new RevSlider();
+                    $slider->importSliderFromPost( true, true, $revslider );
+                }
+            }
 
 		/************************************************************************
 		* Setting Menus
