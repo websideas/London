@@ -203,47 +203,54 @@
      Woo categories products
      --------------------------------------------- */
      
-    var ajax_request;
+
     function init_woocategories_products(){
-        $('.categories-products-lists > ul li a').on('click',function(e){
-            e.preventDefault();
-        	var obj = $(this),
-                objul = obj.closest('ul'),
-                $wrapper = obj.closest('.categories-products-wrapper'),
-                $carousel = $wrapper.find('ul.products'),
-                $carouselData = $carousel.data('KTowlCarousel');
-        	
-            
-            if(ajax_request && ajax_request.readystate != 4){
-                ajax_request.abort();
-                obj.closest('.categories-products-lists').find('a').removeClass('loading');
-            }
-            
-            obj.addClass('loading');
-        	objul.find('li').removeClass('active');
-        	obj.closest('li').addClass('active');
-        	
-        	var data = {
-        		action: 'fronted_woocategories_products',
-        		security : ajax_frontend.security,
-        		cat_id: obj.data('id'),
-                per_page : objul.data('per_page'),
-        		orderby: objul.data('orderby'),
-        		order: objul.data('order')
-        	};
-        	
-        	ajax_request = $.post(ajax_frontend.ajaxurl, data, function(response) {
-        		obj.removeClass('loading');
-                for (var i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
-                    $carouselData.removeItem(i);
+
+        jQuery('.categories-products-lists').each(function(){
+            var p = jQuery(this);
+            var ajax_request;
+            $(' ul li a', p).on('click',function(e){
+                e.preventDefault();
+                var obj = $(this),
+                    objul = obj.closest('ul'),
+                    $wrapper = obj.closest('.categories-products-wrapper'),
+                    $carousel = $wrapper.find('ul.products'),
+                    $carouselData = $carousel.data('KTowlCarousel');
+
+
+                if(ajax_request && ajax_request.readystate != 4){
+                    ajax_request.abort();
+                    obj.closest('.categories-products-lists').find('a').removeClass('loading');
                 }
-                $.each( response, function( i, val ) {
-                    $carouselData.addItem(val);
-                });
-        	}, 'json');
-        	
-        	return false;
+
+                obj.addClass('loading');
+                objul.find('li').removeClass('active');
+                obj.closest('li').addClass('active');
+
+                var data = {
+                    action: 'fronted_woocategories_products',
+                    security : ajax_frontend.security,
+                    cat_id: obj.data('id'),
+                    per_page : objul.data('per_page'),
+                    orderby: objul.data('orderby'),
+                    order: objul.data('order')
+                };
+
+                ajax_request = $.post(ajax_frontend.ajaxurl, data, function(response) {
+                    obj.removeClass('loading');
+                    for (var i = $carouselData.itemsAmount-1 ; i >= 0; i--) {
+                        $carouselData.removeItem(i);
+                    }
+                    $.each( response, function( i, val ) {
+                        $carouselData.addItem(val);
+                    });
+                }, 'json');
+
+                return false;
+            });
+
         });
+
     }
 
 
