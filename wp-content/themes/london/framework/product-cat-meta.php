@@ -177,7 +177,7 @@ class KT_WC_Admin_Taxonomies {
             <td>
                 <div id="product_cat_icon" style="float:left;margin-right:10px;"><img src="<?php echo $image; ?>" width="60px" height="60px" /></div>
                 <div style="line-height:60px;">
-                    <input type="hidden" id="product_cat_icon_id" name="product_cat_thumbnail_id" value="<?php echo $thumbnail_id; ?>" />
+                    <input type="hidden" id="product_cat_icon_id" name="product_cat_icon_id" value="<?php echo $thumbnail_id; ?>" />
                     <button type="submit" class="icon_upload_image_button button"><?php _e( 'Upload/Add image', 'woocommerce' ); ?></button>
                     <button type="submit" class="icon_remove_image_button button"><?php _e( 'Remove image', 'woocommerce' ); ?></button>
                 </div>
