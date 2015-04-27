@@ -10,6 +10,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
             'title' => '',
             'border_heading' => '',
             'category' => '',
+            'image' => '',
             'per_page' => 10,
             'orderby' => '',
             'order' => '',
@@ -28,6 +29,16 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
         extract($atts);
         
         $output = '';
+        
+        $img_id = preg_replace( '/[^\d]/', '', $image );
+        
+        $img = wpb_getImageBySize( array(
+        	'attach_id' => $img_id,
+        	'thumb_size' => 'full',
+        	'class' => 'vc_single_image-img'
+        ) );
+        
+        $image_default = ( $img == null ) ? "" : $img['thumbnail'];
         
         global $woocommerce_loop;
         $elementClass = array(
@@ -73,13 +84,22 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                                 $image = "";
                                 $thumbnail_id = get_woocommerce_term_meta( $item->term_id, 'icon_id', true );
                                 if ( $thumbnail_id ) {
-                                    $image = wp_get_attachment_thumb_url( $thumbnail_id );
+                                    $image = "<img src='".wp_get_attachment_thumb_url( $thumbnail_id )."' alt='".$item->name."'/>";
                                 }
-                                
-                                
-                                $output .= "<li><a data-id='".$item->term_id."' href='#'>".$image."<img alt='".$item->name."' src='".THEME_IMG."icon-all.png'>".$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                                $output .= "<li><a data-id='".$item->term_id."' href='#'>".$image.$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
                             }
-                            $output .= "<li><a data-id='".$category."' href='#'><img alt='".$item->name."' src='".THEME_IMG."icon-all.png'>".__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                            $image = "";
+                            if($category){
+                                $term = get_term( $category, 'product_cat' );
+                                $thumbnail_id = get_woocommerce_term_meta( $term->term_id, 'icon_id', true );
+                                if ( $thumbnail_id ) {
+                                    $image = "<img src='".wp_get_attachment_thumb_url( $thumbnail_id )."' alt='".$item->name."'/>";
+                                }
+                            }else{
+                                $image = $image_default;
+                            }
+                            
+                            $output .= "<li><a data-id='".$category."' href='#'>".$image.__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
                         $output .="</ul>";
                         if($content){ 
                             $output .= "<div class='content-taxonomy'>".$content."</div>"; 
@@ -165,6 +185,13 @@ vc_map( array(
             "placeholder" => 'Please select your category',
             "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", 'js_composer')
         ),
+        array(
+			'type' => 'attach_image',
+			'heading' => __( 'Default Image', THEME_LANG ),
+			'param_name' => 'image',
+			'value' => '',
+			'description' => __( "Select image from media library (Only if you don't choose category).", THEME_LANG )
+		),
         array(
 			'type' => 'textfield',
 			'heading' => __( 'Per page', 'js_composer' ),

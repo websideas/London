@@ -202,6 +202,8 @@
     /* ---------------------------------------------
      Woo categories products
      --------------------------------------------- */
+     
+    var ajax_request;
     function init_woocategories_products(){
         $('.categories-products-lists > ul li a').on('click',function(e){
             e.preventDefault();
@@ -211,6 +213,12 @@
                 $carousel = $wrapper.find('ul.products'),
                 $carouselData = $carousel.data('KTowlCarousel');
         	
+            
+            if(ajax_request && ajax_request.readystate != 4){
+                ajax_request.abort();
+                obj.closest('.categories-products-lists').find('a').removeClass('loading');
+            }
+            
             obj.addClass('loading');
         	objul.find('li').removeClass('active');
         	obj.closest('li').addClass('active');
@@ -224,7 +232,7 @@
         		order: objul.data('order')
         	};
         	
-        	$.post(ajax_frontend.ajaxurl, data, function(response) {
+        	ajax_request = $.post(ajax_frontend.ajaxurl, data, function(response) {
         		obj.removeClass('loading');
                 for (var i = $carouselData.itemsAmount-1 ; i >= 0; i--) { 
                     $carouselData.removeItem(i);

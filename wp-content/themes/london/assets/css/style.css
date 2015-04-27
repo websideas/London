@@ -1037,7 +1037,8 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 .categories-products-wrapper .categories-products-lists > ul li{
     padding:8px 0;
     border-bottom:1px solid #ccc;
-    line-height: 1;
+    position: relative;
+    line-height: 25px;
 }
 .categories-products-wrapper .categories-products-lists > ul li:first-child{
     padding-top:0;
@@ -1062,7 +1063,8 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     text-decoration: none;
 }
 .categories-products-wrapper .categories-products-lists > ul li a i{
-    float:right;
+    line-height: 25px;
+    float: right;
     display: none;
 }
 .categories-products-wrapper .categories-products-lists > ul li a.loading i{
