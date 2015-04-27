@@ -1274,7 +1274,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'title'    => __( 'Content Popup', THEME_LANG ),
                         'subtitle' => __( '', THEME_LANG ),
                         'required' => array('enable_popup','equals', 1),
-                        'default'  => __('<h3 class="title-top">SIGN UP FOR OUR NEWSLETTER &amp; PROMOTIONS !</h3><p><img src="'.THEME_IMG.'popup_image.png" /></p>[mailchimp opt_in="yes" mailchimp_list="9306fec7e3" text_before="YOUR ENTIRE ORDER WHEN YOU SIGN UP TODAY !" layout="one"]Success! Check your inbox or spam folder for a message containing a confirmation link.[/mailchimp]', THEME_LANG),
+                        'default'  => __('<h3 class="title-top">SIGN UP FOR OUR NEWSLETTER &amp; PROMOTIONS !</h3><p><img src="'.THEME_IMG.'popup_image.png" /></p>[mailchimp opt_in="yes" list="9306fec7e3" text_before="YOUR ENTIRE ORDER WHEN YOU SIGN UP TODAY !" layout="one"]Success! Check your inbox or spam folder for a message containing a confirmation link.[/mailchimp]', THEME_LANG),
                     ),
                 )
             );
