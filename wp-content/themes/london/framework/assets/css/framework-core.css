@@ -158,6 +158,18 @@ div#post-body .rwmb-select{
     width: 174px;
     box-shadow: none;
 }
+.rwmb-radio_image-wrapper .rwmb-input label{
+    float:left;
+    text-align:center;
+    margin:0 10px;
+}
+#side-sortables .rwmb-input .rwmb-text{
+    max-width: 100%;
+}
+.slider-no-image-preview .upload_button_div, 
+.slider-no-image-preview .redux_slides_add_remove{
+     display: none;
+}
 /*==================================
 * Troubleshooting
 ===================================*/
@@ -206,7 +218,6 @@ div#post-body .rwmb-select{
     display: none;
 }
 
-
 /*==================================
 * WBC Importer
 ===================================*/
@@ -215,6 +226,7 @@ div#post-body .rwmb-select{
 }
 .wbc_importer .theme-browser .theme .spinner{
     display: none;
+    visibility: visible;
 }
 
 /*==================================

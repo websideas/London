@@ -978,8 +978,10 @@ ul.product-categories > li.cat-parent.current-cat > a{
     width: 100% !important;
 }
 .woocommerce.compare-button a{
-    font-size: 0;
     display: block;
+    font-size: 0 !important;
+    position: static!important;
+    margin: 0!important;
 }
 .woocommerce.compare-button a:before{
     font-family: FontAwesome;

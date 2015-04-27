@@ -82,20 +82,19 @@ class KT_Mailchimp{
         
         $output = '';
         
+        $uniqeID    = uniqid();
+        $output .= '<div class="mailchimp-wrapper '.esc_attr($elementClass).'" id="mailchimp-wrapper-'.$uniqeID.'">';
+        
+        if($title){
+            $output .= '<div class="block-heading"><h3>'.$title.'</h3></div>';
+        }
+        $output .= ($text_before) ? '<div class="mailchimp-before">'.$text_before.'</div>' : '';
+        
         
         if ( isset ( $this->options['api_key'] ) && !empty ( $this->options['api_key'] ) ) {
             
             if(!$content) 
                 $content = __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', 'kt_mailchimp');
-            
-            $uniqeID    = uniqid();
-            $output .= '<div class="mailchimp-wrapper '.esc_attr($elementClass).'" id="mailchimp-wrapper-'.$uniqeID.'">';
-            
-            if($title){
-                $output .= '<div class="block-heading"><h3>'.$title.'</h3></div>';
-            }
-            
-            $output .= ($text_before) ? '<div class="mailchimp-before">'.$text_before.'</div>' : '';
             
             $output .= '<form class="mailchimp-form clearfix mailchimp-layout-'.$layout.'" action="#" method="post">';
                 $email = '<input name="email" class="form-control" required="" type="email" placeholder="'.__('E-mail address', 'kt_mailchimp').'"/>';
@@ -112,8 +111,12 @@ class KT_Mailchimp{
                 $output .= '<div class="mailchimp-success">'.$content.'</div>';
                 $output .= '<div class="mailchimp-error"></div>';
             $output .= '</form>';
-            $output .= ($text_after) ? '<div class="mailchimp-after">'.$text_after.'</div>' : '';
-            $output .= '</div>';
+            
+        }else{
+            $output .= sprintf(
+                            "Please enter your mailchimp API key in <a href='%s'>here</a>",
+                            admin_url( 'options-general.php?page=kt-mailchimp-settings')
+                        );
         }
         
         $desktop = $desktop ? "@media (min-width: 992px) {#mailchimp-wrapper-{$uniqeID}{min-height: $desktop}}" : '';
@@ -121,6 +124,9 @@ class KT_Mailchimp{
         $mobile = $mobile ? "@media (max-width: 480px) {#mailchimp-wrapper-{$uniqeID}{min-height: $mobile}}" : '';  
         
         $style = '<style>'.$desktop.$tablet.$mobile.'</style>';
+        
+        $output .= ($text_after) ? '<div class="mailchimp-after">'.$text_after.'</div>' : '';
+        $output .= '</div><!-- .mailchimp-wrapper -->';
         
     	return $output.$style;
         

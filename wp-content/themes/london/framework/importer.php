@@ -40,22 +40,16 @@ if ( !function_exists( 'kt_wbc_extended_imported' ) ) {
             * Setting Menus
             *************************************************************************/
 
-            // If it's demo1 - demo6
-            $wbc_menu_array = array( 'demo1', 'demo2', 'demo3', 'demo4', 'demo5');
+            $main_menu = get_term_by( 'name', __('Main menu', THEME_LANG), 'nav_menu' );
+            $top_menu = get_term_by( 'name', __('Top menu', THEME_LANG), 'nav_menu' );
+            $footer_menu = get_term_by( 'name', __('Footer menu', THEME_LANG), 'nav_menu' );
 
-            if ( isset( $demo_active_import[$current_key]['directory'] ) && !empty( $demo_active_import[$current_key]['directory'] ) && in_array( $demo_active_import[$current_key]['directory'], $wbc_menu_array ) ) {
-                $main_menu = get_term_by( 'name', 'Main menu', 'nav_menu' );
-                $top_menu = get_term_by( 'name', 'Top menu', 'nav_menu' );
-                $footer_menu = get_term_by( 'name', 'Footer menu', 'nav_menu' );
-
-                set_theme_mod( 'nav_menu_locations', array(
-                        'primary' => $main_menu->term_id,
-                        'top'  => $top_menu->term_id,
-                        'bottom'  => $footer_menu->term_id
-                    )
-                );
-
-            }
+            set_theme_mod( 'nav_menu_locations', array(
+                    'primary' => $main_menu->term_id,
+                    'top'  => $top_menu->term_id,
+                    'bottom'  => $footer_menu->term_id
+                )
+            );
 
             /************************************************************************
             * Set HomePage
@@ -79,6 +73,6 @@ if ( !function_exists( 'kt_wbc_extended_imported' ) ) {
             }
 
 	    }
-    add_action( 'wbc_importer_after_content_import', 'kt_wbc_extended_imported', 10, 2 );
     }
 }
+add_action( 'wbc_importer_after_content_import', 'kt_wbc_extended_imported', 10, 2 );
