@@ -64,10 +64,10 @@ if ( !function_exists( 'kt_wbc_extended_imported' ) ) {
             // array of demos/homepages to check/select from
             $wbc_home_pages = array(
                 'demo1' => 'Home',
-                'demo2' => 'Gift',
-                'demo3' => 'Home',
-                'demo4' => 'Home',
-                'demo5' => 'Home'
+                'demo2' => 'Home v2',
+                'demo3' => 'Home v3',
+                'demo4' => 'Home v4',
+                'demo5' => 'Home v5'
             );
 
             if ( isset( $demo_active_import[$current_key]['directory'] ) && !empty( $demo_active_import[$current_key]['directory'] ) && array_key_exists( $demo_active_import[$current_key]['directory'], $wbc_home_pages ) ) {
