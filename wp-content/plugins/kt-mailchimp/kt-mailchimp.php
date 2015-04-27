@@ -375,9 +375,10 @@ if ( class_exists( 'Vc_Manager', false ) ) {
     if ( isset ( $api_key ) && !empty ( $api_key ) ) {
         $mcapi = new MCAPI($api_key);
     	$lists = $mcapi->lists();
-        
-        foreach ($lists['data'] as $item) {
-            $lists_arr[$item['name']] = $item['id'];
+        if($lists['data']){
+            foreach ($lists['data'] as $item) {
+                $lists_arr[$item['name']] = $item['id'];
+            }
         }
     }
     

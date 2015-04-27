@@ -54,8 +54,10 @@ function kt_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                             <?php _e( 'Mega Menu width', THEME_LANG); ?><br />
                             <select id="menu-item-width-<?php echo $item_id; ?>" name="menu-item-megamenu-width[<?php echo $item_id; ?>]" class="widefat edit-menu-item-width">
                                 <option <?php selected($item->width, 'full'); ?> value="full"><?php _e('Full Width', THEME_LANG); ?></option>
-                                <option <?php selected($item->width, 'three'); ?> value="three"><?php _e('Three quarters', THEME_LANG); ?></option>
-                                <option <?php selected($item->width, 'half'); ?> value="half"><?php _e('Half', THEME_LANG); ?></option>
+                                <option <?php selected($item->width, 'half'); ?> value="half"><?php _e('1/2', THEME_LANG); ?></option>
+                                <option <?php selected($item->width, 'three'); ?> value="three"><?php _e('3/4', THEME_LANG); ?></option>
+                                <option <?php selected($item->width, 'four'); ?> value="four"><?php _e('4/5', THEME_LANG); ?></option>
+                                <option <?php selected($item->width, 'five'); ?> value="five"><?php _e('9/10', THEME_LANG); ?></option>
                             </select>
                         </label>
                     </p>
