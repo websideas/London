@@ -127,6 +127,10 @@ jQuery(function () {
 
        // jQuery('.fa fa-spinner fa-spin');
         p.append('<div class="woof-loading loading "><i class="fa fa-spinner fa-spin"></i></div>');
+        var current_view = jQuery('.gridlist-toggle a.active').data('layout');
+        if( typeof current_view == undefined || current_view == '' ){
+            current_view = false;
+        }
 
         ajax_request = jQuery.ajax({
             type: 'POST',
@@ -140,13 +144,13 @@ jQuery(function () {
             },
             success: function( response ) {
                 var response=  jQuery( response );
-                
                 jQuery('#main').html( jQuery('#main', response).html() );
                 jQuery( 'body' ).trigger( 'woof_products_added' );
-
+                if( current_view ){
+                    jQuery('.gridlist-toggle a[data-layout="'+current_view+'"]').click();
+                }
             }
         });
-
 
     });
 
