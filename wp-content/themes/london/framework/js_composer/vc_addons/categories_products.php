@@ -25,6 +25,13 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
             'css_animation' => '',
             'css' => '',
             'el_class' => '',
+
+            'cat_orderby' =>'',
+            'cat_order' =>'',
+            'cat_include' =>'',
+            'cat_exclude' =>'',
+            'cat_number' =>'',
+
         ), $atts );
         extract($atts);
         
@@ -68,11 +75,17 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
             $category_args = array(
             	'taxonomy'  => 'product_cat',
                 'hide_empty' => 0,
-            ); 
-            
+            );
+
+            $category_args['number'] =  $cat_orderby;
+            $category_args['orderby'] =  $cat_orderby;
+            $category_args['include'] =  $cat_include;
+            $category_args['exclude'] =  $cat_exclude;
+            $category_args['number'] =  $cat_number;
+
             $category_args['parent'] = ($category) ? $category : 0;
             
-            $categories = get_categories($category_args);
+            $categories = get_categories( $category_args );
             
             $output .= "<div class='row'>";
                 $output .= "<div class='col-md-3 col-sm-3 categories-products-left'>";
@@ -185,9 +198,10 @@ vc_map( array(
             "placeholder" => 'Please select your category',
             "description" => __("Note: By default, all your catrgory will be displayed. <br>If you want to narrow output, select category(s) above. Only selected categories will be displayed.", 'js_composer')
         ),
+
         array(
 			'type' => 'attach_image',
-			'heading' => __( 'Default Image', THEME_LANG ),
+			'heading' => __( 'Default Icon', THEME_LANG ),
 			'param_name' => 'image',
 			'value' => '',
 			'description' => __( "Select image from media library (Only if you don't choose category).", THEME_LANG )
@@ -254,6 +268,63 @@ vc_map( array(
             "param_name" => "el_class",
             "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
         ),
+
+
+        // Category
+
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Order by', 'js_composer' ),
+            'param_name' => 'cat_orderby',
+            'value' => array(
+                '',
+                __( 'ID', 'js_composer' ) => 'id',
+                __( 'Name', 'js_composer' ) => 'name',
+                __( 'Slug', 'js_composer' ) => 'slug',
+                __( 'Count', 'js_composer' ) => 'count',
+            ),
+            'group' => __( 'Category settings', THEME_LANG ),
+            'description' => __( 'Select how to sort retrieved category', 'js_composer' )
+        ),
+
+
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Order way', 'js_composer' ),
+            'param_name' => 'cat_order',
+            'value' => array(
+                '',
+                __( 'Descending', 'js_composer' ) => 'DESC',
+                __( 'Ascending', 'js_composer' ) => 'ASC',
+            ),
+            'group' => __( 'Category settings', THEME_LANG ),
+        ),
+
+        array(
+            "type" => "textfield",
+            "heading" => __( "Include", "js_composer"),
+            "param_name" => "cat_include",
+            'group' => __( 'Category settings', THEME_LANG ),
+            "description" => __( "This parameter takes a comma-separated list of categories by unique ID.", "js_composer" ),
+        ),
+
+        array(
+            "type" => "textfield",
+            "heading" => __( "Include", "js_composer"),
+            "param_name" => "cat_exclude",
+            'group' => __( 'Category settings', THEME_LANG ),
+            "description" => __( "This parameter takes a comma-separated list of categories by unique ID.", "js_composer" ),
+        ),
+
+        array(
+            "type" => "textfield",
+            "heading" => __( "Number", "js_composer"),
+            "param_name" => "cat_number",
+            'group' => __( 'Category settings', THEME_LANG ),
+            "description" => __( "The number of categories to return .", "js_composer" ),
+        ),
+
+
         // Carousel
         array(
 			'type' => 'checkbox',
