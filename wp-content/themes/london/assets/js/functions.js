@@ -400,6 +400,7 @@
         sync1.KTowlCarousel({
             singleItem : true,
             slideSpeed : 1000,
+            items : 1,
             navigation: false,
             pagination: false,
             afterAction : syncPosition,
