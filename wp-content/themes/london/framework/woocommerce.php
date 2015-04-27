@@ -184,7 +184,7 @@ function woocommerce_get_cart(){
                     }
                     $output .= '</div>';
                 }else{
-                   $output .=  "<p class='cart_block_no_products'>".__('No products', THEME_LANG)."</p>"; 
+                   $output .=  "<p class='cart_block_no_products'>".__('No products', THEME_LANG)."</p>";
                 }
                 
                 $output .= '<div class="bag-total">'.__('Cart subtotal: ', THEME_LANG).$cart_total.'</div><!-- .bag-total -->';
@@ -203,8 +203,8 @@ function woocommerce_get_cart(){
             $output .= '</div><!-- .shopping-bag-wrapper -->';
             $output .= '</div><!-- .shopping-bag -->';
         $output .= '</div><!-- .shopping_cart -->';
-        
-        
+
+
         
     }
     return $output;
@@ -637,4 +637,8 @@ if ( ! function_exists( 'woocommerce_content' ) ) {
 if( file_exists( FW_DIR . 'plugins/yith-woocommerce-compare/class.yith-woocompare-frontend.php' ) ){
     require_once ( FW_DIR . 'plugins/yith-woocommerce-compare/class.yith-woocompare-frontend.php' );
 }
+if( file_exists( FW_DIR . 'plugins/yith-woocommerce-compare/class.yith-woocompare-frontend.php' ) ){
+    require_once ( FW_DIR . 'plugins/yith-woocommerce-compare/class.yith-woocompare-frontend.php' );
+}
+
 
