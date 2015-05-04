@@ -116,21 +116,25 @@
         &:before {
             content: "";
             position: absolute;
-            box-shadow: 0 15px 10px rgba(0, 0, 0, 0.6);
+            .box-shadow(0 15px 10px rgba(0, 0, 0, 0.6));
             left: 5px;
             right: 50%;
             bottom: 8px;
             height: 30%;
             z-index: -1;
             border-radius: inherit;
-            transform-origin: 0 0;
-            transform: skewY(-6deg);
-        }
+            .transform-origin(0 0);
+			-webkit-transform: skewY(-6deg);
+			-ms-transform: skewY(-6deg);
+			transform: skewY(-6deg);
+		}
         &:after {
             left: 50%;
             right: 5px;
-            transform: skewY(6deg);
-            transform-origin: 100% 0;
+			-webkit-transform: skewY(6deg);
+			-ms-transform: skewY(6deg);
+			transform: skewY(6deg);
+			.transform-origin(100% 0);
         }
     }
 

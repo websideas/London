@@ -1,12 +1,33 @@
 <?php
+
 class WPBakeryShortCode_VC_Single_image extends WPBakeryShortCode {
 
 
 	public function singleParamHtmlHolder( $param, $value ) {
 		$output = '';
 		// Compatibility fixes
-		$old_names = array( 'yellow_message', 'blue_message', 'green_message', 'button_green', 'button_grey', 'button_yellow', 'button_blue', 'button_red', 'button_orange' );
-		$new_names = array( 'alert-block', 'alert-info', 'alert-success', 'btn-success', 'btn', 'btn-info', 'btn-primary', 'btn-danger', 'btn-warning' );
+		$old_names = array(
+			'yellow_message',
+			'blue_message',
+			'green_message',
+			'button_green',
+			'button_grey',
+			'button_yellow',
+			'button_blue',
+			'button_red',
+			'button_orange'
+		);
+		$new_names = array(
+			'alert-block',
+			'alert-info',
+			'alert-success',
+			'btn-success',
+			'btn',
+			'btn-info',
+			'btn-primary',
+			'btn-danger',
+			'btn-warning'
+		);
 		$value = str_ireplace( $old_names, $new_names, $value );
 		//$value = __($value, "js_composer");
 		//
@@ -15,12 +36,15 @@ class WPBakeryShortCode_VC_Single_image extends WPBakeryShortCode {
 		$class = isset( $param['class'] ) ? $param['class'] : '';
 
 
-		if ( ( $param['type'] ) == 'attach_image' ) {
+		if ( 'attach_image' === $param['type'] && 'image' === $param_name ) {
 			$output .= '<input type="hidden" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="' . $value . '" />';
-			$element_icon = $this->settings('icon');
-			$img = wpb_getImageBySize( array( 'attach_id' => (int)preg_replace( '/[^\d]/', '', $value ), 'thumb_size' => 'thumbnail' ) );
-			$this->setSettings('logo', ( $img ? $img['thumbnail'] : '<img width="150" height="150" src="' . vc_asset_url( 'vc/blank.gif' ) . '" class="attachment-thumbnail vc_element-icon"  data-name="' . $param_name . '" alt="" title="" style="display: none;" />' ) . '<span class="no_image_image vc_element-icon' . ( !empty($element_icon) ? ' '.$element_icon : '' ) . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '" /><a href="#" class="column_edit_trigger' . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '">' . __( 'Add image', 'js_composer' ) . '</a>');
-			$output .= $this->outputTitleTrue($this->settings['name']);
+			$element_icon = $this->settings( 'icon' );
+			$img = wpb_getImageBySize( array(
+				'attach_id' => (int) preg_replace( '/[^\d]/', '', $value ),
+				'thumb_size' => 'thumbnail'
+			) );
+			$this->setSettings( 'logo', ( $img ? $img['thumbnail'] : '<img width="150" height="150" src="' . vc_asset_url( 'vc/blank.gif' ) . '" class="attachment-thumbnail vc_element-icon"  data-name="' . $param_name . '" alt="" title="" style="display: none;" />' ) . '<span class="no_image_image vc_element-icon' . ( ! empty( $element_icon ) ? ' ' . $element_icon : '' ) . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '" /><a href="#" class="column_edit_trigger' . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '">' . __( 'Add image', 'js_composer' ) . '</a>' );
+			$output .= $this->outputTitleTrue( $this->settings['name'] );
 		} elseif ( ! empty( $param['holder'] ) ) {
 			if ( $param['holder'] == 'input' ) {
 				$output .= '<' . $param['holder'] . ' readonly="true" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="' . $value . '">';
@@ -37,30 +61,34 @@ class WPBakeryShortCode_VC_Single_image extends WPBakeryShortCode {
 
 		return $output;
 	}
-	public function getImageSquereSize($img_id, $img_size) {
-		if(preg_match_all('/(\d+)x(\d+)/', $img_size, $sizes)) {
+
+	public function getImageSquereSize( $img_id, $img_size ) {
+		if ( preg_match_all( '/(\d+)x(\d+)/', $img_size, $sizes ) ) {
 			$exact_size = array(
-				'width' => isset($sizes[1][0]) ? $sizes[1][0] : '0',
-				'height' => isset($sizes[2][0]) ? $sizes[2][0] : '0',
+				'width' => isset( $sizes[1][0] ) ? $sizes[1][0] : '0',
+				'height' => isset( $sizes[2][0] ) ? $sizes[2][0] : '0',
 			);
 		} else {
-			$image_downsize = image_downsize($img_id, $img_size);
+			$image_downsize = image_downsize( $img_id, $img_size );
 			$exact_size = array(
 				'width' => $image_downsize[1],
 				'height' => $image_downsize[2],
 			);
 		}
-		if(isset($exact_size['width']) && (int)$exact_size['width'] !== (int)$exact_size['height']) {
+		if ( isset( $exact_size['width'] ) && (int) $exact_size['width'] !== (int) $exact_size['height'] ) {
 			$img_size = (int) $exact_size['width'] > (int) $exact_size['height']
-				? $exact_size['height'] . 'x' .$exact_size['height']
+				? $exact_size['height'] . 'x' . $exact_size['height']
 				: $exact_size['width'] . 'x' . $exact_size['width'];
 		}
+
 		return $img_size;
 	}
-	protected function outputTitle($title) {
+
+	protected function outputTitle( $title ) {
 		return '';
 	}
-	protected function outputTitleTrue($title) {
-		return  '<h4 class="wpb_element_title">'.__($title, 'js_composer').' '.$this->settings('logo').'</h4>';
+
+	protected function outputTitleTrue( $title ) {
+		return '<h4 class="wpb_element_title">' . __( $title, 'js_composer' ) . ' ' . $this->settings( 'logo' ) . '</h4>';
 	}
 }

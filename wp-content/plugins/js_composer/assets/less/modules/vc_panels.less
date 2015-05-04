@@ -124,7 +124,7 @@
             padding: 0;
             white-space: nowrap;
             font-weight: normal;
-            transition: background-color 0.5s ease-out;
+            .transition(background-color 0.5s ease-out);
             color: #949494;
             .vc_edit-form-link {
                 color: #949494;
@@ -135,9 +135,7 @@
                 cursor: pointer;
                 font-size: 12px;
                 &:focus {
-                    -webkit-box-shadow: none;
-                    -moz-box-shadow: none;
-                    box-shadow: none;
+                    .box-shadow(none);
                 }
             }
             &.vc_active {
@@ -189,7 +187,7 @@
             padding: 0;
             white-space: nowrap;
             font-weight: normal;
-            transition: background-color 0.5s ease-out;
+            .transition(background-color 0.5s ease-out);
             color: #949494;
             .vc_panel-tabs-link {
                 color: #949494;
@@ -200,9 +198,7 @@
                 cursor: pointer;
                 font-size: 12px;
                 &:focus {
-                    -webkit-box-shadow: none;
-                    -moz-box-shadow: none;
-                    box-shadow: none;
+                    .box-shadow(none);
                 }
             }
             &.vc_active {

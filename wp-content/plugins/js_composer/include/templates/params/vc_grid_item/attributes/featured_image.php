@@ -28,13 +28,13 @@ $img = wpb_getImageBySize( array(
 	'class' => 'vc_single_image-img'
 ) );
 $img = apply_filters( 'vc_gitem_attribute_featured_image_img', $img );
-if ( NULL === $img || false === $img ) {
+if ( null === $img || false === $img ) {
 	return $output;
 }
 $el_class = $img_class->getExtraClass( $el_class );
-$link = vc_gitem_create_link_real( $atts, $post );
+$link = vc_gitem_create_link_real( $atts, $post, '', $title );
 
-$img_output = ( $style == 'vc_box_shadow_3d' ) ? '<span class="vc_box_shadow_3d_wrap">' . $img[ 'thumbnail' ] . '</span>' : $img[ 'thumbnail' ];
+$img_output = ( $style == 'vc_box_shadow_3d' ) ? '<span class="vc_box_shadow_3d_wrap">' . $img['thumbnail'] . '</span>' : $img['thumbnail'];
 $image_string = ! empty( $link ) ? '<' . $link . '><div class="vc_single_image-wrapper ' . $style . ' ' . $border_color . '">' . $img_output . '</div></a>' : '<div class="vc_single_image-wrapper ' . $style . ' ' . $border_color . '">' . $img_output . '</div>';
 $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'wpb_single_image wpb_content_element' . $el_class . vc_shortcode_custom_css_class( $css, ' ' ), $img_class->settings( 'base' ), $atts );
 $css_class .= $img_class->getCSSAnimation( $css_animation );

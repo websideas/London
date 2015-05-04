@@ -14,7 +14,7 @@ if ( has_post_thumbnail() ) {
 } else {
 	$media = '';
 }
-$excerpt = is_object($post) && isset($post->post_excerpt) ? $post->post_excerpt : '';
+$excerpt = is_object( $post ) && isset( $post->post_excerpt ) ? $post->post_excerpt : '';
 $description = ( $excerpt != '' ) ? '&amp;description=' . rawurlencode( strip_tags( $excerpt ) ) : '';
 
 $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'wpb_pinterest wpb_content_element wpb_pinterest_type_' . $type, $this->settings['base'], $atts );

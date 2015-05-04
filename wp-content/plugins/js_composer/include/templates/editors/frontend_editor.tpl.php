@@ -15,7 +15,7 @@ require_once( $editor->adminFile( 'admin-header.php' ) );
 ?>
 	<div id="vc_preloader"></div>
 	<script type="text/javascript">
-		document.getElementById('vc_preloader').style.height = window.screen.availHeight;
+		document.getElementById( 'vc_preloader' ).style.height = window.screen.availHeight;
 		var vc_mode = '<?php echo vc_mode() ?>',
 			vc_iframe_src = '<?php echo esc_attr( $editor->url ); ?>';
 	</script>
@@ -53,7 +53,8 @@ vc_include_template( 'editors/partials/frontend_controls.tpl.php' );
 	       value="<?php echo esc_attr( $editor->post_custom_css ); ?>" autocomplete="off"/>
 	<script type="text/javascript">
 		var vc_user_mapper = <?php echo json_encode(WPBMap::getUserShortCodes()) ?>,
-			vc_mapper = <?php echo json_encode(WPBMap::getShortCodes()) ?>;
+			vc_mapper = <?php echo json_encode(WPBMap::getShortCodes()) ?>,
+			vc_roles = <?php echo json_encode( array_merge( array( 'current_user' => $editor->current_user->roles ), (array) vc_settings()->get( 'groups_access_rules' ) ) ) ?>;
 	</script>
 
 	<script type="text/html" id="vc_settings-image-block">

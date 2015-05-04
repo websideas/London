@@ -73,7 +73,9 @@ if ( $type == 'flexslider' || $type == 'flexslider_fade' || $type == 'fading' ) 
 }*/
 
 //if ( $images == '' ) return null;
-if ( $images == '' ) $images = '-1,-2,-3';
+if ( $images == '' ) {
+	$images = '-1,-2,-3';
+}
 
 $pretty_rel_random = ' rel="prettyPhoto[rel-' . get_the_ID() . '-' . rand() . ']"'; //rel-'.rand();
 
@@ -100,8 +102,8 @@ foreach ( $images as $attach_id ) {
 	if ( $onclick == 'link_image' ) {
 		$link_start = '<a class="prettyphoto" href="' . $p_img_large[0] . '"' . $pretty_rel_random . '>';
 		$link_end = '</a>';
-	} else if ( $onclick == 'custom_link' && isset( $custom_links[$i] ) && $custom_links[$i] != '' ) {
-		$link_start = '<a href="' . $custom_links[$i] . '"' . ( ! empty( $custom_links_target ) ? ' target="' . $custom_links_target . '"' : '' ) . '>';
+	} else if ( $onclick == 'custom_link' && isset( $custom_links[ $i ] ) && $custom_links[ $i ] != '' ) {
+		$link_start = '<a href="' . $custom_links[ $i ] . '"' . ( ! empty( $custom_links_target ) ? ' target="' . $custom_links_target . '"' : '' ) . '>';
 		$link_end = '</a>';
 	}
 	$gal_images .= $el_start . $link_start . $thumbnail . $link_end . $el_end;

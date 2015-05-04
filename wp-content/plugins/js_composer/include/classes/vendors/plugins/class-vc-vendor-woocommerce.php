@@ -814,7 +814,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 		$attributes_tax = wc_get_attribute_taxonomies();
 		$attributes = array();
 		foreach ( $attributes_tax as $attribute ) {
-			$attributes[$attribute->attribute_label] = $attribute->attribute_name;
+			$attributes[ $attribute->attribute_label ] = $attribute->attribute_name;
 		}
 		vc_map( array(
 			'name' => __( 'Product Attribute', 'js_composer' ),
@@ -867,7 +867,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 					'dependency' => array(
 						'element' => 'attribute',
 						'is_empty' => true,
-						'callback' => 'vc_woocommerce_product_attribute_filter_dependency_callback',
+						'callback' => 'vcWoocommerceProductAttributeFilterDependencyCallback',
 					),
 				),
 			)
@@ -972,7 +972,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 	public function productAttributeFilterParamValue( $param_settings, $current_value, $map_settings, $atts ) {
 		if ( isset( $atts['attribute'] ) ) {
 			$value = $this->getAttributeTerms( $atts['attribute'] );
-			if ( is_array( $value ) && !empty( $value ) ) {
+			if ( is_array( $value ) && ! empty( $value ) ) {
 				$param_settings['value'] = $value;
 			}
 		}
@@ -1009,9 +1009,9 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 	public function getAttributeTerms( $attribute ) {
 		$terms = get_terms( 'pa_' . $attribute ); // return array. take slug
 		$data = array();
-		if ( !empty( $terms ) ) {
+		if ( ! empty( $terms ) ) {
 			foreach ( $terms as $term ) {
-				$data[$term->name] = $term->slug;
+				$data[ $term->name ] = $term->slug;
 			}
 		}
 
@@ -1031,12 +1031,12 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 	public function getCategoryChilds( $parent_id, $pos, $array, $level, &$dropdown ) {
 
 		for ( $i = $pos; $i < count( $array ); $i ++ ) {
-			if ( $array[$i]->category_parent == $parent_id ) {
+			if ( $array[ $i ]->category_parent == $parent_id ) {
 				$data = array(
-					str_repeat( "- ", $level ) . $array[$i]->name => $array[$i]->slug,
+					str_repeat( "- ", $level ) . $array[ $i ]->name => $array[ $i ]->slug,
 				);
 				$dropdown = array_merge( $dropdown, $data );
-				$this->getCategoryChilds( $array[$i]->term_id, $i, $array, $level + 1, $dropdown );
+				$this->getCategoryChilds( $array[ $i ]->term_id, $i, $array, $level + 1, $dropdown );
 			}
 		}
 	}
@@ -1074,7 +1074,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 	 */
 	public function productsIdsDefaultValue( $current_value, $param_settings, $map_settings, $atts ) {
 		$value = trim( $current_value );
-		if ( isset( $atts['skus'] ) && strlen( $atts['skus'] ) > 0 ) {
+		if ( strlen( trim( $value ) ) == 0 && isset( $atts['skus'] ) && strlen( $atts['skus'] ) > 0 ) {
 			$data = array();
 			$skus = $atts['skus'];
 			$skus_array = explode( ',', $skus );
@@ -1084,7 +1084,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 					$data[] = $id;
 				}
 			}
-			if ( !empty( $data ) ) {
+			if ( ! empty( $data ) ) {
 				$values = explode( ',', $value );
 				$values = array_merge( $values, $data );
 				$value = implode( ',', $values );
@@ -1113,7 +1113,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 				$product_id > 0 ? $product_id : - 1, stripslashes( $query ), stripslashes( $query ) ), ARRAY_A );
 
 		$results = array();
-		if ( is_array( $post_meta_infos ) && !empty( $post_meta_infos ) ) {
+		if ( is_array( $post_meta_infos ) && ! empty( $post_meta_infos ) ) {
 			foreach ( $post_meta_infos as $value ) {
 				$data = array();
 				$data['value'] = $value['id'];
@@ -1140,7 +1140,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 	 */
 	public function productIdAutocompleteRender( $query ) {
 		$query = trim( $query['value'] ); // get value from requested
-		if ( !empty( $query ) ) {
+		if ( ! empty( $query ) ) {
 			// get product
 			$product_object = wc_get_product( (int) $query );
 			if ( is_object( $product_object ) ) {
@@ -1149,12 +1149,12 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 				$product_id = $product_object->id;
 
 				$product_sku_display = '';
-				if ( !empty( $product_sku ) ) {
+				if ( ! empty( $product_sku ) ) {
 					$product_sku_display = ' - ' . __( 'Sku', 'js_composer' ) . ': ' . $product_sku;
 				}
 
 				$product_title_display = '';
-				if ( !empty( $product_title ) ) {
+				if ( ! empty( $product_title ) ) {
 					$product_title_display = ' - ' . __( 'Title', 'js_composer' ) . ': ' . $product_title;
 				}
 
@@ -1164,7 +1164,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 				$data['value'] = $product_id;
 				$data['label'] = $product_id_display . $product_title_display . $product_sku_display;
 
-				return !empty( $data ) ? $data : false;
+				return ! empty( $data ) ? $data : false;
 			}
 
 			return false;
@@ -1212,12 +1212,12 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 			$product_id = $product_object->id;
 
 			$product_sku_display = '';
-			if ( !empty( $product_sku ) ) {
+			if ( ! empty( $product_sku ) ) {
 				$product_sku_display = ' - ' . __( 'Sku', 'js_composer' ) . ': ' . $product_sku;
 			}
 
 			$product_title_display = '';
-			if ( !empty( $product_title ) ) {
+			if ( ! empty( $product_title ) ) {
 				$product_title_display = ' - ' . __( 'Title', 'js_composer' ) . ': ' . $product_title;
 			}
 
@@ -1227,7 +1227,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 			$data['value'] = $product_id;
 			$data['label'] = $product_id_display . $product_title_display . $product_sku_display;
 
-			return !empty( $data ) ? $data : false;
+			return ! empty( $data ) ? $data : false;
 		}
 
 		return false;
@@ -1256,7 +1256,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 				$cat_id > 0 ? $cat_id : - 1, stripslashes( $query ), stripslashes( $query ) ), ARRAY_A );
 
 		$result = array();
-		if ( is_array( $post_meta_infos ) && !empty( $post_meta_infos ) ) {
+		if ( is_array( $post_meta_infos ) && ! empty( $post_meta_infos ) ) {
 			foreach ( $post_meta_infos as $value ) {
 				$data = array();
 				$data['value'] = $slug ? $value['slug'] : $value['id'];
@@ -1335,12 +1335,12 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 		$term_id = $term->term_id;
 
 		$term_slug_display = '';
-		if ( !empty( $term_sku ) ) {
+		if ( ! empty( $term_sku ) ) {
 			$term_slug_display = ' - ' . __( 'Sku', 'js_composer' ) . ': ' . $term_slug;
 		}
 
 		$term_title_display = '';
-		if ( !empty( $product_title ) ) {
+		if ( ! empty( $product_title ) ) {
 			$term_title_display = ' - ' . __( 'Title', 'js_composer' ) . ': ' . $term_title;
 		}
 
@@ -1350,7 +1350,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 		$data['value'] = $term_id;
 		$data['label'] = $term_id_display . $term_title_display . $term_slug_display;
 
-		return !empty( $data ) ? $data : false;
+		return ! empty( $data ) ? $data : false;
 	}
 
 	public static function getProductsFieldsList() {
@@ -1376,7 +1376,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 			self::$product_fields_list = array_flip( self::getProductsFieldsList() );
 		}
 
-		return isset( self::$product_fields_list[$key] ) ? self::$product_fields_list[$key] : '';
+		return isset( self::$product_fields_list[ $key ] ) ? self::$product_fields_list[ $key ] : '';
 	}
 
 	public static function getOrderFieldsList() {
@@ -1402,7 +1402,7 @@ Class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 			self::$order_fields_list = array_flip( self::getOrderFieldsList() );
 		}
 
-		return isset( self::$order_fields_list[$key] ) ? self::$order_fields_list[$key] : '';
+		return isset( self::$order_fields_list[ $key ] ) ? self::$order_fields_list[ $key ] : '';
 	}
 
 	public function yoastSeoCompatibility() {
@@ -1424,6 +1424,9 @@ class Vc_WooCommerce_NotEditable extends WPBakeryShortCode {
 	 * @since 4.4
 	 * @var array
 	 */
-	protected $controls_list = array( 'clone', 'delete' );
+	protected $controls_list = array(
+		'clone',
+		'delete'
+	);
 }
 

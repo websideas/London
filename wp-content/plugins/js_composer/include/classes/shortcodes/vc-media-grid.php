@@ -27,6 +27,7 @@ class WPBakeryShortCode_VC_Media_Grid extends WPBakeryShortCode_VC_Basic_Grid {
 			'post_type' => 'attachment', // $atts['post_type'],
 			'orderby' => 'post__in',
 		);
+
 		return $settings;
 	}
 

@@ -61,15 +61,9 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 
 	public function shortcodeScripts() {
 		parent::shortcodeScripts();
-		/*wp_register_script( 'vc_grid-js-isotope-horizontal',
-			vc_asset_url( 'lib/isotope-horizontal/horizontal.js' ) );
-		wp_register_script( 'vc_grid-js-isotope-masonry-horizontal',
-			vc_asset_url( 'lib/isotope-masonry-horizontal/masonry-horizontal.js' ) );
-		wp_register_script( 'vc_grid-js-isotope-packery',
-			vc_asset_url( 'lib/isotope-packery-mode/packery-mode.pkgd.min.js' ) );*/
 
 		wp_register_script( 'vc_grid-js-imagesloaded',
-			vc_asset_url( 'lib/imagesloaded/imagesloaded.pkgd.min.js' ) );
+			vc_asset_url( 'lib/bower/imagesloaded/imagesloaded.pkgd.min.js' ) );
 		wp_register_script( 'vc_grid-style-all', vc_asset_url( 'js/components/vc_grid_style_all.js' ),
 			array(), WPB_VC_VERSION, true );
 		wp_register_script( 'vc_grid-style-load-more', vc_asset_url( 'js/components/vc_grid_style_load_more.js' ),
@@ -164,6 +158,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 
 		return $id_to_save;
 	}
+
 	/**
 	 * Search in post meta vc_post_settings value
 	 * For shortcode data by hash
@@ -175,7 +170,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 	 * @return bool|array
 	 */
 	public function findPostShortcodeByHash( $page_id, $hash ) {
-		if( $hash ) {
+		if ( $hash ) {
 			if ( preg_match( '/\"tag\"\:/', urldecode( $hash ) ) ) {
 				return json_decode( urldecode( $hash ), true ); // if frontend, no hash exists - just RAW data
 			}
@@ -188,6 +183,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 				}
 			}
 		}
+
 		return false;
 	}
 
@@ -210,7 +206,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 	private function renderItems() {
 		$output = $items = '';
 		$this->buildGridSettings();
-		$css_classes = 'vc_row vc_clearfix vc_grid' . esc_attr( $this->atts['gap'] > 0 ? ' vc_grid-gutter-' . (int) $this->atts['gap'] . 'px' : '' );
+		$css_classes = 'vc_grid vc_row' . esc_attr( $this->atts['gap'] > 0 ? ' vc_grid-gutter-' . (int) $this->atts['gap'] . 'px' : '' );
 		if ( is_array( $this->items ) && ! empty( $this->items ) ) {
 			require_once vc_path_dir( 'PARAMS_DIR', 'vc_grid_item/class-vc-grid-item.php' );
 			$grid_item = new Vc_Grid_Item();
@@ -411,7 +407,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 		$this->grid_settings['tag'] = $this->shortcode;
 	}
 
-// TODO: setter & getter to attributes
+	// TODO: setter & getter to attributes
 	public function buildQuery( $atts ) {
 		// Set include & exclude
 		if ( $atts['post_type'] !== 'ids' && ! empty( $atts['exclude'] ) ) {
@@ -518,7 +514,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 			'meta_key' => '',
 			'meta_value' => '',
 			'post_type' => 'post',
-			'suppress_filters' => true,
+			'suppress_filters' => apply_filters( 'vc_basic_grid_filter_query_suppress_filters', true ),
 			'public' => true
 		);
 
@@ -542,6 +538,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 
 		$r['ignore_sticky_posts'] = true;
 		$r['no_found_rows'] = true;
+
 		return $r;
 	}
 }

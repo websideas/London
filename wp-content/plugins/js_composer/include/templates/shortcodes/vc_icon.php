@@ -43,11 +43,14 @@ if ( strlen( $background_style ) > 0 ) {
 	}
 }
 $iconClass = isset( ${"icon_" . $type} ) ? esc_attr( ${"icon_" . $type} ) : 'fa fa-adjust';
-?><div
-	class="vc_icon_element vc_icon_element-outer<?php echo esc_attr( $css_class ); ?>  vc_icon_element-align-<?php echo esc_attr( $align ); ?> <?php if( $has_style ): echo 'vc_icon_element-have-style'; endif; ?>"><div
-		class="vc_icon_element-inner vc_icon_element-color-<?php echo esc_attr( $color ); ?> <?php if( $has_style ): echo 'vc_icon_element-have-style-inner'; endif; ?> vc_icon_element-size-<?php echo esc_attr( $size ); ?>  vc_icon_element-style-<?php echo esc_attr( $background_style ); ?> vc_icon_element-background-color-<?php echo esc_attr( $background_color ); ?>"><span
+?>
+<div
+	class="vc_icon_element vc_icon_element-outer<?php echo esc_attr( $css_class ); ?>  vc_icon_element-align-<?php echo esc_attr( $align ); ?> <?php if ( $has_style ): echo 'vc_icon_element-have-style'; endif; ?>">
+	<div
+		class="vc_icon_element-inner vc_icon_element-color-<?php echo esc_attr( $color ); ?> <?php if ( $has_style ): echo 'vc_icon_element-have-style-inner'; endif; ?> vc_icon_element-size-<?php echo esc_attr( $size ); ?>  vc_icon_element-style-<?php echo esc_attr( $background_style ); ?> vc_icon_element-background-color-<?php echo esc_attr( $background_color ); ?>"><span
 			class="vc_icon_element-icon <?php echo $iconClass; ?>" <?php echo( $color === 'custom' ? 'style="color:' . esc_attr( $custom_color ) . ' !important"' : '' ); ?>></span><?php
 		if ( strlen( $link ) > 0 && strlen( $url['url'] ) > 0 ) {
 			echo '<a class="vc_icon_element-link" href="' . esc_attr( $url['url'] ) . '" title="' . esc_attr( $url['title'] ) . '" target="' . ( strlen( $url['target'] ) > 0 ? esc_attr( $url['target'] ) : '_self' ) . '"></a>';
 		}
-		?></div></div><?php echo $this->endBlockComment( '.vc_icon_element' ); ?>
+		?></div>
+</div><?php echo $this->endBlockComment( '.vc_icon_element' ); ?>

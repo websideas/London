@@ -51,6 +51,7 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 		 */
 		visual_composer()->vendorsManager()->load();
 	}
+
 	/**
 	 *    Calls add_meta_box to create Editor block. Block is rendered by WPBakeryVisualComposerLayout.
 	 *
@@ -73,13 +74,13 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 	 *
 	 * @param null|Wp_Post $post
 	 *
-	 * @return mixed|void
+	 * @return bool
 	 */
 	public function renderEditor( $post = null ) {
 		/**
 		 * @todo setter/getter for $post
 		 */
-		if ( ! is_object( $post ) || 'WP_Post' !== get_class( $post ) || ! isset( $post->ID )  ) {
+		if ( ! is_object( $post ) || 'WP_Post' !== get_class( $post ) || ! isset( $post->ID ) ) {
 			return false;
 		}
 		$this->post = $post;
@@ -90,6 +91,8 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 		) );
 		add_action( 'admin_footer', array( &$this, 'renderEditorFooter' ) );
 		do_action( 'vc_backend_editor_render' );
+
+		return true;
 	}
 
 	/**
@@ -144,7 +147,7 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
 			wp_enqueue_script( 'farbtastic' );
 			wp_enqueue_script( 'isotope' );
-			wp_enqueue_script( 'vc_bootstrap_js', vc_asset_url( 'lib/bootstrap3/dist/js/bootstrap.min.js' ), array( 'jquery' ), '3.0.2', true );
+			wp_enqueue_script( 'vc_bootstrap_js', vc_asset_url( 'lib/bower/bootstrap3/dist/js/bootstrap.min.js' ), array( 'jquery' ), '3.0.2', true );
 			wp_enqueue_script( 'wpb_scrollTo_js' );
 			wp_enqueue_script( 'wpb_php_js' );
 			wp_enqueue_script( 'wpb_js_composer_js_sortable' );
@@ -219,7 +222,7 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 		} elseif ( $data_element == 'vc_row' || $data_element == 'vc_row_inner' ) {
 			$output = do_shortcode( '[' . $data_element . ']' );
 			echo $output;
-		} elseif ( !isset( $settings[$role]['shortcodes'] ) || ( isset( $settings[$role]['shortcodes'][$data_element] ) && (int) $settings[$role]['shortcodes'][$data_element] == 1 ) ) {
+		} elseif ( ! isset( $settings[ $role ]['shortcodes'] ) || ( isset( $settings[ $role ]['shortcodes'][ $data_element ] ) && (int) $settings[ $role ]['shortcodes'][ $data_element ] == 1 ) ) {
 			$output = do_shortcode( '[' . $data_element . ']' );
 			echo $output;
 		}
@@ -235,6 +238,7 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 		/** @var $settings - get use group access rules */
 		$settings = vc_settings()->get( 'groups_access_rules' );
 		$role = is_object( $current_user ) && isset( $current_user->roles[0] ) ? $current_user->roles[0] : '';
-		return isset( $settings[$role]['show'] ) ? $settings[$role]['show'] : '';
+
+		return isset( $settings[ $role ]['show'] ) ? $settings[ $role ]['show'] : '';
 	}
 }

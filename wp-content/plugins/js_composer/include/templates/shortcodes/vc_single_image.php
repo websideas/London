@@ -22,9 +22,9 @@ $style = ( $style != '' ) ? $style : '';
 $border_color = ( $border_color != '' ) ? ' vc_box_border_' . $border_color : '';
 $img_id = preg_replace( '/[^\d]/', '', $image );
 // Set rectangular.
-if( preg_match( '/_circle_2$/', $style )) {
-	$style = preg_replace('/_circle_2$/', '_circle', $style);
-	$img_size = $this->getImageSquereSize($img_id, $img_size);
+if ( preg_match( '/_circle_2$/', $style ) ) {
+	$style = preg_replace( '/_circle_2$/', '_circle', $style );
+	$img_size = $this->getImageSquereSize( $img_id, $img_size );
 }
 $img = wpb_getImageBySize( array(
 	'attach_id' => $img_id,

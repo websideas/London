@@ -12,9 +12,7 @@ if ( ! function_exists( 'vc_manager' ) ) {
 	 * @return Vc_Manager
 	 */
 	function vc_manager() {
-		global $vc_manager;
-
-		return $vc_manager;
+		return Vc_Manager::getInstance();
 	}
 }
 if ( ! function_exists( 'visual_composer' ) ) {
@@ -171,7 +169,7 @@ if ( ! function_exists( 'vc_get_param' ) ) {
 	/**
 	 * Get param value from $_GET if exists.
 	 *
-	 * @param $param
+	 * @param string $param
 	 * @param $default
 	 *
 	 * @since 4.2
@@ -239,7 +237,7 @@ if ( ! function_exists( 'vc_is_inline' ) ) {
 	function vc_is_inline() {
 		global $vc_is_inline;
 		if ( is_null( $vc_is_inline ) ) {
-			$vc_is_inline = vc_action() === 'vc_inline' || !is_null(vc_request_param('vc_inline')) || vc_request_param('vc_editable') === 'true';
+			$vc_is_inline = vc_action() === 'vc_inline' || ! is_null( vc_request_param( 'vc_inline' ) ) || vc_request_param( 'vc_editable' ) === 'true';
 		}
 
 		return $vc_is_inline;
@@ -361,6 +359,7 @@ function vc_plugin_name() {
 
 /**
  * @since 4.4.3 used in vc_base when getting an custom css output
+ *
  * @param $filename
  *
  * @return bool|mixed|string

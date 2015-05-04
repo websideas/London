@@ -8,13 +8,18 @@
  *          array(
  *                'type' => 'google_fonts',
  *                'param_name' => 'google_fonts',
- *                'value' => '',// Not recommended, this will override 'settings'. Example: 'font_family:'.rawurlencode('Exo:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic').'|font_style:'.rawurlencode('900 bold italic:900:italic'),
+ *                'value' => '',// Not recommended, this will override 'settings'. Example:
+ *     'font_family:'.rawurlencode('Exo:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic').'|font_style:'.rawurlencode('900
+ *     bold italic:900:italic'),
  *                'settings' => array(
  *                    //'no_font_style' // Method 1: To disable font style
  *                    //'no_font_style'=>true // Method 2: To disable font style
  *                    'fields'=>array(
- *                        'font_family'=>'Abril Fatface:regular',// 'Exo:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic', Default font family and all available styles to fetch
- *                        'font_style'=>'400 regular:400:normal', // Default font style. Name:weight:style, example: "800 bold regular:800:normal"
+ *                        'font_family'=>'Abril Fatface:regular',//
+ *     'Exo:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic',
+ *     Default font family and all available styles to fetch
+ *                        'font_style'=>'400 regular:400:normal', // Default font style. Name:weight:style, example:
+ *     "800 bold regular:800:normal"
  *                        'font_family_description' => __('Select font family.','js_composer'),
  *                        'font_style_description' => __('Select font styling.','js_composer')
  *                  )
@@ -49,10 +54,10 @@ class Vc_Google_Fonts {
 	 * To change this list use add_filters('vc_google_fonts_get_fonts_filter','your_custom_function'); and change array
 	 * vc_filter: vc_google_fonts_get_fonts_filter
 	 * @since 4.3
-	 * @return array List of available fonts as array of objects. {"font_family":"Abril Fatface","font_styles":"regular","font_types":"400 regular:400:normal"}
+	 * @return array List of available fonts as array of objects. {"font_family":"Abril
+	 *     Fatface","font_styles":"regular","font_types":"400 regular:400:normal"}
 	 */
 	public function _vc_google_fonts_get_fonts() {
-
 		return apply_filters( 'vc_google_fonts_get_fonts_filter', json_decode( $this->fonts_list ) );
 	}
 

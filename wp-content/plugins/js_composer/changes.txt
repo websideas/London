@@ -1,3 +1,30 @@
+30.04.2015 - ver 4.5.1
+   - Improvements with stretch row logic
+   - Grid pagination isn't hiding "add to column" control in Fronend editor
+   - Grid filter logic improved
+   - JS script logic for templates improved
+   - Bug with wpLink fixed
+   - Visual Composer settings link in multisite fixed
+
+27.04.2015 - ver 4.5
+   - New: Parallax option for row added
+   - New: IDs for rows
+   - New: Param type "Hidden" available in shortcode mapper. Now you can preset shortcodes value and it will be not editable in VC interface (hardcoded)
+   - New: Button element rebuilt from scratch. Extremely flexible with many options (Old buttons are still available but you will see deprecated message)
+   - New: Call to action element rebuilt from scratch
+   - New: Design Options section is powered by LESS technology (it actually compile less on save). This gives us proper tools to take Design options to the next level in the next updates
+   - New: Guide tour for user who start using VC for the first time
+   - New: VC Welcome page which is shown on plugin activation/update
+   - Link attribute works with WP 4.2
+   - Yoast compatibility improvements
+   - Shortcode mapper user experience and ux improvements
+   - VC Settings moved to the top level in WP Dashboard
+   - License activation improvements now you can activate VC on the same domain (same url) again
+   - Add to cart option is added to the VC Grid Builder
+   - Traditional Chinese translation added. Thanks to ming xuan li
+   - Various bug fixes and small improvements
+   - All javascript and php files now share same coding standards (formatting)
+
 21.04.2015 - ver 4.4.4
    - Compatibility with WordPress 4.2 added
 

@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: wishlist, woocommerce, products, themes, yit, e-commerce, shop, ecommerce wishlist, yith, woocommerce wishlist, woocommerce 2.3 ready, shop wishlist
 Requires at least: 3.5.1
-Tested up to: 4.1.1
-Stable tag: 2.0.6
+Tested up to: 4.2.1
+Stable tag: 2.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,34 +28,29 @@ Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woo
 
 This plugin is 100% compatible with [WPML](http://wpml.org/?aid=24889&affiliate_key=Qn1wDeBNTcZV)
 
-= Installation =
+= Available Languages =
 
-Once you have installed the plugin, you just need to activate the plugin and have also woocommerce plugin active in order to enable it.
-
-= Configuration =
-
-YITH WooCommerce Wishlist will add a new tab called "Wishlist" below the Woocommerce -> Settings menu. Here you are able to configure all the plugin settings.
-
-= Developer =
-
-Are you a developer? Want to customize the templates or the style of the plugin? Read on the [documentation](http://yithemes.com/docs-plugins/yith-woocommerce-wishlist/) and discover how to do that. 
-
-= Support =
-
-Hi there, we have good news here: all our plugins are released for free. Wow!
-Already knew it, right?! Great, but maybe you do not know that: if you're looking for how to install the plugins or how to use them within your Wordpress installations, which is the right way to ask support?
-That's the way:
-
-* Register on http://yithemes.com
-* Go to Support > Get Support
-
-Here we provide support, not on wordpress.org were, usually we do not read topics. It's better to follow us or write on our forum!
+* English - UNITED KINGDOM (Default)
+* German - GERMANY
+* Spanish - ARGENTINA
+* Spanish - MEXICO
+* French - FRANCE
+* Hebrew - ISRAEL
+* Italian - ITALY
+* Portuguese - BRAZIL
+* Portuguese - PORTUGAL
+* Turkish - TURKEY
+* Ukrainian - UKRAINE
+* Chinese - CHINA
+* Chinese - TAIWAN
 
 == Installation ==
 
 1. Unzip the downloaded zip file.
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
 3. Activate `YITH WooCommerce Wishlist` from Plugins page
+
+YITH WooCommerce Wishlist will add a new submenu called "Wishlist" under "YIT Plugins" menu. Here you are able to configure all the plugin settings.
 
 == Frequently Asked Questions ==
 
@@ -77,6 +72,9 @@ It might be a compatibility problem with the old version of font-awesome, which 
 = Have you encountered anomalies after plugin update, that did not exist in the previous version? =
 This might depend on the fact that your theme overrides plugin templates. Check if the developer of your theme has released a compatibility update with version 2.0 or later of YITH WooCommerce Wishlist. As an alternative you can try the plugin in WordPress default theme to leave out any possible influences by the theme.
 
+= I am currently using Wishlist plugin with Catalog Mode enabled in my site. Prices for products should disappear, yet they still appear in the wishlist page. Can I remove them? =
+Yes, of course you can. To avoid Wishlist page to show product prices, you can hide price column from wishlist table. Go to YIT plugins -> wishlist -> settings and disable option "Show Unit price".
+
 == Screenshots ==
 
 1. The page with "Add to wishlist" button
@@ -85,6 +83,17 @@ This might depend on the fact that your theme overrides plugin templates. Check 
 4. The Wishlist settings page
 
 == Changelog ==
+
+= 2.0.7 =
+
+* Added: WP 4.2.1 support
+* Added: WC 2.3.8 support
+* Added: "Added to cart" message in wishlist page
+* Added: Portuguese translation
+* Updated: revision of all templates
+* Fixed: vulnerability for unserialize of cookie content (Warning: in this way all the old serialized plugins will be deleted and all the wishlists of the non-logged users will be lost)
+* Fixed: Escaped add_query_arg() and remove_query_arg()
+* Removed: use of pretty permalinks if WPML enabled
 
 = 2.0.6 =
 
@@ -242,6 +251,7 @@ If you have suggestions about how to improve YITH WooCommerce Wishlist, you can 
 * Hebrew - ISRAEL
 * Italian - ITALY
 * Portuguese - BRAZIL
+* Portuguese - PORTUGAL
 * Turkish - TURKEY
 * Ukrainian - UKRAINE
 * Chinese - CHINA
@@ -257,13 +267,13 @@ Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woo
 
 == Upgrade notice ==
 
-= 2.0.6 =
+= 2.0.7 =
 
-* Added: system to overwrite wishlist js
-* Added: trailingslashit() to wishlist permalink
-* Added: chinese translation
-* Added: "show_empty" filter to get_wishlists() method
-* Fixed: count wishlist items
-* Fixed: problem with price inclusive of tax
-* Fixed: remove from wishlist for not logged user
-* Fixed: twitter share summary
+* Added: WP 4.2.1 support
+* Added: WC 2.3.8 support
+* Added: "Added to cart" message in wishlist page
+* Added: Portuguese translation
+* Updated: revision of all templates
+* Fixed: vulnerability for unserialize of cookie content (Warning: in this way all the old serialized plugins will be deleted and all the wishlists of the non-logged users will be lost)
+* Fixed: Escaped add_query_arg() and remove_query_arg()
+* Removed: use of pretty permalinks if WPML enabled
