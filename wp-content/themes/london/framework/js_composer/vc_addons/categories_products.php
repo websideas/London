@@ -68,7 +68,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                 if($border_heading){
                     $heading_class .= " block-heading-underline";
                 }
-                $output .= '<div class="'.$heading_class.'">';
+                $output .= '<div class="'.esc_attr($heading_class).'">';
                     $output .= '<h3>'.$title.'</h3>';
                 $output .= '</div>';
             }
@@ -91,15 +91,15 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                 $output .= "<div class='col-md-3 col-sm-3 categories-products-left'>";
                 if(count($categories)){
                     $class = (!$content) ? "no-description" : "";
-                    $output .= "<div class='categories-products-lists ".$class."'>";
-                        $output .= "<ul data-order='".$order."' data-orderby='".$orderby."' data-per_page='".$per_page."' >";
+                    $output .= "<div class='categories-products-lists ".esc_attr($class)."'>";
+                        $output .= "<ul data-order='".esc_attr($order)."' data-orderby='".esc_attr($orderby)."' data-per_page='".esc_attr($per_page)."' >";
                             foreach($categories as $item){
                                 $image = "";
                                 $thumbnail_id = get_woocommerce_term_meta( $item->term_id, 'icon_id', true );
                                 if ( $thumbnail_id ) {
                                     $image = "<img src='".wp_get_attachment_thumb_url( $thumbnail_id )."' alt='".$item->name."'/>";
                                 }
-                                $output .= "<li><a data-id='".$item->term_id."' href='#'>".$image.$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                                $output .= "<li><a data-id='".esc_attr($item->term_id)."' href='#'>".$image.$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
                             }
                             $image = "";
                             if($category){
@@ -112,7 +112,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                                 $image = $image_default;
                             }
                             
-                            $output .= "<li><a data-id='".$category."' href='#'>".$image.__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                            $output .= "<li><a data-id='".esc_attr($category)."' href='#'>".$image.__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
                         $output .="</ul>";
                         if($content){ 
                             $output .= "<div class='content-taxonomy'>".$content."</div>"; 

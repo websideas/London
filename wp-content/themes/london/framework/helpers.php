@@ -483,7 +483,7 @@ function render_data_carousel($data){
     $output = "";
     foreach($data as $key => $val){
         if($val){
-            $output .= ' data-'.$key.'="'.$val.'"';
+            $output .= ' data-'.$key.'="'.esc_attr($val).'"';
         }
     }
     return $output;

@@ -29,7 +29,7 @@ class WPBakeryShortCode_KT_Button extends WPBakeryShortCode {
             $link = vc_build_link( $link );
             $a_href = $link['url'];
             $a_title = $link['title'];
-            $a_target = $link['target'];
+            $a_target = ($link['target']) ? ' target="'.esc_attr($link['target']).'" ' : '';
 
             $el_class = $this->getExtraClass( $el_class );
             $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, ' ' . $class . $el_class, $this->settings['base'], $atts );
@@ -38,7 +38,7 @@ class WPBakeryShortCode_KT_Button extends WPBakeryShortCode {
 
             return '
             <div class="'.esc_attr($wrapper_css_class).'">
-                <a class="'.esc_attr( trim( $css_class ) ).'" href="'.esc_attr( $a_href ).'" title="'.esc_attr( $a_title ).'" target="'.esc_attr( $a_target ).'">
+                <a class="'.esc_attr( trim( $css_class ) ).'" href="'.esc_attr( $a_href ).'" title="'.esc_attr( $a_title ).'" '.$a_target.'>
                     <span class="btn-sub-title">'.$sub_title.'</span>
                     <span class="btn-title">'.$title.'</span>
                 </a>
@@ -89,6 +89,16 @@ vc_map( array(
                 __( 'Right', 'js_composer' ) => "right"
             ),
             'description' => __( 'Select button alignment.', 'js_composer' )
+        ),
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Target', 'js_composer' ),
+            'param_name' => 'target',
+            'value' => array(
+                __( 'Stay in Window', THEME_LANG ) => '_self',
+                __( 'Open New Window', THEME_LANG ) => "_blank"
+            ),
+            'description' => ""
         ),
 
 

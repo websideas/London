@@ -33,7 +33,7 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
         ob_start();
         
         echo '<div class="vc-designer-product-wrapper">';
-        echo '<div class="sidebar '.$elementClass.'">';
+        echo '<div class="sidebar '.esc_attr($elementClass).'">';
         the_widget( 'KT_WC_Designer', $atts,  array(
             'before_widget' => '<section  class="widget-container woocommerce widget_designer">',
             'after_widget' => '</section>',

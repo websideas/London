@@ -776,7 +776,7 @@ ul.product-categories > li span.count{
     color: #fff;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 0px;
 }
 ul.product-categories > li li span.count{
     top: 5px;

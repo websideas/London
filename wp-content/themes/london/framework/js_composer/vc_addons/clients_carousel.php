@@ -66,7 +66,7 @@ class WPBakeryShortCode_Clients_Carousel extends WPBakeryShortCode {
                 if($border_heading){
                     $heading_class .= " block-heading-underline";
                 }
-                $output .= '<div class="'.$heading_class.'">';
+                $output .= '<div class="'.esc_attr($heading_class).'">';
                     $output .= '<h3>'.$title.'</h3>';
                 $output .= '</div>';
             }

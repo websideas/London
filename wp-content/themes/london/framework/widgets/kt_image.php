@@ -59,14 +59,14 @@ class WP_Widget_KT_Image extends WP_Widget {
 	?>
         <p style="text-align: center;">
             <input type="button" style="width: 100%; padding: 10px; height: auto;" class="button kt_image_upload" value="<?php esc_attr_e('Select your image', THEME_LANG) ?>" />
-            <input class="widefat kt_image_attachment" id="<?php echo $this->get_field_id('attachment'); ?>" name="<?php echo $this->get_field_name('attachment'); ?>" type="hidden" value="<?php echo $attachment; ?>" />
+            <input class="widefat kt_image_attachment" id="<?php echo $this->get_field_id('attachment'); ?>" name="<?php echo $this->get_field_name('attachment'); ?>" type="hidden" value="<?php echo esc_attr($attachment); ?>" />
         </p>
         <p class="kt_image_preview" style="<?php if($preview){ echo "display: block;";} ?>">
-            <img src="<?php echo $img_preview; ?>" alt="" class="kt_image_preview_img" />
+            <img src="<?php echo esc_url($img_preview); ?>" alt="" class="kt_image_preview_img" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:', THEME_LANG); ?></label> 
-            <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo esc_attr($link); ?>" />
         </p>
         <p>
 			<label for="<?php echo $this->get_field_id('target'); ?>"><?php _e( 'Target:', THEME_LANG); ?></label>

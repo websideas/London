@@ -30,16 +30,22 @@ class KT_Mailchimp{
      */
     private $options;
     
+    private $uniqeID;
+    
+    private $atts;
+    
     public function __construct()
     {   
         
         $this->options = get_option( 'kt_mailchimp_option' );
+        $this->uniqeID  = uniqid();
         
         // Add shortcode mailchimp
         add_shortcode('mailchimp', array($this, 'mailchimp_handler'));
         // Enqueue common styles and scripts
         add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
-        
+        // Add custom style to footer
+        add_action( 'wp_footer', array( $this, 'wp_footer' ) );
         // Add ajax for frontend
         add_action( 'wp_ajax_frontend_mailchimp', array( $this, 'frontend_mailchimp_callback') );
         add_action( 'wp_ajax_nopriv_frontend_mailchimp', array( $this, 'frontend_mailchimp_callback') );
@@ -49,7 +55,18 @@ class KT_Mailchimp{
         }
         
     }
-
+    function wp_footer(){
+        $style = '';
+        
+        $desktop = $this->atts['desktop'] ? "@media (min-width: 992px) {#mailchimp-wrapper-{$this->uniqeID}{min-height: {$this->atts['desktop']}}}" : '';
+        $tablet = $this->atts['tablet'] ? "@media (max-width: 768px) {#mailchimp-wrapper-{$this->uniqeID}{min-height: {$this->atts['tablet']}}}" : '';
+        $mobile = $this->atts['mobile'] ? "@media (max-width: 480px) {#mailchimp-wrapper-{$this->uniqeID}{min-height: {$this->atts['mobile']}}}" : '';  
+        $style = $desktop.$tablet.$mobile;
+        if($style){
+            $style = "<div><style type='text/css'>{$style}</style></div>";    
+        }
+        echo $style;
+    }
     function admin_notice() {
         
         ?>
@@ -67,7 +84,7 @@ class KT_Mailchimp{
     public function mailchimp_handler( $atts, $content )
     {   
         
-        extract( shortcode_atts( array(
+        $atts = shortcode_atts( array(
             'title' => '',
     		'list' => '',
     		'opt_in' => 'yes',
@@ -78,17 +95,24 @@ class KT_Mailchimp{
             'tablet' => '',
             'mobile' => '',
             'css' => '',
-        ), $atts ) );
+        ), $atts );
+        
+        extract( $atts );
         
         $elementClass = '';
         if(function_exists('vc_shortcode_custom_css_class')){
             $elementClass = vc_shortcode_custom_css_class( $css, ' ' );
         }
         
+        
+        $this->atts = $atts;
+        
+        
+        
+        
         $output = '';
         
-        $uniqeID    = uniqid();
-        $output .= '<div class="mailchimp-wrapper '.esc_attr($elementClass).'" id="mailchimp-wrapper-'.$uniqeID.'">';
+        $output .= '<div class="mailchimp-wrapper '.esc_attr($elementClass).'" id="mailchimp-wrapper-'.$this->uniqeID.'">';
         
         if($title){
             $output .= '<div class="block-heading"><h3>'.$title.'</h3></div>';
@@ -124,16 +148,10 @@ class KT_Mailchimp{
                         );
         }
         
-        $desktop = $desktop ? "@media (min-width: 992px) {#mailchimp-wrapper-{$uniqeID}{min-height: $desktop}}" : '';
-        $tablet = $tablet ? "@media (max-width: 768px) {#mailchimp-wrapper-{$uniqeID}{min-height: $tablet}}" : '';
-        $mobile = $mobile ? "@media (max-width: 480px) {#mailchimp-wrapper-{$uniqeID}{min-height: $mobile}}" : '';  
-        
-        $style = '<style>'.$desktop.$tablet.$mobile.'</style>';
-        
         $output .= ($text_after) ? '<div class="mailchimp-after">'.$text_after.'</div>' : '';
         $output .= '</div><!-- .mailchimp-wrapper -->';
         
-    	return $output.$style;
+    	return $output;
         
     }
  

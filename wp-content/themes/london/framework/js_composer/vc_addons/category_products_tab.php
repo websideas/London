@@ -47,7 +47,7 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
                 if($border_heading){
                     $heading_class .= " block-heading-underline";
                 }
-                $output .= '<div class="'.$heading_class.' block-heading-tabs-wapper clearfix">';
+                $output .= '<div class="'.esc_attr($heading_class).' block-heading-tabs-wapper clearfix">';
                     $output .= '<h3>'.$term->name.'</h3>';
                     $output .= "<ul class='block-heading-tabs'>";
                         foreach( $tabs as $k=>$v ){

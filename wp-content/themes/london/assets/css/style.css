@@ -1200,6 +1200,9 @@ h2.widgettitle a.rsswidget:first-child,
     opacity: 1;
     top: 0;
 }
+body.admin-bar #header.is-sticky.sticky{
+    top: 32px;
+}
 .is-sticky .header-content-top{
     display: none;
 }
@@ -1226,6 +1229,29 @@ h2.widgettitle a.rsswidget:first-child,
 .header-layout1 .site-branding{
     width: 10px;
 }
+/* Thang */
+#main-nav > ul > li.menu-logo .retina-logo,
+#main-nav > ul > li.menu-logo,
+.sticky .site-branding{
+    display: none;
+}
+.sticky #main-nav > ul > li.menu-logo{
+    display: inline-block;
+    padding:0;
+}
+.header-container #header.sticky #main-nav > ul > li.menu-logo a{
+    height:auto;
+    line-height:normal;
+    padding:0;
+    border:none;
+}
+.header-container #header.sticky #main-nav > ul > li.menu-logo{
+    padding:0;
+    margin:0;
+}
+/* Thang */
+
+
 #woocommerce-nav-mobile-wrapper{
     border-color: #000000;
 }

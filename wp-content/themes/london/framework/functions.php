@@ -283,7 +283,7 @@ function theme_after_footer_add_popup(){
     
     if( $enable_popup == 1 ){ 
         if(!isset($_COOKIE['kt_popup'])){ ?>
-            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo $disable_popup_mobile; ?>" data-timeshow="<?php echo $time_show; ?>">     
+            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo esc_attr( $disable_popup_mobile ); ?>" data-timeshow="<?php echo esc_attr($time_show); ?>">     
                 <div class="white-popup-block">
                     <?php echo do_shortcode($content_popup); ?>
                 </div>
@@ -305,7 +305,7 @@ function kt_blog_favicon() {
     ?>
     <!-- Favicons -->
     <?php if($custom_favicon['url']){ ?>
-        <link rel="shortcut icon" href="<?php echo $custom_favicon['url'] ?>" />    
+        <link rel="shortcut icon" href="<?php echo esc_url($custom_favicon['url']) ?>" />    
     <?php } ?>
 	<?php if($custom_favicon_iphone['url']){ ?>
         <link rel="apple-touch-icon" href="<?php echo $custom_favicon_iphone['url'] ?>" />    
@@ -347,3 +347,50 @@ function kt_breadcrumb_trail_args( $args ){
     return $args;
 }
 add_filter('breadcrumb_trail_args', 'kt_breadcrumb_trail_args');
+
+
+function my_nav_wrap() {
+    $logo_light = kt_option( 'logo_light' );
+    $logo_retina_light = kt_option( 'logo_retina_light' );
+    $logo = kt_option( 'logo' );
+    $logo_retina = kt_option( 'logo_retina' );
+    
+    $logo_default = $logo_retina_default = '';
+    
+    if( $logo_light['url'] ){
+        $logo_default = $logo_light['url'];
+    }else{
+        if( $logo['url'] ){
+            $logo_default = $logo['url'];
+        }else{
+            $logo_default = THEME_IMG.'logo.png';
+        }
+    }
+    if( $logo_retina_light['url'] ){
+        $logo_retina_default = $logo_retina_light['url'];
+    }else{
+        if( $logo_retina['url'] ){
+            $logo_retina_default = $logo_retina['url'];
+        }else{
+            $logo_retina_default = THEME_IMG.'logo-retina.png';
+        }
+    }
+    
+    $wrap  = '<ul id="%1$s" class="%2$s">';
+        $wrap .= '<li class="menu-logo">'; 
+            ob_start();
+        ?>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <img src="<?php echo $logo_default; ?>" class="default-logo" alt="<?php bloginfo( 'name' ); ?>" />
+                    <?php if($logo_retina_default){ ?>
+                        <img src="<?php echo $logo_retina_default; ?>" class="retina-logo" alt="<?php bloginfo( 'name' ); ?>" />
+                    <?php } ?>
+                </a><?php
+            $wrap .= ob_get_contents();
+            ob_end_clean();
+        $wrap .= '</li>';
+        $wrap .= '%3$s';
+    $wrap .= '</ul>';
+
+  return $wrap;
+}

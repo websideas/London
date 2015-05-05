@@ -19,7 +19,7 @@ function vc_mailchimp_settings_field($settings, $value) {
         $mcapi = new MCAPI($api_key);
     	$lists = $mcapi->lists();
         
-        $output .= '<select data-option="'.$value.'" name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' dropdown no">';
+        $output .= '<select data-option="'.esc_attr($value).'" name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' dropdown no">';
     	foreach ($lists['data'] as $key => $item) {
     		$selected = (isset($value) && $value == $item['id']) ? ' selected="selected" ' : '';
     		$output .= '<option class="'.$item['id'].'" '.$selected.' value="'.$item['id'].'">'.$item['name'].'</option>';
@@ -45,7 +45,7 @@ function ktheading_settings_field( $settings, $value ) {
 	$suffix = isset($settings['suffix']) ? $settings['suffix'] : '';
 	$class = isset($settings['class']) ? $settings['class'] : '';
     
-    return '<input type="hidden" class="wpb_vc_param_value ' . $settings['param_name'] . ' ' . $settings['type'] . ' ' . $class . '" name="' . $param_name . '" value="'.$value.'" '.$dependency.'/>';
+    return '<input type="hidden" class="wpb_vc_param_value ' . $settings['param_name'] . ' ' . $settings['type'] . ' ' . $class . '" name="' . $param_name . '" value="'.esc_attr($value).'" '.$dependency.'/>';
 }
 vc_add_shortcode_param( 'kt_heading', 'ktheading_settings_field' );
 
@@ -62,7 +62,7 @@ function vc_ktnumber_settings_field($settings, $value){
 	$max = isset($settings['max']) ? $settings['max'] : '';
 	$suffix = isset($settings['suffix']) ? $settings['suffix'] : '';
 	$class = isset($settings['class']) ? $settings['class'] : '';
-	$output = '<input type="number" min="'.$min.'" max="'.$max.'" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="'.$value.'" '.$dependency.' style="max-width:100px; margin-right: 10px;" />'.$suffix;
+	$output = '<input type="number" min="'.esc_attr($min).'" max="'.esc_attr($max).'" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="'.esc_attr($value).'" '.$dependency.' style="max-width:100px; margin-right: 10px;" />'.$suffix;
 	return $output;
 }
 vc_add_shortcode_param('kt_number' , 'vc_ktnumber_settings_field');

@@ -74,8 +74,8 @@
             <div class="woof_ci">
                 <div class="price_slider" style="display:none;"></div>
                 <div class="price_slider_amount">
-                    <input type="hidden" class="min_price" name="min_price" value="' . esc_attr( $min_price ) . '" data-min="' . esc_attr( apply_filters( 'woocommerce_price_filter_widget_amount', $min ) ) . '" placeholder="' . __('Min price', 'woocommerce' ) . '" />
-                    <input type="hidden" class="max_price" name="max_price" value="' . esc_attr( $max_price ) . '" data-max="' . esc_attr( apply_filters( 'woocommerce_price_filter_widget_amount', $max ) ) . '" placeholder="' . __( 'Max price', 'woocommerce' ) . '" />
+                    <input type="hidden" class="min_price" name="min_price" value="' . esc_attr( $min_price ) . '" data-min="' . esc_attr( apply_filters( 'woocommerce_price_filter_widget_amount', $min ) ) . '"/>
+                    <input type="hidden" class="max_price" name="max_price" value="' . esc_attr( $max_price ) . '" data-max="' . esc_attr( apply_filters( 'woocommerce_price_filter_widget_amount', $max ) ) . '"/>
                     <div class="price_label" style="display:none;">
                         ' . __( 'Price:', 'woocommerce' ) . ' <span class="from"></span> &mdash; <span class="to"></span>
                     </div>

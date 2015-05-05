@@ -84,7 +84,7 @@ endif;
 function woocommerce_get_tool($id = 'woocommerce-nav'){
     global $wpdb, $yith_wcwl;
     if ( kt_is_wc() ) { ?>
-        <nav class="woocommerce-nav-container" id="<?php echo $id; ?>">
+        <nav class="woocommerce-nav-container" id="<?php echo esc_attr($id); ?>">
             <ul class="menu">
                 <?php 
                     $style_shop = $style_checkout = "none";
@@ -94,14 +94,14 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                         $style_shop = "inline-block";
                     }
                 ?>
-                <li class='shop-link' style="display: <?php echo $style_shop; ?>;">
+                <li class='shop-link' style="display: <?php echo esc_attr($style_shop); ?>;">
                     <?php $shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>
-                    <a href="<?php echo $shop_page_url; ?>" title="<?php _e('Shop', THEME_LANG); ?>"><?php _e('Shop', THEME_LANG); ?></a>                    
+                    <a href="<?php echo esc_url( $shop_page_url ); ?>" title="<?php _e('Shop', THEME_LANG); ?>"><?php _e('Shop', THEME_LANG); ?></a>                    
                 </li>            
                 <li class='my-account-link'>                        
                     <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account', THEME_LANG); ?>"><?php _e('My Account', THEME_LANG); ?></a>
                 </li>
-                <li class='checkout-link' style="display: <?php echo $style_checkout; ?>;">
+                <li class='checkout-link' style="display: <?php echo esc_attr($style_checkout); ?>;">
                     <a href="<?php echo WC()->cart->get_checkout_url(); ?>" title="<?php _e('Checkout', THEME_LANG); ?>"><?php _e('Checkout', THEME_LANG); ?></a>
                 </li>                
                 <?php 
@@ -115,8 +115,8 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                 		    $count[0]['cnt'] = count( yith_getcookie( 'yith_wcwl_products' ) );
                 		    $count = $count[0]['cnt'];
                 		} else {
-                		    $count[0]['cnt'] = count( $_SESSION['yith_wcwl_products'] );
-                		    $count = $count[0]['cnt'];
+                		    //$count[0]['cnt'] = count( $_SESSION['yith_wcwl_products'] );
+                		    //$count = $count[0]['cnt'];
                 		}
                         
                 		if (is_array($count)) {
@@ -151,9 +151,8 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
  * @since 1.0
  */
 function woocommerce_get_cart(){
+    $output = '';
     if ( kt_is_wc() ) {
-        
-        global $woocommerce;
         $cart_total = WC()->cart->get_cart_total();
 		$cart_count = WC()->cart->cart_contents_count;
         
@@ -371,6 +370,21 @@ function woocommerce_shop_loop_item_tools_bottom_functional(){
     }
 }
 
+
+function kt_template_single_excerpt(){
+    global $post;
+
+    if ( ! $post->post_excerpt ) {
+    	return;
+    }
+    
+    ?>
+    <div class="product-short-description">
+    	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ); ?>
+    </div>
+    <?php
+}
+
 /**
  * Change hook of archive-product.php
  * 
@@ -391,7 +405,7 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_ad
 
 
 add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_rating', 5);
-add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_single_excerpt', 7);
+add_action( 'woocommerce_after_shop_loop_item', 'kt_template_single_excerpt', 7);
 add_action( 'woocommerce_shop_loop_item_image', 'woocommerce_template_loop_product_thumbnail', 5);
 
 add_action( 'woocommerce_shop_loop_item_tools', 'woocommerce_template_loop_price', 10);
@@ -552,7 +566,7 @@ function theme_share_product_add_share(){
     <div class="clearfix"></div>
     <div class="product-details-share clearfix">
         <ul class="share clearfix">
-            <li><a href="mailto:?subject=<?php echo get_the_title($post->ID); ?>&body=<?php echo get_permalink($post->ID); ?>"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="mailto:?subject=<?php echo urlencode(get_the_title($post->ID)); ?>&amp;body=<?php echo urlencode(get_permalink($post->ID)); ?>"><i class="fa fa-envelope"></i></a></li>
             <li><a href="javascript:print();"><i class="fa fa-print"></i></a></li>
         </ul>
         <?php if($addthis_id){ ?>
@@ -571,7 +585,7 @@ function kt_woocommerce_before_cart_table( $args )
 
 	$html = '<h3>' . sprintf( __( 'You Have %d Items In Your Cart', 'Avada' ), $woocommerce->cart->cart_contents_count ) . '</h3>';
 
-	echo $html;
+	echo esc_html($html);
 }
 
 
