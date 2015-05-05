@@ -33,12 +33,22 @@
                         </div><!-- .container -->
                     </footer><!-- #footer-top -->
                 <?php } ?>
-                <?php if(kt_option('footer_widgets', true)){ ?>
+                <?php
+                    $layouts = explode('-', kt_option('footer_widgets_layout', '4-4-4'));
+                    $sidebar_widgets = true;
+                    foreach($layouts as $i => $layout){
+                        if(is_active_sidebar($layout)){
+                            $sidebar_widgets = false;
+                            break;
+                        }
+                    }
+                ?>
+                <?php if(kt_option('footer_widgets', true) && $sidebar_widgets){ ?>
                     <footer id="footer-area">
                         <div id="footer-area-content">
                             <div class="container">
                                 <div class="row">
-                                    <?php $layouts = explode('-', kt_option('footer_widgets_layout', '4-4-4')); ?>
+                                    
                                     <?php foreach($layouts as $i => $layout){ ?>
                                         <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
                                             <?php dynamic_sidebar('footer-column-'.($i+1)) ?>

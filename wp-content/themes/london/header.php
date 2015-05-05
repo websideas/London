@@ -79,7 +79,7 @@
         	 */
         	do_action( 'theme_before_content' , $position); ?>
             
-            <div id="content" class="<?php echo apply_filters('themdev_content_class', 'site-content') ?>">
+            <div id="content" class="<?php echo apply_filters('kt_content_class', 'site-content') ?>">
                 <?php
         		/**
         		 * @hooked

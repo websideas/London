@@ -2,6 +2,28 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
+$attributes = array(    
+    'type' => 'dropdown',    
+    'heading' => __("Image effect", THEME_LANG),    
+    'param_name' => 'effect',
+    'value' => array( 
+        __("None", THEME_LANG) => "",
+        __("Simple Fade", THEME_LANG) => "simple",
+        __("Zoom in", THEME_LANG) => "zoomin", 
+        __('Zoom out', THEME_LANG) => "zoomout",
+        __('Mask Side to center', THEME_LANG) => "sidetocenter",
+        
+    ),
+    'description' => __( "Image effect when hover", THEME_LANG),
+    'dependency' => array(
+		'element' => 'style',
+		'is_empty' => true
+	) 
+); 
+//  default 0 - unsorted and appended to bottom, 1 - appended to top);
+vc_add_param( 'vc_single_image', $attributes );
+
+
 
 $composer_addons = array(
     'categories_products.php',

@@ -10,6 +10,58 @@ if ( !defined('ABSPATH')) exit;
 
 
 /**
+ * Add search to header
+ * 
+ * 
+ */
+function kt_search_form(){
+    if(kt_is_wc()){
+        get_product_search_form();
+    }else{
+        get_search_form();
+    }
+}
+/**
+ * Function check if WC Plugin installed
+ */
+function kt_is_wc(){
+    return function_exists('is_woocommerce');
+}
+
+/**
+ *  @true  if WPML installed.
+ */
+function  kt_is_wpml(){
+    return function_exists('icl_get_languages');
+}
+
+/**
+ * Get Page id - Supported WPML Plguin
+ * @return page id
+ */
+function kt_get_page_id(  $ID , $post_type= 'page'){
+    if(kt_is_wpml()){
+        $ID =   icl_object_id($ID, $post_type , true) ;
+    }
+    return $ID;
+}
+
+/**
+ *
+ * Detect plugin.
+ *
+ * @param $plugin example: 'plugin-directory/plugin-file.php'
+ */
+
+function kt_is_active_plugin(   $plugin ){
+    if(  !function_exists( 'is_plugin_active' ) ){
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    }
+    // check for plugin using plugin name
+    return is_plugin_active( $plugin ) ;
+}
+
+/**
  * Flag boolean.
  * 
  * @param $input string

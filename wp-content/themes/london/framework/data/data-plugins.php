@@ -78,11 +78,6 @@ function kt_register_plugins() {
             'source'  => THEME_DIR . 'recommend-plugins/kt-woocommerce-products-filter.zip', // The plugin source
             'required' => false
         ),
-        array(
-            'name'      => 'Black Studio TinyMCE Widget',
-            'slug'      => 'black-studio-tinymce-widget',
-            'required'  => false,
-        ),
     );
   
     // Change this to your theme text domain, used for internationalising strings

@@ -67,12 +67,14 @@ only screen and (min-resolution: 144dpi) {
         padding: 15px 0;
         width: auto;
         position: relative;
-        text-align: left;
+        text-align: center;
     }
     #header-wrap .site-branding .site-logo{
         margin: 0 auto;
     }
-    
+    .header-layout1 .site-branding .site-logo.logo-circle{
+        display: inline-block;
+    }
     .header-layout2 #header-inner,
     .header-layout3 #header-inner,
     #mobile-content-all{
@@ -230,7 +232,8 @@ only screen and (min-resolution: 144dpi) {
         padding-right: 0;
     }
 }
-@media (max-width: 360px) {
+/* 11. Styles for devices(<=320px ) */
+@media (max-width: 320px) {
     *{}
     .content-404 form{max-width: 320px;}
     .woocommerce table.shop_table td.actions .checkout-button, 

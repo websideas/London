@@ -54,7 +54,12 @@ class KT_Mailchimp{
         
         ?>
         <div class="updated">
-            <p><?php _e( 'Please enter Mail Chimp API Key', 'kt_mailchimp' ); ?></p>
+            <p><?php 
+                printf( 
+                    __('Please enter Mail Chimp API Key in <a href="%s">here</a>', 'kt_mailchimp' ),
+                    admin_url( 'options-general.php?page=kt-mailchimp-settings')
+                ); 
+            ?></p>
         </div>
         <?php
     }
@@ -270,7 +275,7 @@ class KT_MailChimp_Settings
 
         add_settings_section(
             'setting_section_id', // ID
-            'My Custom Settings', // Title
+            __('Settings', 'kt_mailchimp'), // Title
             array( $this, 'print_section_info' ), // Callback
             'mailchimp-settings' // Page
         );  
