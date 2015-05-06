@@ -43,11 +43,7 @@ require_once ( FW_DIR . 'ajax.php' );
  */
 require_once ( FW_CLASS . 'class-tgm-plugin-activation.php' );
 
-/**
- * Register all post type
- *
- */
-require_once ( FW_DIR . 'post-type.php' );
+
 
 /**
  * Include Widgets register and define all sidebars.
