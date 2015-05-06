@@ -207,7 +207,7 @@ class WPBakeryShortCode_Widget_Products_Carousel extends WPBakeryShortCode {
                     </div>
                 <?php } ?>
                 
-                <div class="kt_product_carousel kt-owl-carousel<?php echo ' '.esc_attr( $elementClass ); ?>" <?php echo render_data_carousel($data_carousel); ?>>
+                <div class="kt_product_carousel kt-owl-carousel <?php echo esc_attr( $elementClass ); ?>" <?php echo render_data_carousel($data_carousel); ?>>
                     <?php $i=1; ?>
                     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
                         <?php if($i == 1){ ?>

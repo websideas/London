@@ -369,7 +369,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				<?php if ( isset( $this->message ) ) _e( wp_kses_post( $this->message ), 'tgmpa' ); ?>
 
 				<form id="tgmpa-plugins" action="" method="post">
-            		<input type="hidden" name="tgmpa-page" value="<?php echo $this->menu; ?>" />
+            		<input type="hidden" name="tgmpa-page" value="<?php echo esc_attr($this->menu); ?>" />
             		<?php $plugin_table->display(); ?>
         		</form>
 

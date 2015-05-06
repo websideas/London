@@ -29,7 +29,7 @@ $composer_addons = array(
     'categories_products.php',
     'contact_info.php',
     'clients_carousel.php',
-    'recent_posts_carousel.php',
+    'blog_posts_carousel.php',
     'sales_countdown.php',
     'designer_collection_carousel.php',
     'category_products_tab.php',

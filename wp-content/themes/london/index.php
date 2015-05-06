@@ -17,9 +17,9 @@
 
 if( is_singular() ){
     if( is_page( ) ){
-        include get_template_directory().'/page.php';
+        include_once(get_template_directory().'/page.php' ) ;
     }else{
-        include get_template_directory().'/single.php';
+        include_once (get_template_directory().'/single.php');
     }
 }else{
     include get_template_directory().'/archive.php';

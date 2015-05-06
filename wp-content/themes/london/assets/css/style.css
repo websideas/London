@@ -458,9 +458,7 @@ select:not([multiple]) {
 /* ==============================
    5. Search form
    ============================== */
-.header-content .searchform button{
-    color:#ccc;
-}
+
 /* ==============================
    6. Scroll top
    ============================== */
@@ -1173,11 +1171,15 @@ h2.widgettitle a.rsswidget:first-child,
     transition: width 0.5s ease-in-out;
 }
 .header-content-bottom .searchform input[type=text]{
+    color: #cccccc;
     float: right;
     width: 180px;
 }
 .header-content-bottom .searchform input[type=text]:focus{
     width: 220px;
+}
+.header-content .searchform button{
+    color:#ccc;
 }
 /*
  * 10.5 Header sticky
@@ -1246,8 +1248,9 @@ body.admin-bar #header.is-sticky.sticky{
     border:none;
 }
 .header-container #header.sticky #main-nav > ul > li.menu-logo{
-    padding:0;
-    margin:0;
+    float: left;
+    margin: 0;
+    padding: 0;
 }
 /* Thang */
 

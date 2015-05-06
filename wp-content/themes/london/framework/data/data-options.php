@@ -319,7 +319,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'             => 'logo_sticky_width',
                         'type'           => 'dimensions',
-                        'output'   => array( '.is-sticky .site-branding .site-logo', '.is-sticky .site-branding .site-logo img','.sticky #main-nav > ul > li.menu-logo a img' ),
+                        'output'   => array( '#main-nav > ul > li.menu-logo img'),
                         'units'          => array( 'em', 'px'), 
                         'units_extended' => 'true', 
                         'title'          => __( 'Logo sticky width', THEME_LANG ),
@@ -332,14 +332,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'mode'     => 'margin',
                         'units'          => array( 'em', 'px' ), 
                         'units_extended' => 'true',
-                        'title'    => __( 'Logo margin spacing Option', THEME_LANG ),
+                        'title'    => __( 'Logo sticky margin spacing Option', THEME_LANG ),
                         'default'  => array(
                             'margin-top'    => '-20px',
                             'margin-right'  => '60px',
                             'margin-bottom' => '-20px',
                             'margin-left'   => '0px'
                         ),
-                        'output'   => array( '.is-sticky .site-branding .site-logo','.sticky #main-nav > ul > li.menu-logo a' ),
+                        'output'   => array( '#main-nav > ul > li.menu-logo a'),
                     ),
                     array(
                         'id'   => 'divide_id',

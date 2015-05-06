@@ -87,11 +87,11 @@ function kt_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                         ?>
                         <label for="menu-item-image-<?php echo $item_id; ?>">
                             <?php _e( 'Menu image', THEME_LANG); ?><br />
-                            <input type="hidden" value="<?php esc_attr_e( $item->image ); ?>" name="menu-item-megamenu-image[<?php echo $item_id; ?>]" id="menu-item-image-<?php echo $item_id; ?>" class="widefat edit-menu-item-image" />
+                            <input type="hidden" value="<?php esc_attr( $item->image ); ?>" name="menu-item-megamenu-image[<?php echo $item_id; ?>]" id="menu-item-image-<?php echo $item_id; ?>" class="widefat edit-menu-item-image" />
                         </label>
                         <span class="clearfix"></span>
                         <span class="kt_image_preview" style="<?php if($preview){ echo "display: block;";} ?>">
-                            <img src="<?php echo $img_preview; ?>" alt="" title="" />
+                            <img src="<?php echo esc_url($img_preview); ?>" alt="" title="" />
                             <i class="fa fa-times"></i>
                         </span>
                         <span class="clearfix"></span>
@@ -100,7 +100,7 @@ function kt_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                     <p class="field-clwidth description description-wide">
                         <label for="menu-item-clwidth-<?php echo $item_id; ?>">
                             <?php _e( 'Mega Menu Column Width - Overrides parent colum (in percentage, ex: 30%)', THEME_LANG); ?><br />
-                            <input type="text" value="<?php echo $item->clwidth; ?>" id="menu-item-clwidth-<?php echo $item_id; ?>" name="menu-item-megamenu-clwidth[<?php echo $item_id; ?>]" class="widefat edit-menu-item-clwidth"/>
+                            <input type="text" value="<?php echo esc_attr($item->clwidth); ?>" id="menu-item-clwidth-<?php echo $item_id; ?>" name="menu-item-megamenu-clwidth[<?php echo $item_id; ?>]" class="widefat edit-menu-item-clwidth"/>
                         </label>
                     </p>
                     <p class="field-columntitle description description-wide">

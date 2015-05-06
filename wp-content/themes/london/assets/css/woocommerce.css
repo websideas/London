@@ -257,7 +257,9 @@
   border: none;
 }
 
-
+.products-not-found {
+    clear: both;
+}
 
 
 
