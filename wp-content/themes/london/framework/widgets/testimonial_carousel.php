@@ -21,7 +21,7 @@ class kt_testimonials_carousel extends WP_Widget {
         
         echo $before_widget;
         if ( !empty( $title ) ) {
-            echo $before_title . $title .'<span class="sub-title">'.$sub_title.'</span>'. $after_title; 
+            echo $before_title . $title .'<span class="sub-title">'.esc_html($sub_title).'</span>'. $after_title; 
         } 
            
            echo do_shortcode('[carousel_testimonials number="'.$number.'" orderby="'.$orderby.'" order="'.$order.'" autoplay="'.$autoplay.'" navigation="'.$navigation.'" slidespeed="'.$slidespeed.'" el_class="'.$el_class.'"]');
@@ -70,7 +70,7 @@ class kt_testimonials_carousel extends WP_Widget {
             <label for="<?php echo $this->get_field_id('sub_title'); ?>">
                 <?php _e('Sub title:', THEME_LANG ); ?></label>
             <textarea class="widefat" id="<?php echo $this->get_field_id('sub_title'); ?>"
-                name="<?php echo $this->get_field_name('sub_title'); ?>"><?php echo  esc_attr($sub_title);?></textarea>
+                name="<?php echo $this->get_field_name('sub_title'); ?>"><?php echo  esc_html($sub_title);?></textarea>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('number'); ?>">

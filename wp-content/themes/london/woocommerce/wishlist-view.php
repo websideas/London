@@ -43,7 +43,7 @@
          do_action( 'yith_wcwl_before_wishlist' ); ?>
     
         <!-- WISHLIST TABLE -->
-        <table class="shop_table cart wishlist_table" cellspacing="0" data-pagination="<?php echo esc_attr( $pagination )?>" data-per-page="<?php echo esc_attr( $per_page )?>" data-page="<?php echo esc_attr( $current_page )?>" data-id="<?php echo ( is_user_logged_in() ) ? esc_attr( $wishlist_meta['ID'] ) : '' ?>" data-token="<?php echo ( ! empty( $wishlist_meta['wishlist_token'] ) && is_user_logged_in() ) ? esc_attr( $wishlist_meta['wishlist_token'] ) : '' ?>">
+        <table class="shop_table cart wishlist_table" data-pagination="<?php echo esc_attr( $pagination )?>" data-per-page="<?php echo esc_attr( $per_page )?>" data-page="<?php echo esc_attr( $current_page )?>" data-id="<?php echo ( is_user_logged_in() ) ? esc_attr( $wishlist_meta['ID'] ) : '' ?>" data-token="<?php echo ( ! empty( $wishlist_meta['wishlist_token'] ) && is_user_logged_in() ) ? esc_attr( $wishlist_meta['wishlist_token'] ) : '' ?>">
             <thead>
             <tr>
     	        <?php if( $show_cb ) : ?>
@@ -189,33 +189,33 @@
     
             <?php if( $is_user_logged_in ): ?>
                 <tfoot>
-                <tr>
-    	            <?php if( $show_cb ) : ?>
-    		            <td class="product-checkbox" >
-    			            <a href="#" class="button alt" id="custom_add_to_cart"><?php echo esc_attr( $add_to_cart_text )?></a>
-    		            </td>
-    	            <?php endif; ?>
-    
-                    <?php if ( $is_user_owner && $wishlist_meta['wishlist_privacy'] != 2 && $share_enabled ) : ?>
-                        <td colspan="<?php echo ( $is_user_logged_in && $is_user_owner && $show_ask_estimate_button && $count > 0 ) ? 4 : 6 ?>">
-                            <?php yith_wcwl_get_template( 'share.php', $share_atts ); ?>
-                        </td>
-                    <?php endif; ?>
-    
-                    <?php
-                    if ( $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
-                        <td colspan="<?php echo ( $is_user_owner && $wishlist_meta['wishlist_privacy'] != 2 && $share_enabled ) ? 2 : 6 ?>">
-                            <a href="<?php echo ( $additional_info ) ? '#ask_an_estimate_popup' : $ask_estimate_url ?>" class="btn button ask-an-estimate-button" <?php echo ( $additional_info ) ? 'data-rel="prettyPhoto[ask_an_estimate]"' : '' ?> >
-                                <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' )?>
-                                <?php _e( 'Ask an estimate of costs', 'yit' ) ?>
-                            </a>
-                        </td>
-                    <?php
-                    endif;
-                    ?>
-    
-                    <?php do_action( 'yith_wcwl_after_wishlist_share' ); ?>
-                </tr>
+                    <tr>
+        	            <?php if( $show_cb ) : ?>
+        		            <td class="product-checkbox" >
+        			            <a href="#" class="button alt" id="custom_add_to_cart"><?php echo esc_attr( $add_to_cart_text )?></a>
+        		            </td>
+        	            <?php endif; ?>
+        
+                        <?php if ( $is_user_owner && $wishlist_meta['wishlist_privacy'] != 2 && $share_enabled ) : ?>
+                            <td colspan="<?php echo ( $is_user_logged_in && $is_user_owner && $show_ask_estimate_button && $count > 0 ) ? 4 : 5 ?>">
+                                <?php yith_wcwl_get_template( 'share.php', $share_atts ); ?>
+                            </td>
+                        <?php endif; ?>
+        
+                        <?php
+                        if ( $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
+                            <td colspan="<?php echo ( $is_user_owner && $wishlist_meta['wishlist_privacy'] != 2 && $share_enabled ) ? 2 : 6 ?>">
+                                <a href="<?php echo ( $additional_info ) ? '#ask_an_estimate_popup' : $ask_estimate_url ?>" class="btn button ask-an-estimate-button" <?php echo ( $additional_info ) ? 'data-rel="prettyPhoto[ask_an_estimate]"' : '' ?> >
+                                    <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' )?>
+                                    <?php _e( 'Ask an estimate of costs', 'yit' ) ?>
+                                </a>
+                            </td>
+                        <?php
+                        endif;
+                        ?>
+        
+                        <?php do_action( 'yith_wcwl_after_wishlist_share' ); ?>
+                    </tr>
                 </tfoot>
             <?php endif; ?>
     

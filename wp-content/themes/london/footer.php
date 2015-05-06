@@ -50,7 +50,7 @@
                                 <div class="row">
                                     
                                     <?php foreach($layouts as $i => $layout){ ?>
-                                        <div class="col-md-<?php echo $layout; ?> col-sm-<?php echo $layout; ?> col-xs-12">
+                                        <div class="<?php echo esc_attr('col-md-'.$layout . ' col-sm-'.$layout.' col-xs-12'); ?>">
                                             <?php dynamic_sidebar('footer-column-'.($i+1)) ?>
                                         </div>
                                     <?php } ?>

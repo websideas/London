@@ -305,19 +305,19 @@ function kt_blog_favicon() {
     ?>
     <!-- Favicons -->
     <?php if($custom_favicon['url']){ ?>
-        <link rel="shortcut icon" href="<?php echo esc_url($custom_favicon['url']) ?>" />    
+        <link rel="shortcut icon" href="<?php echo esc_url($custom_favicon['url']); ?>" />
     <?php } ?>
 	<?php if($custom_favicon_iphone['url']){ ?>
-        <link rel="apple-touch-icon" href="<?php echo $custom_favicon_iphone['url'] ?>" />    
+        <link rel="apple-touch-icon" href="<?php echo esc_url($custom_favicon_iphone['url']); ?>" />
     <?php } ?>
     <?php if($custom_favicon_iphone_retina['url']){ ?>
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $custom_favicon_iphone_retina['url'] ?>" />    
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo esc_url($custom_favicon_iphone_retina['url']); ?>" />    
     <?php } ?>
     <?php if($custom_favicon_ipad['url']){ ?>
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $custom_favicon_ipad['url'] ?>" />    
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo esc_url($custom_favicon_ipad['url']); ?>" />    
     <?php } ?>
     <?php if($custom_favicon_ipad_retina['url']){ ?>
-        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $custom_favicon_ipad_retina['url'] ?>" />    
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo esc_url($custom_favicon_ipad_retina['url']); ?>" />    
     <?php } ?>
 <?php }
 add_action('wp_head', 'kt_blog_favicon');
@@ -357,15 +357,14 @@ add_filter('breadcrumb_trail_args', 'kt_breadcrumb_trail_args');
 function kt_nav_wrap() {
     $logo = kt_get_logo();
     $logo_class = ($logo['sticky_retina']) ? 'retina-logo-wrapper' : ''; 
-    
     $wrap  = '<ul id="%1$s" class="%2$s">';
         $wrap .= '<li class="menu-logo '.$logo_class.'">'; 
             ob_start();
         ?>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <img src="<?php echo $logo['sticky']; ?>" class="default-logo" alt="<?php bloginfo( 'name' ); ?>" />
+                    <img src="<?php echo esc_url($logo['sticky']); ?>" class="default-logo" alt="<?php bloginfo( 'name' ); ?>" />
                     <?php if($logo['sticky_retina']){ ?>
-                        <img src="<?php echo $logo['sticky_retina']; ?>" class="retina-logo" alt="<?php bloginfo( 'name' ); ?>" />
+                        <img src="<?php echo esc_url($logo['sticky_retina']); ?>" class="retina-logo" alt="<?php bloginfo( 'name' ); ?>" />
                     <?php } ?>
                 </a><?php
             $wrap .= ob_get_contents();
@@ -375,5 +374,4 @@ function kt_nav_wrap() {
     $wrap .= '</ul>';
 
   return $wrap;
-
 }

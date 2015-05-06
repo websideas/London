@@ -141,8 +141,8 @@ class WPBakeryShortCode_Carousel_Testimonials extends WPBakeryShortCode {
             <div class="carousel-testimonials-wrapper">
                 <?php if($title || $sub_title){ ?>
                     <div class="block-heading">
-                        <?php if($title){ ?><h3><?php echo $title; ?></h3><?php } ?>
-                        <?php if($sub_title){ ?><div class="sub_title"><?php echo $sub_title; ?></div><?php } ?>
+                        <?php if($title){ ?><h3><?php echo esc_html($title); ?></h3><?php } ?>
+                        <?php if($sub_title){ ?><div class="sub_title"><?php echo esc_html($sub_title); ?></div><?php } ?>
                     </div>
                 <?php } ?>
                 <div class="carousel-testimonials-content <?php echo esc_attr( $elementClass ); ?>">

@@ -11,7 +11,7 @@
     2.6. List
 3. Forms fields
 4. Buttons
-5. Search form
+5. Breadcrumb
 6. Scroll top
 7. Main menu
 8. Mobile menu
@@ -25,26 +25,18 @@
     10.6. Header layout1
     10.7. Header layout 2 & 3
 11. Footer
-
-
-
-
-/*------------------------------------------------------------------
-# [Color codes]
-
-Black (active elements, links, text) #111
-
-
-
-/*------------------------------------------------------------------
-[Typography]
-
-Body:               14px/1.6 "Open Sans", arial, sans-serif;
-Headers:            Dosis, arial, sans-serif;
-Serif:              "Times New Roman", Times, serif;
-Section Title:      35px/1.3 "Open Sans", arial, sans-serif;
-Section Heading:    24px/1.3 "Open Sans", arial, sans-serif;
-Section Text:       15px/1.7 "Open Sans", arial, sans-serif;
+12. Sidebar
+13. Owl carousel Theme
+14. Custom Revolution Slider
+15. Visual Composer
+16. Popup
+17. Main content
+    17.1. Main common styles
+    17.2. Blog Posts
+    17.3. Single Posts - Entry post
+    17.4. Comments
+18. Page Content
+    18.1. 404 Page
 
 -------------------------------------------------------------------*/
 
@@ -456,9 +448,49 @@ select:not([multiple]) {
 }
 
 /* ==============================
-   5. Search form
+   5. Breadcrumb
    ============================== */
+.woocommerce-breadcrumb-wrapper, 
+.breadcrumb-wrapper{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.breadcrumb-wrapper .breadcrumbs,
+.woocommerce .woocommerce-breadcrumb{
+    background: #f7f7f7;
+    border: medium none;
+    color: #666;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
 
+.woocommerce-breadcrumb .navigation-pipe, 
+.breadcrumbs .navigation-pipe {
+    background: url("../images/navigation-pipe-bg.png") no-repeat center center;
+    display: inline-block;
+    text-indent: -999px;
+    width: 25px;
+}
+
+.woocommerce-breadcrumb .page-return, 
+.breadcrumbs .page-return  {
+    background: url("../images/page-return-bg.png") no-repeat left center;
+    display: inline-block;
+    float: right;
+    padding: 0 0 0 15px;
+}
+.woocommerce .woocommerce-breadcrumb a:hover , .breadcrumbs a:hover{
+    color: #333;
+}
 /* ==============================
    6. Scroll top
    ============================== */
@@ -1338,6 +1370,7 @@ body.admin-bar #header.is-sticky.sticky{
 }
 .header-layout1 .is-sticky .header-content-bottom .searchform{
     margin-top: 12px;
+    margin-bottom: 12px;
 }
 .header-layout1 .is-sticky .site-branding .site-logo{
     background: transparent!important;
@@ -1711,7 +1744,7 @@ body.admin-bar #header.is-sticky.sticky{
 
 
 /* ==============================
-   14. Owl carousel Theme
+   13. Owl carousel Theme
    ============================== */
 .owl-carousel-wrapper{
     margin-left: -15px;
@@ -1883,7 +1916,7 @@ body.admin-bar #header.is-sticky.sticky{
 }
 
 /* ==============================
-   15. Custom Revolution Slider
+   14. Custom Revolution Slider
    ============================== */
 .tp-bullets.simplebullets.round .bullet{
     width:11px;
@@ -1973,7 +2006,7 @@ body.admin-bar #header.is-sticky.sticky{
 
 
 /* ==============================
-   16. Visual Composer
+   15. Visual Composer
    ============================== */
 
 .block-heading-underline{
@@ -2017,7 +2050,8 @@ body.admin-bar #header.is-sticky.sticky{
  */
 .wpb_single_image .vc_single_image-wrapper.sidetocenter,
 .wpb_single_image .vc_single_image-wrapper.zoomout,
-.wpb_single_image .vc_single_image-wrapper.zoomin{
+.wpb_single_image .vc_single_image-wrapper.zoomin,
+.wpb_single_image .vc_single_image-wrapper.creative{
     overflow: hidden;
     position: relative;
 }
@@ -2035,6 +2069,25 @@ body.admin-bar #header.is-sticky.sticky{
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
 }
+.wpb_single_image .vc_single_image-wrapper.creative:before{
+    position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,0.5);
+	content: '';
+	-webkit-transition: -webkit-transform 0.6s;
+	transition: transform 0.6s;
+	-webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+	transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+    
+}
+.wpb_single_image .vc_single_image-wrapper.creative:hover:before{
+    -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0);
+	transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0); 
+}
+
 .wpb_single_image .vc_single_image-wrapper.zoomin:hover img{
     -moz-transform: scale(1);
     -o-transform: scale(1);
@@ -2069,6 +2122,17 @@ body.admin-bar #header.is-sticky.sticky{
 .wpb_single_image .vc_single_image-wrapper.sidetocenter:hover:after{
     width: 100%;
 }
+
+/*
+ * Grid item
+ */
+.vc_grid.vc_row .vc_grid-item .vc_btn {
+    margin-bottom: 0px;
+}
+.vc_grid-item .entry-meta-data { 
+    margin-bottom: 0px; 
+}
+
 /*
  * Tab
  */
@@ -2475,7 +2539,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     padding-right: 0;
 }
 /* ==============================
-   17. Popup
+   16. Popup
    ============================== */
 
 #popup-wrap{
@@ -2514,10 +2578,10 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 
 
 /* ==============================
-   7. Main content
+   17. Main content
    ============================== */
 /*
- * 7.1 Main common styles
+ * 17.1. Main common styles
  */
 #page{
     background: #FFF;
@@ -2540,138 +2604,6 @@ body.layout-boxed #page {
     width: 100%;
     background: #FFF;
 }
-/* Page image cover */
-.page-bg-cover {
-    background: #d8d7d5;
-}
-.page-bg-cover .cover-img {
-    height: 300px;
-    display: block;
-    background-position: top center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-
-
-/* ==============================
-   Breadcrumb
-   ============================== */
-.woocommerce-breadcrumb-wrapper, .breadcrumb-wrapper{
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-.breadcrumb-wrapper .breadcrumbs,
-.woocommerce .woocommerce-breadcrumb{
-    background: #f7f7f7;
-    border: medium none;
-    color: #666;
-    display: inline-block;
-    float: left;
-    font-size: 14px;
-    font-weight: 500;
-    height: 40px;
-    line-height: 40px;
-    overflow: hidden;
-    padding: 0 20px;
-    position: relative;
-    width: 100%;
-    z-index: 1;
-}
-
-.woocommerce-breadcrumb .navigation-pipe, .breadcrumbs .navigation-pipe {
-    background: url("../images/navigation-pipe-bg.png") no-repeat center center;
-    display: inline-block;
-    text-indent: -999px;
-    width: 25px;
-}
-
-.woocommerce-breadcrumb .page-return, .breadcrumbs .page-return  {
-    background: url("../images/page-return-bg.png") no-repeat left center;
-    display: inline-block;
-    float: right;
-    padding: 0 0 0 15px;
-}
-.woocommerce .woocommerce-breadcrumb a:hover , .breadcrumbs a:hover{
-    color: #333;
-}
-
-
-
-
-
-
-/* ==============================
-   Shopping cart
-   ============================== */
-.shopping_cart{
-    float: right;
-    position: relative;
-}
-.shopping_cart > a{
-    position: relative;
-}
-.shopping_cart > a:after{
-    bottom: -4px;
-    color: #000;
-    content: "\e805";
-    display: none;
-    font-family: fontkite;
-    font-size: 9px;
-    height: 8px;
-    left: 5px;
-    position: absolute;
-    width: 10px;
-}
-.shopping_cart > a:before{
-    font-family:fontkite;
-    content:"\e803";
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: -1px;
-}
-.shopping_cart > a{
-    padding-left: 27px;
-}
-.shopping_cart > a span.cart-content-total{
-    background: #333333;
-    font-family: Arial;
-    color: #FFFFFF;
-    padding: 0 10px;
-    line-height: 20px;
-    position: relative;
-    font-size: 12px;
-    display: inline-block;
-    margin-left: 13px;
-}
-.shopping_cart > a span.cart-content-total:before{
-    right: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-right-color: #333;
-    border-width: 4px;
-    margin-top: -4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 #content{
     padding: 30px 0;
 }
@@ -2681,15 +2613,9 @@ body.layout-boxed #page {
 #content.remove_bottom_padding{
     padding-bottom: 0;
 }
-
-
-.easyzoom{ display: block; }
-
-.easyzoom-flyout img{ max-width:none!important; }
-
-/** ================================================
-    BLOG POSTS
-*** ================================================*/
+/*
+ * 17.2. Blog Posts
+ */
 .blog-posts .post-item {
     position: relative;
 }
@@ -2750,9 +2676,9 @@ body.layout-boxed #page {
 .taxonomy-description { font-size: 16px; font-weight: bold;  margin-bottom: 30px; }
 .entry-content > .vc_row:last-child {  margin-bottom: 0px; }
 
-/** ================================================
-SINGLE POST - ENTRY POST
-/** ================================================ */
+/*
+ * 17.3. Single Posts - Entry post
+ */
 .entry-content:after{ clear: both; content: " "; display: block; }
 .single .entry-meta-data { margin-bottom: 20px; }
 .single .entry-thumb img { padding: 10px; border: 1px solid #CCCCCC; width: 100%; }
@@ -2782,11 +2708,9 @@ SINGLE POST - ENTRY POST
 .entry-content textarea {
     min-height: 120px;
 }
-
-/** ================================================
-COMMENTS
-/** ================================================ */
-
+/*
+ * 17.4. Comments
+ */
 .comment-list, .comment-list ol, .comment-list ul {
     padding: 0px; margin: 0px;
 }
@@ -2894,7 +2818,14 @@ a.comment-reply-link {
 .comment-form .required { color:  #dd4c0c; }
 .form-allowed-tags { display: none; }
 
-/* 404 PAGE */
+
+
+/* ==============================
+   18. Page Content
+   ============================== */
+/*
+ * 18.1. 404 Page
+ */
 .content-404 { text-align: center ; max-width: 840px; margin: 0px auto 50px; }
 .content-404 form { text-align: left; margin: 0 auto; max-width: 435px; }
 .content-404 form.searchform input[type="text"]{color: #000000;}
@@ -2910,22 +2841,6 @@ a.comment-reply-link {
 .content-404 h3 { font-size: 14px; font-weight: bold; }
 .content-404 .buttons {  margin-top: 40px; }
 
-.easyzoom-flyout img{ max-width:none!important; }
-
-/** ================================================
-WIDGET
-/** ================================================ */
-
-
-
-
-/*====  End Designer collection ====*/
-
-
-
-/** ================================================
-END WIDGET
-/** ================================================ */
 
 /** ================================================
 SOCIAL
@@ -2970,36 +2885,5 @@ ul.kt_social_icons.large li a:focus{
 /** ================================================
 END SOCIAL
 /** ================================================ */
-.mCSB_scrollTools .mCSB_draggerRail{
-    background: none;
-}
-#cboxTopLeft,#cboxTopCenter,#cboxTopRight,
-#cboxMiddleLeft,#cboxContent,#cboxMiddleRight,
-#cboxBottomLeft,#cboxBottomCenter,#cboxBottomRight{
-    background: #fff;
-}
-#cboxClose:before{
-    content:"\e809";
-    display: block;
-    font-family: "fontkite";
-    font-size: 16px;
-    height: 23px;
-    left: 0;
-    line-height: 23px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 23px;
-}
-#cboxClose{
-    font-size: 0;
-    text-indent:0;
-    background: none;
-}
 
 
-/* VC COMPOSER MODED */
-.vc_grid.vc_row .vc_grid-item .vc_btn {
-    margin-bottom: 0px;
-}
-.vc_grid-item .entry-meta-data { margin-bottom: 0px; }

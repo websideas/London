@@ -261,6 +261,7 @@ if (!function_exists('kt_option')){
         }
     }
 }
+
 /**
  * Get logo of current page
  * 
@@ -272,8 +273,8 @@ function kt_get_logo(){
     
     $logo_default = kt_option( 'logo' );
     $logo_retina = kt_option( 'logo_retina' );
-    $logo_sticky = kt_option( 'logo_light' );
-    $logo_retina_sticky = kt_option( 'logo_retina_light' );
+    $logo_sticky = kt_option( 'logo_sticky' );
+    $logo_retina_sticky = kt_option( 'logo_retina_sticky' );
     
     
     if(is_array($logo_default) && $logo_default['url'] != '' ){
@@ -294,15 +295,36 @@ function kt_get_logo(){
         $logo['sticky_retina'] = $logo_retina_sticky['url'];
     }
     
-    if(!count($logo)){
-        $layout = kt_option('header', 'layout1');
-        
-        if($layout == 'layout1'){
-            $logo = array('default' => THEME_IMG.'logo.png', 'retina' => THEME_IMG.'logo-retina.png');    
-        }elseif($layout == 'layout2' || $layout == 'layout3'){
-            $logo = array('default' => THEME_IMG.'logo-black.png', 'retina' => THEME_IMG.'logo-black-retina.png');
+    $layout = kt_option('header', 'layout1');
+    
+    if($layout == 'layout1'){
+        if(!$logo['retina'] && !$logo['default']){
+            $logo['retina'] = THEME_IMG.'logo-retina.png';
+        }
+        if(!$logo['default']){
+            $logo['default'] = THEME_IMG.'logo.png';
+        }
+        if(!$logo['sticky_retina'] && !$logo['sticky']){
+            $logo['sticky_retina'] = THEME_IMG.'logo-retina.png';
+        }
+        if(!$logo['sticky']){
+            $logo['sticky'] = THEME_IMG.'logo.png';
+        }
+    }elseif($layout == 'layout2' || $layout == 'layout3'){
+        if(!$logo['retina'] && !$logo['default']){
+            $logo['retina'] = THEME_IMG.'logo-black-retina.png';
+        }
+        if(!$logo['default']){
+            $logo['default'] = THEME_IMG.'logo-black.png';
+        }
+        if(!$logo['sticky_retina'] && !$logo['sticky']){
+            $logo['sticky_retina'] = THEME_IMG.'logo-retina.png';
+        }
+        if(!$logo['sticky']){
+            $logo['sticky'] = THEME_IMG.'logo.png';
         }
     }
+    
     
     
     
@@ -381,7 +403,7 @@ function kt_sidebar(){
             $sidebar_left = kt_option('product_sidebar_left', 'shop-widget-area');
             $sidebar_right = kt_option('product_sidebar_right', 'shop-widget-area');
         }elseif(is_cart()){
-            $layout_sidebar = array('sidebar' => 'full', 'sidebar_area' => null);
+            return array('sidebar' => 'full', 'sidebar_area' => null);
         }
     }
     

@@ -585,7 +585,7 @@ function kt_woocommerce_before_cart_table( $args )
 
 	$html = '<h3>' . sprintf( __( 'You Have %d Items In Your Cart', 'Avada' ), $woocommerce->cart->cart_contents_count ) . '</h3>';
 
-	echo esc_html($html);
+	echo $html;
 }
 
 

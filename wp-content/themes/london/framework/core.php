@@ -227,13 +227,18 @@ if ( class_exists( 'Vc_Manager', false ) ) {
 }
 
 
+
 /**
  * support for woocommerce helpers
  *
  */
-require_once ( FW_DIR . 'product-cat-meta.php' );
 require_once ( FW_DIR . 'woocommerce.php' );
 
+/**
+ * Add image icon for product categories
+ *
+ */
+require_once ( FW_DIR . 'product-cat-meta.php' );
 
 /**
  * Add importer

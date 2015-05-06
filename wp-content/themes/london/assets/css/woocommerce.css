@@ -1,6 +1,31 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Woocommerce core
+2. Woocommerce shopping cart
+3. Woocommerce Common
+4. Woocommerce widget
+    4.1. Product categories
+    4.2. Price filter
+    4.3. Cart and Product list widget
+5. Products
+6. Product Detail
+7. Pagination & Ordering & Result count
+8. Product popup
+9. Product Comment
+10. Product Cart
+11. Product Checkout
+12. Woocommerce carousel
+13. Sales Countdown
+14. Shopping cart
+15. Custom Yith Woocommerce Compare
+16. Other
+
+
+
 
 /** ================================================
-    Woocommerce core
+    1. Woocommerce core
 *** ================================================*/
 
 @font-face {
@@ -101,6 +126,7 @@
 
 .woocommerce .blockUI.blockOverlay {
     position: relative;
+    background-color: #fff!important;
 }
 
 .woocommerce .blockUI.blockOverlay:before,.woocommerce .loader:before {
@@ -553,7 +579,7 @@
 
 
 /** ================================================
-    Woocommerce shopping cart
+    2. Woocommerce shopping cart
 *** ================================================*/
 .shopping_cart .shopping-bag{  
     position: absolute;
@@ -704,6 +730,7 @@
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     -o-border-radius: 0;
+    background: none;
 }
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
     background: #000000;
@@ -723,7 +750,7 @@
 }
 
 /** =========================
-    1. Woocommerce Common
+    3. Woocommerce Common
 *** =========================*/
 .page-title{
     float: left;
@@ -746,10 +773,10 @@
 }
 
 /** =========================
-    3. Woocommerce widget
+    4. Woocommerce widget
 *** =========================*/
 
-/* === 3.1. Product categories ====*/
+/* === 4.1. Product categories ====*/
 ul.product-categories li{
     position: relative;
     list-style: none;
@@ -820,7 +847,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     background-position: 18px 16px;
 }
 
-/* === 3.2. Price filter ====*/
+/* === 4.2. Price filter ====*/
 .woocommerce .widget_price_filter .ui-slider-horizontal{
     height: 5px;
     margin-bottom: 1em;
@@ -868,7 +895,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     line-height: 40px;
     text-align: right;
 }
-/* === 3.3.  Cart and Product list widget ====*/
+/* === 4.3.  Cart and Product list widget ====*/
 .woocommerce ul.product_list_widget{
     margin: 0;
     padding: 0;
@@ -952,12 +979,10 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 
 /** =========================
-    4. Products
+    5. Products
 *** =========================*/
-
-
 /*
- * Products common
+ * 5.1. Products common
  */
 .yith-wcwl-add-to-wishlist a{
     display: block;
@@ -1216,7 +1241,6 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce ul.products .product-image-container .functional-buttons{
     position: absolute;
     margin-right: 0;
-    
     right: -130px;
     
     /* Firefox */
@@ -1229,7 +1253,6 @@ ul.product-categories > li.cat-parent.current-cat > a{
     top: calc(50% + 5px);
     
 }
-
 
 
 .woocommerce ul.products .product-item-container:hover .product-image-container .functional-buttons{
@@ -1308,6 +1331,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     height: 40px;
     line-height: 40px;
     text-align: center;
+    padding: 0;
     width: 32px;
     margin: 0;
     border-radius: 0;
@@ -1367,7 +1391,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     display: none;
 }
 /*
- * Products effect
+ * 5.2. Products effect
  */
 .woocommerce ul.products.effect-bottom .product-meta-wrapper{
     position: relative;
@@ -1476,10 +1500,21 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 
 
-
 /*
- * Products lists
+ * 5.2. Products lists
  */
+.woocommerce .page-bg-cover {
+    background: #d8d7d5;
+}
+.woocommerce .page-bg-cover .cover-img {
+    height: 300px;
+    display: block;
+    background-position: top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .woocommerce ul.products.lists li.product{
     width: auto;
     float: none;
@@ -1546,7 +1581,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 
 /** =========================
-    5. Product Detail
+    6. Product Detail
 *** =========================*/
 .woocommerce .product-detail-content{
     border: 1px solid #ccc;
@@ -1598,8 +1633,12 @@ ul.product-categories > li.cat-parent.current-cat > a{
     right: 0;
     background-image: url(../images/arrow-product-next.png);
 }
-
-
+.woocommerce .easyzoom{ 
+    display: block; 
+}
+.woocommerce .easyzoom-flyout img{ 
+    max-width:none!important; 
+}
 .woocommerce .woocommerce-product-rating,
 .woocommerce .summary .product_meta_sku,
 .woocommerce .summary .posted_in,
@@ -1829,7 +1868,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     margin-left: 10px;
 }
 /** =========================
-    6. Pagination & Ordering & Result count
+    7. Pagination & Ordering & Result count
 *** =========================*/
 
 .woocommerce-ordering{
@@ -1884,7 +1923,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 
 
 /** =========================
-    6. Product popup
+    8. Product popup
 *** =========================*/
 .themedev-product-popup.woocommerce{
     background: #f7f7f7;
@@ -1909,10 +1948,8 @@ ul.product-categories > li.cat-parent.current-cat > a{
     margin: 0 0 10px;
 }
 /** =========================
-    7. Product Comment
+    9. Product Comment
 *** =========================*/
-
-
 .woocommerce #reviews #comments h2 {
     clear:none;
 }
@@ -2084,7 +2121,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 
 
 /** =========================
-    8. Product Cart
+    10. Product Cart
 *** =========================*/
 .woocommerce-cart .cart-collaterals{
     margin-top: 45px;
@@ -2201,7 +2238,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 
 
 /** =========================
-    9. Product Checkout
+    11. Product Checkout
 *** =========================*/
 .woocommerce-page #customer_details,
 .woocommerce #customer_details{
@@ -2425,7 +2462,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
   vertical-align: middle;
 }
 /** =========================
-    10. Woocommerce carousel
+    12. Woocommerce carousel
 *** =========================*/
 .woocommerce-carousel-wrapper{
     
@@ -2437,7 +2474,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     display: block;
 }
 /** =========================
-    11. Sales Countdown
+    13. Sales Countdown
 *** =========================*/
 .woocommerce-countdown{
     margin-bottom: 12px;
@@ -2507,12 +2544,96 @@ ul.product-categories > li.cat-parent.current-cat > a{
     font-weight: 700;
     margin: 0 4px 0 0;
 }
+/** =========================
+    14. Shopping cart
+*** =========================*/
+.shopping_cart{
+    float: right;
+    position: relative;
+}
+.shopping_cart > a{
+    position: relative;
+}
+.shopping_cart > a:after{
+    bottom: -4px;
+    color: #000;
+    content: "\e805";
+    display: none;
+    font-family: fontkite;
+    font-size: 9px;
+    height: 8px;
+    left: 5px;
+    position: absolute;
+    width: 10px;
+}
+.shopping_cart > a:before{
+    font-family:fontkite;
+    content:"\e803";
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+.shopping_cart > a{
+    padding-left: 27px;
+}
+.shopping_cart > a span.cart-content-total{
+    background: #333333;
+    font-family: Arial;
+    color: #FFFFFF;
+    padding: 0 10px;
+    line-height: 20px;
+    position: relative;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 13px;
+}
+.shopping_cart > a span.cart-content-total:before{
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #333;
+    border-width: 4px;
+    margin-top: -4px;
+}
+/** =========================
+    15. Custom Yith Woocommerce Compare
+*** =========================*/
 
-
-
+#cboxTopLeft,#cboxTopCenter,#cboxTopRight,
+#cboxMiddleLeft,#cboxContent,#cboxMiddleRight,
+#cboxBottomLeft,#cboxBottomCenter,#cboxBottomRight{
+    background: #fff;
+}
+#cboxClose:before{
+    content:"\e809";
+    display: block;
+    font-family: "fontkite";
+    font-size: 16px;
+    height: 23px;
+    left: 0;
+    line-height: 23px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 23px;
+}
+#cboxClose{
+    font-size: 0;
+    text-indent:0;
+    background: none;
+}
+/** =========================
+    16. Other
+*** =========================*/
 
 /*
-variations_form cart swatches Plugin
+* Variations_form cart swatches Plugin
 */
 .variations_form.swatches .variations-table tbody tr  td{
     padding-bottom: 15px;

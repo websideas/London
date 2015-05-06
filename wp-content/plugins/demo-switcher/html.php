@@ -1,8 +1,7 @@
 <?php
 
- $url =   $_REQUEST['url'] ;
+$url =   $_REQUEST['url'] ;
 $home_url =  $_REQUEST['home_url'];
-
 ?>
 
 <div class="ds">
@@ -13,7 +12,7 @@ $home_url =  $_REQUEST['home_url'];
         <div class="ds-setting">
             <div class="ds-label">Demo versions</div>
             <div class="ds-opt">
-                <a class="ds-ver " title="Version 1"  href="http://kutethemes.ovicsoft.com/fashion/london-stars1/" data-style="background: url('<?php echo $url; ?>/images/demo-1.jpg') repeat; " ><img src="<?php echo $url; ?>/images/demo-1.jpg"></a>
+                <a class="ds-ver " title="Version 1" href="http://kutethemes.ovicsoft.com/fashion/london-stars1/" data-style="background: url('<?php echo $url; ?>/images/demo-1.jpg') repeat; " ><img src="<?php echo $url; ?>/images/demo-1.jpg"></a>
                 <a class="ds-ver " title="Version 2" href="http://kutethemes.ovicsoft.com/fashion/london-stars2/" data-style="background: url('<?php echo $url; ?>/images/demo-2.jpg') repeat; " ><img src="<?php echo $url; ?>/images/demo-2.jpg"></a>
                 <a class="ds-ver " title="Version 3" href="http://kutethemes.ovicsoft.com/fashion/london-stars3/" data-style="background: url('<?php echo $url; ?>/images/demo-3.jpg') repeat; " ><img src="<?php echo $url; ?>/images/demo-3.jpg"></a>
                 <a class="ds-ver " title="Version 4" href="http://kutethemes.ovicsoft.com/fashion/london-stars4/" data-style="background: url('<?php echo $url; ?>/images/demo-4.jpg') repeat; " ><img src="<?php echo $url; ?>/images/demo-4.jpg"></a>

@@ -8,6 +8,7 @@ $attributes = array(
     'param_name' => 'effect',
     'value' => array( 
         __("None", THEME_LANG) => "",
+        __("Creative", THEME_LANG) => "creative",
         __("Simple Fade", THEME_LANG) => "simple",
         __("Zoom in", THEME_LANG) => "zoomin", 
         __('Zoom out', THEME_LANG) => "zoomout",

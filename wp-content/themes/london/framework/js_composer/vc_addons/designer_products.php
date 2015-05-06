@@ -39,6 +39,7 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
             'after_widget' => '</section>',
             'before_title' => '<h3 class="widget-title">',
             'after_title' => '</h3>',
+            'widget_id' => ''
         ) );
         echo '</div>';
         echo '</div>';

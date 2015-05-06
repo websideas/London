@@ -214,7 +214,8 @@ if ( ! class_exists( 'YITH_WCWL_Init' ) ) {
 			$position = empty( $position ) ? 'add-to-cart' : $position;
 
 			if ( $position != 'shortcode' ) {
-				add_action( $this->_positions[$position]['hook'], create_function( '', 'echo do_shortcode( "[yith_wcwl_add_to_wishlist]" );' ), $this->_positions[$position]['priority'] );
+				//cuongdv custom
+                //add_action( $this->_positions[$position]['hook'], create_function( '', 'echo do_shortcode( "[yith_wcwl_add_to_wishlist]" );' ), $this->_positions[$position]['priority'] );
 			}
 
 			// Free the memory. Like it needs a lot of memory... but this is rock!

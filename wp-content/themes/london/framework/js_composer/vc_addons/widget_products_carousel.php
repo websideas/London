@@ -202,8 +202,8 @@ class WPBakeryShortCode_Widget_Products_Carousel extends WPBakeryShortCode {
             <div class="widget-products-carousel-wrapper woocommerce <?php echo esc_attr($el_class); ?>">
                 <?php if($title || $sub_title){ ?>
                     <div class="block-heading">
-                        <?php if($title){ ?><h3><?php echo $title; ?></h3><?php } ?>
-                        <?php if($sub_title){ ?><div class="sub_title"><?php echo $sub_title; ?></div><?php } ?>
+                        <?php if($title){ ?><h3><?php echo esc_html($title); ?></h3><?php } ?>
+                        <?php if($sub_title){ ?><div class="sub_title"><?php echo esc_html($sub_title); ?></div><?php } ?>
                     </div>
                 <?php } ?>
                 

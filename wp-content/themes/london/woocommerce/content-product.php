@@ -91,9 +91,9 @@ $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' co
                 <?php
         			/**
         			 * woocommerce_shop_loop_item_after_image hook
-        			 *
+        			 *            
         			 * @hooked woocommerce_template_loop_add_to_cart - 5
-        			 * @hooked woocommerce_show_product_loop_sale_flash - 10
+                     * @hooked woocommerce_show_product_loop_sale_flash - 10
                      * @hooked woocommerce_shop_loop_item_action_action_add - 15
         			 */
         			do_action( 'woocommerce_shop_loop_item_after_image' );

@@ -120,9 +120,6 @@
                             $edgeItem = true;
                         }
                         
-                        
-                        console.log($edgeItem);
-                        
                         if($edgeItem){
                             if($leftCSS + $ul_width > $parentOffset_width){
                                 $leftCSS = 'auto';

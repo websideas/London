@@ -29,7 +29,8 @@ function dsw_scripts(){
         'purl'=>   DSW_URL,
         'hom_url' => home_url('/')
 
-) );
+    ) );
 }
-
-add_action( 'wp_enqueue_scripts', 'dsw_scripts' , 99999999 );
+if(!isset($_GET['action'])){
+    add_action( 'wp_enqueue_scripts', 'dsw_scripts' , 99999999 );    
+}
