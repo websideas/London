@@ -1,7 +1,5 @@
 <?php
 /*
-  Plugin Name: KT WooCommerce Products Filter
-  Plugin URI: http://kutethemes.com
   Description: WooCommerce Products Filter. Easy & Quick!
   Author: realmag777: http://woocommerce-filter.com/. Moded by SaT(shrimp2t@gmail.com)
   Version: 2.0
@@ -71,7 +69,7 @@ final class WOOF
         //add_action('woocommerce_update_options_settings_tab_woof', array($this, 'update_settings'), 50);
         add_action('admin_head', array($this, 'admin_head'), 1);
         //+++
-        add_action('wp_head', array($this, 'wp_head'), 999);
+        add_action('wp_head', array($this, 'wp_head'), 99);
         add_shortcode('woof', array($this, 'woof_shortcode'));
         add_action('widgets_init', array($this, 'widgets_init'));
         //+++

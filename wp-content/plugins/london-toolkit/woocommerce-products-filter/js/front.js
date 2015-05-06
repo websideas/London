@@ -115,8 +115,18 @@ jQuery(function () {
     // auto submit
     var ajax_request;
     jQuery( 'body' ).on( 'woof_changed price_slider_change' , function(){
+
+        if( containers.length <=0 ){
+            return false;
+        }
+
         var products_selector =  '.woof-products';
         var  container =  jQuery( products_selector );
+        if( container.length <= 0 ){
+            container =  jQuery('<div class="woof-products"></div>');
+            container.insertBefore('.products-not-found');
+            jQuery('.products-not-found').remove();
+        }
         var  p = container.closest('div');
         p.addClass('woof-products-wrap relative');
         var link =  woof_get_submit_link();
@@ -154,9 +164,12 @@ jQuery(function () {
 
     });
 
+
+
     if( containers.length > 0 ){
-        jQuery( 'body' ).trigger( 'woof_changed' );
+       // jQuery( 'body' ).trigger( 'woof_changed' );
     }
+
 
     jQuery('.woof  .iw  label  input:checkbox, .woof  li  label  input:radio').each(function(){
         var p = jQuery(this).parents('.iw');
@@ -223,7 +236,7 @@ jQuery(function () {
     //***
 
     jQuery('.woof_checkbox_instock').on('change', function (event) {
-        jQuery( 'body' ).trigger( 'woof_changed' );
+         jQuery( 'body' ).trigger( 'woof_changed' );
     });
 
 
@@ -285,6 +298,14 @@ function woof_get_submit_link() {
         }
     });
 
+    /*
+    if( jQuery('.woocommerce-product-search input[name="s"]').length > 0 && jQuery('.woocommerce-product-search input[name="s"]').eq(0).val() != '' ){
+        woof_current_values.s = jQuery('.woocommerce-product-search input[name="s"]').eq(0).val();
+        woof_current_values.post_type = 'product';
+    }
+    */
+
+
     jQuery('.woof input.woof_checkbox_term').each(  function() {
         var is_check =  jQuery(this).is(':checked');
         if( is_check ){
@@ -333,7 +354,6 @@ function woof_get_submit_link() {
         }
 
     });
-
 
     //--------------------
 

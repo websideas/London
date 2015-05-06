@@ -40,7 +40,7 @@ function kt_add_breadcrumb(){
                             woocommerce_breadcrumb(
                                 array(
                                     'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
-                                    'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '>',
+                                    'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs">', // xmlns:v="http://rdf.data-vocabulary.org/#" itemprop="breadcrumb"
 
                             ) );
                         }else{
@@ -283,7 +283,7 @@ function theme_after_footer_add_popup(){
     
     if( $enable_popup == 1 ){ 
         if(!isset($_COOKIE['kt_popup'])){ ?>
-            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo $disable_popup_mobile; ?>" data-timeshow="<?php echo $time_show; ?>">     
+            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo esc_attr( $disable_popup_mobile ); ?>" data-timeshow="<?php echo esc_attr($time_show); ?>">     
                 <div class="white-popup-block">
                     <?php echo do_shortcode($content_popup); ?>
                 </div>
@@ -305,7 +305,7 @@ function kt_blog_favicon() {
     ?>
     <!-- Favicons -->
     <?php if($custom_favicon['url']){ ?>
-        <link rel="shortcut icon" href="<?php echo $custom_favicon['url'] ?>" />    
+        <link rel="shortcut icon" href="<?php echo esc_url($custom_favicon['url']) ?>" />    
     <?php } ?>
 	<?php if($custom_favicon_iphone['url']){ ?>
         <link rel="apple-touch-icon" href="<?php echo $custom_favicon_iphone['url'] ?>" />    
@@ -347,3 +347,32 @@ function kt_breadcrumb_trail_args( $args ){
     return $args;
 }
 add_filter('breadcrumb_trail_args', 'kt_breadcrumb_trail_args');
+
+
+
+/**
+ * Add logo sticky to main menu
+ * 
+ */
+function kt_nav_wrap() {
+    $logo = kt_get_logo();
+    $logo_class = ($logo['sticky_retina']) ? 'retina-logo-wrapper' : ''; 
+    
+    $wrap  = '<ul id="%1$s" class="%2$s">';
+        $wrap .= '<li class="menu-logo '.$logo_class.'">'; 
+            ob_start();
+        ?>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <img src="<?php echo $logo['sticky']; ?>" class="default-logo" alt="<?php bloginfo( 'name' ); ?>" />
+                    <?php if($logo['sticky_retina']){ ?>
+                        <img src="<?php echo $logo['sticky_retina']; ?>" class="retina-logo" alt="<?php bloginfo( 'name' ); ?>" />
+                    <?php } ?>
+                </a><?php
+            $wrap .= ob_get_contents();
+            ob_end_clean();
+        $wrap .= '</li>';
+        $wrap .= '%3$s';
+    $wrap .= '</ul>';
+
+  return $wrap;
+}

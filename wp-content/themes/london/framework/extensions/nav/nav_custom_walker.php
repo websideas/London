@@ -26,13 +26,13 @@ if ( !defined('ABSPATH')) exit;
  
  
 class KTSelectWalker extends Walker_Nav_Menu{
-    function start_lvl(&$output, $depth){
+    function start_lvl(&$output, $depth = 0, $args = array()){
         $output .= "</option>";
     }
-    function end_lvl(&$output, $depth){
+    function end_lvl(&$output, $depth = 0, $args = array()){
         $indent = str_repeat("\t", $depth);
     }
-    function start_el(&$output, $item, $depth, $args){
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0){
         $indent = ( $depth ) ? str_repeat("-",$depth).' ' : '';
         $value = ' value="'. $item->url .'"';
         $output .= '<option'.$value.'>';
@@ -40,7 +40,7 @@ class KTSelectWalker extends Walker_Nav_Menu{
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
         $output .= $indent.$item_output;
     }
-    function end_el(&$output, $item, $depth){
+    function end_el(&$output, $item, $depth = 0, $args = array()){
         if(substr($output, -9) != '</option>')
             $output .= "</option>";
     }

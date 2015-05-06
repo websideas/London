@@ -270,6 +270,22 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'desc'     => __('Select an image file for the retina version of the logo. It should be exactly 2x the size of main logo.', THEME_LANG)
                     ),
                     array(
+                        'id'       => 'logo_light',
+                        'type'     => 'media',
+                        'url'      => true,
+                        'compiler' => true,
+                        'default' =>THEME_IMG.'logo2.png',
+                        'title'    => __( 'Logo Light', THEME_LANG ),
+                    ),
+                    array(
+                        'id'       => 'logo_retina_light',
+                        'type'     => 'media',
+                        'url'      => true,
+                        'compiler' => true,
+                        'title'    => __( 'Logo Light(Retina Version @2x)', THEME_LANG ),
+                        'desc'     => __('Select an image file for the retina version of the logo. It should be exactly 2x the size of main logo.', THEME_LANG)
+                    ),
+                    array(
                         'id'             => 'logo_width',
                         'type'           => 'dimensions',
                         'units'          => array( 'em', 'px'),
@@ -303,7 +319,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'             => 'logo_sticky_width',
                         'type'           => 'dimensions',
-                        'output'   => array( '.is-sticky .site-branding .site-logo', '.is-sticky .site-branding .site-logo img' ),
+                        'output'   => array( '#main-nav > ul > li.menu-logo img'),
                         'units'          => array( 'em', 'px'), 
                         'units_extended' => 'true', 
                         'title'          => __( 'Logo sticky width', THEME_LANG ),
@@ -316,14 +332,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'mode'     => 'margin',
                         'units'          => array( 'em', 'px' ), 
                         'units_extended' => 'true',
-                        'title'    => __( 'Logo margin spacing Option', THEME_LANG ),
+                        'title'    => __( 'Logo sticky margin spacing Option', THEME_LANG ),
                         'default'  => array(
                             'margin-top'    => '-20px',
                             'margin-right'  => '60px',
                             'margin-bottom' => '-20px',
                             'margin-left'   => '0px'
                         ),
-                        'output'   => array( '.is-sticky .site-branding .site-logo' ),
+                        'output'   => array( '#main-nav > ul > li.menu-logo a'),
                     ),
                     array(
                         'id'   => 'divide_id',

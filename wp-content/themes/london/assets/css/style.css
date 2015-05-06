@@ -458,9 +458,7 @@ select:not([multiple]) {
 /* ==============================
    5. Search form
    ============================== */
-.header-content .searchform button{
-    color:#ccc;
-}
+
 /* ==============================
    6. Scroll top
    ============================== */
@@ -1173,11 +1171,15 @@ h2.widgettitle a.rsswidget:first-child,
     transition: width 0.5s ease-in-out;
 }
 .header-content-bottom .searchform input[type=text]{
+    color: #cccccc;
     float: right;
     width: 180px;
 }
 .header-content-bottom .searchform input[type=text]:focus{
     width: 220px;
+}
+.header-content .searchform button{
+    color:#ccc;
 }
 /*
  * 10.5 Header sticky
@@ -1199,6 +1201,9 @@ h2.widgettitle a.rsswidget:first-child,
 #header.is-sticky.sticky {
     opacity: 1;
     top: 0;
+}
+body.admin-bar #header.is-sticky.sticky{
+    top: 32px;
 }
 .is-sticky .header-content-top{
     display: none;
@@ -1226,6 +1231,30 @@ h2.widgettitle a.rsswidget:first-child,
 .header-layout1 .site-branding{
     width: 10px;
 }
+/* Thang */
+#main-nav > ul > li.menu-logo .retina-logo,
+#main-nav > ul > li.menu-logo,
+.sticky .site-branding{
+    display: none;
+}
+.sticky #main-nav > ul > li.menu-logo{
+    display: inline-block;
+    padding:0;
+}
+.header-container #header.sticky #main-nav > ul > li.menu-logo a{
+    height:auto;
+    line-height:normal;
+    padding:0;
+    border:none;
+}
+.header-container #header.sticky #main-nav > ul > li.menu-logo{
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+/* Thang */
+
+
 #woocommerce-nav-mobile-wrapper{
     border-color: #000000;
 }

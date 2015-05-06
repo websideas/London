@@ -49,7 +49,7 @@ class WPBakeryShortCode_Sales_Countdown_Carousel extends WPBakeryShortCode {
             if($border_heading){
                 $heading_class .= " block-heading-underline";
             }
-            $output .= '<div class="'.$heading_class.'">';
+            $output .= '<div class="'.esc_attr($heading_class).'">';
                 $output .= '<h3>'.$title.'</h3>';
             $output .= '</div>';
         }
@@ -93,7 +93,7 @@ class WPBakeryShortCode_Sales_Countdown_Carousel extends WPBakeryShortCode {
         );
                     
         $output .= '<div class="woocommerce-carousel-wrapper" '.render_data_carousel($data_carousel).'>';
-		$output .= '<div class="woocommerce columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
+		$output .= '<div class="woocommerce columns-' . esc_attr($atts['columns']) . '">' . ob_get_clean() . '</div>';
         $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
         $output .= '</div>';
         

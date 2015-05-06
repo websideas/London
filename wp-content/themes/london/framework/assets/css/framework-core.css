@@ -109,10 +109,15 @@ input.cmn-toggle-round-flat:checked + label:after {
 .kt_image_preview{
     border: 1px solid #ddd;
     display: none;
+    float: left;
     margin: 10px 0;
     padding: 2px;
     position: relative;
     text-align: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
 }
 .kt_image_preview img{
     max-width: 100%;

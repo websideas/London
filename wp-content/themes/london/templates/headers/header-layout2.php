@@ -29,7 +29,7 @@ if ( !defined('ABSPATH')) exit;
         <div id="header-inner" class="clearfix">
             <?php
                 if ( has_nav_menu( 'primary' ) ) {  
-                    wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav', 'walker' => new KTMegaWalker() ) );
+                    wp_nav_menu( array( 'theme_location' => 'primary', 'container' => 'nav', 'container_id' => 'main-nav', 'walker' => new KTMegaWalker(),'items_wrap' => kt_nav_wrap() ) );
                 }
             ?>
             <?php kt_search_form(); ?>

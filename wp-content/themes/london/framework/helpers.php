@@ -268,17 +268,30 @@ if (!function_exists('kt_option')){
  * 
  */
 function kt_get_logo(){
-    $logo = array();
+    $logo = array('default' => '', 'retina' => '','sticky' => '', 'sticky_retina' => '');
     
     $logo_default = kt_option( 'logo' );
     $logo_retina = kt_option( 'logo_retina' );
+    $logo_sticky = kt_option( 'logo_light' );
+    $logo_retina_sticky = kt_option( 'logo_retina_light' );
     
-    if(is_array($logo_default) && $logo_default['url'] !='' ){
+    
+    if(is_array($logo_default) && $logo_default['url'] != '' ){
         $logo['default'] = $logo_default['url'];
     }
     
-    if(is_array($logo_retina ) && $logo_retina['url'] !=''){
+    if(is_array($logo_retina ) && $logo_retina['url'] != '' ){
         $logo['retina'] = $logo_retina['url'];
+    }
+    
+    if(is_array($logo_sticky ) && $logo_sticky['url'] != '' ){
+        $logo['sticky'] = $logo_sticky['url'];
+    }else{
+        $logo['sticky'] = $logo['default'];
+    }
+    
+    if(is_array($logo_retina_sticky ) && $logo_retina_sticky['url'] != '' ){
+        $logo['sticky_retina'] = $logo_retina_sticky['url'];
     }
     
     if(!count($logo)){
@@ -290,6 +303,8 @@ function kt_get_logo(){
             $logo = array('default' => THEME_IMG.'logo-black.png', 'retina' => THEME_IMG.'logo-black-retina.png');
         }
     }
+    
+    
     
     return $logo;
 }
@@ -483,7 +498,7 @@ function render_data_carousel($data){
     $output = "";
     foreach($data as $key => $val){
         if($val){
-            $output .= ' data-'.$key.'="'.$val.'"';
+            $output .= ' data-'.$key.'="'.esc_attr($val).'"';
         }
     }
     return $output;

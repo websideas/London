@@ -21,7 +21,7 @@ $tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 if ( ! empty( $tabs ) ) : ?>
 
-	<div class="woocommerce-tabs">
+	<div class="woocommerce-tabs clearfix">
 		<ul class="tabs clearfix">
 			<?php foreach ( $tabs as $key => $tab ) : ?>
 

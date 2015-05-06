@@ -84,13 +84,17 @@
                 } else if ( version_compare( $curVer, $saveVer, '>' ) ) {
                     $redirect = true; // Previous version
                 }
-                if ( $redirect ) {
-                    wp_safe_redirect( admin_url( 'tools.php?page=redux-about' ) );
-                    exit();
+                if ( $redirect && ! defined( 'WP_TESTS_DOMAIN' ) ) {
+                    add_action('init', array($this, 'do_redirect'));
                 }
             }
         }
 
+        public function do_redirect() {
+            wp_redirect( admin_url( 'tools.php?page=redux-about' ) );
+            exit();            
+        }
+        
         public function change_wp_footer() {
             echo 'If you like <strong>Redux</strong> please leave us a <a href="https://wordpress.org/support/view/plugin-reviews/redux-framework?filter=5#postform" target="_blank" class="redux-rating-link" data-rated="Thanks :)">★★★★★</a> rating. A huge thank you from Redux in advance!';
         }
@@ -276,11 +280,6 @@
                     src='<?php echo ReduxFramework::$_url ?>inc/welcome/js/jquery.easing.min.js'>
                 </script>
             <?php endif; ?>
-
-            <script
-                id="redux-zero-clipboard-js"
-                src='<?php echo ReduxFramework::$_url ?>inc/welcome/js/zeroclipboard/jquery.zeroclipboard.min.js'>
-            </script>
 
             <link rel='stylesheet' id='redux-qtip-css'
                   href='<?php echo ReduxFramework::$_url ?>assets/css/vendor/qtip/jquery.qtip.css'
