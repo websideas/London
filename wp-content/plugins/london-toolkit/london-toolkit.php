@@ -21,3 +21,6 @@ require_once LONDON_TOOLKIT_PATH.'woocommerce-products-filter/index.php';
 
 // Post types
 require_once LONDON_TOOLKIT_PATH.'post-types/post-types.php';
+
+//Shortcodes
+require_once LONDON_TOOLKIT_PATH.'shortcodes.php';
