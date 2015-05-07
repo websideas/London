@@ -1273,9 +1273,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
     display: block;
     font-size: 0;
     height: 38px;
-    left: 10px;
+    left: 0;
     position: absolute;
-    top: 10px;
+    top: 0;
     width: 38px;
     text-align: center;
 }

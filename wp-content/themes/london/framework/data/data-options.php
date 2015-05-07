@@ -349,6 +349,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'favicon_heading',
                         'type' => 'heading',
                         'title'    => __( 'Favicon settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'custom_favicon',
@@ -434,6 +435,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'header_contact_heading',
                         'type' => 'heading',
                         'title'    => __( 'Header contact settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id' => 'header_phone',
@@ -471,7 +473,8 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'   => 'footer_heading',
                         'type' => 'heading',
-                        'title'    => __( 'Footer settings', THEME_LANG )
+                        'title'    => __( 'Footer settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer',
@@ -495,7 +498,8 @@ if ( ! class_exists( 'KT_config' ) ) {
                     array(
                         'id'   => 'footer_top_heading',
                         'type' => 'heading',
-                        'title'    => __( 'Footer top settings', THEME_LANG )
+                        'title'    => __( 'Footer top settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_top',
@@ -524,6 +528,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'footer_widgets_heading',
                         'type' => 'heading',
                         'title'    => __( 'Footer widgets settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_widgets',
@@ -572,6 +577,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'footer_bottom_heading',
                         'type' => 'heading',
                         'title'    => __( 'Footer bottom settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_bottom',
@@ -770,6 +776,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'header_layout1_heading',
                         'type' => 'heading',
                         'title'    => __( 'Header layout 1 settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'            => 'header-layout-opacity',
@@ -790,6 +797,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'header_sticky_heading',
                         'type' => 'heading',
                         'title'    => __( 'Header sticky settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'            => 'header_sticky_opacity',
@@ -819,6 +827,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'footer_heading',
                         'type' => 'heading',
                         'title'    => __( 'Footer settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_background',
@@ -853,6 +862,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'footer_top_heading',
                         'type' => 'heading',
                         'title'    => __( 'Footer top settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_top_background',
@@ -884,6 +894,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'footer_widgets_heading',
                         'type' => 'heading',
                         'title'    => __( 'Footer widgets settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_widgets_border',
@@ -929,6 +940,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'   => 'footer_bottom_heading',
                         'type' => 'heading',
                         'title'    => __( 'Footer bottom settings', THEME_LANG ),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'footer_bottom_background',
@@ -1309,6 +1321,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'     => 'shop_single_product',
                         'type'     => 'heading',
                         'title'    => __('Shop Products settings', THEME_LANG),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'shop_sidebar',
@@ -1390,6 +1403,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'id'     => 'shop_single_product',
                         'type'     => 'heading',
                         'title'    => __('Single Product Layout', THEME_LANG),
+                        'class'    => 'section-heading'
                     ),
                     array(
                         'id'       => 'product_sidebar',

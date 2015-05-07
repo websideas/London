@@ -243,3 +243,6 @@ div#post-body .rwmb-select{
 /*==================================
 * END Responsive
 ===================================*/
+.section-heading{
+    text-transform: uppercase;
+}
