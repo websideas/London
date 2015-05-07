@@ -195,7 +195,7 @@ final class WOOF
     public function wp_head()
     {
         global $wp_query;
-        wp_enqueue_style('woof', WOOF_LINK . 'css/front.css');
+        //wp_enqueue_style('woof', WOOF_LINK . 'css/front.css');
         //***
         ?>
         <script type="text/javascript">

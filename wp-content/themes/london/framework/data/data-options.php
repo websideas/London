@@ -414,17 +414,18 @@ if ( ! class_exists( 'KT_config' ) ) {
 					),
                     array(
                         'id'       => 'header',
-                        'type'     => 'select',
+                        'type'     => 'image_select',
+                        'compiler' => true,
                         'title'    => __( 'Header layout', THEME_LANG ),
-                        'subtitle'     => __( "Please choose header layout", THEME_LANG ),
+                        'subtitle' => __( 'Please choose header layout', THEME_LANG ),
                         'options'  => array(
-                            'layout1' => __('Layout 1', THEME_LANG),
-                            'layout2' => __('Layout 2', THEME_LANG),
-                            'layout3' => __('Layout 3', THEME_LANG),
+                            'layout1' => array( 'alt' => __( 'Layout 1', THEME_LANG ), 'img' => FW_IMG . 'header/header-v1.png' ),
+                            'layout2' => array( 'alt' => __( 'Layout 2', THEME_LANG ), 'img' => FW_IMG . 'header/header-v2.png' ),
+                            'layout3' => array( 'alt' => __( 'Layout 3', THEME_LANG ), 'img' => FW_IMG . 'header/header-v3.png' ),
                         ),
-                        'default'  => 'layout1',
-                        'clear' => false
+                        'default'  => 'layout1'
                     ),
+                    
                     array(
                         'id'   => 'divide_id',
                         'type' => 'divide'

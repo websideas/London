@@ -2048,6 +2048,9 @@ body.admin-bar #header.is-sticky.sticky{
 /*
  * Single image
  */
+.wpb_single_image .wpb_wrapper{
+    line-height: 0;
+}
 .wpb_single_image .vc_single_image-wrapper.sidetocenter,
 .wpb_single_image .vc_single_image-wrapper.zoomout,
 .wpb_single_image .vc_single_image-wrapper.zoomin,
@@ -2099,7 +2102,7 @@ body.admin-bar #header.is-sticky.sticky{
 }
 .wpb_single_image .vc_single_image-wrapper.sidetocenter:before,
 .wpb_single_image .vc_single_image-wrapper.sidetocenter:after{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255,255,255,0.5);
     content: "";
     height: 100%;
     margin: auto;

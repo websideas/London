@@ -114,10 +114,10 @@ if ( function_exists('register_sidebar')) {
 
 add_filter('wp_list_categories', 'kt_cat_count_span');
 function kt_cat_count_span($links) {
-    $links = str_replace('</a> (', ' (', $links);
+    $links = str_replace('</a> (', ' <span>(', $links);
     $links = str_replace('</a> <', ' <', $links);
-    $links = str_replace(')', ')</a>', $links);
-    $links = str_replace('</a></span>', '</span></a>', $links);
+    $links = str_replace(')', ')</span></a>', $links);
+    $links = str_replace('</a></span>', '</a>', $links);
     
     return $links;
 }
