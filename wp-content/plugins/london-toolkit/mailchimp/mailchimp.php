@@ -22,22 +22,15 @@ class KT_Mailchimp{
      */
     private $options;
     
-    private $uniqeID;
-    
-    private $atts;
-    
     public function __construct()
     {   
         
         $this->options = get_option( 'kt_mailchimp_option' );
-        $this->uniqeID  = uniqid();
         
         // Add shortcode mailchimp
         add_shortcode('mailchimp', array($this, 'mailchimp_handler'));
         // Enqueue common styles and scripts
         add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
-        // Add custom style to footer
-        add_action( 'wp_footer', array( $this, 'wp_footer' ) );
         // Add ajax for frontend
         add_action( 'wp_ajax_frontend_mailchimp', array( $this, 'frontend_mailchimp_callback') );
         add_action( 'wp_ajax_nopriv_frontend_mailchimp', array( $this, 'frontend_mailchimp_callback') );
@@ -46,18 +39,6 @@ class KT_Mailchimp{
             add_action( 'admin_notices', array( $this, 'admin_notice' ));
         }
         
-    }
-    function wp_footer(){
-        $style = '';
-        
-        $desktop = $this->atts['desktop'] ? "@media (min-width: 992px) {#mailchimp-wrapper-{$this->uniqeID}{min-height: {$this->atts['desktop']}}}" : '';
-        $tablet = $this->atts['tablet'] ? "@media (max-width: 768px) {#mailchimp-wrapper-{$this->uniqeID}{min-height: {$this->atts['tablet']}}}" : '';
-        $mobile = $this->atts['mobile'] ? "@media (max-width: 480px) {#mailchimp-wrapper-{$this->uniqeID}{min-height: {$this->atts['mobile']}}}" : '';  
-        $style = $desktop.$tablet.$mobile;
-        if($style){
-            $style = "<div><style type='text/css'>{$style}</style></div>";    
-        }
-        echo $style;
     }
     function admin_notice() {
         
@@ -96,11 +77,8 @@ class KT_Mailchimp{
             $elementClass = vc_shortcode_custom_css_class( $css, ' ' );
         }
         
-        
+		$this->uniqeID  = uniqid();
         $this->atts = $atts;
-        
-        
-        
         
         $output = '';
         
@@ -157,17 +135,6 @@ class KT_Mailchimp{
         ));
     }
     
-    
-    /**
-     * Flag boolean.
-     * 
-     * @param $input string
-     * @return boolean
-     */
-    function kt_sanitize_boolean( $input = '' ) {
-    	return in_array($input, array('1', 'true', 'y', 'on'));
-    }
-    
     /**
      * Mailchimp callback AJAX request 
      *
@@ -186,8 +153,10 @@ class KT_Mailchimp{
         if ($email) {
             if(is_email($email)){
                 if ( isset ( $api_key ) && !empty ( $api_key ) ) {
+                    
                     $mcapi = new MCAPI($api_key);
-                    $opt_in = apply_filters(array($this, 'kt_sanitize_boolean'), $_POST['opt_in']);
+                    $opt_in = in_array($_POST['opt_in'], array('1', 'true', 'y', 'on'));
+                    
                     $mcapi->listSubscribe($_POST['list_id'], $email, null, 'html', $opt_in);
                      if($mcapi->errorCode) {
                         $output['msg'] = $mcapi->errorMessage;
@@ -477,34 +446,6 @@ if ( class_exists( 'Vc_Manager', false ) ) {
             	),
             	'description' => __( 'Select type of animation if you want this element to be animated when it enters into the browsers viewport. Note: Works only in modern browsers.', 'js_composer' )
             ),
-            array(
-              "type" => "kt_heading",
-              "heading" => __("Min height for item", 'kt_mailchimp'),
-              "param_name" => "items_show",
-              "description" => __("Please include unit it. (Ex. 300px). ", 'kt_mailchimp')
-            ),
-            array(
-    			"type" => "textfield",
-    			"class" => "",
-    			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-    			"heading" => __("On Desktop", 'kt_mailchimp'),
-    			"param_name" => "desktop",
-    	  	),
-    		array(
-    			"type" => "textfield",
-    			"class" => "",
-    			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-    			"heading" => __("On Tablet", 'kt_mailchimp'),
-    			"param_name" => "tablet",
-    			"step" => "5",
-    	  	),
-    		array(
-    			"type" => "textfield",
-    			"class" => "",
-    			"edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
-    			"heading" => __("On Mobile", 'kt_mailchimp'),
-    			"param_name" => "mobile",
-    	  	),
             array(
     			'type' => 'css_editor',
     			'heading' => __( 'Css', 'js_composer' ),

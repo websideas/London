@@ -2782,7 +2782,7 @@ body.layout-boxed #page {
     position: relative;
 }
 a.comment-reply-link {
-    background: none repeat scroll 0 0 #333333;
+    background: #333333;
     bottom: 0;
     color: #f5f5f5;
     padding: 5px 15px;
@@ -2790,10 +2790,14 @@ a.comment-reply-link {
     right: 0;
     font-size: 12px;
     text-transform: uppercase;
-
+}
+a.comment-reply-link:focus,
+a.comment-reply-link:hover{
+    color: #FFF;
+    background: #000;
 }
 #cancel-comment-reply-link {
-    background: none repeat scroll 0 0 #333333;
+    background: #333333;
     color: #fff;
     padding: 5px 15px;
     font-size: 12px;

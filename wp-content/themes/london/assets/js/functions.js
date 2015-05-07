@@ -79,6 +79,22 @@
         ***  Sticky header
         ===============================**/
         $('#header.sticky-header').ktSticky();
+        
+        /**==============================
+        ***  Equal height
+        ===============================**/
+        $('.equal_height').each(function(){
+            var $equal = $(this),
+                $equal_select;
+            if($equal.hasClass('equal_height_column')){
+                $equal_select = $equal.children('.wpb_column');
+            }else{
+                $equal_select = $equal.children('.wpb_column').find('.wpb_wrapper > div');
+            }
+            $equal_select.matchHeight({
+                byRow: true
+            });
+        });
     });
     
     /* ---------------------------------------------

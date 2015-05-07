@@ -248,7 +248,7 @@ function theme_slideshows_position_callback(){
  */
 add_action( 'theme_before_content', 'theme_before_content_add_title', 20 );
 function theme_before_content_add_title(){
-
+    
 }
 
 

@@ -193,7 +193,10 @@ function woocommerce_get_cart(){
                         $output .= '<a href="'.esc_url( WC()->cart->get_cart_url() ).'" class="btn btn-default pull-left">'.__('View cart', THEME_LANG).'</a>';
                         $output .= '<a href="'.esc_url( WC()->cart->get_checkout_url() ).'" class="btn btn-default pull-left">'.__('Checkout', THEME_LANG).'</a>';
                     }else{
-                        $output .= '<a href="'.get_page_link(wc_get_page_id('shop')).'" class="btn btn-default button-shop pull-left">'.__('Shop', THEME_LANG).'</a>';    
+                        $shop_id = wc_get_page_id('shop');
+                        if($shop_id > 0){
+                            $output .= '<a href="'.get_page_link($shop_id).'" class="btn btn-default button-shop pull-left">'.__('Shop', THEME_LANG).'</a>';
+                        }    
                     }
                     
                 $output .= '</div><!-- .bag-buttons -->';

@@ -38,6 +38,8 @@ final class WOOF
                 add_filter("woocommerce_taxonomy_args_pa_{$att->attribute_name}", array($this, 'change_woo_att_data'));
             }
         }
+        
+        add_action('wp_head', array($this, 'wp_head'), 99);
 
     }
 
@@ -69,7 +71,7 @@ final class WOOF
         //add_action('woocommerce_update_options_settings_tab_woof', array($this, 'update_settings'), 50);
         add_action('admin_head', array($this, 'admin_head'), 1);
         //+++
-        add_action('wp_head', array($this, 'wp_head'), 99);
+        
         add_shortcode('woof', array($this, 'woof_shortcode'));
         add_action('widgets_init', array($this, 'widgets_init'));
         //+++

@@ -2,7 +2,10 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-$attributes = array(    
+//  0 - unsorted and appended to bottom Default  
+//  1 - Appended to top)
+
+vc_add_param( 'vc_single_image', array(    
     'type' => 'dropdown',    
     'heading' => __("Image effect", THEME_LANG),    
     'param_name' => 'effect',
@@ -20,9 +23,33 @@ $attributes = array(
 		'element' => 'style',
 		'is_empty' => true
 	) 
-); 
-//  default 0 - unsorted and appended to bottom, 1 - appended to top);
-vc_add_param( 'vc_single_image', $attributes );
+));
+
+
+vc_add_param("vc_row", array(
+	'type' => 'dropdown',
+	'heading' => __( 'Equal height', THEME_LANG ),
+	'param_name' => 'equal_height',
+	'description' => __( 'Check here if you want column equal height.', THEME_LANG ),
+	'value' => array( 
+        __("None", THEME_LANG) => "",
+        __("Column", THEME_LANG) => "column",
+        __("Content item", THEME_LANG) => "content"
+    ),
+));
+
+
+vc_add_param("vc_row_inner", array(
+	'type' => 'dropdown',
+	'heading' => __( 'Equal height', THEME_LANG ),
+	'param_name' => 'equal_height',
+	'description' => __( 'Check here if you want column equal height.', THEME_LANG ),
+	'value' => array( 
+        __("None", THEME_LANG) => "",
+        __("Column", THEME_LANG) => "column",
+        __("Content item", THEME_LANG) => "content"
+    ),
+));
 
 
 

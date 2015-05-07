@@ -84,6 +84,7 @@ endif;
  */
 if ( ! function_exists( 'kt_meta_title' ) ) {
 	function kt_meta_title() {
+	   
 	}
 }
 
@@ -104,6 +105,7 @@ function london_scripts() {
     wp_enqueue_style( 'owl-carousel-css', THEME_LIBS . 'owl-carousel/owl.carousel.css', array());
     wp_enqueue_style( 'owl-carousel-theme', THEME_LIBS . 'owl-carousel/owl.theme.css', array());
     wp_enqueue_style( 'easyzoom', THEME_CSS . 'easyzoom.css', array());
+    wp_enqueue_style( 'woocommerce-products-filter', THEME_CSS . 'woocommerce-products-filter.css', array());
     
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
@@ -129,6 +131,7 @@ function london_scripts() {
     wp_enqueue_script( 'owl-carousel', THEME_LIBS . 'owl-carousel/owl.carousel.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'superfish-script', THEME_JS . 'jquery.superfish.custom.js', array( 'jquery', 'hoverIntent' ), null, true );
     wp_enqueue_script( 'magnific-popup-script', THEME_JS . 'jquery.magnific-popup.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'matchHeightscript', THEME_JS . 'jquery.matchHeight-min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'countdown-script', THEME_JS . 'jquery.countdown.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'variations-plugin-script', THEME_JS . 'woo-variations-plugin.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'easyzoom', THEME_JS . 'easyzoom.js', array( 'jquery' ), null, true );
@@ -243,4 +246,28 @@ function kt_comments($comment, $args, $depth) {
 }
 
 
-
+if ( ! function_exists( 'kt_paging_nav' ) ) :
+/**
+ * Display navigation to next/previous set of posts when applicable.
+ *
+ * @since Twenty Fourteen 1.0
+ *
+ * @global WP_Query   $wp_query   WordPress Query object.
+ * @global WP_Rewrite $wp_rewrite WordPress Rewrite object.
+ */
+function kt_paging_nav() {
+	global $wp_query, $wp_rewrite;
+    
+    // Don't print empty markup if there's only one page.
+	if ( $wp_query->max_num_pages < 2 ) {
+		return;
+	}
+    
+    echo get_the_posts_pagination( array(
+        'prev_text'          => __( 'Previous', THEME_LANG ),
+        'next_text'          => __( 'Next', THEME_LANG ),
+        'before_page_number' => '',
+    ) );
+    
+}
+endif;
