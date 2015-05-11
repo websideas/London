@@ -202,7 +202,14 @@ function kite_register_meta_boxes( $meta_boxes )
         'context' => 'normal',
         'priority' => 'default',
         'fields' => array(
-
+            
+            array(
+                'name' => __('Collection Name', THEME_LANG),
+                'id' => $prefix . 'collection_name',
+                'desc' => "",
+                'type'  => 'text',
+            ),
+            
             array(
                 'name' => __('Position', THEME_LANG),
                 'id' => $prefix . 'description',

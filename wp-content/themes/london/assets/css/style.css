@@ -2368,6 +2368,9 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     top: 115px;
     margin-top: 0px;
 }
+.designer-collection-wrapper .designer-products h3.collection_name{
+    margin-top:-45px;
+}
 
 
 /*

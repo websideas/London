@@ -61,7 +61,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
         $output = '';
         $output .= '<div class="'.esc_attr( $elementClass ).'">';
             
-            $designer_ids  = array();
+            $designer_ids = array();
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) {
                 $output .= '<div class="row">';
@@ -126,6 +126,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                 if ( $products->have_posts() ) :
                                         $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
                                         $output .= '<div class="woocommerce-carousel-wrapper" data-theme="'.$theme.'" data-itemscustom="'.$itemscustom.'">';
+                                            $output .= '<h3 class="collection_name">'.rwmb_meta( '_kt_collection_name','',$designer_id ).'</h3>';
                                             ob_start();
                                             woocommerce_product_loop_start();
                                             while ( $products->have_posts() ) : $products->the_post();
