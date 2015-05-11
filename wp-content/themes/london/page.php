@@ -25,8 +25,8 @@ get_header(); ?>
         ?>
         <div class="row">    
             <div id="main" class="<?php echo apply_filters('kt_main_class', 'main-class', $sidebar['sidebar']); ?>">
-                <?php
-                if( rwmb_meta('_kt_show_title')  ){
+                <?php 
+                if( rwmb_meta('_kt_show_title') || rwmb_meta('_kt_show_title') == '' ){
                 ?>
                 <h1 class="page-title"><?php the_title(); ?></h1>
                 <?php
@@ -34,11 +34,10 @@ get_header(); ?>
                         $tagline =  rwmb_meta('_kt_tagline');
                         if( $tagline !='' ){ ?>
                             <div class="term-description"><p><?php echo esc_html( $tagline ); ?></p></div>
-                        <?php } ?>
-                        <div class="clear"></div>
-                        <?php
+                        <?php }
                     }
-                }
+                } ?>
+                <div class="clear"></div><?php
                 // Include the page content template.
                 get_template_part( 'content', 'page' );
             	?>

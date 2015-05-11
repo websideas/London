@@ -1022,7 +1022,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 25px;
 }
 .product-quick-view i,
 .product-quick-view.loading span,
@@ -1105,6 +1105,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
     position: relative;
     padding-bottom: 25px;
     text-align: center;
+}
+.woocommerce ul.products li.product.in-multi-columns{
+    opacity:0
 }
 .woocommerce ul.products li.first{
     clear: both;
@@ -1323,9 +1326,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
     background: #333333;
     float: left;
 }
-.woocommerce .functional-buttons .product-quick-view,
-.woocommerce .functional-buttons .yith-wcwl-add-to-wishlist a,
-.woocommerce .functional-buttons .product.compare-button a{
+.woocommerce .product-image-container .functional-buttons .product-quick-view,
+.woocommerce .product-image-container .functional-buttons .yith-wcwl-add-to-wishlist a,
+.woocommerce .product-image-container .functional-buttons .product.compare-button a{
     float: left;
     text-decoration: none;
     height: 40px;
@@ -1339,6 +1342,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     -webkit-border-radius: 0;
     -o-border-radius: 0;
     color: #FFFFFF;
+    font-size:18px;
 }
 .woocommerce .functional-buttons .product.compare-button,
 .woocommerce .functional-buttons .yith-wcwl-add-to-wishlist{
@@ -2469,6 +2473,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .woocommerce-carousel-wrapper li.product.type-product{
     display: none;
+    width: 100%;
 }
 .woocommerce-carousel-wrapper .owl-item li.product.type-product{
     display: block;

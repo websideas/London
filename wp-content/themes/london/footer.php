@@ -9,14 +9,14 @@
  * @since London 1.0
  */
 ?>
-            <?php
-        	/**
-        	 * @hooked 
-             * 
-        	 */
-        	do_action( 'theme_content_bottom' ); ?>
-    	</div><!-- #content -->
-        
+                <?php
+            	/**
+            	 * @hooked 
+                 * 
+            	 */
+            	do_action( 'theme_content_bottom' ); ?>
+        	</div><!-- #content -->
+        </div>
         <?php if(kt_option('footer', true)){ ?>
             <?php
         	/**

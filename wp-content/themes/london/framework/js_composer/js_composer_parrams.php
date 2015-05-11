@@ -4,34 +4,6 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
-
-/**
- * Mailchimp select.
- *
- */
-function vc_mailchimp_settings_field($settings, $value) {
-	$dependency = '';
-	$output = '';
-    
-    $api_key = kt_option('mailchimp_api');
-    
-    if ( isset ( $api_key ) && !empty ( $api_key ) ) {
-        $mcapi = new MCAPI($api_key);
-    	$lists = $mcapi->lists();
-        
-        $output .= '<select data-option="'.esc_attr($value).'" name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' dropdown no">';
-    	foreach ($lists['data'] as $key => $item) {
-    		$selected = (isset($value) && $value == $item['id']) ? ' selected="selected" ' : '';
-    		$output .= '<option class="'.$item['id'].'" '.$selected.' value="'.$item['id'].'">'.$item['name'].'</option>';
-    	}
-    	$output .= '</select>';    
-    }else{
-        $output .= sprintf( __( 'Please config in %stheme option%s', THEME_LANG), '<a href="'. esc_url('#') . '" target="_blank">', '</a>' );
-    }
-    return $output;
-}
-vc_add_shortcode_param('kt_mailchimp', 'vc_mailchimp_settings_field');
-
 /**
  * Heading field.
  *
@@ -40,9 +12,6 @@ function ktheading_settings_field( $settings, $value ) {
     $dependency = '';
 	$param_name = isset($settings['param_name']) ? $settings['param_name'] : '';
 	$type = isset($settings['type']) ? $settings['type'] : '';
-	$min = isset($settings['min']) ? $settings['min'] : '';
-	$max = isset($settings['max']) ? $settings['max'] : '';
-	$suffix = isset($settings['suffix']) ? $settings['suffix'] : '';
 	$class = isset($settings['class']) ? $settings['class'] : '';
     
     return '<input type="hidden" class="wpb_vc_param_value ' . $settings['param_name'] . ' ' . $settings['type'] . ' ' . $class . '" name="' . $param_name . '" value="'.esc_attr($value).'" '.$dependency.'/>';
@@ -78,16 +47,47 @@ function vc_kt_image_select_settings_field($settings, $value) {
 	$type = isset($settings['type']) ? $settings['type'] : '';
     $class = isset($settings['class']) ? $settings['class'] : '';
     
+    $output = "";
+    $uniqid = uniqid();
     $radios = array();
+    
     if(!count($settings['value'])) return;
     foreach( $settings['value'] as $k => $v ) {
-        $checked = ($value == $v) ? ' checked="checked"' : '';
-        $radios[] = "<label><input type='radio' name='{$param_name}' class='wpb_vc_param_value " . $param_name . " " . $type . " " . $class . "' value='{$v}' {$dependency} /> {$k}</label>";
+        $checked = ($value == $k) ? ' checked="checked"' : '';
+        $radios[] = "<label><input type='radio' name='{$param_name}_radio_{$uniqid}' class='kt_image_select_radio' value='{$k}' {$dependency} {$checked} /> <img src='{$v}' alt=''/></label>";
     }
+    $output .= '<input type="hidden" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="'.esc_attr($value).'" '.$dependency.' />';
     
-    return implode(' ', $radios);
+    return $output.implode(' ', $radios);
 }
-vc_add_shortcode_param('kt_image_select', 'vc_kt_image_select_settings_field');
+vc_add_shortcode_param('kt_image_select', 'vc_kt_image_select_settings_field', FW_JS.'kt_image_select.js');
+
+
+/**
+ * Switch field.
+ *
+ */
+function kt_switch_settings_field($settings, $value) {
+	$dependency = '';
+    $param_name = isset($settings['param_name']) ? $settings['param_name'] : '';
+	$type = isset($settings['type']) ? $settings['type'] : '';
+    $class = isset($settings['class']) ? $settings['class'] : '';
+    
+    $output = "";
+    
+    print_r($settings);
+    
+    $output .= '<input type="checkbox" class="cmn-toggle cmn-toggle-round-flat" id="cmn-toggle-2">';
+    $output .= '<label for="cmn-toggle-2"></label>';
+    
+    $output .= '';
+    
+    $output .= '<input type="hidden" class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '" value="'.esc_attr($value).'" '.$dependency.' />';
+    
+    return $value.$output;
+}
+vc_add_shortcode_param('kt_switch', 'kt_switch_settings_field', FW_JS.'kt_switch.js');
+
 
 
 /**

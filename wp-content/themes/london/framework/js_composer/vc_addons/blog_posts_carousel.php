@@ -168,6 +168,13 @@ vc_map( array(
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
 		),
         array(
+			'type' => 'kt_switch',
+			'heading' => __( 'KT image select', THEME_LANG ),
+            'param_name' => 'kt_switch',
+            'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ), 
+		),
+                          
+        array(
             "type" => "dropdown",
         	"heading" => __("Data source", THEME_LANG),
         	"param_name" => "source",

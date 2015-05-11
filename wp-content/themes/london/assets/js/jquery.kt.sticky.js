@@ -99,12 +99,16 @@
             
             init: function (op) {
 				return this.each(function () {
-					var o = $.extend({}, $.fn.ktSticky.defaults, op),
-                        $this = $(this);
                     
+                    var $this = $(this);
                     if ($this.data('sticky-options')) {
 						return false;
 					}
+                    var o = $.extend({}, $.fn.ktSticky.defaults, op);
+
+                    $this.data('sticky-options', o);
+                    
+                    
                     
                     if($this.prev('.sticky-placeholder').length == 0){
                         var $placeholder = $("<div/>",{

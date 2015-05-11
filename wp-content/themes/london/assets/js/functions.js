@@ -37,6 +37,9 @@
         init_carouselwoo();
         init_productcarouselwoo();
         init_woocategories_products();
+        init_wooanimation_products();
+        
+        $('body.footer_fixed #footer').ktFooter();
         
         var $easyzoom = $('.easyzoom').easyZoom();
         woo_quantily();
@@ -69,12 +72,11 @@
         	}, 'json');
             
         });
-        
-        
 
     });
     
     $(window).resize(function(){
+        
         /**==============================
         ***  Sticky header
         ===============================**/
@@ -249,7 +251,8 @@
                     cat_id: obj.data('id'),
                     per_page : objul.data('per_page'),
                     orderby: objul.data('orderby'),
-                    order: objul.data('order')
+                    order: objul.data('order'),
+                    columns: objul.data('columns')
                 };
 
                 ajax_request = $.post(ajax_frontend.ajaxurl, data, function(response) {
@@ -260,6 +263,10 @@
                     $.each( response, function( i, val ) {
                         $carouselData.addItem(val);
                     });
+                    
+                    init_wooanimation_products();
+                    
+                                        
                 }, 'json');
 
                 return false;
@@ -268,7 +275,52 @@
         });
 
     }
+    
+    /* ---------------------------------------------
+     Woo Animation Products
+     --------------------------------------------- */
+    function init_wooanimation_products(){
+        
 
+        
+        $('.woocommerce ul.products').each(function(){
+            var window_width = $(window).width(),
+                $products = $(this),
+                $products_item = $products.find('li.product'),
+                $products_multi = $products.find('li.product.in-multi-columns'),
+                $count = 0;
+            if($products_multi.length > 0){
+                $products_item.each(function(i){
+                    var $product = $(this);
+                       
+                    if($product.hasClass('first')){
+                        $count = 0;
+                    }
+                    
+                    var animation_delay = $count * 200;
+                    $count++;
+                    if (window_width > 991) {
+    					$product.css({
+    						"-webkit-animation-delay": animation_delay + "ms",
+    						"-moz-animation-delay": animation_delay + "ms",
+    						"-ms-animation-delay": animation_delay + "ms",
+    						"-o-animation-delay": animation_delay + "ms",
+    						"animation-delay": animation_delay + "ms"
+    					});
+                        
+                        $product.waypoint(function() {
+    						$product.addClass("animated").addClass("fadeInUp");
+    					}, {
+    						triggerOnce: true,
+    						offset: "90%"
+    					});
+                        
+    				}
+                });
+            }
+        });
+    }
+    
 
     /* ---------------------------------------------
      Grid list Toggle
@@ -605,8 +657,7 @@
             
         });
     }
-
-
+    
 })(jQuery); // End of use strict
 
 

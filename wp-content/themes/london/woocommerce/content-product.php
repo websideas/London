@@ -60,6 +60,10 @@ $bootstrapColumn = round( 12 / $woocommerce_loop['columns'] );
 $bootstrapTabletColumn = round( 12 / $woocommerce_loop['columns_tablet'] );
 $classes[] = 'col-xs-'.$bootstrapTabletColumn.' col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColumn;
 
+if($woocommerce_loop['columns'] > 1){
+    $classes[] = 'in-multi-columns';
+}
+
 ?>
 <li <?php post_class( $classes ); ?>>    
     <div class="product-item-container clearfix">

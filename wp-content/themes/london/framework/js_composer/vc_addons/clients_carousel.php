@@ -14,6 +14,7 @@ class WPBakeryShortCode_Clients_Carousel extends WPBakeryShortCode {
             'mobile' => 2,
             
             'autoplay' => '', 
+            'always_show_nav' => '',
             'navigation' => '',
             'slidespeed' => 200,
             'theme' => 'style-navigation-center',
@@ -80,10 +81,10 @@ class WPBakeryShortCode_Clients_Carousel extends WPBakeryShortCode {
                 "theme" => $theme,
                 "itemscustom" => '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]'
             );
-            
+            if( $always_show_nav == true ) { $class_show_nav = ''; }else{ $class_show_nav = 'visiable-navigation'; }
             
             $output .= '<div class="owl-carousel-wrapper">';
-            $output .= '<div class="owl-carousel kt-owl-carousel" '.render_data_carousel($data_carousel).'>';
+            $output .= '<div class="owl-carousel kt-owl-carousel '.$class_show_nav.$always_show_nav.'" '.render_data_carousel($data_carousel).'>';
                 $output .= $carousel;
             $output .= '</div>';
             $output .= '</div>';
@@ -140,6 +141,13 @@ vc_map( array(
 			'type' => 'checkbox',
 			'heading' => __( 'AutoPlay', THEME_LANG ),
 			'param_name' => 'autoplay',
+			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
+            'group' => __( 'Carousel settings', THEME_LANG )
+		),
+        array(
+			'type' => 'checkbox',
+			'heading' => __( 'Always Show Navigation', THEME_LANG ),
+			'param_name' => 'always_show_nav',
 			'value' => array( __( 'Yes, please', 'js_composer' ) => 'true' ),
             'group' => __( 'Carousel settings', THEME_LANG )
 		),

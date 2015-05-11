@@ -55,7 +55,7 @@ function wp_ajax_fronted_woocategories_products_callback(){
     );
     
     global $woocommerce_loop;
-    $woocommerce_loop['columns'] = 1;
+    $woocommerce_loop['columns'] = intval($_POST['columns']);
     
     $cat_id = ($_POST['cat_id']) ? $_POST['cat_id'] : 0;
     

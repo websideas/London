@@ -462,7 +462,7 @@ if ( ! class_exists( 'KT_config' ) ) {
 				'subsection' => true,
 				'fields'		=> array(
                     // Footer settings
-
+                    
                     array(
                         'id'       => 'backtotop',
                         'type'     => 'switch',
@@ -481,6 +481,12 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type'     => 'switch',
                         'title'    => __( 'Footer enable', THEME_LANG ),
                         'default'  => true,
+                    ),
+                    array(
+                        'id'       => 'footer_fixed',
+                        'type'     => 'switch',
+                        'title'    => __( 'Footer Fixed', THEME_LANG ),
+                        'default'  => false,
                     ),
                     array(
                         'id'       => 'footer_padding',

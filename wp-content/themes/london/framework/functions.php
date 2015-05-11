@@ -81,6 +81,11 @@ function theme_body_classes( $classes ) {
     }else{
         $classes[] = 'layout-'.kt_option('layout');
     }
+    
+    if( kt_option( 'footer_fixed' ) == 1 ){
+        $classes[] = 'footer_fixed';
+    } 
+    
 
 	return $classes;
 }

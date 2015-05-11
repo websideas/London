@@ -586,8 +586,9 @@ function kt_woocommerce_before_cart_table( $args )
 {
 	global $woocommerce;
 
-	$html = '<h3>' . sprintf( __( 'You Have %d Items In Your Cart', 'Avada' ), $woocommerce->cart->cart_contents_count ) . '</h3>';
-
+	//$html = '<h3 class="page-title">' . sprintf( __( 'Shopping Cart', THEME_LANG ), $woocommerce->cart->cart_contents_count ) . '</h3><div class="term-description"><p>'.__( 'Great products are not only aesthetically pleasing but also easy to use',THEME_LANG ).'<p></div>';
+    $html = '<p>'. sprintf( __( 'Your shopping cart contains: %d products', THEME_LANG ), $woocommerce->cart->cart_contents_count ) . '</p>';
+    
 	echo $html;
 }
 

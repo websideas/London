@@ -92,7 +92,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                 if(count($categories)){
                     $class = (!$content) ? "no-description" : "";
                     $output .= "<div class='categories-products-lists ".esc_attr($class)."'>";
-                        $output .= "<ul data-order='".esc_attr($order)."' data-orderby='".esc_attr($orderby)."' data-per_page='".esc_attr($per_page)."' >";
+                        $output .= "<ul data-order='".esc_attr($order)."'  data-columns='".esc_attr($desktop)."' data-orderby='".esc_attr($orderby)."' data-per_page='".esc_attr($per_page)."' >";
                             foreach($categories as $item){
                                 $image = "";
                                 $thumbnail_id = get_woocommerce_term_meta( $item->term_id, 'icon_id', true );
@@ -140,7 +140,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
         		$products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
                 
                 
-        		$woocommerce_loop['columns'] = $atts['columns'];
+        		$woocommerce_loop['columns'] = $desktop;
                 if ( $products->have_posts() ) :
         			woocommerce_product_loop_start();
         				while ( $products->have_posts() ) : $products->the_post();
@@ -160,8 +160,8 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                     "itemscustom" => '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]'
                 );
                 $output .= '<div class="col-md-9 col-sm-9 categories-products-right">';
-                $output .= '<div class="woocommerce-carousel-wrapper" '.render_data_carousel($data_carousel).'>';
-        		$output .= '<div class="woocommerce columns-' . $atts['columns'] . '">' . ob_get_clean() . '</div>';
+                $output .= '<div class="woocommerce-carousel-wrapper" data-desktop="'.esc_attr($desktop).'" '.render_data_carousel($data_carousel).'>';
+        		$output .= '<div class="woocommerce columns-' . $desktop . '">' . ob_get_clean() . '</div>';
                 $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
                 $output .= "</div><!-- .categories-products-right -->"; 
             $output .= "</div><!-- .row -->";  
