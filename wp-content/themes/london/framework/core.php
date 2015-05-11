@@ -3,7 +3,6 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
-
 define( 'FW_VER', '1.0' );
 
 define( 'FW_DIR', trailingslashit(THEME_DIR.'framework'));
