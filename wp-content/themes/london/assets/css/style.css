@@ -1605,6 +1605,10 @@ body.footer_fixed .static-footer{
 .sidebar .widget-container.widget_kt_image{
     padding: 0;
 }
+.sidebar .widget-container.widget_kt_image img:hover{
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
 .sidebar .widget-container > ul.product-categories{
     background-color: #666666;
     margin: -20px -20px -25px;

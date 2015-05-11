@@ -789,9 +789,6 @@ ul.product-categories li a:hover{
     background-color: #767676;
     text-decoration: none;
 }
-ul.product-categories > li{
-    
-}
 ul.product-categories > li > a{
     border-top: 1px solid #767676;
     display: block;
@@ -799,7 +796,18 @@ ul.product-categories > li > a{
     font-weight: 500;
     line-height: 40px;
     padding: 0 34px 0 40px;
-    background: url(../images/arrow-product-next.png) no-repeat 17px 20px;
+}
+ul.product-categories > li > .button-toggle{
+    position: absolute;
+    left:0;
+    top:0;
+    width:40px;
+    height:40px;
+    background: url(../images/arrow-product-next.png) no-repeat center;
+    cursor: pointer;
+}
+ul.product-categories > li > .button-toggle.current{
+    background-image: url("../images/arrow-product-down.png");
 }
 ul.product-categories > li span.count{
     color: #fff;
@@ -836,6 +844,7 @@ ul.product-categories > li > ul > li > a:after{
     top: 12px;
     width: 4px;
 }
+/*
 ul.product-categories > li.current-cat-parent.cat-parent ul,
 ul.product-categories > li.current-cat > ul{
     display: block;
@@ -846,7 +855,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     background-image: url("../images/arrow-product-down.png");
     background-position: 18px 16px;
 }
-
+*/
 /* === 4.2. Price filter ====*/
 .woocommerce .widget_price_filter .ui-slider-horizontal{
     height: 5px;

@@ -72,7 +72,12 @@
         	}, 'json');
             
         });
-
+        
+        $('.sidebar .widget_product_categories ul.product-categories li ul.children').parent().append('<span class="button-toggle"></span>');
+        $('body').on('click','.sidebar .widget_product_categories ul.product-categories li .button-toggle',function(){
+            $(this).prev('ul.children').slideToggle();
+            $(this).toggleClass('current');            
+        });
     });
     
     $(window).resize(function(){

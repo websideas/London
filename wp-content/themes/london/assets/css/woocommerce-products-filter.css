@@ -84,7 +84,7 @@ li.woof_childs_list_li{
 .js-check  input { display: none; }
 .js-check span {
     display: inline-block;
-    border: 2px solid #CCCCCC;
+    border: 1px solid #CCCCCC;
     height: 20px; width: 20px; display: inline-block; margin-right: 10px;
     position: relative;
     text-align: center;
