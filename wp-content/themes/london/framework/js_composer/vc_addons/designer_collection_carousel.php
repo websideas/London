@@ -34,14 +34,14 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
             $args['meta_key'] = $meta_key;
         }
         
-        if($source == 'posts'){
-            if($posts){
-                $posts_arr = array_filter(explode( ',', $posts));
-                if(count($posts_arr)){
-                    $args['post__in'] = $posts_arr;
-                }
+
+        if($posts){
+            $posts_arr = array_filter(explode( ',', $posts));
+            if(count($posts_arr)){
+                $args['post__in'] = $posts_arr;
             }
         }
+
         
         $atts['columns'] = 1;
         
