@@ -91,6 +91,7 @@ li.woof_childs_list_li{
     background: #ffffff;
     float: left;margin-top: 0px;
     overflow: hidden;
+    line-height: 0px;
 }
 .woof_list_radio .js-check span{
     -webkit-border-radius: 50%;
