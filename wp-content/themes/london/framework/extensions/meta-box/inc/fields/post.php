@@ -87,7 +87,11 @@ if ( ! class_exists( 'RWMB_Post_Field' ) )
 				while ( $query->have_posts() )
 				{
 					$post               = $query->next_post();
-					$options[$post->ID] = $post->post_title;
+					$options[$post->ID] = '#'.$post->ID.' - '.$post->post_title;
+                    if(  $field['post_type']  == 'collection'){
+                        $des_id = get_post_meta( $post->ID, '_kt_designer', true );
+                        $options[$post->ID] .= ' '.sprintf( __('by %s', THEME_LANG ), get_the_title( $des_id ) ) ;
+                    }
 				}
 			}
 

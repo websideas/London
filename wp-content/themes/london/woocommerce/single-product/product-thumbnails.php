@@ -29,9 +29,7 @@ if ( $attachment_ids ) {
     				'title'	=> $image_title,
     				'alt'	=> $image_title
     				) );
-    
-    			
-                
+
     			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" title="%s">%s</a>', $image_link, $image_caption, $image ), $post->ID );
                 
                 // Display Attachment Images as well
