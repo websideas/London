@@ -33,10 +33,10 @@ class KT_WC_Designer extends WC_Widget {
                 'label' => __( 'Title', 'woocommerce' )
             ),
 
-            'design_ids'  => array(
+            'collection_ids'  => array(
                 'type'  => 'text',
                 'std'   => __( '', 'woocommerce' ),
-                'label' => __( 'Designer ID(s)', THEME_LANG ),
+                'label' => __( 'Collection ID(s)', THEME_LANG ),
                 'desc' => __( 'Separated by commas', THEME_LANG ),
             ),
 
@@ -99,7 +99,7 @@ class KT_WC_Designer extends WC_Widget {
      * @param  array $instance
      * @return WP_Query
      */
-    public function get_products( $designer_id , $instance ) {
+    public function get_products( $collection_id , $instance ) {
         $number  = ! empty( $instance['number'] ) ? absint( $instance['number'] ) : $this->settings['number']['std'];
         $show    = ! empty( $instance['show'] ) ? sanitize_title( $instance['show'] ) : $this->settings['show']['std'];
         $orderby = ! empty( $instance['orderby'] ) ? sanitize_title( $instance['orderby'] ) : $this->settings['orderby']['std'];
@@ -120,8 +120,8 @@ class KT_WC_Designer extends WC_Widget {
         }
 
         $query_args['meta_query'][] = array(
-            'key'     => '_kt_designer',
-            'value'   => $designer_id,
+            'key'     => '_kt_collection',
+            'value'   => $collection_id,
             'compare' => '=',
             'type'    => 'NUMERIC',
         );
@@ -191,24 +191,24 @@ class KT_WC_Designer extends WC_Widget {
             return ;
         }
 
-        $design_ids = array_filter(explode( ',', $instance['design_ids'] ));
+       $collection_ids = array_filter(explode( ',', $instance['collection_ids'] ));
         $this->widget_start( $args, $instance );
 
         $id = uniqid('dcw-');
         echo '<div id="widget-'.$id.'" class="widget-title des-labels">';
-            foreach( $design_ids as $design_id ){
-                echo '<div class="designer-id-'.$design_id.'">';
-                echo sprintf( __( 'Collection by %s', THEME_LANG ), get_the_title(  $design_id ) );
+            foreach( $collection_ids as $collection_id ){
+                echo '<div class="designer-id-'.$collection_id.'">';
+                echo sprintf( __( 'Collection by %s', THEME_LANG ), get_the_title(   rwmb_meta( '_kt_designer' , false, $collection_id ) ) );
                 echo '</div>';
             }
         echo '</div>';
 
         echo '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_widget_cb" data-theme="style-navigation-bottom" data-autoheight="false" data-pagination="false">';
 
-        foreach( $design_ids as $design_id ){
+        foreach( $collection_ids as $collection_id ){
 
-            echo '<div data-did="'.$design_id.'" class="designer-items-ins">';
-            if ( ( $products = $this->get_products( $design_id , $instance ) ) && $products->have_posts() ) {
+            echo '<div data-did="'.$collection_id.'" class="designer-items-ins">';
+            if ( ( $products = $this->get_products( $collection_id , $instance ) ) && $products->have_posts() ) {
 
 
                 echo apply_filters( 'woocommerce_before_widget_product_list', '<ul class="product_list_widget">' );

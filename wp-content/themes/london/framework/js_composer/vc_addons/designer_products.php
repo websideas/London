@@ -7,7 +7,6 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
         extract( shortcode_atts( array(
             'title' => '',
-            'source' => 'all',
             'posts' => '',
             'max_items' => 10,
             'num_products' =>  9,
@@ -67,11 +66,11 @@ vc_map( array(
 
         array(
             "type" => "kt_posts",
-            'post_type' => 'designer',
-            'heading' => __( 'Designers', 'js_composer' ),
-            'param_name' => 'design_ids',
+            'post_type' => 'collection',
+            'heading' => __( 'Collection', 'js_composer' ),
+            'param_name' => 'collection_ids',
             'multiple' => true,
-            "dependency" => array("element" => "source","value" => array('posts')),
+           // "dependency" => array("element" => "source","value" => array('posts')),
         ),
 
         array(
