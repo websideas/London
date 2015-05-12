@@ -1805,7 +1805,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .woocommerce .summary .product-details-share ul.share{
     padding:0;
-    margin:0 15px 25px 0;
+    margin:0 15px 0 0;
     list-style: none;
     float:left;
 }
