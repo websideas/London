@@ -23,6 +23,15 @@ add_filter('loop_shop_per_page', 'kt_wc_loop_shop_per_page' );
 
 
 
+/**
+ * Sale price Percentage
+ */
+add_filter( 'woocommerce_sale_price_html', 'woocommerce_custom_sales_price', 10, 2 );
+function woocommerce_custom_sales_price( $price, $product ) {
+	$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
+	return $price . sprintf( __('<span class="price-save"> %s</span>', THEME_LANG ), $percentage . '%' );
+}
+
 
 /**
  * Define image sizes
@@ -350,7 +359,7 @@ function woocommerce_shop_loop_item_action_action_add(){
     }
     
     echo "<div class='functional-buttons functional-button-".$count."'>";
-    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span></span><i class="fa fa-spinner fa-spin"></i></a>';
+    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span></span><i class="fa fa-spinner fa-pulse"></i></a>';
     if(class_exists('YITH_WCWL_UI')){
         echo do_shortcode('[yith_wcwl_add_to_wishlist]');    
     }
@@ -441,7 +450,7 @@ if($effect == 'center'){
 
 
 function kt_woocommerce_shop_loop_item_quickview(){
-    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span>'.__('Quick view', THEME_LANG).'</span><i class="fa fa-spinner fa-spin"></i></a>';
+    echo '<a href="#" class="product-quick-view" data-id="'.get_the_ID().'"><span>'.__('Quick view', THEME_LANG).'</span><i class="fa fa-spinner fa-pulse"></i></a>';
 }
 
 
@@ -547,7 +556,7 @@ function theme_share_product_add_share(){
     <div class="product-details-share clearfix">
         <ul class="share clearfix">
             <li><a href="javascript:print();"><i class="fa fa-print"></i> <?php _e('Print', THEME_LANG ); ?></a></li>
-            <li><a href="mailto:?subject=<?php echo urlencode(get_the_title($post->ID)); ?>&amp;body=<?php echo urlencode(get_permalink($post->ID)); ?>"><i class="fa fa-envelope"></i> <?php _e('Send to a friend', THEME_LANG ); ?></a></li>
+            <li><a href="mailto:?subject=<?php echo urlencode(get_the_title($post->ID)); ?>&amp;body=<?php echo urlencode(get_permalink($post->ID)); ?>"><i class="fa fa-envelope-o"></i> <?php _e('Send to a friend', THEME_LANG ); ?></a></li>
         </ul>
         <?php if($addthis_id){ ?>
             <div class="addthis_native_toolbox"></div>
