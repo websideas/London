@@ -69,7 +69,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                     $output .= '<div class="col-md-'.$layout[0].' col-sm-'.$layout[0].' designer-collection-border"></div>';
                     $output .= '<div class="col-md-'.$layout[0].' col-sm-'.$layout[0].' col-xs-12 col-xs-height designer-collection-carousel">';
                         $output .= '<div class="designer-collection-content">';
-                        $output .= ($title) ? '<h3>'.$title.'</h3>' : '';
+                        $output .= ($title) ? '<h3 clas="item-heading item-label">'.$title.'</h3>' : '';
                         $output .= '<div class="owl-carousel-wrapper">';
                             $output .= '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_carousel_cb" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
                                 while ( $query->have_posts() ) : $query->the_post();
@@ -101,10 +101,12 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                         /// ------
                         $output .= '<div id="'.$id.'-products" class="col-md-'.$layout[1].' col-sm-'.$layout[1].' col-xs-12 col-xs-height designer-collection-woocommerce">';
                         $output .= '<div class="designer-collection-content">';
-                        $output .= ($title) ? '<h3>&nbsp;</h3>' : '';
+
                         
                         foreach( $collection_ids as $collection_id ){
                             $output .= '<div class="designer-products designer-id-'.$collection_id.'">';
+
+                            $output .= '<h3 class="item-heading collection_name">'.get_the_title( $collection_id ).'</h3>';
 
                                 $args = array(
                         			'posts_per_page'	=> $num_products,
@@ -127,7 +129,6 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                 if ( $products->have_posts() ) :
                                         $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
                                         $output .= '<div class="woocommerce-carousel-wrapper" data-theme="'.$theme.'" data-itemscustom="'.$itemscustom.'">';
-                                            $output .= '<h3 class="collection_name">'.get_the_title( $collection_id ).'</h3>';
                                             ob_start();
                                             woocommerce_product_loop_start();
                                             while ( $products->have_posts() ) : $products->the_post();
