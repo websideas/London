@@ -7,7 +7,6 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
         extract( shortcode_atts( array(
             'title' => '',
-            'source' => 'all',
             'posts' => '',
             'layout' => '1',
             'max_items' => 10,
@@ -25,7 +24,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
         ), $atts ) );
         
         $args = array(
-                    'post_type' => 'designer',
+                    'post_type' => 'collection',
                     'order' => $order,
                     'orderby' => $orderby,
                     'posts_per_page' => $max_items
@@ -35,14 +34,14 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
             $args['meta_key'] = $meta_key;
         }
         
-        if($source == 'posts'){
-            if($posts){
-                $posts_arr = array_filter(explode( ',', $posts));
-                if(count($posts_arr)){
-                    $args['post__in'] = $posts_arr;
-                }
+
+        if($posts){
+            $posts_arr = array_filter(explode( ',', $posts));
+            if(count($posts_arr)){
+                $args['post__in'] = $posts_arr;
             }
         }
+
         
         $atts['columns'] = 1;
         
@@ -61,31 +60,33 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
         $output = '';
         $output .= '<div class="'.esc_attr( $elementClass ).'">';
             
-            $designer_ids = array();
+            $collection_ids = array();
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) {
+
                 $output .= '<div class="row">';
                     $layout = ($layout == 1) ? array('3', '9') : array('4', '8');
                     $output .= '<div class="col-md-'.$layout[0].' col-sm-'.$layout[0].' designer-collection-border"></div>';
                     $output .= '<div class="col-md-'.$layout[0].' col-sm-'.$layout[0].' col-xs-12 col-xs-height designer-collection-carousel">';
                         $output .= '<div class="designer-collection-content">';
-                        $output .= ($title) ? '<h3>'.$title.'</h3>' : '';
+                        $output .= ($title) ? '<h3 clas="item-heading item-label">'.$title.'</h3>' : '';
                         $output .= '<div class="owl-carousel-wrapper">';
                             $output .= '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_carousel_cb" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
                                 while ( $query->have_posts() ) : $query->the_post();
 
-                                    $designer_ids[] =  get_the_ID();
+                                    $collection_ids[] =  get_the_ID();
+                                    $designer_id =  rwmb_meta( '_kt_designer' );
 
                                     $output .= '<div class="designer-collection-item" data-id="'.get_the_ID().'">';
-                                        if(has_post_thumbnail()){
-                                            $output .= get_the_post_thumbnail(get_the_ID(), 'full', array('class'=>"img-responsive"));
+                                        if(has_post_thumbnail($designer_id)){
+                                            $output .= get_the_post_thumbnail( $designer_id , 'full', array('class'=>"img-responsive"));
                                         }
                                         $output .= sprintf(
                                                         '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
-                                                        get_the_title(),
-                                                        rwmb_meta( '_kt_description' )
+                                                        get_the_title( $designer_id ),
+                                                        rwmb_meta( '_kt_description', false, $designer_id )
                                                     );
-                                        $output .= rwmb_meta( '_kt_info' );
+                                        $output .= rwmb_meta( '_kt_info', false , $designer_id );
                                     $output .= '</div><!-- .designer-collection-item -->';
 
                                 endwhile; wp_reset_postdata();
@@ -100,10 +101,12 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                         /// ------
                         $output .= '<div id="'.$id.'-products" class="col-md-'.$layout[1].' col-sm-'.$layout[1].' col-xs-12 col-xs-height designer-collection-woocommerce">';
                         $output .= '<div class="designer-collection-content">';
-                        $output .= ($title) ? '<h3>&nbsp;</h3>' : '';
+
                         
-                        foreach( $designer_ids as $designer_id ){
-                            $output .= '<div class="designer-products designer-id-'.$designer_id.'">';
+                        foreach( $collection_ids as $collection_id ){
+                            $output .= '<div class="designer-products designer-id-'.$collection_id.'">';
+
+                            $output .= '<h3 class="item-heading collection_name">'.get_the_title( $collection_id ).'</h3>';
 
                                 $args = array(
                         			'posts_per_page'	=> $num_products,
@@ -111,8 +114,8 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                         			'post_type' 		=> 'product',
                                     'meta_query' => array(
                                         array(
-                                            'key'     => '_kt_designer',
-                                            'value'   => $designer_id,
+                                            'key'     => '_kt_collection',
+                                            'value'   => $collection_id,
                                             'compare' => '=',
                                         ),
                                     ),
@@ -126,7 +129,6 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                 if ( $products->have_posts() ) :
                                         $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
                                         $output .= '<div class="woocommerce-carousel-wrapper" data-theme="'.$theme.'" data-itemscustom="'.$itemscustom.'">';
-                                            $output .= '<h3 class="collection_name">'.rwmb_meta( '_kt_collection_name','',$designer_id ).'</h3>';
                                             ob_start();
                                             woocommerce_product_loop_start();
                                             while ( $products->have_posts() ) : $products->the_post();
@@ -138,7 +140,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                 endif;
                                 wp_reset_postdata();
 
-                            $output .= '</div><!--.designer-products -->';
+                            $output .= '</div><!--.designer collection -products -->';
                         }// end loop designers
                         $output .= '</div><!-- .designer-collection-content -->';
                         $output .= '</div><!--.designer-collection-woocommerce -->';
@@ -178,24 +180,12 @@ vc_map( array(
         	),
         ),
         array(
-            "type" => "dropdown",
-        	"heading" => __("Data source", THEME_LANG),
-        	"param_name" => "source",
-        	"value" => array(
-                __('All', THEME_LANG) => '',
-                __('Specific Designer', THEME_LANG) => 'posts',
-        	),
-            "admin_label" => true,
-            'std' => '',
-        	"description" => __("Select content type for your testimonials.", THEME_LANG)
-        ),
-        array(
 			"type" => "kt_posts",
-            'post_type' => 'designer',
-			'heading' => __( 'Specific Posts', 'js_composer' ),
+            'post_type' => 'collection',
+			'heading' => __( 'Collections', 'js_composer' ),
 			'param_name' => 'posts',
             'multiple' => true,
-            "dependency" => array("element" => "source","value" => array('posts')),
+           // "dependency" => array("element" => "source","value" => array('posts')),
 		),
         array(
     		'type' => 'textfield',

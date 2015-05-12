@@ -18,7 +18,7 @@ $attachment_count   = count( $attachment_ids );
 
 if ( $attachment_ids ) {
 	?>
-    <div class="single-product-main-thumbnails owl-carousel <?php if($attachment_count < 3){ echo " no-padding";} ?>" id="sync2">
+    <div class="single-product-main-thumbnails owl-carousel <?php if($attachment_count < 4){ echo " no-padding";} ?>" id="sync2">
     	<?php
     		if ( has_post_thumbnail() ) {
     
@@ -29,9 +29,7 @@ if ( $attachment_ids ) {
     				'title'	=> $image_title,
     				'alt'	=> $image_title
     				) );
-    
-    			
-                
+
     			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" title="%s">%s</a>', $image_link, $image_caption, $image ), $post->ID );
                 
                 // Display Attachment Images as well

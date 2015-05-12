@@ -10,7 +10,8 @@ class WPBakeryShortCode_KT_Button extends WPBakeryShortCode {
 
             $wrapper_start = $wrapper_end = '';
             extract( shortcode_atts( array(
-                'link' => '',
+                'href' => '',
+                'target' => '',
                 'title' => __( 'Text on the button', "js_composer" ),
                 'sub_title' => __( 'Sub title on button', "js_composer" ),
                 'color' => '',
@@ -24,12 +25,9 @@ class WPBakeryShortCode_KT_Button extends WPBakeryShortCode {
 
 
             $class = 'kt-button btn';
-            //parse link
-            $link = ( $link == '||' ) ? '' : $link;
-            $link = vc_build_link( $link );
-            $a_href = $link['url'];
-            $a_title = $link['title'];
-            $a_target = ($link['target']) ? ' target="'.esc_attr($link['target']).'" ' : '';
+
+            $a_href = $href;
+            $a_target = ($target) ? ' target="'.esc_attr($target).'" ' : '';
 
             $el_class = $this->getExtraClass( $el_class );
             $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, ' ' . $class . $el_class, $this->settings['base'], $atts );
@@ -38,7 +36,7 @@ class WPBakeryShortCode_KT_Button extends WPBakeryShortCode {
 
             return '
             <div class="'.esc_attr($wrapper_css_class).'">
-                <a class="'.esc_attr( trim( $css_class ) ).'" href="'.esc_attr( $a_href ).'" title="'.esc_attr( $a_title ).'" '.$a_target.'>
+                <a class="'.esc_attr( trim( $css_class ) ).'" href="'.esc_attr( $a_href ).'" title="'.esc_attr( $title ).'" '.$a_target.'>
                     <span class="btn-sub-title">'.$sub_title.'</span>
                     <span class="btn-title">'.$title.'</span>
                 </a>
@@ -56,10 +54,24 @@ vc_map( array(
     "wrapper_class" => "clearfix",
     "params" => array(
         array(
-            'type' => 'vc_link',
+            'type' => 'href',
             'heading' => __( 'URL (Link)', 'js_composer' ),
-            'param_name' => 'link',
-            'description' => __( 'Button link.', 'js_composer' )
+            'param_name' => 'href',
+            'description' => __( 'Enter button link.', 'js_composer' )
+        ),
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Target', 'js_composer' ),
+            'param_name' => 'target',
+            'value' =>  array(
+                    __( 'Same window', 'js_composer' ) => '_self',
+                    __( 'New window', 'js_composer' ) => "_blank"
+                ),
+            'dependency' => array(
+                'element' => 'href',
+                'not_empty' => true,
+                'callback' => 'vc_button_param_target_callback'
+            )
         ),
         array(
             'type' => 'textfield',

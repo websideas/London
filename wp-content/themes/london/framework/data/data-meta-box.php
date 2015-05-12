@@ -202,14 +202,7 @@ function kite_register_meta_boxes( $meta_boxes )
         'context' => 'normal',
         'priority' => 'default',
         'fields' => array(
-            
-            array(
-                'name' => __('Collection Name', THEME_LANG),
-                'id' => $prefix . 'collection_name',
-                'desc' => "",
-                'type'  => 'text',
-            ),
-            
+
             array(
                 'name' => __('Position', THEME_LANG),
                 'id' => $prefix . 'description',
@@ -236,7 +229,7 @@ function kite_register_meta_boxes( $meta_boxes )
     $meta_boxes[] = array(
         'id' => 'designer_meta_boxes',
         'title' => 'Designer',
-        'pages' => array( 'product' ),
+        'pages' => array( 'collection' ),
         'context' => 'normal',
         'priority' => 'default',
         'fields' => array(
@@ -250,6 +243,29 @@ function kite_register_meta_boxes( $meta_boxes )
                 'size' => 5,
                 'placeholder' => ('Select your products'),
                 'desc' => __('Please Select Designer for this product', THEME_LANG),
+                'field_type' => 'select_advanced'
+            ),
+
+        )
+    );
+
+    $meta_boxes[] = array(
+        'id' => 'designer_meta_boxes',
+        'title' => 'Collection',
+        'pages' => array( 'product'),
+        'context' => 'normal',
+        'priority' => 'default',
+        'fields' => array(
+            array(
+                'name' => __('Collection', THEME_LANG),
+                'id' => $prefix . 'collection',
+                'type' => 'post',
+                'query_args' => array('post_type' => 'collection', 'posts_per_page' => '-1'),
+                'post_type' => 'collection',
+                'multiple' => false,
+                'size' => 5,
+                'placeholder' => ('Select your products'),
+                'desc' => __('Please Select Collection for this product', THEME_LANG),
                 'field_type' => 'select_advanced'
             ),
 
