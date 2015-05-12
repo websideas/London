@@ -69,13 +69,18 @@
                 }, o.delay);
                 */
 
+                var t = 0;
+                if( $('#wpadminbar').length > 0 ){
+                    t =  $('#wpadminbar').height();
+                }
+
                 var $offset = _placeholder.offset(),
                     _scrolltop = _window.scrollTop();
 
-                _sticky.css('top', '-'+_placeholder.height()+'px' );
+                _sticky.css('top', '-'+ _placeholder.height()+'px' );
                 _sticky.addClass(o.classSticky);
                 _sticky.animate({
-                    top: '0px'
+                    top: t+'px'
                 }, o.delay , function (){
                     _sticky.removeAttr('style');
                 });
@@ -183,7 +188,7 @@
         className: 'is-sticky',
         classSticky: 'sticky',
         topSpacing: 150,
-        delay: 400,
+        delay: 600,
         widthDisable : 1200,
         onInit: $.noop,
         start: $.noop,

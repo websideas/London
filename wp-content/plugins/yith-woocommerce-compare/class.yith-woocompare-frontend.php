@@ -191,7 +191,7 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
             extract( $this->_vars() );
 
             // remove all styles from compare template
-            add_action('wp_print_styles', array( $this, 'remove_all_styles' ), 100);
+            // add_action('wp_print_styles', array( $this, 'remove_all_styles' ), 100);
 
             // remove admin bar
             remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
