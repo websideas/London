@@ -1760,6 +1760,13 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce .summary .product-details-share ul.share li a{ color:#8e8c86; }
 
 .themedev-product-popup .product-details-share{ display:none; }
+.product-detail-content .addthis_native_toolbox {
+    clear: left;
+    display: block;
+    margin-left: 0;
+    padding-top: 30px;
+}
+
 
 .woocommerce .variations td.variations-label{
     padding: 10px 12px 10px 0;
