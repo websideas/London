@@ -99,7 +99,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                                 if ( $thumbnail_id ) {
                                     $image = "<img src='".wp_get_attachment_thumb_url( $thumbnail_id )."' alt='".$item->name."'/>";
                                 }
-                                $output .= "<li><a data-id='".esc_attr($item->term_id)."' href='#'>".$image.$item->name."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                                $output .= "<li><a data-id='".esc_attr($item->term_id)."' href='#'>".$image.$item->name."<i class='fa fa-spinner fa-pulse'></i></a></li>";
                             }
                             $image = "";
                             if($category){
@@ -112,7 +112,7 @@ class WPBakeryShortCode_Taxonomy_Woo extends WPBakeryShortCode {
                                 $image = $image_default;
                             }
                             
-                            $output .= "<li><a data-id='".esc_attr($category)."' href='#'>".$image.__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-spin'></i></a></li>";
+                            $output .= "<li><a data-id='".esc_attr($category)."' href='#'>".$image.__('All categories', THEME_LANG)."<i class='fa fa-spinner fa-pulse'></i></a></li>";
                         $output .="</ul>";
                         if($content){ 
                             $output .= "<div class='content-taxonomy'>".$content."</div>"; 

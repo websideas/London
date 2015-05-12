@@ -18,7 +18,7 @@ $attachment_count   = count( $attachment_ids );
 
 if ( $attachment_ids ) {
 	?>
-    <div class="single-product-main-thumbnails owl-carousel <?php if($attachment_count < 3){ echo " no-padding";} ?>" id="sync2">
+    <div class="single-product-main-thumbnails owl-carousel <?php if($attachment_count < 4){ echo " no-padding";} ?>" id="sync2">
     	<?php
     		if ( has_post_thumbnail() ) {
     

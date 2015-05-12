@@ -262,6 +262,7 @@ blockquote.classic.blockquote-reverse:before{
  */
 .list-unspace{
     padding-left: 0;
+    margin-bottom:30px;
 }
 .list-unspace li{
     margin-left: 17px;
@@ -420,6 +421,7 @@ select:not([multiple]) {
 }
 .kt-button .btn-title {
     font-size: 30px;
+    line-height:30px;
     font-weight: 300;
     margin: 7px 0;
     text-transform: capitalize;
@@ -1502,7 +1504,7 @@ body.admin-bar #header.is-sticky.sticky{
     padding: 50px 0 0 0;
 }
 #footer-top{
-    padding: 0 0 40px;
+    padding: 0 0 30px;
 }
 #footer-area{
     padding: 0 0 10px 0;
@@ -2054,6 +2056,7 @@ body.footer_fixed .static-footer{
 .block-heading-tabs li{
     display: inline-block;
     padding-left: 34px;
+    font-size:18px;
 }
 .block-heading-tabs li:first-child{
     padding-left: 0;
@@ -2396,6 +2399,10 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     position: relative;
     border:1px solid #ccc;
     margin-bottom: 15px;
+}
+.categories-products-wrapper .categories-products-lists .content-taxonomy img:hover{
+    opacity: 0.6;
+    filter: alpha(opacity=60);
 }
 .categories-products-wrapper .categories-products-lists:after,
 .categories-products-wrapper .categories-products-lists:before {

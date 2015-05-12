@@ -52,11 +52,13 @@
 
         $( 'body' ).on( 'woof_products_added', function(){
             init_gridlistToggle();
+            init_wooanimation_products();
             $('form.woocommerce-ordering .orderby').on('change', function(){
                 $(this).parents('form').submit();
             });
         } );
-
+        
+        
         $( 'body' ).bind( 'added_to_cart', function() {
             $('#woocommerce-nav .checkout-link').show();
             $('#woocommerce-nav .shop-link').hide();
@@ -74,6 +76,8 @@
         });
         
         $('.sidebar .widget_product_categories ul.product-categories li ul.children').parent().append('<span class="button-toggle"></span>');
+        $('.sidebar .widget_product_categories ul.product-categories li.current-cat ul.children').show();
+        $('.sidebar .widget_product_categories ul.product-categories li.current-cat-parent ul.children').show();
         $('body').on('click','.sidebar .widget_product_categories ul.product-categories li .button-toggle',function(){
             $(this).prev('ul.children').slideToggle();
             $(this).toggleClass('current');            
@@ -508,8 +512,8 @@
         
         sync2.KTowlCarousel({
             theme : 'woocommerce-thumbnails',
-            items : 3,
-            itemsCustom : [[768,3],[479,2]],
+            items : 4,
+            itemsCustom : [[992,4], [768, 3], [480, 2]],
             navigation: true,
             navigationText: false,
             pagination:false,
