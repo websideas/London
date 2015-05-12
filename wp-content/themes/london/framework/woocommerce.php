@@ -672,7 +672,7 @@ if( class_exists('WC_Swatch_Picker') ){
         public function picker() {
             ?>
 
-            <table class="variations-table" cellspacing="0">
+            <table class="variations-table" >
                 <tbody>
                 <?php
                 $loop = 0;
@@ -688,7 +688,7 @@ if( class_exists('WC_Swatch_Picker') ){
                     ?>
                     <tr>
                         <td>
-                            <div>
+                            <div class="label-wrap">
                                 <label for="<?php echo $st_name; ?>"><?php echo WC_Swatches_Compatibility::wc_attribute_label( $name ); ?></label>
                             </div>
                             <?php
@@ -729,7 +729,7 @@ if( class_exists('WC_Swatch_Picker') ){
             <?php $layout = apply_filters( 'wc_swatches_and_photos_label_get_layout', (isset( $this->swatch_type_options[$lookup_name]['layout'] ) ? $this->swatch_type_options[$lookup_name]['layout'] : 'default' ), $name, $options, $this ); ?>
 
             <?php if ( $layout == 'label_above' ) : ?>
-                <?php $this->render_picker_label_layout( $layout, $name, $options ); ?>
+                <?php // $this->render_picker_label_layout( $layout, $name, $options ); ?>
             <?php endif; ?>
 
             <?php do_action( 'wc_swatches_and_photos_label_before', $layout, $name, $options, $this ); ?>

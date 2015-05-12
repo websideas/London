@@ -23,7 +23,6 @@ do_action('woocommerce_before_add_to_cart_form');
 		$woocommerce_variation_control_output = class_exists('KT_WC_Swatch_Picker') ? new KT_WC_Swatch_Picker($product->id, $attributes, $variation_params['selected_attributes']) : new WC_Swatch_Picker($product->id, $attributes, $variation_params['selected_attributes']);
 		$woocommerce_variation_control_output->picker();
 		?>
-
 		<div class="clear"></div><a id="variations_clear" href="#reset" style="display:none;"><?php _e('Reset selection', 'woocommerce'); ?></a>
 
 	</div>

@@ -1393,12 +1393,17 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce .functional-buttons .yith-wcwl-wishlistaddedbrowse a{
     color: #CCCCCC;
 }
-
+.functional-buttons .compare , .woocommerce  .functional-buttons .yith-wcwl-add-to-wishlist a {
+    height: 40px; line-height: 40px;
+    text-align: center;
+}
 .woocommerce .functional-buttons .yith-wcwl-add-button .ajax-loading{
     background: none repeat scroll 0 0 #000;
     color: #fff;
     line-height: 40px;
 }
+.attribute_pa_size_picker_label { display: none; }
+
 
 .woocommerce ul.products .product-meta-wrapper .added_to_cart{
     display: none;
@@ -1735,8 +1740,8 @@ ul.product-categories > li.cat-parent.current-cat > a{
     background: #b1b1b1;
     color: #fff !important;
     display: inline-block;
-    font-size: 13px !important;
-    padding: 0 5px;
+    font-size: 14px !important;
+    padding: 5px 10px;
 }
 .woocommerce .summary .stock.out-of-stock span{
     background: #e42e2c;
@@ -1853,17 +1858,19 @@ ul.product-categories > li.cat-parent.current-cat > a{
     width: 100%;
 }
 .woocommerce table.shop_attributes th{
-    border: medium none;
     font-weight: bold;
     line-height: 1.5em;
     margin: 0;
     padding: 8px;
     width: 120px;
+    border-left: 0px none;
+    width: 30%;
 }
+.woocommerce table.shop_attributes td { border-right: 0px none; }
 .woocommerce table.shop_attributes td,
 .woocommerce table.shop_attributes th{
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.02);
-    padding: 5px;
+    padding: 10px 20px;
 }
 .woocommerce table.shop_attributes .alt td, 
 .woocommerce table.shop_attributes .alt th{
@@ -1881,11 +1888,12 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .woocommerce .single_variation_wrap .single_variation span.price{
     font-size: 18px;
+    margin-right: 15px;
 }
 .woocommerce .single_variation_wrap .single_variation .stock{
     display: inline-block;
     margin-bottom: 0;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 /** =========================
     7. Pagination & Ordering & Result count
@@ -2659,4 +2667,6 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .variations_form.swatches .variations-table tbody tr  td{
     padding-bottom: 15px;
 }
-#variations_clear { display: block ; margin-bottom: 25px;}
+#variations_clear { display: block ; margin-bottom: 15px;}
+.variations_form.swatches .variations-table label { font-weight: normal; }
+.themedev-product-popup #variations_clear { display: none !important; }
