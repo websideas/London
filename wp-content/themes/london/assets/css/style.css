@@ -1218,15 +1218,19 @@ h2.widgettitle a.rsswidget:first-child,
 /*
  * 10.5 Header sticky
  */
+#header {
+}
 #header.is-sticky{
     opacity: 0;
     position: fixed;
     top: -61px;
     z-index: 10100;
+    background: rgba(0,0,0,0.8);
+    /*
     -webkit-transition: top 0.4s ease 0s, opacity 0.4s ease 0s;
     -moz-transition: top 0.4s ease 0s, opacity 0.4s ease 0s;
     transition: top 0.4s ease 0s, opacity 0.4s ease 0s;
-    background: rgba(0,0,0,0.8)
+    */
 }
 .layout-full #header.is-sticky{
     width: 100%;

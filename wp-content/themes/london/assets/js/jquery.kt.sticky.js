@@ -28,11 +28,6 @@
         .on('sticky.end', function(){
             console.log('sticky.end');
         });
-    
-    
- 
- 
- 
  */
 
 
@@ -57,11 +52,34 @@
                 _sticky.trigger("sticky.start");
                 _placeholder.css( 'height', _sticky.outerHeight());
                 _sticky.addClass(o.className);
-                
+
+
+                /*
                 setTimeout(function(){
-                    _sticky.addClass(o.classSticky);
+                    var $offset = _placeholder.offset(),
+                        _scrolltop = _window.scrollTop();
+
+                    _sticky.css('top', '-'+_placeholder.height()+'px' );
+                    _sticky.animate({
+                        top: '0px'
+                    }, 300);
+
+                    //_sticky.addClass(o.classSticky);
+
                 }, o.delay);
-                
+                */
+
+                var $offset = _placeholder.offset(),
+                    _scrolltop = _window.scrollTop();
+
+                _sticky.css('top', '-'+_placeholder.height()+'px' );
+                _sticky.addClass(o.classSticky);
+                _sticky.animate({
+                    top: '0px'
+                }, o.delay , function (){
+                    _sticky.removeAttr('style');
+                });
+
                 scrolled = true;
             },
             end = function (_sticky, _placeholder, o) {
@@ -165,7 +183,7 @@
         className: 'is-sticky',
         classSticky: 'sticky',
         topSpacing: 150,
-        delay: 200,
+        delay: 400,
         widthDisable : 1200,
         onInit: $.noop,
         start: $.noop,
