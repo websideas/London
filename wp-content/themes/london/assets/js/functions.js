@@ -381,12 +381,15 @@
             					navigationText: false,
             					pagination: false
             				});
+
+                            $('.mfp-container .woocommerce-countdown').remove();
+
     	        			$('.themedev-product-popup form').wc_variation_form();
     	        		},
     	        		change: function() {	        			
     	        			$('.themedev-product-popup form').wc_variation_form();
     	        		}
-    	        	},
+    	        	}
     			});
             });
         });

@@ -187,7 +187,7 @@ class KT_WC_Designer extends WC_Widget {
 
         ob_start();
 
-        if( !isset( $instance['design_ids'] ) ){
+        if( !isset( $instance['collection_ids'] ) ){
             return ;
         }
 
