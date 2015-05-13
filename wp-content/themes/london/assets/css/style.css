@@ -2047,6 +2047,7 @@ body.footer_fixed .static-footer{
 .block-heading-underline h3{
     margin-bottom: 0;
     padding-bottom: 0;
+    font-size: 30px;
 }
 .block-heading-tabs-wapper h3{
     float: left;
