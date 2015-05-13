@@ -42,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1355" column="18" selection-start="30838" selection-end="30838" vertical-scroll-proportion="0.19609508" vertical-offset="30934" max-vertical-offset="68609">
+            <state line="1355" column="18" selection-start="30838" selection-end="30838" vertical-scroll-proportion="-8.884615" vertical-offset="30934" max-vertical-offset="68609">
               <folding />
             </state>
           </provider>
@@ -54,8 +54,83 @@
       <file leaf-file-name="woocommerce.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="997" column="20" selection-start="22056" selection-end="22056" vertical-scroll-proportion="0.0" vertical-offset="24255" max-vertical-offset="62951">
+            <state line="1727" column="19" selection-start="42295" selection-end="42295" vertical-scroll-proportion="0.0" vertical-offset="38883" max-vertical-offset="62974">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="breadcrumbs.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/breadcrumbs.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="76.96154" vertical-offset="2001" max-vertical-offset="28957">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="222" column="16" selection-start="6152" selection-end="6152" vertical-scroll-proportion="0.58573854" vertical-offset="4416" max-vertical-offset="9407">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category-template.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-includes/category-template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1300" column="30" selection-start="42493" selection-end="42493" vertical-scroll-proportion="-20.384615" vertical-offset="29255" max-vertical-offset="33580">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="taxonomy.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-includes/taxonomy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2633" column="9" selection-start="88786" selection-end="88786" vertical-scroll-proportion="28.076923" vertical-offset="61151" max-vertical-offset="108606">
+              <folding>
+                <marker date="1431371025000" expanded="true" signature="22437:22670" placeholder="SELECT tr.ob..$wpdb-&gt;term_relationships AS..." />
+                <marker date="1431371025000" expanded="true" signature="41436:41653" placeholder="SELECT $wpdb..." />
+                <marker date="1431371025000" expanded="true" signature="41807:41901" placeholder="SELECT $resu..$wpdb-&gt;term_taxonomy&#10;&#9;&#9;&#9;&#9;&#9;WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="42039:42167" placeholder="SELECT $resu..$wpdb-&gt;term_taxonomy&#10;&#9;&#9;&#9;&#9;&#9;WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="44899:45052" placeholder="SELECT t.*, ..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="47793:47943" placeholder="SELECT t.*, ..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="67438:67518" placeholder="SELECT $fiel..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="70577:70620" placeholder="SELECT term_..$wpdb-&gt;terms as..." />
+                <marker date="1431371025000" expanded="true" signature="70640:70771" placeholder="SELECT tt.te..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="71699:71874" placeholder="SELECT tt.te..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="71965:72145" placeholder="SELECT tt.te..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="72231:72297" placeholder="SELECT term_..$wpdb-&gt;terms as..." />
+                <marker date="1431371025000" expanded="true" signature="72378:72449" placeholder="SELECT term_..$wpdb-&gt;terms as..." />
+                <marker date="1431371025000" expanded="true" signature="84273:84348" placeholder="SELECT objec..$wpdb-&gt;term_relationships WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="85722:85782" placeholder="SELECT COUNT..$wpdb-&gt;term_taxonomy WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="91543:91766" placeholder="SELECT $sele..$wpdb-&gt;terms AS..." />
+                <marker date="1431371025000" expanded="true" signature="92496:92727" placeholder="SELECT tr.te..$wpdb-&gt;term_relationships AS..." />
+                <marker date="1431371025000" expanded="true" signature="98443:98483" placeholder="SELECT MAX(t..." />
+                <marker date="1431371025000" expanded="true" signature="100531:100686" placeholder="SELECT tt.te..$wpdb-&gt;term_taxonomy AS..." />
+                <marker date="1431371025000" expanded="true" signature="101379:101608" placeholder="SELECT t.ter..$wpdb-&gt;terms t..." />
+                <marker date="1431371025000" expanded="true" signature="105453:105554" placeholder="SELECT term_..$wpdb-&gt;term_relationships WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="106540:106659" placeholder="SELECT tt.te..$wpdb-&gt;term_taxonomy AS..." />
+                <marker date="1431371025000" expanded="true" signature="110188:110283" placeholder="DELETE FROM ..." />
+                <marker date="1431371025000" expanded="true" signature="112602:112665" placeholder="SELECT slug ..$wpdb-&gt;terms WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="112727:112772" placeholder="SELECT slug ..$wpdb-&gt;terms WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="112932:112977" placeholder="SELECT slug ..$wpdb-&gt;terms WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="116263:116303" placeholder="SELECT MAX(t..." />
+                <marker date="1431371025000" expanded="true" signature="117573:117728" placeholder="SELECT tt.te..$wpdb-&gt;term_taxonomy AS..." />
+                <marker date="1431371025000" expanded="true" signature="119370:119445" placeholder="SELECT objec..$wpdb-&gt;term_relationships WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="125677:125763" placeholder="SELECT term_..$wpdb-&gt;term_taxonomy WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="136072:136406" placeholder="SELECT COUNT..." />
+                <marker date="1431371025000" expanded="true" signature="137572:137646" placeholder="SELECT COUNT..$wpdb-&gt;term_relationships WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="139012:139108" placeholder="SELECT COUNT..$wpdb-&gt;term_taxonomy tt..." />
+                <marker date="1431371025000" expanded="true" signature="139336:139387" placeholder="SELECT t.* F..$wpdb-&gt;terms t..." />
+                <marker date="1431371025000" expanded="true" signature="140056:140118" placeholder="SELECT * FRO..$wpdb-&gt;term_taxonomy WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="140197:140282" placeholder="SELECT term_..$wpdb-&gt;term_taxonomy WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="140917:140977" placeholder="SELECT taxon..$wpdb-&gt;term_taxonomy WHERE..." />
+                <marker date="1431371025000" expanded="true" signature="143493:143895" placeholder="SELECT m1.po..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -326,8 +401,9 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/searchform.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/js/functions.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/widgets/designer.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/functions.php" />
       </list>
     </option>
   </component>
@@ -931,21 +1007,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce-products-filter.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="1" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.0" vertical-offset="1562" max-vertical-offset="4094" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/extensions/meta-box/inc/field.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-6.4972377" vertical-offset="7056" max-vertical-offset="8142" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/extensions/meta-box/inc/meta-box.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-8.932781" vertical-offset="9701" max-vertical-offset="10787" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/extensions/meta-box/inc/init.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.1436464" vertical-offset="156" max-vertical-offset="1242" />
@@ -971,11 +1032,6 @@
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/london-toolkit/london-toolkit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1112" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8901" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/helpers.php">
@@ -1319,16 +1375,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="997" column="20" selection-start="22056" selection-end="22056" vertical-scroll-proportion="0.0" vertical-offset="24255" max-vertical-offset="62951">
+        <state line="1355" column="18" selection-start="30838" selection-end="30838" vertical-scroll-proportion="-8.884615" vertical-offset="30934" max-vertical-offset="68609">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1355" column="18" selection-start="30838" selection-end="30838" vertical-scroll-proportion="0.19609508" vertical-offset="30934" max-vertical-offset="68609">
+        <state line="1727" column="19" selection-start="42295" selection-end="42295" vertical-scroll-proportion="0.0" vertical-offset="38883" max-vertical-offset="62974">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/breadcrumbs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="76.96154" vertical-offset="2001" max-vertical-offset="28957">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/category-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1300" column="30" selection-start="42493" selection-end="42493" vertical-scroll-proportion="-20.384615" vertical-offset="29255" max-vertical-offset="33580">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/taxonomy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2633" column="9" selection-start="88786" selection-end="88786" vertical-scroll-proportion="28.076923" vertical-offset="61151" max-vertical-offset="108606">
+          <folding>
+            <marker date="1431371025000" expanded="true" signature="22437:22670" placeholder="SELECT tr.ob..$wpdb-&gt;term_relationships AS..." />
+            <marker date="1431371025000" expanded="true" signature="41436:41653" placeholder="SELECT $wpdb..." />
+            <marker date="1431371025000" expanded="true" signature="41807:41901" placeholder="SELECT $resu..$wpdb-&gt;term_taxonomy&#10;&#9;&#9;&#9;&#9;&#9;WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="42039:42167" placeholder="SELECT $resu..$wpdb-&gt;term_taxonomy&#10;&#9;&#9;&#9;&#9;&#9;WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="44899:45052" placeholder="SELECT t.*, ..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="47793:47943" placeholder="SELECT t.*, ..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="67438:67518" placeholder="SELECT $fiel..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="70577:70620" placeholder="SELECT term_..$wpdb-&gt;terms as..." />
+            <marker date="1431371025000" expanded="true" signature="70640:70771" placeholder="SELECT tt.te..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="71699:71874" placeholder="SELECT tt.te..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="71965:72145" placeholder="SELECT tt.te..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="72231:72297" placeholder="SELECT term_..$wpdb-&gt;terms as..." />
+            <marker date="1431371025000" expanded="true" signature="72378:72449" placeholder="SELECT term_..$wpdb-&gt;terms as..." />
+            <marker date="1431371025000" expanded="true" signature="84273:84348" placeholder="SELECT objec..$wpdb-&gt;term_relationships WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="85722:85782" placeholder="SELECT COUNT..$wpdb-&gt;term_taxonomy WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="91543:91766" placeholder="SELECT $sele..$wpdb-&gt;terms AS..." />
+            <marker date="1431371025000" expanded="true" signature="92496:92727" placeholder="SELECT tr.te..$wpdb-&gt;term_relationships AS..." />
+            <marker date="1431371025000" expanded="true" signature="98443:98483" placeholder="SELECT MAX(t..." />
+            <marker date="1431371025000" expanded="true" signature="100531:100686" placeholder="SELECT tt.te..$wpdb-&gt;term_taxonomy AS..." />
+            <marker date="1431371025000" expanded="true" signature="101379:101608" placeholder="SELECT t.ter..$wpdb-&gt;terms t..." />
+            <marker date="1431371025000" expanded="true" signature="105453:105554" placeholder="SELECT term_..$wpdb-&gt;term_relationships WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="106540:106659" placeholder="SELECT tt.te..$wpdb-&gt;term_taxonomy AS..." />
+            <marker date="1431371025000" expanded="true" signature="110188:110283" placeholder="DELETE FROM ..." />
+            <marker date="1431371025000" expanded="true" signature="112602:112665" placeholder="SELECT slug ..$wpdb-&gt;terms WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="112727:112772" placeholder="SELECT slug ..$wpdb-&gt;terms WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="112932:112977" placeholder="SELECT slug ..$wpdb-&gt;terms WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="116263:116303" placeholder="SELECT MAX(t..." />
+            <marker date="1431371025000" expanded="true" signature="117573:117728" placeholder="SELECT tt.te..$wpdb-&gt;term_taxonomy AS..." />
+            <marker date="1431371025000" expanded="true" signature="119370:119445" placeholder="SELECT objec..$wpdb-&gt;term_relationships WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="125677:125763" placeholder="SELECT term_..$wpdb-&gt;term_taxonomy WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="136072:136406" placeholder="SELECT COUNT..." />
+            <marker date="1431371025000" expanded="true" signature="137572:137646" placeholder="SELECT COUNT..$wpdb-&gt;term_relationships WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="139012:139108" placeholder="SELECT COUNT..$wpdb-&gt;term_taxonomy tt..." />
+            <marker date="1431371025000" expanded="true" signature="139336:139387" placeholder="SELECT t.* F..$wpdb-&gt;terms t..." />
+            <marker date="1431371025000" expanded="true" signature="140056:140118" placeholder="SELECT * FRO..$wpdb-&gt;term_taxonomy WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="140197:140282" placeholder="SELECT term_..$wpdb-&gt;term_taxonomy WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="140917:140977" placeholder="SELECT taxon..$wpdb-&gt;term_taxonomy WHERE..." />
+            <marker date="1431371025000" expanded="true" signature="143493:143895" placeholder="SELECT m1.po..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="16" selection-start="6152" selection-end="6152" vertical-scroll-proportion="0.58573854" vertical-offset="4416" max-vertical-offset="9407">
           <folding />
         </state>
       </provider>

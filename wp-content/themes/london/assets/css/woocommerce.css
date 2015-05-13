@@ -1710,7 +1710,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce .summary .product_meta_sku,
 .woocommerce .summary .posted_in,
 .woocommerce .summary .tagged_as{
-    margin: 0 0 5px;
+    margin: 0 0 15px;
     display: block;
 }
 .woocommerce .summary .product_meta{
@@ -2588,6 +2588,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .sales-countdown-carousel-wrapper .woocommerce ul.products h5{
     padding: 0;
+    font-size: 18px;
 }
 .sales-countdown-carousel-wrapper .woocommerce ul.products span.price del, 
 .sales-countdown-carousel-wrapper .woocommerce ul.products span.price ins{

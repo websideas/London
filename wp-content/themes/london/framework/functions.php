@@ -30,7 +30,10 @@ function kt_add_breadcrumb(){
         if( is_page() || is_singular()  || is_front_page() ){
             $show  = rwmb_meta( '_kt_show_breadcrumb' );
         }
-        if( $show ){
+        if( function_exists('is_product') && is_product() ){
+            $show = true;
+        }
+        if( apply_filters('show_breadcrumbs', $show) ){
             ?>
                 <?php if(function_exists('breadcrumb_trail')) { ?>
                 <div class="breadcrumb-wrapper">
@@ -202,15 +205,34 @@ function theme_slideshows_position_callback(){
 
 
     }elseif ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-        if(is_product_category()){
-            
-            	global $wp_query;
+        if(is_product_category() || is_product() ){
+
+            $cate_id = false;
+            if( is_product() ){
+                global $post;
+                $categories = get_the_terms( $post->ID, 'product_cat' );
+                get_the_category();
+                $cate_id =  $categories[0]->term_id;
+
+                $found = false;
+                foreach( $categories as $c){
+                    if( $c ->parent == 0  && ! $found){
+                        $cate_id =  $c->term_id;
+                    }
+                }
+                
+            }else{
+                global $wp_query;
                 $cat = $wp_query->get_queried_object();
-                $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-                $image = wp_get_attachment_url( $thumbnail_id );
-                if ( $image ) {
-                    echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
-                } 
+                $cate_id = $cat->term_id;
+            }
+
+            $thumbnail_id = get_woocommerce_term_meta( $cate_id , 'thumbnail_id', true );
+            $image = wp_get_attachment_url( $thumbnail_id );
+
+            if ( $image ) {
+                echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
+            }
         }else{
 
             // shop page
