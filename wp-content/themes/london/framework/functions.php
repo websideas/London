@@ -220,7 +220,7 @@ function theme_slideshows_position_callback(){
                         $cate_id =  $c->term_id;
                     }
                 }
-                
+
             }else{
                 global $wp_query;
                 $cat = $wp_query->get_queried_object();

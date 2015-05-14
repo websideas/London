@@ -675,11 +675,7 @@ class WP_QueryWoofCounter extends WP_Query
 
 }
 
-//***
 
-$WOOF = new WOOF();
-$GLOBALS['WOOF'] = $WOOF;
-add_action('init', array($WOOF, 'init'), 1);
 
 class WOOF_Widget extends WP_Widget
 {
@@ -751,6 +747,16 @@ class WOOF_Widget extends WP_Widget
         </p>
         <?php
     }
+}
 
+if( !function_exists( 'is_plugin_active' ) ){
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
+
+if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
+    //***
+    $WOOF = new WOOF();
+    $GLOBALS['WOOF'] = $WOOF;
+    add_action('init', array($WOOF, 'init'), 1);
 }
 

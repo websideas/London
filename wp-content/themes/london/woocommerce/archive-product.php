@@ -27,9 +27,9 @@ get_header( 'shop' ); ?>
 		do_action( 'woocommerce_before_main_content' );
 	?>
         <?php if($layout == 'left' || $layout == 'right'){  ?>
-            <div class="row <?php echo $layout; ?>">
+            <div class="row <?php echo esc_attr( $layout ); ?>">
                 <?php $class = ($layout == 'left') ? 'pull-right' : '' ?>
-                <div id="main" class="col-md-9 col-xs-12 <?php echo $class; ?>">
+                <div id="main" class="col-md-9 col-xs-12 <?php echo esc_attr( $class ); ?>">
         <?php } ?>
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 

@@ -46,7 +46,7 @@
             	 */
             	do_action( 'theme_before_header' ); ?>
                 <?php $header_layout = kt_get_header_layout(); ?>
-                <div class="header-<?php echo $header_layout ?> <?php echo apply_filters('theme_header_class', 'header-container', $position) ?>">
+                <div class="header-<?php echo esc_attr( $header_layout ); ?> <?php echo apply_filters('theme_header_class', 'header-container', $position) ?>">
                     <div id="woocommerce-nav-mobile-wrapper">
                         <div class="container">
                             <?php woocommerce_get_tool('woocommerce-nav-mobile');?>

@@ -1,7 +1,7 @@
 <?php
-session_start();
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
+
 
 // Script version, used to add version for scripts and styles
 define( 'THEME_VER', '1.0' );
@@ -20,6 +20,8 @@ define( 'THEME_LIBS', trailingslashit( THEME_ASSETS . 'libs' ) );
 define( 'THEME_JS', trailingslashit( THEME_ASSETS . 'js' ) );
 define( 'THEME_CSS', trailingslashit( THEME_ASSETS . 'css' ) );
 define( 'THEME_IMG', trailingslashit( THEME_ASSETS . 'images' ) );
+
+session_start();
 
 //Include framework
 require_once ( THEME_DIR .'framework/core.php');

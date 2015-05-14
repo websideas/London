@@ -761,7 +761,7 @@ if( class_exists('WC_Swatch_Picker') ){
                     <tr>
                         <td>
                             <div class="label-wrap">
-                                <label for="<?php echo $st_name; ?>"><?php echo WC_Swatches_Compatibility::wc_attribute_label( $name ); ?></label>
+                                <label for="<?php echo esc_attr( $st_name ); ?>"><?php echo WC_Swatches_Compatibility::wc_attribute_label( $name ); ?></label>
                             </div>
                             <?php
                             if ( isset( $this->swatch_type_options[$lookup_name] ) ) {
@@ -810,9 +810,9 @@ if( class_exists('WC_Swatch_Picker') ){
                 data-attribute-name="<?php echo 'attribute_' . $st_name; ?>"
                 data-value="<?php echo !empty($selected_value) ? md5( $selected_value ) : ''; ?>"
                 id="<?php echo esc_attr( $st_name ); ?>"
-                class="select attribute_<?php echo $st_name; ?>_picker">
+                class="select attribute_<?php echo esc_attr( $st_name ); ?>_picker">
 
-                <input type="hidden" name="<?php echo 'attribute_' . $st_name; ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo $selected_value; ?>" />
+                <input type="hidden" name="<?php echo 'attribute_' . $st_name; ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo esc_attr( $selected_value ); ?>" />
 
                 <?php if ( is_array( $options ) ) : ?>
                     <?php
@@ -900,7 +900,7 @@ if( class_exists('WC_Swatch_Picker') ){
                     ?>
                 <?php endif; ?>
             </select>
-            <input type="hidden" name="<?php echo 'attribute_' . $st_name; ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo $selected_value; ?>" />
+            <input type="hidden" name="<?php echo 'attribute_' . esc_attr( $st_name ); ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo esc_attr( $selected_value ); ?>" />
         <?php
         }
 
@@ -910,7 +910,7 @@ if( class_exists('WC_Swatch_Picker') ){
 
             <div
                 id="<?php echo esc_attr( $st_name ); ?>_label"
-                class="attribute_<?php echo $st_name; ?>_picker_label">
+                class="attribute_<?php echo esc_attr( $st_name ); ?>_picker_label">
                 &nbsp;
             </div>
 
