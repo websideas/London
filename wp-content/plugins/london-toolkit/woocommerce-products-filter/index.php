@@ -15,7 +15,9 @@ include WOOF_PATH . 'helper.php';
 final class WOOF
 {
 
-    public $settings = array();
+    public $settings = array(
+        'tax' =>''
+    );
     public $version = '1.0.5';
     public $html_types = array(
         'radio' => 'Radio',
@@ -304,7 +306,7 @@ final class WOOF
         $args = array();
         $args['taxonomies'] = array();
         $taxonomies = $this->get_taxonomies();
-        $allow_taxonomies = (array) $this->settings['tax'];
+        $allow_taxonomies = ( isset( $this->settings['tax'] ) ) ? (array) $this->settings['tax'] : array();
         if (!empty($taxonomies))
         {
             foreach ($taxonomies as $tax_key => $tax)
