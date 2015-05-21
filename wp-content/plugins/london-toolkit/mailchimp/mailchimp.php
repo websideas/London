@@ -64,9 +64,9 @@ class KT_Mailchimp{
             'text_before' => '',
             'text_after' => '',
             'layout' => 'one',
-            'desktop' => '',
-            'tablet' => '',
-            'mobile' => '',
+            'height_desktop' => '',
+            'height_tablet' => '',
+            'height_mobile' => '',
             'css' => '',
         ), $atts );
         
@@ -77,25 +77,40 @@ class KT_Mailchimp{
             $elementClass = vc_shortcode_custom_css_class( $css, ' ' );
         }
         
-		$this->uniqeID  = uniqid();
+		$this->uniqeID  = 'mailchimp-wrapper-'.uniqid();
         $this->atts = $atts;
         
         $output = '';
         
-        $output .= '<div class="mailchimp-wrapper '.esc_attr($elementClass).'" id="mailchimp-wrapper-'.$this->uniqeID.'">';
+        $output .= '<div class="mailchimp-wrapper '.esc_attr($elementClass).'" id="'.esc_attr($this->uniqeID).'">';
         
         if($title){
             $output .= '<div class="block-heading"><h3>'.$title.'</h3></div>';
         }
         $output .= ($text_before) ? '<div class="mailchimp-before">'.$text_before.'</div>' : '';
-        
-        
+
+        $height_option = '';
+
+        if($height_desktop){
+            $height_option .= '@media (min-width: 992px) {#'.$this->uniqeID.'{min-height: '.esc_attr($height_desktop).'px;}}';
+        }
+        if($height_tablet){
+            $height_option .= '@media (min-width: 769px) {#'.$this->uniqeID.'{min-height: '.esc_attr($height_tablet).'px;}}';
+        }
+        if($height_mobile){
+            $height_option .= '@media (max-width: 768px) {#'.$this->uniqeID.'{min-height: '.esc_attr($height_mobile).'px;}}';
+        }
+
+        if($height_option){
+            $height_option = '<style>'.$height_option.'</style>';
+        }
+
         if ( isset ( $this->options['api_key'] ) && !empty ( $this->options['api_key'] ) ) {
             
             if(!$content) 
                 $content = __('Success!  Check your inbox or spam folder for a message containing a confirmation link.', 'kt_mailchimp');
             
-            $output .= '<form class="mailchimp-form clearfix mailchimp-layout-'.$layout.'" action="#" method="post">';
+            $output .= '<form class="mailchimp-form clearfix mailchimp-layout-'.esc_attr($layout).'" action="#" method="post">';
                 $email = '<input name="email" class="form-control" required="" type="email" placeholder="'.__('E-mail address', 'kt_mailchimp').'"/>';
                 $button = '<button class="btn btn-default mailchimp-submit" data-loading="'.__('Loading ...', 'kt_mailchimp').'" data-text="'.__('Subscribe', 'kt_mailchimp').'"  type="submit">'.__('Subscribe', 'kt_mailchimp').'</button>';
                 if($layout == 'one'){
@@ -110,7 +125,10 @@ class KT_Mailchimp{
                 $output .= '<div class="mailchimp-success">'.$content.'</div>';
                 $output .= '<div class="mailchimp-error"></div>';
             $output .= '</form>';
-            
+
+
+
+
         }else{
             $output .= sprintf(
                             "Please enter your mailchimp API key in <a href='%s'>here</a>",
@@ -121,7 +139,7 @@ class KT_Mailchimp{
         $output .= ($text_after) ? '<div class="mailchimp-after">'.$text_after.'</div>' : '';
         $output .= '</div><!-- .mailchimp-wrapper -->';
         
-    	return $output;
+    	return $output.$height_option;
         
     }
  
@@ -447,18 +465,48 @@ if ( class_exists( 'Vc_Manager', false ) ) {
             	'description' => __( 'Select type of animation if you want this element to be animated when it enters into the browsers viewport. Note: Works only in modern browsers.', 'js_composer' )
             ),
             array(
+                "type" => "textfield",
+                "heading" => __( "Extra class name", "js_composer"),
+                "param_name" => "el_class",
+                "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
+            ),
+            array(
+                "type" => "kt_heading",
+                "heading" => __("Min Height option", 'kt_mailchimp'),
+                "param_name" => "height_option",
+            ),
+            array(
+                "type" => "kt_number",
+                "edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+                "heading" => __("On Desktop", 'kt_mailchimp'),
+                "param_name" => "height_desktop",
+                "step" => "1",
+                'suffix' => 'px'
+            ),
+            array(
+                "type" => "kt_number",
+                "edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+                "heading" => __("On Tablet", 'kt_mailchimp'),
+                "param_name" => "height_tablet",
+                "step" => "1",
+                'suffix' => 'px'
+            ),
+            array(
+                "type" => "kt_number",
+                "edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+                "heading" => __("On Mobile", 'kt_mailchimp'),
+                "param_name" => "height_mobile",
+                "step" => "1",
+                'suffix' => 'px'
+            ),
+            array(
     			'type' => 'css_editor',
     			'heading' => __( 'Css', 'js_composer' ),
     			'param_name' => 'css',
     			// 'description' => __( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'js_composer' ),
     			'group' => __( 'Design options', 'js_composer' )
     		),
-            array(
-                "type" => "textfield",
-                "heading" => __( "Extra class name", "js_composer"),
-                "param_name" => "el_class",
-                "description" => __( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer" ),
-            ),
+
 		)
 	) );
 }

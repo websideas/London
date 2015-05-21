@@ -6,6 +6,30 @@ if ( !defined('ABSPATH')) exit;
 
 
 class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
+
+    /**
+     * woocommerce_order_by_rating_post_clauses function.
+     *
+     * @param array $args
+     * @return array
+     */
+    public static function order_by_rating_post_clauses( $args ) {
+        global $wpdb;
+
+        $args['where'] .= " AND $wpdb->commentmeta.meta_key = 'rating' ";
+
+        $args['join'] .= "
+			LEFT JOIN $wpdb->comments ON($wpdb->posts.ID = $wpdb->comments.comment_post_ID)
+			LEFT JOIN $wpdb->commentmeta ON($wpdb->comments.comment_ID = $wpdb->commentmeta.comment_id)
+		";
+
+        $args['orderby'] = "$wpdb->commentmeta.meta_value DESC";
+
+        $args['groupby'] = "$wpdb->posts.ID";
+
+        return $args;
+    }
+
     protected function content($atts, $content = null) {
         $atts = shortcode_atts( array(
             'category' => '',
@@ -29,9 +53,10 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
         
         
-        $tabs = array( 
+        $tabs = array(
             'new-arrivals' => __( 'New Arrivals',THEME_LANG ),
-            'best-sellers' => __( 'Best Sellers',THEME_LANG ) 
+            'best-sellers' => __( 'Best Sellers',THEME_LANG ),
+            'top-rated' => __( 'Most Reviews',THEME_LANG ),
         );
         
         $output = '';
@@ -62,22 +87,44 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
         			'post_status'			=> 'publish',
         			'ignore_sticky_posts'	=> 1,
         			'posts_per_page' 		=> $atts['per_page'],
-        			'meta_query' 			=> $meta_query
+        			'meta_query' 			=> $meta_query,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'id',
+                            'terms'    => $category,
+                        ),
+                    ),
         		);
+
+
+
+
                 
                 $output .= "<div class='category-products-tabs'>";
                 foreach($tabs as $key => $tab){
+                    $newargs = $args;
                     if( $key == 'new-arrivals' ){
-                        $args['orderby'] = 'date';
-                        $args['order'] 	 = 'DESC';
+                        $newargs['orderby'] = 'date';
+                        $newargs['order'] 	 = 'DESC';
                     }elseif( $key == 'best-sellers' ){
-                        $args['meta_key']   = 'total_sales';
-                        $args['orderby'] 	= 'meta_value_num';
+                        $newargs['meta_key']   = 'total_sales';
+                        $newargs['orderby'] 	= 'meta_value_num';
                     }
                     
                     $output .= "<div id='tab-".$key.'-'.$uniqeID."' class='category-products-tab'>";
                         ob_start();
-                        $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
+
+                        if($key == 'top-rated'){
+                            add_filter( 'posts_clauses', array( __CLASS__, 'order_by_rating_post_clauses' ) );
+                        }
+
+                        $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $newargs, $atts ) );
+
+                        if($key == 'top-rated'){
+                            remove_filter( 'posts_clauses', array( __CLASS__, 'order_by_rating_post_clauses' ) );
+                        }
+
                         $woocommerce_loop['columns'] = $atts['columns'];
                         if ( $products->have_posts() ) :
                             woocommerce_product_loop_start();
