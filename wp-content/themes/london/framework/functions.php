@@ -39,13 +39,18 @@ function kt_add_breadcrumb(){
                 <div class="breadcrumb-wrapper">
                     <div class="container">
                         <?php
-                        if( is_woocommerce() ){
-                            woocommerce_breadcrumb(
-                                array(
-                                    'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
-                                    'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs">', // xmlns:v="http://rdf.data-vocabulary.org/#" itemprop="breadcrumb"
+                        if( kt_is_wc()  ){
 
-                            ) );
+                            if( is_woocommerce() ){
+                                woocommerce_breadcrumb(
+                                    array(
+                                        'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
+                                        'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs">', // xmlns:v="http://rdf.data-vocabulary.org/#" itemprop="breadcrumb"
+
+                                    ) );
+                            }else{
+                                breadcrumb_trail();
+                            }
                         }else{
                             breadcrumb_trail();
                         }
@@ -303,20 +308,23 @@ function theme_header_class_callback($class, $position){
  */
 add_action( 'theme_after_footer', 'theme_after_footer_add_popup', 20 );
 function theme_after_footer_add_popup(){
-    $enable_popup = kt_option( 'enable_popup' );
-    $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
-    $content_popup = kt_option( 'content_popup' );
-    $time_show = kt_option( 'time_show', 0 );
-    
-    if( $enable_popup == 1 ){ 
-        if(!isset($_COOKIE['kt_popup'])){ ?>
-            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo esc_attr( $disable_popup_mobile ); ?>" data-timeshow="<?php echo esc_attr($time_show); ?>">     
-                <div class="white-popup-block">
-                    <?php echo do_shortcode($content_popup); ?>
+    if( defined( 'LONDON_TOOLKIT_VER' ) ){
+        $enable_popup = kt_option( 'enable_popup' );
+        $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
+        $content_popup = kt_option( 'content_popup' );
+        $time_show = kt_option( 'time_show', 0 );
+
+        if( $enable_popup == 1 ){
+            if(!isset($_COOKIE['kt_popup'])){ ?>
+                <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo esc_attr( $disable_popup_mobile ); ?>" data-timeshow="<?php echo esc_attr($time_show); ?>">
+                    <div class="white-popup-block">
+                        <?php echo do_shortcode($content_popup); ?>
+                    </div>
                 </div>
-            </div>
-        <?php }
+            <?php }
+        }
     }
+
 }
 
 

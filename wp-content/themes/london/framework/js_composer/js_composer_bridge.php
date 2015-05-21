@@ -54,21 +54,32 @@ vc_add_param("vc_row_inner", array(
 
 
 $composer_addons = array(
-    'categories_products.php',
+    //'categories_products.php',
     'contact_info.php',
     'clients_carousel.php',
     'blog_posts_carousel.php',
-    'sales_countdown.php',
-    'designer_collection_carousel.php',
-    'category_products_tab.php',
-    'categories_top_sellers.php',
+    //'sales_countdown.php',
+    //'designer_collection_carousel.php',
+    //'category_products_tab.php',
+    //'categories_top_sellers.php',
     'blog_posts.php',
     'button.php',
-    'widget_products_carousel.php',
+    //'widget_products_carousel.php',
     'widget_testimonials.php',
     'vc_gitem_post_metadata.php',
-    'designer_products.php'
+    //'designer_products.php'
 );
+
+if( kt_is_wc() ){
+    $composer_addons[] ='categories_top_sellers.php';
+    $composer_addons[] ='category_products_tab.php';
+    $composer_addons[] ='designer_collection_carousel.php';
+    $composer_addons[] ='sales_countdown.php';
+    $composer_addons[] ='categories_products.php';
+    $composer_addons[] ='widget_products_carousel.php';
+    $composer_addons[] ='designer_products.php';
+}
+
 
 foreach ( $composer_addons as $addon ) {
 	require_once( FW_DIR . 'js_composer/vc_addons/' . $addon );
