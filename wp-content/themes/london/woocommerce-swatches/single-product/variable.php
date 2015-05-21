@@ -12,7 +12,7 @@ do_action('woocommerce_before_add_to_cart_form');
       class="variations_form cart swatches" 
       method="post" 
       enctype='multipart/form-data' 
-      data-product_id="<?php echo $post->ID; ?>" 
+      data-product_id="<?php echo esc_attr( $post->ID ); ?>"
       data-product_variations="<?php echo esc_attr(json_encode($available_variations)) ?>"
       data-product_attributes="<?php echo esc_attr(json_encode($variation_params['attributes_renamed'])); ?>"
       data-product_variations_flat="<?php echo esc_attr(json_encode($variation_params['available_variations_flat'])); ?>"
@@ -33,7 +33,7 @@ do_action('woocommerce_before_add_to_cart_form');
 		<div class="single_variation"></div>
 		<div class="variations_button">
 			<?php if (WC_Swatches_Compatibility::is_wc_version_gte_2_1()) : ?>
-				<input type="hidden" name="add-to-cart" value="<?php echo $product->id; ?>" />
+				<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 			<?php endif; ?>
 				
 			<input type="hidden" name="product_id" value="<?php echo esc_attr($post->ID); ?>" />

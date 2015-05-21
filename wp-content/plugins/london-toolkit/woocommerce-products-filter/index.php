@@ -15,7 +15,9 @@ include WOOF_PATH . 'helper.php';
 final class WOOF
 {
 
-    public $settings = array();
+    public $settings = array(
+        'tax' =>''
+    );
     public $version = '1.0.5';
     public $html_types = array(
         'radio' => 'Radio',
@@ -304,7 +306,7 @@ final class WOOF
         $args = array();
         $args['taxonomies'] = array();
         $taxonomies = $this->get_taxonomies();
-        $allow_taxonomies = (array) $this->settings['tax'];
+        $allow_taxonomies = ( isset( $this->settings['tax'] ) ) ? (array) $this->settings['tax'] : array();
         if (!empty($taxonomies))
         {
             foreach ($taxonomies as $tax_key => $tax)
@@ -675,11 +677,7 @@ class WP_QueryWoofCounter extends WP_Query
 
 }
 
-//***
 
-$WOOF = new WOOF();
-$GLOBALS['WOOF'] = $WOOF;
-add_action('init', array($WOOF, 'init'), 1);
 
 class WOOF_Widget extends WP_Widget
 {
@@ -751,6 +749,16 @@ class WOOF_Widget extends WP_Widget
         </p>
         <?php
     }
+}
 
+if( !function_exists( 'is_plugin_active' ) ){
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
+
+if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
+    //***
+    $WOOF = new WOOF();
+    $GLOBALS['WOOF'] = $WOOF;
+    add_action('init', array($WOOF, 'init'), 1);
 }
 

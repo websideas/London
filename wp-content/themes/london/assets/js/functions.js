@@ -40,8 +40,11 @@
         init_wooanimation_products();
         
         $('body.footer_fixed #footer').ktFooter();
-        
-        var $easyzoom = $('.easyzoom').easyZoom();
+
+        if( typeof $.easyZoom == "function" ){
+            var $easyzoom = $('.easyzoom').easyZoom();
+        }
+
         woo_quantily();
 
         if( typeof ( $.mCustomScrollbar ) !== undefined ){
@@ -139,23 +142,23 @@
      Sale Count Down
      --------------------------------------------- */
     function init_SaleCountDown(){
-        $('.woocommerce-countdown').each(function(){
-            var $this = $(this), 
-                finalDate = $(this).data('time');
+        if( typeof ( $.countdown ) !== undefined ){
+            $('.woocommerce-countdown').each(function(){
+                var $this = $(this),
+                    finalDate = $(this).data('time');
 
-            $this.countdown({
-                until: new Date( finalDate ),
-                format: 'dHMS',
-                compact: true,
-                padZeroes: true,
-                serverSync: new Date( ajax_frontend.current_date ),
-               // until: shortly,
-                //onExpiry: liftOff,
-                layout: '<div><span>{dnn}</span> days</div><div><span>{hn}</span> hr</div><div><span>{mn}</span> min</div><div><span>{sn}</span> sec</div>'
+                $this.countdown({
+                    until: new Date( finalDate ),
+                    format: 'dHMS',
+                    compact: true,
+                    padZeroes: true,
+                    serverSync: new Date( ajax_frontend.current_date ),
+                   // until: shortly,
+                    //onExpiry: liftOff,
+                    layout: '<div><span>{dnn}</span> days</div><div><span>{hn}</span> hr</div><div><span>{mn}</span> min</div><div><span>{sn}</span> sec</div>'
+                });
             });
-
-
-        });
+        }
     }
     /* ---------------------------------------------
      Mobile Detection
@@ -381,12 +384,15 @@
             					navigationText: false,
             					pagination: false
             				});
+
+                            $('.mfp-container .woocommerce-countdown').remove();
+
     	        			$('.themedev-product-popup form').wc_variation_form();
     	        		},
     	        		change: function() {	        			
     	        			$('.themedev-product-popup form').wc_variation_form();
     	        		}
-    	        	},
+    	        	}
     			});
             });
         });

@@ -83,7 +83,7 @@ class WP_Widget_KT_Image extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('size'); ?>"><?php _e( 'Image size:', THEME_LANG ); ?></label>
 			<select name="<?php echo $this->get_field_name('size'); ?>" id="<?php echo $this->get_field_id('size'); ?>" class="widefat">
                 <?php foreach($sizes as $key => $size){ ?>
-    				<option value="<?php echo $key; ?>"<?php selected( $instance['size'], $key ); ?>>
+    				<option value="<?php echo esc_attr( $key ); ?>"<?php selected( $instance['size'], $key ); ?>>
                         <?php echo ucfirst($key); ?> 
                         <?php if( isset($size['width']) ) echo $size['width'] .'x'. $size['height']; ?>
                     </option>

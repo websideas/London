@@ -1565,74 +1565,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                  )
             );
             
-            /**
-			 *	Advanced
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'advanced',
-				'title'			=> __( 'Advanced', THEME_LANG ),
-				'desc'			=> '',
-                'icon_class'	=> 'icon_star_alt',
-            );
 
-            /**
-			 *	Advanced Custom CSS
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'advanced_css',
-				'title'			=> __( 'Custom CSS', THEME_LANG ),
-				'desc'			=> '',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-                        'id'       => 'advanced_editor_css',
-                        'type'     => 'ace_editor',
-                        'title'    => __( 'CSS Code', THEME_LANG ),
-                        'subtitle' => __( 'Paste your CSS code here.', THEME_LANG ),
-                        'mode'     => 'css',
-                        'theme'    => 'chrome',
-                        'full_width' => true
-                    ),
-                )
-            );
-            /**
-			 *	Advanced Custom CSS
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'advanced_js',
-				'title'			=> __( 'Custom JS', THEME_LANG ),
-				'desc'			=> '',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-                        'id'       => 'advanced_editor_js',
-                        'type'     => 'ace_editor',
-                        'title'    => __( 'JS Code', THEME_LANG ),
-                        'subtitle' => __( 'Paste your JS code here.', THEME_LANG ),
-                        'mode'     => 'javascript',
-                        'theme'    => 'chrome',
-                        'default'  => "jQuery(document).ready(function(){\n\n});",
-                        'full_width' => true
-                    ),
-                )
-            );
-            /**
-			 *	Advanced Tracking Code
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'advanced_tracking',
-				'title'			=> __( 'Tracking Code', THEME_LANG ),
-				'desc'			=> '',
-                'subsection' => true,
-				'fields'		=> array(
-                    array(
-                        'id'       => 'advanced_tracking_code',
-                        'type'     => 'textarea',
-                        'title'    => __( 'Tracking Code', THEME_LANG ),
-                        'desc'     => __( 'Paste your Google Analytics (or other) tracking code here. This will be added into the header template of your theme. Please put code inside script tags.', THEME_LANG ),
-                    )
-                )
-            );
             
             $info_arr = array();
             $theme = wp_get_theme();

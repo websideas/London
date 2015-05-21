@@ -39,6 +39,11 @@ get_header(); ?>
                         </div>
                     </div>
                     <?php
+                }else{
+                    ?>
+                    <h3><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', THEME_LANG); ?></h3>
+                    <?php get_search_form(); ?>
+                    <?php
                 }
                 ?>
             </div>

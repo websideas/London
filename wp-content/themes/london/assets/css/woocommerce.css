@@ -995,6 +995,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
  */
 .yith-wcwl-add-to-wishlist a{
     display: block;
+    font-size: 18px;
 }
 .yith-wcwl-add-to-wishlist span.feedback{
     display: none;
@@ -1131,7 +1132,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce ul.products h5{
     margin: 0;
     padding: 0 15px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal;
     line-height: 30px;
     text-transform: capitalize;
@@ -1159,7 +1160,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     color: #999;
     font-size: 14px;
 }
-.woocommerce ul.products span.price span.price-save{
+.woocommerce ul.products span.price span.price-save, .price span.price-save{
     display: none;
     padding: 4px 5px;
     position: relative;
@@ -1170,7 +1171,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     vertical-align: text-top;
     line-height: normal;
 }
-.woocommerce ul.products span.price span.price-save:after{
+.woocommerce ul.products span.price span.price-save:after, .price span.price-save:after{
     right: 100%;
 	top: 50%;
 	border: solid transparent;
@@ -1184,8 +1185,11 @@ ul.product-categories > li.cat-parent.current-cat > a{
 	border-width: 4px;
 	margin-top: -4px;
 }
-.sales-countdown-carousel-wrapper .woocommerce ul.products span.price span.price-save{
+.sales-countdown-carousel-wrapper .woocommerce ul.products span.price span.price-save, .price span.price-save{
     display: inline-block;
+}
+.entry-summary .price-save {
+    margin-left: 8px; margin-top: 1px;
 }
 .woocommerce span.onsale{
     background: #666666;
@@ -1427,7 +1431,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .functional-buttons .compare , .woocommerce  .functional-buttons .yith-wcwl-add-to-wishlist a {
     height: 40px; line-height: 40px;
-    text-align: center;
+    text-align: center; color: #ffffff;
 }
 .woocommerce .functional-buttons .yith-wcwl-add-button .ajax-loading{
     background: none repeat scroll 0 0 #000;
@@ -1635,6 +1639,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     line-height:40px;
     text-align: center;
     display: inline-block;
+    color: #ffffff;
 }
 
 /** =========================
@@ -1705,7 +1710,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce .summary .product_meta_sku,
 .woocommerce .summary .posted_in,
 .woocommerce .summary .tagged_as{
-    margin: 0 0 5px;
+    margin: 0 0 15px;
     display: block;
 }
 .woocommerce .summary .product_meta{
@@ -2024,8 +2029,11 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .themedev-product-popup.woocommerce .summary .product_meta, 
 .themedev-product-popup.woocommerce .summary .product-short-description{
-    margin: 0 0 10px;
+    margin: 0 0 20px;
 }
+.themedev-product-popup.woocommerce .entry-title { font-size: 30px; }
+.themedev-product-popup.woocommerce .woocommerce-countdown > div { background:  #ffffff; }
+
 /** =========================
     9. Product Comment
 *** =========================*/
@@ -2580,6 +2588,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .sales-countdown-carousel-wrapper .woocommerce ul.products h5{
     padding: 0;
+    font-size: 18px;
 }
 .sales-countdown-carousel-wrapper .woocommerce ul.products span.price del, 
 .sales-countdown-carousel-wrapper .woocommerce ul.products span.price ins{

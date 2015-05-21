@@ -456,10 +456,73 @@ function kt_woocommerce_shop_loop_item_quickview(){
 
 
 add_action( 'woocommerce_after_shop_loop_item_sale', 'woocommerce_after_shop_loop_item_sale_sale_price', 10, 2);
-function woocommerce_after_shop_loop_item_sale_sale_price($product, $post){
-    $sale_price_dates_to 	= ( $date = get_post_meta( $product->id, '_sale_price_dates_to', true ) ) ? date_i18n( 'Y-m-d', $date ) : '';
+add_action( 'woocommerce_single_product_summary', 'woocommerce_after_shop_loop_item_sale_sale_price', 16, 2);
+function woocommerce_after_shop_loop_item_sale_sale_price($product = false, $post = false){
+
+    $product_id = 0;
+    if( is_object( $product ) ){
+        $product_id = $product->id;
+    }elseif( is_object( $post) ){
+        $product_id = $post->ID;
+    }else{
+        global $post;
+        $product_id =  $post->ID;
+    }
+
+    if( ! $product_id  ){
+        return;
+    }
+
+    $cache_key = 'time_sale_price_'.$product_id;
+    $cache = wp_cache_get($cache_key);
+    if( $cache ){
+        echo $cache;
+        return;
+    }
+    // Get variations
+    $args = array(
+        'post_type'     => 'product_variation',
+        'post_status'   => array( 'private', 'publish' ),
+        'numberposts'   => -1,
+        'orderby'       => 'menu_order',
+        'order'         => 'asc',
+        'post_parent'   => $product_id
+    );
+    $variations = get_posts( $args );
+    $variation_ids = array();
+    if( $variations ){
+        foreach ( $variations as $variation ) {
+            $variation_ids[]  = $variation->ID;
+        }
+    }
+    $sale_price_dates_to = false;
+
+    if( !empty(  $variation_ids )   ){
+        global $wpdb;
+        $sale_price_dates_to = $wpdb->get_var( "
+            SELECT
+            meta_value
+            FROM $wpdb->postmeta
+            WHERE meta_key = '_sale_price_dates_to' and post_id IN(".join(',',$variation_ids).")
+            ORDER BY meta_value DESC
+            LIMIT 1
+        " );
+
+        if( $sale_price_dates_to !='' ){
+            $sale_price_dates_to = date('Y-m-d', $sale_price_dates_to);
+        }
+    }
+
+    if( !$sale_price_dates_to ){
+        $sale_price_dates_to 	= ( $date = get_post_meta( $product_id, '_sale_price_dates_to', true ) ) ? date_i18n( 'Y-m-d', $date ) : '';
+    }
+
     if($sale_price_dates_to){
-        echo '<div class="woocommerce-countdown clearfix" data-time="'.$sale_price_dates_to.'"></div>';
+        $cache = '<div class="woocommerce-countdown clearfix" data-time="'.$sale_price_dates_to.'"></div>';
+        wp_cache_add( $cache_key, $cache );
+        echo $cache;
+    }else{
+        wp_cache_delete( $cache_key );
     }
 }
 add_action( 'woocommerce_after_shop_loop_item_sale', 'woocommerce_after_shop_loop_item_sale_rating', 20, 2);
@@ -698,7 +761,7 @@ if( class_exists('WC_Swatch_Picker') ){
                     <tr>
                         <td>
                             <div class="label-wrap">
-                                <label for="<?php echo $st_name; ?>"><?php echo WC_Swatches_Compatibility::wc_attribute_label( $name ); ?></label>
+                                <label for="<?php echo esc_attr( $st_name ); ?>"><?php echo WC_Swatches_Compatibility::wc_attribute_label( $name ); ?></label>
                             </div>
                             <?php
                             if ( isset( $this->swatch_type_options[$lookup_name] ) ) {
@@ -747,9 +810,9 @@ if( class_exists('WC_Swatch_Picker') ){
                 data-attribute-name="<?php echo 'attribute_' . $st_name; ?>"
                 data-value="<?php echo !empty($selected_value) ? md5( $selected_value ) : ''; ?>"
                 id="<?php echo esc_attr( $st_name ); ?>"
-                class="select attribute_<?php echo $st_name; ?>_picker">
+                class="select attribute_<?php echo esc_attr( $st_name ); ?>_picker">
 
-                <input type="hidden" name="<?php echo 'attribute_' . $st_name; ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo $selected_value; ?>" />
+                <input type="hidden" name="<?php echo 'attribute_' . $st_name; ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo esc_attr( $selected_value ); ?>" />
 
                 <?php if ( is_array( $options ) ) : ?>
                     <?php
@@ -837,7 +900,7 @@ if( class_exists('WC_Swatch_Picker') ){
                     ?>
                 <?php endif; ?>
             </select>
-            <input type="hidden" name="<?php echo 'attribute_' . $st_name; ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo $selected_value; ?>" />
+            <input type="hidden" name="<?php echo 'attribute_' . esc_attr( $st_name ); ?>" id="<?php echo 'attribute_' . $st_name; ?>" value="<?php echo esc_attr( $selected_value ); ?>" />
         <?php
         }
 
@@ -847,7 +910,7 @@ if( class_exists('WC_Swatch_Picker') ){
 
             <div
                 id="<?php echo esc_attr( $st_name ); ?>_label"
-                class="attribute_<?php echo $st_name; ?>_picker_label">
+                class="attribute_<?php echo esc_attr( $st_name ); ?>_picker_label">
                 &nbsp;
             </div>
 

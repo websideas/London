@@ -30,19 +30,27 @@ function kt_add_breadcrumb(){
         if( is_page() || is_singular()  || is_front_page() ){
             $show  = rwmb_meta( '_kt_show_breadcrumb' );
         }
-        if( $show ){
+        if( function_exists('is_product') && is_product() ){
+            $show = true;
+        }
+        if( apply_filters('show_breadcrumbs', $show) ){
             ?>
                 <?php if(function_exists('breadcrumb_trail')) { ?>
                 <div class="breadcrumb-wrapper">
                     <div class="container">
                         <?php
-                        if( is_woocommerce() ){
-                            woocommerce_breadcrumb(
-                                array(
-                                    'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
-                                    'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs">', // xmlns:v="http://rdf.data-vocabulary.org/#" itemprop="breadcrumb"
+                        if( kt_is_wc()  ){
 
-                            ) );
+                            if( is_woocommerce() ){
+                                woocommerce_breadcrumb(
+                                    array(
+                                        'delimiter' =>'<span class="sep navigation-pipe">&nbsp;</span>',
+                                        'wrap_before' => '<nav class="woocommerce-breadcrumb breadcrumbs">', // xmlns:v="http://rdf.data-vocabulary.org/#" itemprop="breadcrumb"
+
+                                    ) );
+                            }else{
+                                breadcrumb_trail();
+                            }
                         }else{
                             breadcrumb_trail();
                         }
@@ -202,15 +210,34 @@ function theme_slideshows_position_callback(){
 
 
     }elseif ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-        if(is_product_category()){
-            
-            	global $wp_query;
+        if(is_product_category() || is_product() ){
+
+            $cate_id = false;
+            if( is_product() ){
+                global $post;
+                $categories = get_the_terms( $post->ID, 'product_cat' );
+                get_the_category();
+                $cate_id =  $categories[0]->term_id;
+
+                $found = false;
+                foreach( $categories as $c){
+                    if( $c ->parent == 0  && ! $found){
+                        $cate_id =  $c->term_id;
+                    }
+                }
+
+            }else{
+                global $wp_query;
                 $cat = $wp_query->get_queried_object();
-                $thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-                $image = wp_get_attachment_url( $thumbnail_id );
-                if ( $image ) {
-                    echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
-                } 
+                $cate_id = $cat->term_id;
+            }
+
+            $thumbnail_id = get_woocommerce_term_meta( $cate_id , 'thumbnail_id', true );
+            $image = wp_get_attachment_url( $thumbnail_id );
+
+            if ( $image ) {
+                echo '<div class="page-bg-cover category-slide-container"><div class="container"><div class="cover-img" style="background-image: url(\''.esc_url( $image ).'\');"></div></div></div>';
+            }
         }else{
 
             // shop page
@@ -281,20 +308,23 @@ function theme_header_class_callback($class, $position){
  */
 add_action( 'theme_after_footer', 'theme_after_footer_add_popup', 20 );
 function theme_after_footer_add_popup(){
-    $enable_popup = kt_option( 'enable_popup' );
-    $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
-    $content_popup = kt_option( 'content_popup' );
-    $time_show = kt_option( 'time_show', 0 );
-    
-    if( $enable_popup == 1 ){ 
-        if(!isset($_COOKIE['kt_popup'])){ ?>
-            <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo esc_attr( $disable_popup_mobile ); ?>" data-timeshow="<?php echo esc_attr($time_show); ?>">     
-                <div class="white-popup-block">
-                    <?php echo do_shortcode($content_popup); ?>
+    if( defined( 'LONDON_TOOLKIT_VER' ) ){
+        $enable_popup = kt_option( 'enable_popup' );
+        $disable_popup_mobile = kt_option( 'disable_popup_mobile' );
+        $content_popup = kt_option( 'content_popup' );
+        $time_show = kt_option( 'time_show', 0 );
+
+        if( $enable_popup == 1 ){
+            if(!isset($_COOKIE['kt_popup'])){ ?>
+                <div id="popup-wrap" class="mfp-hide" data-mobile="<?php echo esc_attr( $disable_popup_mobile ); ?>" data-timeshow="<?php echo esc_attr($time_show); ?>">
+                    <div class="white-popup-block">
+                        <?php echo do_shortcode($content_popup); ?>
+                    </div>
                 </div>
-            </div>
-        <?php }
+            <?php }
+        }
     }
+
 }
 
 

@@ -105,12 +105,20 @@ function london_scripts() {
     wp_enqueue_style( 'magnific-popup', THEME_CSS . 'magnific-popup.css', array());
     wp_enqueue_style( 'owl-carousel', THEME_LIBS . 'owl-carousel/owl.carousel.css', array());
     wp_enqueue_style( 'owl-carousel-theme', THEME_LIBS . 'owl-carousel/owl.theme.css', array());
-    wp_enqueue_style( 'easyzoom', THEME_CSS . 'easyzoom.css', array());
-    wp_enqueue_style( 'woocommerce-products-filter', THEME_CSS . 'woocommerce-products-filter.css', array());
-    
+
+    if( !is_single() ){
+       wp_enqueue_style( 'easyzoom', THEME_CSS . 'easyzoom.css', array());
+    }
 	// Load our main stylesheet.
     wp_enqueue_style( 'london-main', THEME_CSS . 'style.css', array( 'london-style' ), '20141010' );
-    wp_enqueue_style( 'woocommerce', THEME_CSS . 'woocommerce.css', array('london-main'));
+    if( kt_is_wc()  ){
+        if( is_woocommerce() ){
+            wp_enqueue_style( 'woocommerce-products-filter', THEME_CSS . 'woocommerce-products-filter.css', array());
+        }
+        wp_enqueue_style( 'woocommerce', THEME_CSS . 'woocommerce.css', array('london-main'));
+    }
+
+
     wp_enqueue_style( 'queries', THEME_CSS . 'queries.css', array('london-main'));
     
 	// Load the Internet Explorer specific stylesheet.
@@ -120,7 +128,6 @@ function london_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-    
     wp_enqueue_script( 'jquery-ui-tabs' );
     
     wp_enqueue_script( 'easing-script', THEME_JS . 'jquery.easing.1.3.js', array( 'jquery' ), null, true );
@@ -133,9 +140,12 @@ function london_scripts() {
     wp_enqueue_script( 'superfish-script', THEME_JS . 'jquery.superfish.custom.js', array( 'jquery', 'hoverIntent' ), null, true );
     wp_enqueue_script( 'magnific-popup-script', THEME_JS . 'jquery.magnific-popup.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'matchHeightscript', THEME_JS . 'jquery.matchHeight-min.js', array( 'jquery' ), null, true );
-    wp_enqueue_script( 'countdown-script', THEME_JS . 'jquery.countdown.min.js', array( 'jquery' ), null, true );
-    wp_enqueue_script( 'variations-plugin-script', THEME_JS . 'woo-variations-plugin.js', array( 'jquery' ), null, true );
-    wp_enqueue_script( 'easyzoom', THEME_JS . 'easyzoom.js', array( 'jquery' ), null, true );
+    if( !is_singular() ){
+        wp_enqueue_script( 'countdown-script', THEME_JS . 'jquery.countdown.min.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( 'variations-plugin-script', THEME_JS . 'woo-variations-plugin.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( 'easyzoom', THEME_JS . 'easyzoom.js', array( 'jquery' ), null, true );
+    }
+
     wp_enqueue_script( 'waypoints', THEME_JS . 'jquery.waypoints.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'kt_footer', THEME_JS . 'jquery.kt.footer.js', array( 'jquery' ), null, true );
     

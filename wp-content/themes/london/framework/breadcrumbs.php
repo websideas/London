@@ -205,9 +205,9 @@ class Breadcrumb_Trail {
         $breadcrumb = apply_filters( 'breadcrumb_trail', $breadcrumb, $this->args );
 
         if ( true === $this->args['echo'] )
-            echo $breadcrumb;
+            echo balanceTags( $breadcrumb  ) ;
         else
-            return $breadcrumb;
+            return balanceTags ( $breadcrumb  );
     }
 
     /**

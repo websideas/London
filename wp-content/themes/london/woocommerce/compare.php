@@ -47,7 +47,7 @@ $localized_table_text = function_exists( 'icl_translate' ) ? icl_translate( 'Plu
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width" />
-    <title><?php _e( 'Product Comparison', 'yit' ) ?></title>
+    <title><?php wp_title(); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" />

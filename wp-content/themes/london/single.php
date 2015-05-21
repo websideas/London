@@ -64,8 +64,9 @@ get_header(); ?>
                         ) );
                         ?>
                     </div><!-- .entry-content -->
-
                     <?php
+
+                    the_tags( '<div class="entry-tag">'.__('Tags:', THEME_LANG ).' ', ', ', '<div>' );
 
                     // If comments are open or we have at least one comment, load up the comment template.
                     if ( comments_open() || get_comments_number() ) :
