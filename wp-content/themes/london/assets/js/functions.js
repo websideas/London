@@ -89,8 +89,15 @@
             $(this).toggleClass('current');            
         });
 
+        $('body').on('click','.heading-nav-bar',function(e){
+            e.preventDefault();
+            var $objNav = $(this),
+                $objParrent = $(this).closest('.block-heading-tabs-wapper'),
+                $objTab = $objParrent.children('.block-heading-tabs-content');
+            $objNav.toggleClass('active');
+            $objTab.toggleClass('active');
 
-
+        });
 
     });
     
@@ -334,7 +341,9 @@
     						offset: "90%"
     					});
                         
-    				}
+    				}else{
+                        $product.addClass("no-effect");
+                    }
                 });
             }
         });

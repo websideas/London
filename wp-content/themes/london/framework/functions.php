@@ -428,6 +428,8 @@ function kt_nav_wrap() {
  *
  */
 function kt_add_page_loader(){
+    $page_loader = kt_option('page_loader', 1);
+    if($page_loader){
     ?>
     <div class="ktloader-wrapper">
         <div class="ktloader">
@@ -439,5 +441,8 @@ function kt_add_page_loader(){
         </div>
     </div>
     <?php
+    }
 }
 add_action('theme_body_top', 'kt_add_page_loader');
+
+

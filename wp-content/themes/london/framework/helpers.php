@@ -46,6 +46,73 @@ function kt_get_page_id(  $ID , $post_type= 'page'){
     return $ID;
 }
 
+
+/**
+ * Custom wpml
+ *
+ */
+
+function kt_custom_wpml(){
+    if(kt_is_wpml()){
+        $languages = icl_get_languages('skip_missing=0&orderby=code');
+        if(!empty($languages)){
+
+            foreach( $languages as $lang_k=>$lang ){
+                if( $lang['active'] ){
+                    $active_lang = $lang;
+                }
+            }
+
+            echo '<div class="kt-wpml-languages">';
+
+            if($active_lang['country_flag_url']){
+                printf(
+                    '<div class="current-language"><img src="%s" height="12" width="18" alt="%s" /><span>%s</span></div>',
+                    esc_url($active_lang['country_flag_url']),
+                    esc_attr($active_lang['language_code']),
+                    icl_disp_language($active_lang['native_name'], false)
+                );
+            }
+
+            echo '<ul>';
+            foreach($languages as $l){
+                echo '<li>';
+                if(!$l['active']) {
+                    echo '<a href="'.$l['url'].'">';
+                }else{
+                    echo '<span>';
+                }
+                    if($l['country_flag_url']){
+                        echo '<img src="'.$l['country_flag_url'].'" height="12" alt="'.$l['language_code'].'" width="18" />';
+                    }
+                    echo "<span>".icl_disp_language($l['native_name'], false)."</span>";
+                if(!$l['active']){
+                    echo '</a>';
+                }else{
+                    echo '<span>';
+                }
+                echo '</li>';
+            }
+            echo '</ul></div>';
+        }
+    }
+}
+
+/**
+ * Get class for wrapper mobile content
+ *
+ */
+function kt_class_mobile(){
+    $count = 1;
+    if(kt_is_wc()){
+        $count++;
+    }
+    if(kt_is_wpml()){
+        $count++;
+    }
+    echo 'tool-mobile-'.$count;
+}
+
 /**
  *
  * Detect plugin.

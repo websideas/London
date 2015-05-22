@@ -73,12 +73,17 @@ class WPBakeryShortCode_Category_Products_Tab extends WPBakeryShortCode {
                     $heading_class .= " block-heading-underline";
                 }
                 $output .= '<div class="'.esc_attr($heading_class).' block-heading-tabs-wapper clearfix">';
-                    $output .= '<h3>'.$term->name.'</h3>';
-                    $output .= "<ul class='block-heading-tabs'>";
+                    $output .= sprintf(
+                        '<h3>%s %s</h3>',
+                        '<a class="heading-nav-bar" href="#"><span class="heading-nav-handle"><span></span></span></a>',
+                        $term->name
+                    );
+
+                    $output .= "<div class='block-heading-tabs-content'><ul class='block-heading-tabs'>";
                         foreach( $tabs as $k=>$v ){
                             $output .= "<li><a href='#tab-".$k.'-'.$uniqeID."'>".$v."</a></li>";
                         }
-                    $output .= "</ul>";
+                    $output .= "</ul></div>";
                 $output .= "</div>";
                 
                 $meta_query = WC()->query->get_meta_query();

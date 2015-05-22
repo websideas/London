@@ -129,7 +129,10 @@ function kt_setting_script() {
         #calendar_wrap tbody td#today,
         .header-layout1 .shopping_cart > a:hover,
         .widget_product_tag_cloud a:hover, 
-        .widget_tag_cloud a:hover{
+        .widget_tag_cloud a:hover,
+        .header-layout1 .kt-wpml-languages:hover .current-language,
+        .kt-wpml-languages ul li a,
+        .kt-wpml-languages ul li > span{
             background-color: <?php echo esc_attr( $accent ); ?>;
         }
         .woocommerce ul.products.effect-bottom .product-image-container .product-quick-view{
@@ -152,7 +155,9 @@ function kt_setting_script() {
         .woocommerce a.remove:hover,
         blockquote, 
         .blockquote-reverse, 
-        blockquote.pull-right{
+        blockquote.pull-right,
+        .header-layout1 .kt-wpml-languages .current-language,
+        #header-content-mobile .kt-wpml-languages .current-language{
             border-color: <?php echo esc_attr( $accent ); ?>;
         }
         .tp-bullets .tp-rightarrow.round::after, 
@@ -195,7 +200,8 @@ function kt_setting_script() {
         .kt_testimonial_wrap .module-title, 
         .kt_product_carousel_wrap .module-title,
         .carousel-testimonials-wrapper .block-heading, 
-        .widget-products-carousel-wrapper .block-heading
+        .widget-products-carousel-wrapper .block-heading,
+        .ktloader > div
         {
             background-color: <?php echo esc_attr( $accent_brighter ) ; ?>;
         }
@@ -232,7 +238,9 @@ function kt_setting_script() {
 
         .woocommerce span.onsale,
         .woocommerce ul.products .added_to_cart,
-        #backtotop{
+        #backtotop,
+        .kt-wpml-languages ul li a:hover,
+        .kt-wpml-languages ul li > span:hover{
             background-color: <?php echo esc_attr( $accent_brighter_b ); ?>;
         }
 

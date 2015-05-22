@@ -8,4 +8,5 @@ if ( !defined('ABSPATH')) exit;
         <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="mobile-cart-link"></a>
     <?php } ?>
     <a href="#" class="mobile-nav-bar"><span class="mobile-nav-handle"><span></span></span></a>
+    <?php kt_custom_wpml(); ?>
 </div>
