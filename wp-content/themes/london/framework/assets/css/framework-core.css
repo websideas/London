@@ -8,6 +8,11 @@
      content: " ";
      clear: both;
      height: 0;
+
+
+     border-radius: 0;
+     
+
 }
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; }
@@ -262,4 +267,15 @@ div#post-body .rwmb-select{
 ===================================*/
 .section-heading{
     text-transform: uppercase;
+    border-radius: 0;
+    transition: all 1s ease-out;
+
 }
+
+
+
+
+
+
+
+

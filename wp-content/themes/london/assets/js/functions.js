@@ -10,8 +10,8 @@
     $(window).load(function(){
         
         // Page loader
-        $(".page-loader div").delay(0).fadeOut();
-        $(".page-loader").delay(200).fadeOut("slow");
+        $(".ktloader-wrapper div").delay(0).fadeOut();
+        $(".ktloader-wrapper").delay(300).fadeOut("slow");
         
         $(window).trigger("scroll");
         $(window).trigger("resize");
@@ -38,14 +38,15 @@
         init_productcarouselwoo();
         init_woocategories_products();
         init_wooanimation_products();
-        
+        init_woo_quantily();
+
+
         $('body.footer_fixed #footer').ktFooter();
 
         if( typeof $.easyZoom == "function" ){
             var $easyzoom = $('.easyzoom').easyZoom();
         }
 
-        woo_quantily();
 
         if( typeof ( $.mCustomScrollbar ) !== undefined ){
             $(window).bind('wc_fragments_loaded wc_fragments_refreshed', function (){
@@ -78,13 +79,19 @@
             
         });
         
-        $('.sidebar .widget_product_categories ul.product-categories li ul.children').parent().append('<span class="button-toggle"></span>');
-        $('.sidebar .widget_product_categories ul.product-categories li.current-cat ul.children').show();
-        $('.sidebar .widget_product_categories ul.product-categories li.current-cat-parent ul.children').show();
-        $('body').on('click','.sidebar .widget_product_categories ul.product-categories li .button-toggle',function(){
+        $('.widget_product_categories li ul.children').parent().append('<span class="button-toggle"></span>');
+        $('.widget_product_categories li.current-cat ul.children').show().next().addClass('current');
+        $('.widget_product_categories li.current-cat-parent ul.children').show().next().addClass('current');
+
+
+        $('body').on('click','.widget_product_categories .button-toggle',function(){
             $(this).prev('ul.children').slideToggle();
             $(this).toggleClass('current');            
         });
+
+
+
+
     });
     
     $(window).resize(function(){
@@ -114,7 +121,7 @@
     /* ---------------------------------------------
      Woocommercer Quantily
      --------------------------------------------- */
-     function woo_quantily(){
+     function init_woo_quantily(){
         $('body').on('click','.quantity .quantity-plus',function(){
             var obj_qty = $(this).closest('.quantity').find('input.qty'),
                 val_qty = parseInt(obj_qty.val()),

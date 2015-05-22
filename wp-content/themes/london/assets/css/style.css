@@ -98,6 +98,73 @@ img:not([draggable]), embed, object, video {
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
 }
+/* Page loader */
+.ktloader-wrapper{
+    display:block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fefefe;
+    z-index: 100000;
+}
+.no-js .ktloader-wrapper {
+    display: none;
+}
+.ktloader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -15px;
+    width: 50px;
+    height: 30px;
+    z-index: 100001;
+}
+.ktloader > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.ktloader .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.ktloader .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.ktloader .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.ktloader .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+    20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+    0%, 40%, 100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }  20% {
+           transform: scaleY(1.0);
+           -webkit-transform: scaleY(1.0);
+       }
+}
 /* ==============================
    2. Typography
    ============================== */
@@ -2982,3 +3049,6 @@ ul.kt_social_icons.large li a:focus{
 /** ================================================
 END SOCIAL
 /** ================================================ */
+
+
+

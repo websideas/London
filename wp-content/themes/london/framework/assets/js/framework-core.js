@@ -9,8 +9,7 @@
 
 (function($){
     $('document').ready(function() {
-        
-        
+
         /* SIDEBAR =====================================================*/
         var $sidebar_config = $('#_kt_sidebar'),
             $sidebar_left = $('#_kt_left_sidebar').closest('.rwmb-field'),
