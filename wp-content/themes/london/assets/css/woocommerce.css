@@ -1350,9 +1350,8 @@ ul.product-categories > li.cat-parent.current-cat > a{
     text-align: center;
     top: 0;
     width: 100%;
-    -webkit-animation: spin 2s ease-in-out infinite;
-    -moz-animation: spin 2s ease-in-out infinite;
-    animation: spin 2s ease-in-out infinite;
+    -webkit-animation: fa-spin 1s infinite steps(8);
+    animation: fa-spin 1s infinite steps(8);
 }
 .woocommerce ul.products .button:hover{
     background: #000;
@@ -1608,6 +1607,10 @@ ul.product-categories > li.cat-parent.current-cat > a{
 .woocommerce ul.products.lists .product-meta-wrapper .star-rating,
 .woocommerce ul.products.lists .product-item-tools{
     display: block;
+}
+.woocommerce ul.products.lists .added_to_cart{
+    left: 10px;
+    top: 10px;
 }
 .woocommerce ul.products.lists .product-item-tools span.price{
     margin: 55px 0 15px;

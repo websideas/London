@@ -4,6 +4,18 @@
 if ( !defined('ABSPATH')) exit;
 
 /**
+ * JavaScript Detection.
+ *
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ *
+ */
+function kt_javascript_detection() {
+    echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'kt_javascript_detection', 0 );
+
+
+/**
  * Change the path to the directory that contains demo data folders.
  *
  * @param [string] $demo_directory_path
@@ -14,7 +26,6 @@ if ( !defined('ABSPATH')) exit;
 function wbc_change_demo_directory_path( $demo_directory_path ) {
 	$demo_directory_path = THEME_DIR.'dummy-data/';
 	return $demo_directory_path;
-
 }
 add_filter('wbc_importer_dir_path', 'wbc_change_demo_directory_path' );
 
@@ -410,3 +421,23 @@ function kt_nav_wrap() {
 
   return $wrap;
 }
+
+
+/**
+ * Add preloader to
+ *
+ */
+function kt_add_page_loader(){
+    ?>
+    <div class="ktloader-wrapper">
+        <div class="ktloader">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    <?php
+}
+add_action('theme_body_top', 'kt_add_page_loader');

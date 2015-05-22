@@ -10,8 +10,8 @@
     $(window).load(function(){
         
         // Page loader
-        $(".page-loader div").delay(0).fadeOut();
-        $(".page-loader").delay(200).fadeOut("slow");
+        $(".ktloader-wrapper div").delay(0).fadeOut();
+        $(".ktloader-wrapper").delay(300).fadeOut("slow");
         
         $(window).trigger("scroll");
         $(window).trigger("resize");
@@ -85,6 +85,10 @@
             $(this).prev('ul.children').slideToggle();
             $(this).toggleClass('current');            
         });
+
+
+
+
     });
     
     $(window).resize(function(){
