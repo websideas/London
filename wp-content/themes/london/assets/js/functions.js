@@ -89,8 +89,15 @@
             $(this).toggleClass('current');            
         });
 
+        $('body').on('click','.heading-nav-bar',function(e){
+            e.preventDefault();
+            var $objNav = $(this),
+                $objParrent = $(this).closest('.block-heading-tabs-wapper'),
+                $objTab = $objParrent.children('.block-heading-tabs-content');
+            $objNav.toggleClass('active');
+            $objTab.toggleClass('active');
 
-
+        });
 
     });
     
@@ -193,6 +200,7 @@
                     setTimeout(function(){
                         $.magnificPopup.open({
                             items: { src: '#popup-wrap' },
+                            mainClass : 'mfp-zoom-in',
                             type: 'inline',
                             callbacks: {
                                 beforeClose: function() {
@@ -334,7 +342,9 @@
     						offset: "90%"
     					});
                         
-    				}
+    				}else{
+                        $product.addClass("no-effect");
+                    }
                 });
             }
         });
@@ -377,8 +387,9 @@
             $.post(ajax_frontend.ajaxurl, data, function(response) {
                 objProduct.removeClass('loading');
                 $.magnificPopup.open({
+                    mainClass : 'mfp-zoom-in',
     				items: {
-    					src: '<div class="themedev-product-popup woocommerce">' + response + '</div>',
+    					src: '<div class="themedev-product-popup woocommerce mfp-with-anim">' + response + '</div>',
     					type: 'inline'
     				},
                     callbacks: {

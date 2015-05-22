@@ -14,7 +14,6 @@ if ( ! isset( $content_width ) )
 
 
 
-
 add_action( 'after_setup_theme', 'theme_setup' );
 if ( ! function_exists( 'theme_setup' ) ):
 
@@ -263,7 +262,7 @@ if ( ! function_exists( 'kt_paging_nav' ) ) :
     /**
      * Display navigation to next/previous set of posts when applicable.
      *
-     * @since Twenty Fourteen 1.0
+     * @since London 1.0
      *
      * @global WP_Query   $wp_query   WordPress Query object.
      * @global WP_Rewrite $wp_rewrite WordPress Rewrite object.

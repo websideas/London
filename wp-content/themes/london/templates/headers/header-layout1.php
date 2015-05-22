@@ -12,6 +12,7 @@ if ( !defined('ABSPATH')) exit;
             <div class="display-td header-content-right">
                 <div class="header-content-top clearfix">
                     <?php echo woocommerce_get_cart(); ?>
+                    <?php kt_custom_wpml(); ?>
                     <?php woocommerce_get_tool();?>
                 </div><!-- .header-content-top -->
                 <div class="header-content-bottom clearfix">
@@ -24,7 +25,7 @@ if ( !defined('ABSPATH')) exit;
                 </div><!-- .header-content-bottom -->
             </div><!-- .header-content -->
         </div><!-- #header-wrap -->
-        <div id="mobile-content-all">
+        <div id="mobile-content-all" class="<?php kt_class_mobile(); ?>">
             <?php kt_search_form(); ?>
             <?php get_template_part( 'templates/headers/header', 'mobile'); ?>
         </div>

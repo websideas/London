@@ -1119,7 +1119,11 @@ ul.product-categories > li.cat-parent.current-cat > a{
     text-align: center;
 }
 .woocommerce ul.products li.product.in-multi-columns{
-    opacity:0
+    opacity:0;
+}
+.woocommerce ul.products li.product.in-multi-columns.no-effect,
+.no-js .woocommerce ul.products li.product.in-multi-columns{
+    opacity:1;
 }
 .woocommerce ul.products li.first{
     clear: both;
@@ -2641,6 +2645,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 *** =========================*/
 .shopping_cart{
     float: right;
+    margin-bottom: 5px;
     position: relative;
 }
 .shopping_cart > a{

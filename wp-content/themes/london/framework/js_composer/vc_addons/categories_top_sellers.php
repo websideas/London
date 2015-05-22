@@ -34,15 +34,20 @@ class WPBakeryShortCode_Categories_Top_Sellers extends WPBakeryShortCode {
             $heading_class = "block-heading block-heading-tabs-wapper block-heading-tabs-wapper clearfix";
             
             $output .= '<div class="'.$heading_class.'">';
-                $output .= '<h3>'.$title.'</h3>';
+                $output .= sprintf(
+                    '<h3>%s %s</h3>',
+                    '<a class="heading-nav-bar" href="#"><span class="heading-nav-handle"><span></span></span></a>',
+                    $title
+                );
+
                 if($categories){
-                    $output .= "<ul class='block-heading-tabs'>";
+                    $output .= "<div class='block-heading-tabs-content'><ul class='block-heading-tabs'>";
                         $categories_arr = explode(',', $categories);
                         foreach( $categories_arr as $category ){
                             $term = get_term( $category, 'product_cat' );
                             $output .= "<li><a href='#tab-".$term->slug.'-'.$uniqeID."'>".$term->name."</a></li>";
                         }
-                    $output .= "</ul>";
+                    $output .= "</ul></div>";
                 }
             $output .= '</div>';
             

@@ -233,7 +233,15 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default'  => 'no',
                         'clear' => false,
                     ),
-
+                    array(
+                        'id'		=> 'page_loader',
+                        'type'		=> 'switch',
+                        'title'		=> __( 'Page loader', THEME_LANG ),
+                        'subtitle'	=> __( 'Enable page loader when start.', THEME_LANG),
+                        "default"	=> '1',
+                        'on'		=> __( 'On', THEME_LANG ),
+                        'off'		=> __( 'Off', THEME_LANG ),
+                    ),
 
 
                 )

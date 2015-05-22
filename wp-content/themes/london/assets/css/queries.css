@@ -25,17 +25,16 @@ only screen and (min-resolution: 144dpi) {
 
 /* 3. Styles for devices(>=1200px) */
 @media (min-width: 1200px) {
-    *{}
+
 }
 
 /* 4. Styles for devices(>=992px and <=1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
-    *{}
+
 }
 
 /* 5. Styles for devices(<=1199px) */
 @media (max-width: 1199px) {
-    *{}
     .woocommerce ul.products.lists .product-image-container,
     .woocommerce ul.products.lists .product-meta-wrapper,
     .woocommerce ul.products.lists .product-item-tools{
@@ -45,7 +44,6 @@ only screen and (min-resolution: 144dpi) {
 
 /* 6. Styles for devices(<=991px ) */
 @media (max-width: 991px) {
-    *{}
     #header.is-sticky,
     .header-container.header-absolute{
         position: static!important;
@@ -78,11 +76,22 @@ only screen and (min-resolution: 144dpi) {
     .header-layout2 #header-inner,
     .header-layout3 #header-inner,
     #mobile-content-all{
-        padding: 0 75px 0 0;
+        padding: 0 37px 0 0;
         width: 100%;
         margin: 10px 0;
         position: relative;
     }
+    .header-layout2 #header-inner.tool-mobile-2,
+    .header-layout3 #header-inner.tool-mobile-2,
+    #mobile-content-all.tool-mobile-2{
+        padding-right: 75px;
+    }
+    .header-layout2 #header-inner.tool-mobile-3,
+    .header-layout3 #header-inner.tool-mobile-3,
+    #mobile-content-all.tool-mobile-3{
+        padding-right: 112px;
+    }
+
     .header-layout2 .header-content-bottom .searchform, 
     .header-layout3 .header-content-bottom .searchform{
         width: 100%;
@@ -124,7 +133,6 @@ only screen and (min-resolution: 144dpi) {
 /* 7. Styles for devices(>=768px and <= 991px) */
 /* 8. Styles for devices(<=767px ) */
 @media (max-width: 767px) {
-    *{}
     .themedev-product-popup h1.product_title{
         margin-top:10px;
     } 
@@ -142,7 +150,86 @@ only screen and (min-resolution: 144dpi) {
 }
 /* 10. Styles for devices(<=480px ) */
 @media (max-width: 480px) {
-    *{}
+    .block-heading-tabs-content{
+        display: none;
+    }
+    .heading-nav-bar,
+    .block-heading-tabs-content.active{
+        display: block;
+    }
+    .block-heading-tabs-wapper{
+        padding-bottom: 0;
+        border: none;
+    }
+    .block-heading-tabs-wapper h3{
+        float: none;
+        padding-bottom: 15px;
+        position: relative;
+    }
+    .block-heading-tabs-wapper.block-heading-underline h3{
+        border-bottom: 1px solid #cccccc;
+    }
+    .block-heading-tabs{
+        border: 1px solid #ccc;
+        clear: both;
+        display: block;
+        float: none;
+        margin: 0;
+        padding: 5px 10px;
+        text-align: left;
+        margin: -20px 0 25px;
+    }
+    .block-heading-tabs-wapper.block-heading-underline .block-heading-tabs{
+        border-top: 0;
+        margin-bottom: 0;
+    }
+    .block-heading-tabs li{
+        border-bottom: 1px solid #ccc;
+        display: block;
+        padding: 0;
+    }
+    .block-heading-tabs li:last-child{
+        border-bottom: none;
+    }
+    .block-heading-tabs li a{
+        display: block;
+        padding: 7px;
+    }
+    .categories-top-sellers-wrapper .block-heading-tabs-wapper h3{
+        margin-right: 0;
+    }
+    .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs{
+        float: none;
+        border: none;
+        padding: 0;
+        margin: -20px 0 25px;
+    }
+    .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li{
+        padding: 0;
+        border: none;
+    }
+    .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a{
+        display: block;
+        margin-bottom: 5px;
+    }
+
+
+    .mailchimp-form .input-group{
+        display: block;
+    }
+    .mailchimp-form .input-group .form-control,
+    .mailchimp-form .input-group-addon,
+    .mailchimp-form .input-group-btn{
+        display: block;
+        float: none;
+        margin-bottom: 10px;
+        width: 100%;
+        float: none;
+    }
+    .mailchimp-form .input-group-btn button{
+        width: 100%;
+    }
+
     .page-bg-cover .cover-img {
         height: 150px;
     }
@@ -234,7 +321,6 @@ only screen and (min-resolution: 144dpi) {
 }
 /* 11. Styles for devices(<=320px ) */
 @media (max-width: 320px) {
-    *{}
     .content-404 form{max-width: 320px;}
     .woocommerce table.shop_table td.actions .checkout-button, 
     .woocommerce table.shop_table td.actions input[name="update_cart"]{
