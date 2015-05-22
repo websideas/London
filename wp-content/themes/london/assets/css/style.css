@@ -783,7 +783,15 @@ select:not([multiple]) {
     background: #cccccc;
     color: #000;
 }
-
+#main-nav > ul > li.menu-logo .retina-logo,
+#main-nav > ul > li.menu-logo,
+.sticky .site-branding{
+    display: none;
+}
+.sticky #main-nav > ul > li.menu-logo{
+    display: inline-block;
+    padding:0;
+}
 /* ==============================
    8. Mobile menu
    ============================== */
@@ -1426,6 +1434,17 @@ body.admin-bar #header.is-sticky.sticky{
 .is-sticky .header-content-top{
     display: none;
 }
+.header-container #header.sticky #main-nav > ul > li.menu-logo a{
+    height:auto;
+    line-height:normal;
+    padding:0;
+    border:none;
+}
+.header-container #header.sticky #main-nav > ul > li.menu-logo{
+    float: left;
+    margin: 0;
+    padding: 0;
+}
 /*
  * 10.7 Header layout1
  */
@@ -1450,29 +1469,6 @@ body.admin-bar #header.is-sticky.sticky{
 .header-layout1 .site-branding{
     width: 10px;
 }
-/* Thang */
-#main-nav > ul > li.menu-logo .retina-logo,
-#main-nav > ul > li.menu-logo,
-.sticky .site-branding{
-    display: none;
-}
-.sticky #main-nav > ul > li.menu-logo{
-    display: inline-block;
-    padding:0;
-}
-.header-container #header.sticky #main-nav > ul > li.menu-logo a{
-    height:auto;
-    line-height:normal;
-    padding:0;
-    border:none;
-}
-.header-container #header.sticky #main-nav > ul > li.menu-logo{
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-/* Thang */
-
 
 #woocommerce-nav-mobile-wrapper{
     border-color: #000000;
@@ -1969,7 +1965,9 @@ body.footer_fixed .static-footer{
 .widget_designer .des-labels div:first-child {
     display: block;
 }
-
+.sidebar #calendar_wrap{
+    margin: -20px -20px -25px;
+}
 
 
 
@@ -2843,9 +2841,7 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 
 
 
-.sidebar #calendar_wrap{
-    margin: -20px -20px -25px;
-}
+
 
 .sidebar .widget-container.widget_kt_testimonials_carousel h3.widget-title{
     text-align: center;
@@ -2899,6 +2895,46 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     text-align: center;
     padding-right: 0;
 }
+/*
+ *  Socials
+ */
+ul.kt_social_icons{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+ul.kt_social_icons li{
+    display: inline-block;
+    margin:0 4px 10px 4px;
+}
+ul.kt_social_icons li:first-child{
+    margin-left:0;
+}
+ul.kt_social_icons li:last-child{
+    margin-right:0;
+}
+ul.kt_social_icons.large li a{
+    display: inline-block;
+    width:42px;
+    height:42px;
+    border:1px solid #ccc;
+    border-radius:50%;
+    text-align: center;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    font-size:17px;
+}
+ul.kt_social_icons.large li a i{
+    line-height: 42px;
+}
+ul.kt_social_icons.large li a:hover,
+ul.kt_social_icons.large li a:focus{
+    background: #333;
+    border-color: #333;
+    color:#fff;
+}
 /* ==============================
    16. Popup
    ============================== */
@@ -2935,7 +2971,34 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 #popup-wrap .mfp-close:active{ top:0; }
 
 
-
+.mfp-zoom-in {
+    /* start state */
+    /* animate in */
+    /* animate out */
+}
+.mfp-zoom-in .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+}
+.mfp-zoom-in.mfp-bg {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+.mfp-zoom-in.mfp-ready .mfp-with-anim {
+    opacity: 1;
+    transform: scale(1);
+}
+.mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+.mfp-zoom-in.mfp-removing .mfp-with-anim {
+    transform: scale(0.8);
+    opacity: 0;
+}
+.mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0;
+}
 
 
 /* ==============================
@@ -3212,50 +3275,6 @@ a.comment-reply-link:hover{
 .content-404 h3 { font-size: 14px; font-weight: bold; }
 .content-404 .buttons {  margin-top: 40px; }
 
-
-/** ================================================
-SOCIAL
-/** ================================================ */
-ul.kt_social_icons{
-    margin:0;
-    padding:0;
-    list-style: none;
-}
-ul.kt_social_icons li{
-    display: inline-block;
-    margin:0 4px 10px 4px;
-}
-ul.kt_social_icons li:first-child{
-    margin-left:0;
-}
-ul.kt_social_icons li:last-child{
-    margin-right:0;
-}
-ul.kt_social_icons.large li a{
-    display: inline-block;
-    width:42px;
-    height:42px;
-    border:1px solid #ccc;
-    border-radius:50%;
-    text-align: center;
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    font-size:17px;
-}
-ul.kt_social_icons.large li a i{
-    line-height: 42px;
-}
-ul.kt_social_icons.large li a:hover,
-ul.kt_social_icons.large li a:focus{
-    background: #333;
-    border-color: #333;
-    color:#fff;
-}
-/** ================================================
-END SOCIAL
-/** ================================================ */
 
 
 
