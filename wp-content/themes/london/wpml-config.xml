@@ -1,0 +1,8 @@
+<wpml-config>
+    <admin-texts>
+        <key name="london_option">
+            <key name="my-sample-textfield" />
+            <key name="my-sample-textarea" />
+        </key>
+    </admin-texts>
+</wpml-config>

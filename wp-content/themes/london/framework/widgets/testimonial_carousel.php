@@ -83,13 +83,13 @@ class kt_testimonials_carousel extends WP_Widget {
             <label for="<?php echo $this->get_field_id('orderby'); ?>">
                 <?php _e('Order by:', THEME_LANG ); ?></label>
             <select class="widefat" id="<?php echo $this->get_field_id('orderby'); ?>" name="<?php echo $this->get_field_name('orderby'); ?>">
-                <option <?php if ( 'name' == $orderby ) echo 'selected="selected"'; ?> value="name"><?php _e('Name','theme-dev-language') ?></option>
-                <option <?php if ( 'id' == $orderby ) echo 'selected="selected"'; ?> value="id"><?php _e('ID','theme-dev-language') ?></option>
-                <option <?php if ( 'date' == $orderby || $orderby == '') echo 'selected="selected"'; ?> value="date"><?php _e('Date','theme-dev-language') ?></option>
-                <option <?php if ( 'author' == $orderby ) echo 'selected="selected"'; ?> value="author"><?php _e('Author','theme-dev-language') ?></option>
-                <option <?php if ( 'modified' == $orderby ) echo 'selected="selected"'; ?> value="modified"><?php _e('Modified','theme-dev-language') ?></option>
-                <option <?php if ( 'rand' == $orderby ) echo 'selected="selected"'; ?> value="rand"><?php _e('Rand','theme-dev-language') ?></option>
-                <option <?php if ( 'comment_count ' == $orderby ) echo 'selected="selected"'; ?> value="comment_count "><?php _e('Comment count','theme-dev-language') ?></option>
+                <option <?php if ( 'name' == $orderby ) echo 'selected="selected"'; ?> value="name"><?php _e('Name', THEME_LANG) ?></option>
+                <option <?php if ( 'id' == $orderby ) echo 'selected="selected"'; ?> value="id"><?php _e('ID',THEME_LANG) ?></option>
+                <option <?php if ( 'date' == $orderby || $orderby == '') echo 'selected="selected"'; ?> value="date"><?php _e('Date',THEME_LANG) ?></option>
+                <option <?php if ( 'author' == $orderby ) echo 'selected="selected"'; ?> value="author"><?php _e('Author',THEME_LANG) ?></option>
+                <option <?php if ( 'modified' == $orderby ) echo 'selected="selected"'; ?> value="modified"><?php _e('Modified',THEME_LANG) ?></option>
+                <option <?php if ( 'rand' == $orderby ) echo 'selected="selected"'; ?> value="rand"><?php _e('Rand',THEME_LANG) ?></option>
+                <option <?php if ( 'comment_count ' == $orderby ) echo 'selected="selected"'; ?> value="comment_count "><?php _e('Comment count',THEME_LANG) ?></option>
             </select>
         </p>
         <p>

@@ -93,11 +93,11 @@ if ( !class_exists( 'ReduxFramework_wbc_importer' ) ) {
                     if ( !array_key_exists( 'imported', $imports ) ) {
                         $extra_class = 'not-imported';
                         $imported = false;
-                        $import_message = esc_html__( 'Import Demo', 'framework' );
+                        $import_message = esc_html__( 'Import Demo', THEME_LANG );
                     }else {
                         $imported = true;
                         $extra_class = 'active imported';
-                        $import_message = esc_html__( 'Demo Imported', 'framework' );
+                        $import_message = esc_html__( 'Demo Imported', THEME_LANG );
                     }
                     echo '<div class="wrap-importer theme '.$extra_class.'" data-demo-id="'.esc_attr( $section ).'"  data-nonce="' . $nonce . '" id="' . $this->field['id'] . '-custom_imports">';
 
@@ -114,11 +114,11 @@ if ( !class_exists( 'ReduxFramework_wbc_importer' ) ) {
 
                     echo '<div class="theme-actions">';
                     if ( false == $imported ) {
-                        echo '<div class="wbc-importer-buttons"><span class="spinner">'.esc_html__( 'Please Wait...', 'framework' ).'</span><span class="button-primary importer-button import-demo-data">' . __( 'Import Demo', 'framework' ) . '</span></div>';
+                        echo '<div class="wbc-importer-buttons"><span class="spinner">'.esc_html__( 'Please Wait...', THEME_LANG ).'</span><span class="button-primary importer-button import-demo-data">' . __( 'Import Demo', THEME_LANG ) . '</span></div>';
                     }else {
-                        echo '<div class="wbc-importer-buttons button-secondary importer-button">'.esc_html__( 'Imported', 'framework' ).'</div>';
-                        echo '<span class="spinner">'.esc_html__( 'Please Wait...', 'framework' ).'</span>';
-                        echo '<div id="wbc-importer-reimport" class="wbc-importer-buttons button-primary import-demo-data importer-button">'.esc_html__( 'Re-Import', 'framework' ).'</div>';
+                        echo '<div class="wbc-importer-buttons button-secondary importer-button">'.esc_html__( 'Imported', THEME_LANG ).'</div>';
+                        echo '<span class="spinner">'.esc_html__( 'Please Wait...', THEME_LANG ).'</span>';
+                        echo '<div id="wbc-importer-reimport" class="wbc-importer-buttons button-primary import-demo-data importer-button">'.esc_html__( 'Re-Import', THEME_LANG ).'</div>';
                     }
                     echo '</div>';
                     echo '</div>';
@@ -127,7 +127,7 @@ if ( !class_exists( 'ReduxFramework_wbc_importer' ) ) {
                 }
 
             } else {
-                echo "<h5>".esc_html__( 'No Demo Data Provided', 'framework' )."</h5>";
+                echo "<h5>".esc_html__( 'No Demo Data Provided', THEME_LANG )."</h5>";
             }
 
             echo '</div></div>';

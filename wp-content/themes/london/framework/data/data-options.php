@@ -247,6 +247,7 @@ if ( ! class_exists( 'KT_config' ) ) {
                 )
             );
 
+
             /**
 			 *	Logos
 			 **/
