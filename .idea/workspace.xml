@@ -68,10 +68,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1966" column="20" selection-start="46091" selection-end="46091" vertical-scroll-proportion="0.35128617" vertical-offset="44781" max-vertical-offset="75831">
+            <state line="1949" column="49" selection-start="45664" selection-end="45664" vertical-scroll-proportion="0.0" vertical-offset="44781" max-vertical-offset="75831">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data-plugins.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="41" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.6680498" vertical-offset="437" max-vertical-offset="3082">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layerslider.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/LayerSlider/layerslider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="33" selection-start="1099" selection-end="1104" vertical-scroll-proportion="-21.23077" vertical-offset="0" max-vertical-offset="4209">
               <folding />
             </state>
           </provider>
@@ -323,6 +341,7 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/changelogs.txt" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/widgets/designer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php" />
       </list>
     </option>
   </component>
@@ -1114,7 +1133,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="london-toolkit" />
+              <option name="myItemId" value="LayerSlider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1524,7 +1543,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1966" column="20" selection-start="46091" selection-end="46091" vertical-scroll-proportion="0.35128617" vertical-offset="44781" max-vertical-offset="75831">
+        <state line="1949" column="49" selection-start="45664" selection-end="45664" vertical-scroll-proportion="0.0" vertical-offset="44781" max-vertical-offset="75831">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/LayerSlider/layerslider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="33" selection-start="1099" selection-end="1104" vertical-scroll-proportion="-21.23077" vertical-offset="0" max-vertical-offset="4209">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/data/data-plugins.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="41" selection-start="3040" selection-end="3040" vertical-scroll-proportion="0.6680498" vertical-offset="437" max-vertical-offset="3082">
           <folding />
         </state>
       </provider>
