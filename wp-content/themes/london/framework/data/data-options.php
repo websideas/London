@@ -51,9 +51,11 @@ if ( ! class_exists( 'KT_config' ) ) {
 
             $theme = wp_get_theme(); // For use with some settings. Not necessary.
 
+            // echo var_dump(ICL_LANGUAGE_CODE); die();
+
             $this->args = array(
                 // TYPICAL -> Change these values as you need/desire
-                'opt_name'             => THEME_OPTIONS,
+                'opt_name'             => apply_filters('theme_option_name', THEME_OPTIONS ),
                 // This is where your data is stored in the database and also becomes your global variable name.
                 'display_name'         => $theme->get( 'Name' ),
                 // Name that appears at the top of your panel

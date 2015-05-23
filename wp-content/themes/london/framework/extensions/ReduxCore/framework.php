@@ -835,6 +835,7 @@
                  *
                  * @param mixed $value option values
                  */
+                // echo "redux/options/{$this->args['opt_name']}/options";
                 $this->options = apply_filters( "redux/options/{$this->args['opt_name']}/options", $this->options );
 
                 // Get transient values

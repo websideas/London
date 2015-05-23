@@ -314,11 +314,19 @@ if (!function_exists('kt_option')){
         if($option === FALSE){
             return FALSE;
         }
-        $kt_options = wp_cache_get( THEME_OPTIONS );
+        $option_name =  apply_filters('theme_option_name', THEME_OPTIONS );
+        $kt_options = wp_cache_get( $option_name );
         if(  !$kt_options ){
-            $kt_options = get_option( THEME_OPTIONS );
-            wp_cache_delete( THEME_OPTIONS );
-            wp_cache_add( THEME_OPTIONS, $kt_options );
+
+            $kt_options = get_option( $option_name );
+            if( empty($kt_options)  ){
+                // get default theme option
+                if( defined('ICL_LANGUAGE_CODE') ){
+                    $kt_options = get_option( THEME_OPTIONS );
+                }
+            }
+            wp_cache_delete( $option_name );
+            wp_cache_add( $option_name, $kt_options );
         }
 
         if(isset($kt_options[$option]) && $kt_options[$option] !== ''){
