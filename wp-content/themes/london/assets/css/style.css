@@ -1963,6 +1963,9 @@ body.footer_fixed .static-footer{
 .widget_designer .des-labels div { 
     display: none;
 }
+.widget_designer .des-labels div a {
+    color : #ffffff;
+}
 .widget_designer .des-labels div:first-child {
     display: block;
 }

@@ -198,7 +198,12 @@ class KT_WC_Designer extends WC_Widget {
         echo '<div id="widget-'.$id.'" class="widget-title des-labels">';
             foreach( $collection_ids as $collection_id ){
                 echo '<div class="designer-id-'.$collection_id.'">';
-                echo sprintf( __( 'Collection by %s', THEME_LANG ), get_the_title(   rwmb_meta( '_kt_designer' , false, $collection_id ) ) );
+                $des_id =   rwmb_meta( '_kt_designer' , false, $collection_id ) ;
+                echo sprintf( __( 'Collection by <a href="%1$s" title="%2$s">%3$s</a>', THEME_LANG ),
+                    get_permalink(  $des_id ) ,
+                    get_the_title(  $des_id ) ,
+                    get_the_title(  $des_id )
+                );
                 echo '</div>';
             }
         echo '</div>';
