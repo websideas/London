@@ -18,6 +18,7 @@
                 <div class="col-md-4 text-right header-content-right">
                     <?php woocommerce_get_tool(); ?>
                     <?php echo woocommerce_get_cart(); ?>
+                    <?php kt_custom_wpml(); ?>
                 </div>
             </div><!-- .row -->
         </div>

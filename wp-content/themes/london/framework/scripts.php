@@ -132,7 +132,8 @@ function kt_setting_script() {
         .widget_tag_cloud a:hover,
         .header-layout1 .kt-wpml-languages:hover .current-language,
         .kt-wpml-languages ul li a,
-        .kt-wpml-languages ul li > span{
+        .kt-wpml-languages ul li > span,
+        .woocommerce .functional-buttons .yith-wcwl-add-button .ajax-loading{
             background-color: <?php echo esc_attr( $accent ); ?>;
         }
         .woocommerce ul.products.effect-bottom .product-image-container .product-quick-view{

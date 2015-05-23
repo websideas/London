@@ -388,6 +388,8 @@
                 objProduct.removeClass('loading');
                 $.magnificPopup.open({
                     mainClass : 'mfp-zoom-in',
+                    fixedContentPos: false,
+                    fixedBgPos: true,
     				items: {
     					src: '<div class="themedev-product-popup woocommerce mfp-with-anim">' + response + '</div>',
     					type: 'inline'
@@ -406,6 +408,11 @@
                             $('.mfp-container .woocommerce-countdown').remove();
 
     	        			$('.themedev-product-popup form').wc_variation_form();
+
+
+                            $('.woocommerce ul.products li .product-item-container').trigger('mouseout');
+
+
     	        		},
     	        		change: function() {	        			
     	        			$('.themedev-product-popup form').wc_variation_form();

@@ -23,11 +23,11 @@ function register_post_type_init() {
         'hierarchical' => true,
         'show_ui' => true,
         'show_in_menu' => true,
-        'show_in_nav_menus' => false,
-        'supports' 	=> array( 'title', 'thumbnail', 'page-attributes'),
-        'rewrite'            => false,
-        'query_var'          => false,
-        'publicly_queryable' => false,
+        'show_in_nav_menus' => true,
+        'supports' 	=> array( 'title', 'thumbnail', 'page-attributes', 'editor'),
+        'rewrite'            => true,
+        'query_var'          => true,
+        'publicly_queryable' => true,
         'public'             => true
     );
 
