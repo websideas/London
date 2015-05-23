@@ -495,7 +495,7 @@ function kt_sidebar(){
         'sidebar_area' => $sidebar_area        
     );
     
-    if(is_page() || is_singular('post')){
+    if(is_page() || is_singular('post') || is_singular('designer')){
         $sidebar_post = rwmb_meta('_kt_sidebar');
         if($sidebar_post != 'default' && $sidebar_post){
             $layout_sidebar['sidebar'] = $sidebar_post;
@@ -599,4 +599,57 @@ function render_data_carousel($data){
         }
     }
     return $output;
+}
+
+
+/**
+ * Get carousel products for collection.
+ *
+ *
+ */
+function get_carousel_products_collection($collection_id, $atts = array()){
+
+    extract( shortcode_atts( array(
+        'theme' => 'style-navigation-top',
+        'desktop' => 4,
+        'tablet' => 2,
+        'mobile' => 1,
+    ), $atts ) );
+
+    $args = array(
+        'posts_per_page'	=> -1,
+        'post_status' 		=> 'publish',
+        'post_type' 		=> 'product',
+        'meta_query' => array(
+            array(
+                'key'     => '_kt_collection',
+                'value'   => $collection_id,
+                'compare' => '=',
+            ),
+        ),
+    );
+    $output = '';
+
+    $args =  apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) ;
+    $products = new WP_Query( $args );
+
+    global $woocommerce_loop;
+    $woocommerce_loop['columns'] =  $desktop;
+
+
+    if ( $products->have_posts() ) :
+        $itemscustom = '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]';
+        $output .= '<div class="woocommerce-carousel-wrapper" data-theme="'.$theme.'" data-itemscustom="'.$itemscustom.'">';
+        ob_start();
+        woocommerce_product_loop_start();
+        while ( $products->have_posts() ) : $products->the_post();
+            wc_get_template_part( 'content', 'product' );
+        endwhile; // end of the loop.
+        woocommerce_product_loop_end();
+        $output .= '<div class="woocommerce  columns-' . $desktop . '">' . ob_get_clean() . '</div>';
+        $output .= '</div><!-- .woocommerce-carousel-wrapper -->';
+    endif;
+    wp_reset_postdata();
+
+    echo $output;
 }

@@ -79,7 +79,9 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
 
                                     $output .= '<div class="designer-collection-item" data-id="'.get_the_ID().'">';
                                         if(has_post_thumbnail($designer_id)){
+                                            $output .= '<a href="'.get_the_permalink().'">';
                                             $output .= get_the_post_thumbnail( $designer_id , 'full', array('class'=>"img-responsive"));
+                                            $output .= '</a>';
                                         }
                                         $output .= sprintf(
                                                         '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
@@ -114,7 +116,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                         			'post_type' 		=> 'product',
                                     'meta_query' => array(
                                         array(
-                                            'key'     => '_kt_collection',
+                                            'key'     => '_kt_colection',
                                             'value'   => $collection_id,
                                             'compare' => '=',
                                         ),

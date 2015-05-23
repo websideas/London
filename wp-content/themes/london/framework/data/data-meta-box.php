@@ -21,7 +21,7 @@ function kite_register_meta_boxes( $meta_boxes )
     $meta_boxes[] = array(
         'id' => 'page_meta_boxes',
         'title' => 'Page Options',
-        'pages' => array( 'page', 'post' ),
+        'pages' => array( 'page', 'post', 'designer' ),
         'context' => 'normal',
         'priority' => 'high',
         'fields' => array(
@@ -219,10 +219,48 @@ function kite_register_meta_boxes( $meta_boxes )
 
         )
     );
-    
-    
+
     /**
      * For Products Designer
+     *
+     */
+
+    $meta_boxes[] = array(
+        'id' => 'designer_layout',
+        'title' => __('Designer single Layout', THEME_LANG),
+        'pages' => array( 'designer' ),
+        'context' => 'normal',
+        'priority' => 'default',
+        'fields' => array(
+
+            array(
+                'name' => __('Desktop', THEME_LANG),
+                'id' => $prefix . 'desktop',
+                'desc' => __('Number column to display in desktop', THEME_LANG),
+                'type'  => 'number',
+                'std'  =>'4'
+            ),
+            array(
+                'name' => __('Tablet', THEME_LANG),
+                'id' => $prefix . 'tablet',
+                'desc' => __('Number column to display in tablet', THEME_LANG),
+                'type'  => 'number',
+                'std'  =>'2'
+            ),
+            array(
+                'name' => __('Mobile', THEME_LANG),
+                'id' => $prefix . 'mobile',
+                'desc' => __('Number column to display in mobile', THEME_LANG),
+                'desc' => "",
+                'type'  => 'number',
+                'std'  =>'1'
+            ),
+
+        )
+    );
+    
+    /**
+     * For Products collection
      * 
      */
     
@@ -235,7 +273,7 @@ function kite_register_meta_boxes( $meta_boxes )
         'fields' => array(
             array(
                 'name' => __('Designer', THEME_LANG),
-                'id' => $prefix . 'designer',
+                'id' => $prefix . 'colection',
                 'type' => 'post',
                 'query_args' => array('post_type' => 'designer', 'posts_per_page' => '-1'),
                 'post_type' => 'designer',

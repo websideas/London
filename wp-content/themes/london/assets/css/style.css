@@ -37,6 +37,7 @@
     17.4. Comments
 18. Page Content
     18.1. 404 Page
+    18.2. Desinger page
 
 -------------------------------------------------------------------*/
 
@@ -3275,6 +3276,13 @@ a.comment-reply-link:hover{
 .content-404 h3 { font-size: 14px; font-weight: bold; }
 .content-404 .buttons {  margin-top: 40px; }
 
+/*
+ * 18.2. Desinger page
+ */
 
-
-
+.desinger-content-wrapper{
+    margin-bottom: 25px;
+}
+.designer-colection-item{
+    margin-bottom: 25px;
+}

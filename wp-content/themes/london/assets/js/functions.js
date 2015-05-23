@@ -375,7 +375,7 @@
      --------------------------------------------- */
     function init_ProductQuickView(){
         $('body').on('click', '.product-quick-view', function(e){
-            e.preventDefault();
+            //e.preventDefault();
             var objProduct = $(this);
             objProduct.addClass('loading');
             var data = {
@@ -406,20 +406,24 @@
             				});
 
                             $('.mfp-container .woocommerce-countdown').remove();
-
     	        			$('.themedev-product-popup form').wc_variation_form();
 
-
-                            $('.woocommerce ul.products li .product-item-container').trigger('mouseout');
-
-
     	        		},
+                        close: function(){
+                            objProduct.closest('.functional-buttons').css('display','none');
+                            setTimeout(function(){
+                                objProduct.closest('.functional-buttons').removeAttr('style');
+                            }, 50 );
+                           // console.debug(objProduct.closest('.product'));
+                        },
     	        		change: function() {	        			
     	        			$('.themedev-product-popup form').wc_variation_form();
     	        		}
     	        	}
     			});
             });
+
+            return false;
         });
     }
     
