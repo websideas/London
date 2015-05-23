@@ -82,15 +82,17 @@ if ( ! class_exists( 'RWMB_Post_Field' ) )
 		{
 			$options = array();
 			$query   = new WP_Query( $field['query_args'] );
-			if ( $query->have_posts() )
+            $posts =  $query->get_posts();
+			if ( $posts )
 			{
-				while ( $query->have_posts() )
+				foreach( $posts as $p )
 				{
-					$post               = $query->next_post();
-					$options[$post->ID] = '#'.$post->ID.' - '.$post->post_title;
+
+					$options[$p->ID] = '#'.$p->ID.' - '.$p->post_title;
                     if(  $field['post_type']  == 'collection'){
-                        $des_id = get_post_meta( $post->ID, '_kt_designer', true );
-                        $options[$post->ID] .= ' '.sprintf( __('by %s', THEME_LANG ), get_the_title( $des_id ) ) ;
+                        $des_id = get_post_meta( $p->ID, '_kt_designer', true );
+                         echo  $p->ID."-,<br/>";
+                        $options[$p->ID] .= ' '.sprintf( __('by %s', THEME_LANG ), get_the_title( $des_id ) ) ;
                     }
 				}
 			}

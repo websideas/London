@@ -1,1 +1,10 @@
-Version 1.0: Initial
+== Changelog ==
+
+= 1.1 (May 23, 2015) =
+* New desginer single page.
+* WPML support.
+* Effect loading when load page.
+
+
+= 1.1 =
+* Initial

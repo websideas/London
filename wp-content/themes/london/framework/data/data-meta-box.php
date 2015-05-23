@@ -273,7 +273,7 @@ function kite_register_meta_boxes( $meta_boxes )
         'fields' => array(
             array(
                 'name' => __('Designer', THEME_LANG),
-                'id' => $prefix . 'colection',
+                'id' => $prefix . 'designer',
                 'type' => 'post',
                 'query_args' => array('post_type' => 'designer', 'posts_per_page' => '-1'),
                 'post_type' => 'designer',

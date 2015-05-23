@@ -84,7 +84,9 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                                             $output .= '</a>';
                                         }
                                         $output .= sprintf(
-                                                        '<p class="info"><span class="name">%s</span>&nbsp;<span class="company">%s</span></p>',
+                                                        '<p class="info"><a href="%1$s" title="%2$s"><span class="name">%3$s</span></a>&nbsp;<span class="company">%4$s</span></p>',
+                                                        get_permalink( $designer_id ),
+                                                        get_the_title( $designer_id ),
                                                         get_the_title( $designer_id ),
                                                         rwmb_meta( '_kt_description', false, $designer_id )
                                                     );
@@ -116,7 +118,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                         			'post_type' 		=> 'product',
                                     'meta_query' => array(
                                         array(
-                                            'key'     => '_kt_colection',
+                                            'key'     => '_kt_collection',
                                             'value'   => $collection_id,
                                             'compare' => '=',
                                         ),

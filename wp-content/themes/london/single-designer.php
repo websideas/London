@@ -34,10 +34,16 @@ get_header(); ?>
                     <h1 class="page-title"><?php the_title(); ?></h1>
                     <?php
                     if( rwmb_meta('_kt_show_taglitle') ){
-                        $tagline =  rwmb_meta('_kt_tagline');
+
+                        $tagline =  trim(rwmb_meta('_kt_tagline'));
+                        if( $tagline == '' ){
+                            $tagline = trim(rwmb_meta('_kt_description'));
+                        }
                         if( $tagline !='' ){ ?>
                             <div class="term-description"><p><?php echo esc_html( $tagline ); ?></p></div>
                         <?php }
+                    }else{
+
                     }
                 } ?>
                 <div class="clear"></div>
@@ -52,7 +58,21 @@ get_header(); ?>
                 }
 
                 // Include the page content template.
-                get_template_part( 'content', 'page' );
+               ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <div class="entry-content">
+                        <?php
+                        global $post;
+                        if( $post->post_content !='' ){
+                            the_content();
+                        }else{
+                            echo do_shortcode(rwmb_meta('_kt_info'));
+                        }
+                        ?>
+                    </div><!-- .entry-content -->
+                </article><!-- #post-## -->
+
+                <?php
 
                 if(has_post_thumbnail()){
                     echo "</div></div>";
@@ -61,13 +81,14 @@ get_header(); ?>
                 ?>
 
                 <?php
-
                 $args = array(
                     'post_type' => 'collection',
                     'posts_per_page' => -1,
+                    'orderby' => 'date',
+                    'order' => 'desc',
                     'meta_query' => array(
                         array(
-                            'key'     => '_kt_colection',
+                            'key'     => '_kt_designer',
                             'value'   => $designer_id,
                             'compare' => ''
                         ),
@@ -106,8 +127,6 @@ get_header(); ?>
                 wp_reset_postdata();
 
                 ?>
-
-
 
             </div>
             <?php if($sidebar['sidebar'] != 'full'){ ?>
