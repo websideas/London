@@ -79,7 +79,7 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
 
                                     $output .= '<div class="designer-collection-item" data-id="'.get_the_ID().'">';
                                         if(has_post_thumbnail($designer_id)){
-                                            $output .= '<a href="'.get_the_permalink().'">';
+                                            $output .= '<a href="'.get_permalink($designer_id).'">';
                                             $output .= get_the_post_thumbnail( $designer_id , 'full', array('class'=>"img-responsive"));
                                             $output .= '</a>';
                                         }

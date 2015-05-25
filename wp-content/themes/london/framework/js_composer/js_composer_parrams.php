@@ -148,7 +148,7 @@ function vc_kt_posts_settings_field($settings, $value) {
 	}
 
     $terms_fields = array();
-    if($settings['placeholder']){
+    if(isset($settings['placeholder'])){
         $terms_fields[] = "<option value=''>".$settings['placeholder']."</option>";
     }
     
