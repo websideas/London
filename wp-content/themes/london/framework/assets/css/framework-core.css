@@ -232,21 +232,19 @@ div#post-body .rwmb-select{
 * Disable post-preview for some post type
 ===================================*/
 
-/*
-.post-type-designer #post-preview{
+.post-type-collection #post-preview{
     display: none;
 }
-.post-type-designer #preview-action:before{
+.post-type-collection #preview-action:before{
     content: ' ';
     color: red;
     text-align: left;
     display: block;
     
 }
-.post-type-designer #titlediv div.inside{
+.post-type-collection #titlediv div.inside{
     display: none;
 }
-*/
 /*==================================
 * WBC Importer
 ===================================*/

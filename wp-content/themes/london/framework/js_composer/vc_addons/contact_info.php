@@ -11,14 +11,21 @@ class WPBakeryShortCode_Contact_Info extends WPBakeryShortCode {
             'phone' => '',
             'email' => '',
             'el_class' => '',
+            'css_animation' => '',
             'css' => ''
         ), $atts ) );
-        
-        $el_class = $this->getExtraClass($el_class);
-        $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'contact-info-wrapper ' . $el_class . vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
-        
+
+        $elementClass = array(
+            'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'contact-info-wrapper ', $this->settings['base'], $atts ),
+            'extra' => $this->getExtraClass( $el_class ),
+            'css_animation' => $this->getCSSAnimation( $css_animation ),
+            'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
+        );
+
+        $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
+
         $output = '';
-        $output .= '<div class="'.esc_attr( $css_class ).'">';
+        $output .= '<div class="'.esc_attr( $elementClass ).'">';
             $output .= ($title) ? '<h3 class="title_block">'.$title.'</h3>' : '';
             $output .= '<ul class="contact-info-ul">';
             	$output .= ($address) ? '<li><i class="fa fa-map-marker"></i>'.$address.'</li>' : '';
@@ -64,6 +71,21 @@ vc_map( array(
             "param_name" => "email",
             "description" => "",
             "admin_label" => true,
+        ),
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'CSS Animation', 'js_composer' ),
+            'param_name' => 'css_animation',
+            'admin_label' => true,
+            'value' => array(
+                __( 'No', 'js_composer' ) => '',
+                __( 'Top to bottom', 'js_composer' ) => 'top-to-bottom',
+                __( 'Bottom to top', 'js_composer' ) => 'bottom-to-top',
+                __( 'Left to right', 'js_composer' ) => 'left-to-right',
+                __( 'Right to left', 'js_composer' ) => 'right-to-left',
+                __( 'Appear from center', 'js_composer' ) => "appear"
+            ),
+            'description' => __( 'Select type of animation if you want this element to be animated when it enters into the browsers viewport. Note: Works only in modern browsers.', 'js_composer' )
         ),
         array(
             "type" => "textfield",

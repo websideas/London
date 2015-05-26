@@ -65,9 +65,6 @@ class WPBakeryShortCode_Blog_Posts_Carousel extends WPBakeryShortCode {
             }
         }
         
-        // The Query
-        $the_query = new WP_Query( $args );
-        
         $elementClass = array(
         	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'recent-posts-carousel-wrapper ', $this->settings['base'], $atts ),
         	'extra' => $this->getExtraClass( $el_class ),

@@ -84,6 +84,9 @@ img:not([draggable]), embed, object, video {
     display: table-cell;
     vertical-align: middle;
 }
+.col-clearfix{
+    clear: both;
+}
 .round{
     -webkit-border-radius: 2px !important;
     -moz-border-radius: 2px !important;
@@ -2938,6 +2941,32 @@ ul.kt_social_icons.large li a:focus{
     background: #333;
     border-color: #333;
     color:#fff;
+}
+/*
+ *  Designers
+ */
+.designers-masonry-wrapper{
+    margin-bottom: 15px;
+}
+.designer-post-item-wrapper{
+    padding-bottom: 30px;
+}
+.designer-post-item-wrapper .designer-post-item{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.designer-post-item p.info{
+    display: block;
+    margin: 10px 0 15px;
+    position: relative;
+}
+.designer-post-item p.info .name {
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    font-size: 18px;
+    line-height: normal;
+    margin-right: 5px;
+    padding-bottom: 5px;
 }
 /* ==============================
    16. Popup
