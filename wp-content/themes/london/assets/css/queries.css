@@ -23,21 +23,17 @@ only screen and (min-resolution: 144dpi) {
    .site-branding .site-logo.retina-logo-wrapper .default-logo { display: none; }
 }
 
-/* 3. Styles for devices(>=1200px) */
+/* 2. Styles for devices(>=1200px) */
 @media (min-width: 1200px) {
     .col-clearfix-lg {
         clear: both;
     }
 }
-
-/* 4. Styles for devices(>=992px and <=1199px) */
+/* 3. Styles for devices(>=992px and <=1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .col-clearfix-md {
-        clear: both;
-    }
-}
 
-/* 5. Styles for devices(<=1199px) */
+}
+/* 4. Styles for devices(<=1199px) */
 @media (max-width: 1199px) {
     .woocommerce ul.products.lists .product-image-container,
     .woocommerce ul.products.lists .product-meta-wrapper,
@@ -45,9 +41,15 @@ only screen and (min-resolution: 144dpi) {
         width: 33%;
     }
 }
-
+/* 5. Styles for devices(>=992px) */
+@media (min-width: 992px) {
+    .col-clearfix-md {
+        clear: both;
+    }
+}
 /* 6. Styles for devices(<=991px ) */
 @media (max-width: 991px) {
+
     #header.is-sticky,
     .header-container.header-absolute{
         position: static!important;
@@ -136,9 +138,9 @@ only screen and (min-resolution: 144dpi) {
 }
 /* 7. Styles for devices(>=768px and <= 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
-    .col-clearfix-sm {
+    /*.col-clearfix-sm {
         clear: both;
-    }
+    }*/
 }
 
 /* 8. Styles for devices(<=767px ) */

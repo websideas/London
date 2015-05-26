@@ -11,7 +11,9 @@ class WPBakeryShortCode_Designers extends WPBakeryShortCode {
             'meta_key' => '',
             'order' => 'DESC',
             'max_items' => 10,
-            'element_width' => 4,
+            'element_width_desktop' => 4,
+            'element_width_tablet' => 6,
+            'element_width_mobile' => 12,
             'el_class' => '',
             'css_animation' => '',
             'css' => ''
@@ -45,13 +47,15 @@ class WPBakeryShortCode_Designers extends WPBakeryShortCode {
         if ( $query->have_posts() ) :
             $output .= '<div class="designers-masonry-content row">';
             $i =0;
-            $column = intval(12 / $element_width);
+            $column_desktop = intval(12 / $element_width_desktop);
+            $column_tablet = intval(12 / $element_width_tablet);
 
 
             while ( $query->have_posts() ) : $query->the_post();
-                $clearfix = ($i % $column == 0) ? 'col-clearfix' : '';
+                $clearfix_desktop = ($i % $column_desktop == 0) ? 'col-clearfix-md' : '';
+                $clearfix_tablet = ($i % $column_tablet == 0) ? 'col-clearfix-sm' : '';
 
-                $output .= '<div class="designer-post-item-wrapper col-md-'.$element_width.' col-sm-'.$element_width.' col-xs-12 '.$clearfix.'">';
+                $output .= '<div class="designer-post-item-wrapper col-md-'.$element_width_desktop.' col-sm-'.$element_width_tablet.' col-xs-12 '.$clearfix_desktop.' '.$clearfix_tablet.'">';
                 $output .= '<div class="designer-post-item">';
 
                 if(has_post_thumbnail()){
@@ -100,10 +104,18 @@ vc_map( array(
             'param_holder_class' => 'vc_not-for-custom',
             'description' => __( 'Set max limit for items in grid or enter -1 to display all (limited to 1000).', 'js_composer' )
         ),
+
+        array(
+            "type" => "kt_heading",
+            "heading" => __("Grid elements per row", THEME_LANG),
+            "param_name" => "element_width_heading",
+        ),
+
+
         array(
             'type' => 'dropdown',
-            'heading' => __( 'Grid elements per row', 'js_composer' ),
-            'param_name' => 'element_width',
+            'heading' => __( 'Desktop', 'js_composer' ),
+            'param_name' => 'element_width_desktop',
             'value' => array(
                 "- 6 -" => '2',
                 "- 4 -" => '3' ,
@@ -112,7 +124,38 @@ vc_map( array(
                 "- 1 -" => '12'
             ),
             'std' => '4',
-            'description' => __( 'Select number of single grid elements per row.', 'js_composer' ),
+            "edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+            'description' => __( 'Select number of single grid elements per row in desktop.', 'js_composer' ),
+        ),
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Tablet', 'js_composer' ),
+            'param_name' => 'element_width_tablet',
+            'value' => array(
+                "- 6 -" => '2',
+                "- 4 -" => '3' ,
+                "- 3 -" => '4' ,
+                "- 2 -" => '6' ,
+                "- 1 -" => '12'
+            ),
+            'std' => '6',
+            "edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+            'description' => __( 'Select number of single grid elements per row in tablet.', 'js_composer' ),
+        ),
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Mobile', 'js_composer' ),
+            'param_name' => 'element_width_mobile',
+            'value' => array(
+                "- 6 -" => '2',
+                "- 4 -" => '3' ,
+                "- 3 -" => '4' ,
+                "- 2 -" => '6' ,
+                "- 1 -" => '12'
+            ),
+            'std' => '12',
+            "edit_field_class" => "vc_col-sm-4 kt_margin_bottom",
+            'description' => __( 'Select number of single grid elements per row in mobile.', 'js_composer' ),
         ),
         array(
             'type' => 'dropdown',

@@ -6,32 +6,14 @@ if ( !defined('ABSPATH')) exit;
 
 function wp_ajax_fronted_get_wishlist_callback(){
     check_ajax_referer( 'ajax_frontend', 'security' );
+
     $output = array('count' => 0);
-    
-    global $wpdb;
-    
-    if(class_exists('YITH_WCWL_UI')){    
-        $count = array();
-                	       
-    	if( is_user_logged_in() ) {
-    	    $count = $wpdb->get_results( $wpdb->prepare( 'SELECT COUNT(*) as `cnt` FROM `' . YITH_WCWL_ITEMS_TABLE . '` WHERE `user_id` = %d', get_current_user_id()  ), ARRAY_A );
-    	    $count = $count[0]['cnt'];
-    	} elseif( yith_usecookies() ) {
-    	    $count[0]['cnt'] = count( yith_getcookie( 'yith_wcwl_products' ) );
-    	    $count = $count[0]['cnt'];
-    	} else {
-    	    $count[0]['cnt'] = count( $_SESSION['yith_wcwl_products'] );
-    	    $count = $count[0]['cnt'];
-    	}
-        
-    	if (is_array($count)) {
-    		$count = 0;
-    	}
-        
-        $output['count'] = $count;
-        
+
+    if( function_exists( 'YITH_WCWL' ) ){
+        $output['count'] =  YITH_WCWL()->count_products();
     }
     echo json_encode($output);
+
     die();
 }
 add_action( 'wp_ajax_fronted_get_wishlist', 'wp_ajax_fronted_get_wishlist_callback' );

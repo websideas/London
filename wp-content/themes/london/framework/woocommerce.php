@@ -113,26 +113,12 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                 <li class='checkout-link' style="display: <?php echo esc_attr($style_checkout); ?>;">
                     <a href="<?php echo WC()->cart->get_checkout_url(); ?>" title="<?php _e('Checkout', THEME_LANG); ?>"><?php _e('Checkout', THEME_LANG); ?></a>
                 </li>                
-                <?php 
-                    if(class_exists('YITH_WCWL_UI')){
-                        $count = array();
-            	       
-                		if( is_user_logged_in() ) {
-                		    $count = $wpdb->get_results( $wpdb->prepare( 'SELECT COUNT(*) as `cnt` FROM `' . YITH_WCWL_ITEMS_TABLE . '` WHERE `user_id` = %d', get_current_user_id()  ), ARRAY_A );
-                		    $count = $count[0]['cnt'];
-                		} elseif( yith_usecookies() ) {
-                		    $count[0]['cnt'] = count( yith_getcookie( 'yith_wcwl_products' ) );
-                		    $count = $count[0]['cnt'];
-                		} else {
-                		    //$count[0]['cnt'] = count( $_SESSION['yith_wcwl_products'] );
-                		    //$count = $count[0]['cnt'];
-                		}
-                        
-                		if (is_array($count)) {
-                			$count = 0;
-                		}
+                <?php
+                    if( function_exists( 'YITH_WCWL' ) ){
+                        $count = YITH_WCWL()->count_products();
+
                         echo "<li class='wishlist-link'>";
-                            echo '<a href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist ", THEME_LANG).'<span>('.$count.')</span></a>';
+                        echo '<a href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist ", THEME_LANG).'<span>('.$count.')</span></a>';
                         echo "</li>";
                     }
                 ?>
