@@ -25,12 +25,16 @@ only screen and (min-resolution: 144dpi) {
 
 /* 3. Styles for devices(>=1200px) */
 @media (min-width: 1200px) {
-
+    .col-clearfix-lg {
+        clear: both;
+    }
 }
 
 /* 4. Styles for devices(>=992px and <=1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
-
+    .col-clearfix-md {
+        clear: both;
+    }
 }
 
 /* 5. Styles for devices(<=1199px) */
@@ -131,8 +135,17 @@ only screen and (min-resolution: 144dpi) {
     }
 }
 /* 7. Styles for devices(>=768px and <= 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-clearfix-sm {
+        clear: both;
+    }
+}
+
 /* 8. Styles for devices(<=767px ) */
 @media (max-width: 767px) {
+    .col-clearfix-xs {
+        clear: both;
+    }
     .themedev-product-popup h1.product_title{
         margin-top:10px;
     } 
