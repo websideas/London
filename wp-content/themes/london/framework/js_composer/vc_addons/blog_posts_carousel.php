@@ -92,11 +92,7 @@ class WPBakeryShortCode_Blog_Posts_Carousel extends WPBakeryShortCode {
                 $output .= '</div>';
             }
             
-            
-            
-            
-            
-            
+
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) :
                 
@@ -109,7 +105,6 @@ class WPBakeryShortCode_Blog_Posts_Carousel extends WPBakeryShortCode {
                                     "theme" => $theme,
                                     "itemscustom" => '[[992,'.$desktop.'], [768, '.$tablet.'], [480, '.$mobile.']]'
                                 );
-                
                 $output .= '<div class="owl-carousel-wrapper">';
                 $output .= '<div class="owl-carousel kt-owl-carousel" '.render_data_carousel($data_carousel).'>';
                 //add_filter( 'excerpt_length', array($this, 'custom_excerpt_length'), 20 );                

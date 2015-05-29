@@ -1,0 +1,622 @@
+/*------------------------------------------------------------------
+Theme Name: London
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+
+
+[Table of contents]
+
+1. General
+2. Header
+3. Footer
+4. Main menu
+5. Owl carousel Theme
+6. Visual Composer
+7. Sidebar
+8. Blog
+9. Woocommerce
+10. Responsive
+-------------------------------------------------------------------*/
+
+/** ================================================
+    1. General
+*** ================================================*/
+select:not([multiple]){
+    background-position: left center;
+}
+.list-unspace{
+    padding-right: 0;
+}
+.list-unspace li{
+    margin-right: 17px;
+    margin-left: 0;
+}
+.searchform input[type="text"]{
+    padding: 5px 10px 5px 40px;
+}
+.searchform button{
+    left: 0;
+    right: auto;
+}
+.woocommerce .woocommerce-breadcrumb a,
+.woocommerce .woocommerce-breadcrumb span{
+    float: right;
+}
+.woocommerce-breadcrumb .navigation-pipe,
+.breadcrumbs .navigation-pipe{
+    background: rgba(0, 0, 0, 0) url("assets/images/page-return-bg.png") no-repeat scroll center center;
+    text-indent: 999px;
+}
+.woocommerce-breadcrumb a.page-return,
+.breadcrumbs a.page-return{
+    float: left;
+    padding: 0 15px 0 0;
+    background-position: right center;
+    background-image: url("assets/images/navigation-pipe-bg.png");
+}
+/** ================================================
+    2. Header
+*** ================================================*/
+
+.header-content-bottom .searchform{
+    float: left;
+}
+.header-contact span{
+    float: right;
+}
+.header-contact span:first-child {
+    padding-left: 10px;
+    padding-right: 0;
+}
+.header-contact span:last-child {
+    padding-left: 0;
+    padding-right: 10px;
+}
+.header-content-top{
+    text-align: left;
+}
+.kt-wpml-languages{
+    float: left;
+    margin-right: 0;
+    margin-left: 25px;
+}
+.kt-wpml-languages .current-language img{
+    margin-right: 0;
+    margin-left: 5px;
+}
+.kt-wpml-languages ul li{
+    text-align: right;
+}
+.kt-wpml-languages ul li img{
+    margin-right: 0;
+    margin-left: 5px;
+}
+#top-nav > ul > li, #woocommerce-nav > ul > li,
+#woocommerce-nav-mobile > ul > li{
+    float: right;
+}
+.header-container #header.sticky #main-nav > ul > li.menu-logo{
+    float: right;
+}
+.header-layout1 #woocommerce-nav{
+    float: left;;
+}
+.header-layout1 .shopping_cart + #woocommerce-nav {
+    margin-left: 10px;
+    margin-right: 0;
+}
+.header-layout2 #main-nav > ul > li:last-child,
+.header-layout3 #main-nav > ul > li:last-child{
+    margin-right: 34px;
+}
+.header-layout2 #top-nav,
+.header-layout2 .header-contact{
+    float: right;
+}
+.header-layout2 #woocommerce-nav{
+    float: left;
+}
+.header-layout2 #top-nav > ul > li:first-child,
+.header-layout3 #top-nav > ul > li:first-child,
+.header-layout2 #woocommerce-nav > ul > li:first-child{
+    padding-left: 10px;
+    padding-right: 0px;
+}
+.header-layout2 #top-nav > ul > li:last-child,
+.header-layout3 #top-nav > ul > li:last-child,
+.header-layout2 #woocommerce-nav > ul > li:last-child{
+    padding-left: 0;
+    padding-right: 10px;
+}
+#header-content-mobile{
+    left: 0;
+    right: auto;
+}
+#header-content-mobile > a{
+    margin-right: 5px;
+    margin-left: 0;
+}
+/** ================================================
+    3. Footer
+*** ================================================*/
+.footer-left{
+    text-align: right;
+}
+.footer-right{
+    text-align: left;
+}
+.footer-left #bottom-nav ul > li:last-child,
+.footer-right #bottom-nav ul > li:last-child{
+    padding-left: 0;
+    border-right: 1px solid #ccc;
+    padding-right: 12px;
+}
+.footer-left #bottom-nav ul > li:first-child,
+.footer-right #bottom-nav ul > li:first-child{
+    border: none;
+    padding-left: 12px;
+    padding-right: 0;
+}
+
+/** ================================================
+    4. Main menu
+*** ================================================*/
+#main-nav{
+    float: right;
+}
+#main-nav > ul{
+    text-align: right;
+}
+#main-nav > ul > li .kt-megamenu-wrapper.megamenu-layout-table > ul > li:last-child{
+    border-right: 1px solid #ccc;
+}
+#main-nav > ul > li .kt-megamenu-wrapper.megamenu-layout-table > ul > li:first-child{
+    border-left: none;
+}
+
+
+
+
+/** ================================================
+    5. Owl carousel Theme
+*** ================================================*/
+
+
+
+.carousel-heading-top .owl-buttons,
+.owl-carousel .owl-buttons{
+    direction: ltr;
+}
+.owl-carousel .owl-item{
+    float: right;
+}
+.carousel-wrapper-top .block-heading{
+    padding-left: 158px;
+    padding-right: 0;
+}
+.carousel-heading-top .owl-buttons{
+    left: 0;
+    right: auto;
+}
+
+
+/** ================================================
+    6. Visual Composer
+*** ================================================*/
+
+
+.mailchimp-layout-two{
+    text-align: left;
+}
+
+.contact-info-wrapper > ul li{
+    padding-left: 0px;
+    padding-right: 35px;
+}
+.contact-info-wrapper > ul li i{
+    right: 3px;
+    left: auto;
+}
+ul.kt_social_icons li {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 0;
+}
+ul.kt_social_icons li:first-child{
+    margin-left: 10px;
+}
+ul.kt_social_icons li:last-child{
+    margin-left: 0px;
+}
+.sales-countdown-carousel-wrapper .sales-countdown-right{
+    text-align: right;
+}
+
+.sales-countdown-carousel-wrapper .woocommerce ul.products span.price del,
+.sales-countdown-carousel-wrapper .woocommerce ul.products span.price ins{
+    margin-left: 7px;
+    margin-right: 0;
+}
+
+.block-heading-tabs-wapper h3{
+    float: right;
+}
+.block-heading-tabs{
+    float: left;
+}
+.block-heading-tabs li{
+    padding-left: 0;
+    padding-right: 34px;
+}
+.block-heading-tabs li:first-child{
+    padding-right: 0;
+}
+.block-heading-tabs li:last-child{
+    padding-left: 0;
+}
+
+.heading-nav-bar{
+    float: left;
+}
+
+
+.categories-products-wrapper .categories-products-lists > ul li img{
+    margin: 0 2px 0 17px;
+}
+
+.categories-top-sellers-wrapper .block-heading-tabs-wapper h3{
+    margin-left: 50px;
+    margin-right: 0;
+}
+.categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs{
+    float: right;
+}
+.categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li{
+    padding-right: 10px;
+}
+.categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li:first-child{
+    padding-right: 0;
+}
+
+
+body .wpb_content_element .wpb_tabs_nav li{
+    float: right;
+    margin: 0 0 0 10px;
+}
+
+
+
+/** ================================================
+    7. Sidebar
+*** ================================================*/
+
+.widget_rss ul li,
+.widget_pages ul li,
+.widget_recent_entries ul li,
+.widget_recent_comments ul li,
+.widget_meta ul li,
+.widget_categories ul li,
+.widget_archive ul li,
+.widget_nav_menu ul li{
+    margin-right: 17px;
+    margin-left: 0;
+}
+
+
+
+.sidebar .widget-container .widget-title{
+    padding: 5px 20px 5px 5px;
+}
+.sidebar .widget_nav_menu ul li span,
+.sidebar .widget_archive ul li span,
+.sidebar .widget_categories ul li span{
+    left: 10px;
+    right: auto;
+}
+.sidebar .widget_rss ul li:before,
+.sidebar .widget_pages ul li a:before,
+.sidebar .widget_recent_comments ul li:before,
+.sidebar .widget_recent_entries ul li:before,
+.sidebar .widget_nav_menu ul li a:before,
+.sidebar .widget_meta ul li a:before,
+.sidebar .widget_archive ul li a:before,
+.sidebar .widget_categories ul li a:before{
+    background-image: url("assets/images/arrow-widget-rtl.png");
+    left: auto;
+    right: 9px;
+}
+/** ================================================
+    8. Blog
+*** ================================================*/
+
+.blog-posts .post-item .post-info{
+    margin-right: 80px;
+    margin-left: 0;
+}
+.blog-posts .post-item .entry-date-time{
+    right: 0;
+    left: auto;
+}
+.list-blog-posts .navigation, .entry-content .page-links{
+    text-align: left;
+}
+.list-blog-posts .navigation .nav-links span,
+.list-blog-posts .navigation .nav-links a,
+.entry-content .page-links a,
+.entry-content .page-links span{
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+
+.addthis_default_style .addthis_separator,
+.addthis_default_style .at300b,
+.addthis_default_style .at4-icon,
+.addthis_default_style .at300bo,
+.addthis_default_style .at300m,
+.addthis_default_style .at300bs,
+.addthis_default_style .addthis_counter{
+    float: right!important;
+}
+
+
+
+/** ================================================
+    9. Woocommerce
+*** ================================================*/
+.shopping_cart{
+    float: left;
+}
+.shopping_cart > a{
+    padding-left: 0;
+    padding-right: 27px;
+}
+.shopping_cart > a:before{
+    right: 0;
+    left: auto;
+}
+.shopping_cart > a:after{
+    right: 5px;
+    left: auto;
+}
+.shopping_cart > a span.cart-content-total{
+    margin-right: 13px;
+    margin-left: 0;
+}
+.shopping_cart > a span.cart-content-total:before{
+    left: 100%;
+    right: auto;
+    margin-left: -4px;
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    -ms-transform:rotate(45deg);
+}
+.shopping_cart .shopping-bag{
+    left: 0;
+    right: auto;
+    text-align: right;
+}
+.bag-products .bag-product figure {
+    float: left;
+}
+.bag-products .bag-product .bag-product-details{
+    padding: 0 40px 5px 5px;
+    text-align: right;
+}
+.bag-products .bag-product a.remove{
+    right: 0;
+    left: auto;
+}
+.bag-product .bag-product-qty{
+    border-left: none;
+    border-right: 1px solid #666;
+    margin-right: 6px;
+    padding: 0 6px 0 0;
+}
+.bag-buttons a{
+    margin-left: 10px;
+    margin-right: 0px;
+}
+.bag-buttons a:first-child{
+    margin-right: 0;
+    margin-left: 10px;
+}
+.bag-buttons a:last-child{
+    margin-right: 0;
+}
+.header-layout1 .shopping_cart > a{
+    padding: 0 38px 0 15px;
+}
+.header-layout1 .shopping_cart > a:before {
+    right: 8px;
+    left: auto;
+}
+.header-layout1 .shopping_cart > a::after {
+    right: 13px;
+    left: auto;
+}
+
+
+
+
+
+ul.product-categories > li > a{
+    padding: 0 40px 0 34px;
+}
+ul.product-categories > li > .button-toggle{
+    right: 0;
+    left: auto;
+    background-image: url("assets/images/arrow-product-prev.png");
+}
+ul.product-categories > li span.count{
+    left: 10px;
+    right: auto;
+}
+ul.product-categories > li > ul > li > a {
+    padding: 5px 56px 5px 15px;
+}
+ul.product-categories > li > ul > li > a:after{
+    right: 40px;
+    left: auto;
+}
+
+
+
+
+
+
+.woof_container h3:before{
+    right: auto;
+    left: 0;
+}
+.woof_container_inner .woof_list{
+    padding-right: 0;
+}
+.js-check span{
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.woocommerce span.onsale{
+    right: auto;
+    left: 0;
+}
+.woocommerce .functional-buttons{
+    float: right;
+}
+.woocommerce .functional-buttons-product{
+    float: right;
+}
+.woocommerce .gridlist-toggle{
+    left: 15px;
+    right: auto;
+}
+.woocommerce .gridlist-toggle li span{
+    margin-left: 5px;
+    margin-right: 0;
+}
+.page-title{
+    float: right;
+    margin-left: 15px;
+    margin-right: 0;
+}
+.term-description{
+    padding-left: 150px;
+    padding-right: 0;
+}
+.woocommerce ul.products.lists li.product{
+    text-align: right;
+}
+.woocommerce ul.products.lists .product-image-container,
+.woocommerce ul.products.lists .product-meta-wrapper,
+.woocommerce ul.products.lists .product-item-tools,
+.woocommerce ul.products.lists .product-item-tools .button{
+    float: right;
+}
+.woocommerce ul.products.lists .added_to_cart{
+    left: auto;
+    right: 10px;
+}
+
+
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text{
+    margin: 0 50px 0 0;
+}
+.woocommerce #reviews #comments ol.commentlist li img.avatar{
+    right: 0;
+    left: auto;
+}
+.woocommerce .star-rating{
+    float: left;
+}
+.woocommerce p.stars a{
+    margin-left: 1em;
+    margin-right: 0;
+}
+.woocommerce p.stars a:first-child{
+    border: medium none;
+    margin-left: 1em;
+}
+.woocommerce p.stars a:last-child{
+    border-right: 1px solid #ccc;
+    margin-left: 0;
+}
+.woocommerce .woocommerce-product-rating .star-rating,
+.woocommerce .woocommerce-product-rating .woocommerce-review-link{
+    float: right;
+    margin-left: 11px;
+    margin-right: 0;
+}
+.woocommerce .single_variation_wrap .variations_button,
+.woocommerce .cart-product-buttons{
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+.woocommerce .summary .quantity{
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+.woocommerce .summary .product-details-share ul.share{
+    float: right;
+}
+.woocommerce .summary .product-details-share ul.share li{
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+.woocommerce .woocommerce-tabs ul.tabs li{
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+.woocommerce .woocommerce-tabs ul.tabs li:last-child{
+    margin-left: 0;
+}
+.woocommerce ul.products span.price span.price-save::after,
+.price span.price-save::after{
+    left: 100%;
+    margin-left: -3px;
+    right: auto;
+    margin-right: 0;
+}
+
+#woocommerce-nav-mobile > ul > li{
+    float: none;
+}
+
+/** ================================================
+    10. Responsive
+*** ================================================*/
+@media (max-width: 991px) {
+    .header-layout2 #header-inner,
+    .header-layout3 #header-inner,
+    #mobile-content-all{
+        padding: 0 0 0 37px;
+    }
+    .header-layout2 #header-inner.tool-mobile-2,
+    .header-layout3 #header-inner.tool-mobile-2,
+    #mobile-content-all.tool-mobile-2{
+        padding: 0 0 0 75px;
+    }
+    .header-layout2 #header-inner.tool-mobile-3,
+    .header-layout3 #header-inner.tool-mobile-3,
+    #mobile-content-all.tool-mobile-3{
+        padding: 0 0 0 112px;
+    }
+
+}
+@media (max-width: 480px) {
+    .block-heading-tabs,
+    .block-heading-tabs-wapper h3{
+        float: none;
+    }
+    .carousel-wrapper-top .block-heading{
+        padding-left: 0;
+    }
+    .block-heading-tabs{
+        text-align: right;
+    }
+}

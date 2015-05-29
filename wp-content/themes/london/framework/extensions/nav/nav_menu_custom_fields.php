@@ -87,7 +87,7 @@ function kt_add_custom_fields( $item_id, $item, $depth, $args ) { ?>
                         ?>
                         <label for="menu-item-image-<?php echo $item_id; ?>">
                             <?php _e( 'Menu image', THEME_LANG); ?><br />
-                            <input type="hidden" value="<?php esc_attr( $item->image ); ?>" name="menu-item-megamenu-image[<?php echo $item_id; ?>]" id="menu-item-image-<?php echo $item_id; ?>" class="widefat edit-menu-item-image" />
+                            <input type="hidden" value="<?php echo esc_attr( $item->image ); ?>" name="menu-item-megamenu-image[<?php echo $item_id; ?>]" id="menu-item-image-<?php echo $item_id; ?>" class="widefat edit-menu-item-image" />
                         </label>
                         <span class="clearfix"></span>
                         <span class="kt_image_preview" style="<?php if($preview){ echo "display: block;";} ?>">

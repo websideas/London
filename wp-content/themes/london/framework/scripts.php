@@ -202,7 +202,10 @@ function kt_setting_script() {
         .kt_product_carousel_wrap .module-title,
         .carousel-testimonials-wrapper .block-heading, 
         .widget-products-carousel-wrapper .block-heading,
-        .ktloader > div
+        .ktloader > div,
+        .shopping_cart > a span.cart-content-total:before,
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a:after,
+        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after
         {
             background-color: <?php echo esc_attr( $accent_brighter ) ; ?>;
         }
@@ -223,16 +226,7 @@ function kt_setting_script() {
         .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover{
             border-color: <?php echo esc_attr( $accent_brighter ); ?>;
         }
-        
-        .shopping_cart > a span.cart-content-total:before{
-            border-right-color: <?php echo esc_attr( $accent_brighter ); ?>;
-        }
 
-        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a:after,
-        .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
-            border-top-color: <?php echo esc_attr( $accent_brighter ); ?>;
-        }
-        
         .woocommerce .widget_price_filter .ui-slider .ui-slider-handle::before{
             color: <?php echo esc_attr( $accent_brighter ); ?>;
         }

@@ -1,8 +1,9 @@
 
 (function($){
     "use strict"; // Start of use strict
-    
-    
+
+    var kt_direction = $('html').attr('dir');
+
     /* ---------------------------------------------
      Scripts initialization
      --------------------------------------------- */
@@ -22,7 +23,9 @@
      Scripts ready
      --------------------------------------------- */
     $(document).ready(function() {
-        
+
+
+
         $(window).trigger("resize");
         
         init_shortcodes();
@@ -511,6 +514,7 @@
             }
             
             wooCarousel.KTowlCarousel({
+                direction: kt_direction,
     			theme: wooCarouselTheme,
     			items : 1,
                 autoPlay: wooAutoPlay,
@@ -546,6 +550,7 @@
         });
         
         sync2.KTowlCarousel({
+            direction: kt_direction,
             theme : 'woocommerce-thumbnails',
             items : 4,
             itemsCustom : [[992,4], [768, 3], [480, 2]],
@@ -648,8 +653,6 @@
             if(typeof owlTheme === "undefined"){
                 owlTheme = 'style-navigation-center';
             }
-
-
             if(typeof owlItems === "undefined"){
                 owlItems = 1;
             }else{
@@ -664,6 +667,7 @@
             func_cb =  window[ func_cb ];
 
             var options = {
+                direction: kt_direction,
                 items: owlItems,
                 slideSpeed: owlSlideSpeed,
                 singleItem: owlSingleItem,
@@ -696,7 +700,6 @@
                     }
                 }
             };
-            //console.debug( options );
             objCarousel.KTowlCarousel(options);
             
         });

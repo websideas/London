@@ -1,4 +1,8 @@
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*------------------------------------------------------------------
+Theme Name: London
+Description: Responsive theme.
+
+
 [Table of contents]
 
 1. Retina logo
@@ -12,7 +16,8 @@
 9. Styles for devices(>=768px and <= 991px)
 10. Styles for devices(<=480px )
 11. Styles for devices(<=320px )
-*/
+
+-------------------------------------------------------------------*/
 
 /* 1. Retina logo */
 @media only screen and (-o-min-device-pixel-ratio: 3/2),

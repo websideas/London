@@ -71,7 +71,17 @@ class WPBakeryShortCode_Designer_Collection_Carousel extends WPBakeryShortCode {
                         $output .= '<div class="designer-collection-content">';
                         $output .= ($title) ? '<h3 clas="item-heading item-label">'.$title.'</h3>' : '';
                         $output .= '<div class="owl-carousel-wrapper">';
-                            $output .= '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_carousel_cb" data-autoheight="false" data-pagination="false" data-theme="style-navigation-center">';
+
+                            $data_carousel = array(
+                                "js-callback" => "designer_carousel_cb",
+                                "autoheight" => "false",
+                                "pagination" => "false",
+                                "theme" => 'style-navigation-center'
+                            );
+
+
+
+                            $output .= '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" '.render_data_carousel($data_carousel).'>';
                                 while ( $query->have_posts() ) : $query->the_post();
 
                                     $collection_ids[] =  get_the_ID();

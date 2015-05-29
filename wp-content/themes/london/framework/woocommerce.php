@@ -91,10 +91,13 @@ endif;
  * @since 1.0
  */
 function woocommerce_get_tool($id = 'woocommerce-nav'){
-    global $wpdb, $yith_wcwl;
+    global $yith_wcwl;
     if ( kt_is_wc() ) { ?>
         <nav class="woocommerce-nav-container" id="<?php echo esc_attr($id); ?>">
             <ul class="menu">
+                <li class='my-account-link'>
+                    <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account', THEME_LANG); ?>"><?php _e('My Account', THEME_LANG); ?></a>
+                </li>
                 <?php 
                     $style_shop = $style_checkout = "none";
                     if((sizeof( WC()->cart->cart_contents) > 0)){
@@ -106,9 +109,6 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                 <li class='shop-link' style="display: <?php echo esc_attr($style_shop); ?>;">
                     <?php $shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>
                     <a href="<?php echo esc_url( $shop_page_url ); ?>" title="<?php _e('Shop', THEME_LANG); ?>"><?php _e('Shop', THEME_LANG); ?></a>                    
-                </li>            
-                <li class='my-account-link'>                        
-                    <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account', THEME_LANG); ?>"><?php _e('My Account', THEME_LANG); ?></a>
                 </li>
                 <li class='checkout-link' style="display: <?php echo esc_attr($style_checkout); ?>;">
                     <a href="<?php echo WC()->cart->get_checkout_url(); ?>" title="<?php _e('Checkout', THEME_LANG); ?>"><?php _e('Checkout', THEME_LANG); ?></a>
@@ -185,8 +185,8 @@ function woocommerce_get_cart(){
                 
                 $output .= '<div class="bag-buttons clearfix">';
                     if ( sizeof(WC()->cart->cart_contents)>0 ) {
-                        $output .= '<a href="'.esc_url( WC()->cart->get_cart_url() ).'" class="btn btn-default pull-left">'.__('View cart', THEME_LANG).'</a>';
-                        $output .= '<a href="'.esc_url( WC()->cart->get_checkout_url() ).'" class="btn btn-default pull-left">'.__('Checkout', THEME_LANG).'</a>';
+                        $output .= '<a href="'.esc_url( WC()->cart->get_cart_url() ).'" class="btn btn-default">'.__('View cart', THEME_LANG).'</a>';
+                        $output .= '<a href="'.esc_url( WC()->cart->get_checkout_url() ).'" class="btn btn-default">'.__('Checkout', THEME_LANG).'</a>';
                     }else{
                         $shop_id = wc_get_page_id('shop');
                         if($shop_id > 0){

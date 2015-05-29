@@ -1,4 +1,7 @@
 /*------------------------------------------------------------------
+Theme Name: London
+Description: The main file stylesheet.
+
 [Table of contents]
 
 1. Common styles
@@ -19,11 +22,12 @@
 10. Header
     10.1. Header common styles
     10.2. Header nav
-    10.3. Header contact 
-    10.4. Header searchform  
-    10.5. Header sticky
-    10.6. Header layout1
-    10.7. Header layout 2 & 3
+    10.3. Header contact
+    10.4. Header searchform
+    10.5. Header wpml languages
+    10.6. Header sticky
+    10.7. Header layout1
+    10.8. Header layout 2 & 3
 11. Footer
 12. Sidebar
 13. Owl carousel Theme
@@ -545,7 +549,10 @@ select:not([multiple]) {
     width: 100%;
     z-index: 1;
 }
-
+.woocommerce .woocommerce-breadcrumb a,
+.woocommerce .woocommerce-breadcrumb span{
+    float: left;
+}
 .woocommerce-breadcrumb .navigation-pipe, 
 .breadcrumbs .navigation-pipe {
     background: url("../images/navigation-pipe-bg.png") no-repeat center center;
@@ -554,8 +561,8 @@ select:not([multiple]) {
     width: 25px;
 }
 
-.woocommerce-breadcrumb .page-return, 
-.breadcrumbs .page-return  {
+.woocommerce-breadcrumb a.page-return,
+.breadcrumbs a.page-return{
     background: url("../images/page-return-bg.png") no-repeat left center;
     display: inline-block;
     float: right;
@@ -1285,6 +1292,7 @@ h2.widgettitle a.rsswidget:first-child,
 #woocommerce-nav > ul > li,
 #woocommerce-nav-mobile > ul > li{
     display: inline-block;
+    float: left;
 }
 #top-nav > ul > li > a,
 #woocommerce-nav > ul > li > a,
@@ -1306,6 +1314,7 @@ h2.widgettitle a.rsswidget:first-child,
  */
 .header-contact span{
     padding: 0 10px;
+    float: left;
 }
 .header-contact span:first-child{
     padding-left: 0;
@@ -1878,7 +1887,25 @@ body.footer_fixed .static-footer{
     padding:10px 30px;
     border-bottom:1px solid #ccc;
     display: block;
-    background: url(../images/arrow-widget.png) no-repeat 9px 17px;
+    position: relative;
+
+}
+.sidebar .widget_rss ul li:before,
+.sidebar .widget_pages ul li a:before,
+.sidebar .widget_recent_comments ul li:before,
+.sidebar .widget_recent_entries ul li:before,
+.sidebar .widget_nav_menu ul li a:before,
+.sidebar .widget_meta ul li a:before,
+.sidebar .widget_archive ul li a:before,
+.sidebar .widget_categories ul li a:before{
+    background: url(../images/arrow-widget.png) no-repeat center center;
+    content: '';
+    width: 8px;
+    height: 5px;
+    display: block;
+    position: absolute;
+    top: 17px;
+    left: 9px;
 }
 .sidebar .widget_rss ul li{
     padding:10px 0 10px 30px;
@@ -2369,7 +2396,7 @@ body.footer_fixed .static-footer{
 
 
 .carousel-wrapper-top .block-heading{
-    padding-right: 135px;
+    padding-right: 158px;
 }
 .owl-buttons-heading{
     position: absolute;
@@ -2670,7 +2697,6 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
     top: auto !important;
     left: auto !important;
     position: inherit;
-
 }
 .designer-collection-carousel .style-navigation-center .owl-buttons div {
     top: 115px;
@@ -2813,18 +2839,18 @@ body .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab{
 }
 .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li.ui-tabs-active a:after,
 .categories-top-sellers-wrapper .block-heading-tabs-wapper .block-heading-tabs li a:hover:after{
-    top: 100%;
-    left: 50%;
-    border: solid transparent;
     content: " ";
-    height: 0;
-    width: 0;
+    top: 100%;
+    right: 50%;
     position: absolute;
-    pointer-events: none;
-    border-color: rgba(51, 51, 51, 0);
-    border-top-color: #333333;
-    border-width: 5px;
-    margin-left: -5px;
+    background: #333333;
+    width: 8px;
+    height: 8px;
+    margin-right: -4px;
+    margin-top: -4px;
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    -ms-transform:rotate(45deg);
 }
 /* Testimonial and Product carousel*/
 .carousel-testimonials-wrapper,
@@ -2912,7 +2938,7 @@ ul.kt_social_icons{
 }
 ul.kt_social_icons li{
     display: inline-block;
-    margin:0 4px 10px 4px;
+    margin:0 8px 10px 0px;
 }
 ul.kt_social_icons li:first-child{
     margin-left:0;

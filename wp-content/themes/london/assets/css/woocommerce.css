@@ -377,7 +377,9 @@
 }
 
 
-
+.woocommerce table.wishlist_table{
+    font-size: 100%;
+}
 
 .wishlist_table .add_to_cart.button, 
 .yith-wcwl-add-button a.add_to_wishlist, 
@@ -712,7 +714,9 @@
 .bag-buttons a{
     margin-right: 10px;
 }
-
+.bag-buttons a:last-child{
+    margin-right: 0;
+}
 
 
 .mCSB_inside > .mCSB_container{
@@ -1175,19 +1179,20 @@ ul.product-categories > li.cat-parent.current-cat > a{
     vertical-align: text-top;
     line-height: normal;
 }
-.woocommerce ul.products span.price span.price-save:after, .price span.price-save:after{
+.woocommerce ul.products span.price span.price-save:after,
+.price span.price-save:after{
+    content: " ";
     right: 100%;
-	top: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(224, 91, 111, 0);
-	border-right-color: #e05b6f;
-	border-width: 4px;
-	margin-top: -4px;
+    top: 50%;
+    position: absolute;
+    background: #e05b6f;
+    width: 6px;
+    height: 6px;
+    margin-right: -3px;
+    margin-top: -3px;
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    -ms-transform:rotate(45deg);
 }
 .sales-countdown-carousel-wrapper .woocommerce ul.products span.price span.price-save, .price span.price-save{
     display: inline-block;
@@ -1788,6 +1793,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
     color: #FFF;
     padding: 0 25px;
     font-size:18px;
+    float: left;
 }
 .woocommerce .summary .single_add_to_cart_button:hover{
     background: #000;
@@ -1817,7 +1823,7 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .woocommerce .summary .product-details-share ul.share{
     padding:0;
-    margin:0 15px 0 0;
+    margin:0;
     list-style: none;
     float:left;
 }
@@ -2686,17 +2692,18 @@ ul.product-categories > li.cat-parent.current-cat > a{
     margin-left: 13px;
 }
 .shopping_cart > a span.cart-content-total:before{
+    content: " ";
     right: 100%;
     top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
     position: absolute;
-    pointer-events: none;
-    border-right-color: #333;
-    border-width: 4px;
+    background: #333;
+    width: 8px;
+    height: 8px;
+    margin-right: -4px;
     margin-top: -4px;
+    -webkit-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    -ms-transform:rotate(45deg);
 }
 /** =========================
     15. Custom Yith Woocommerce Compare
