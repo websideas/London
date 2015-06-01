@@ -24,6 +24,7 @@
     <favorites_list name="London" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf>
       <file leaf-file-name="rtl.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/london/rtl.css">
@@ -170,6 +171,9 @@
         </entry>
       </file>
     </leaf>
+=======
+    <leaf />
+>>>>>>> origin/master
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -201,10 +205,16 @@
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/queries.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/extensions/nav/nav_menu_custom_fields.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/wp-content/themes/london/rtl.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/designer_products.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/london/framework/widgets/designer.php" />
+=======
+        <option value="$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/designer_products.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/london/rtl.css" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -731,8 +741,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="23" width="1280" height="734" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="0" y="23" width="1721" height="1001" extended-state="0" />
+    <editor active="false" />
+>>>>>>> origin/master
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1046,30 +1061,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="40103" max-vertical-offset="41295">
-          <caret line="2694" column="4" selection-start-line="2694" selection-start-column="4" selection-end-line="2705" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/rtl.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3562" max-vertical-offset="9405">
-          <caret line="280" column="29" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/scripts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4347" max-vertical-offset="6279">
-          <caret line="207" column="103" selection-start-line="207" selection-start-column="103" selection-end-line="207" selection-end-column="103" />
+        <state vertical-scroll-proportion="0.36977887" vertical-offset="3134" max-vertical-offset="4485">
+          <caret line="229" column="32" selection-start-line="229" selection-start-column="32" selection-end-line="229" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/rtl.css">
+=======
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/widget_products_carousel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9108204" vertical-offset="2624" max-vertical-offset="3540">
+          <caret line="226" column="8" selection-start-line="226" selection-start-column="8" selection-end-line="226" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/widgets.php">
+>>>>>>> origin/master
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5564804" vertical-offset="23082" max-vertical-offset="25710">
+          <caret line="1582" column="26" selection-start-line="1582" selection-start-column="26" selection-end-line="1582" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/woocommerce.css">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0" vertical-offset="4347" max-vertical-offset="6279">
+          <caret line="207" column="103" selection-start-line="207" selection-start-column="103" selection-end-line="207" selection-end-column="103" />
+=======
+        <state vertical-scroll-proportion="0.3496583" vertical-offset="40103" max-vertical-offset="41295">
+          <caret line="2694" column="4" selection-start-line="2694" selection-start-column="4" selection-end-line="2705" selection-end-column="32" />
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/wp-includes/widgets.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="32970" max-vertical-offset="35994">
@@ -1106,20 +1139,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.833333" vertical-offset="4366" max-vertical-offset="4956">
           <caret line="226" column="8" selection-start-line="226" selection-start-column="8" selection-end-line="226" selection-end-column="33" />
+=======
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/designer_products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57125306" vertical-offset="0" max-vertical-offset="2700">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/wp-content/themes/london/woocommerce/content-widget-product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="614">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43507972" vertical-offset="42293" max-vertical-offset="50280">
+          <caret line="2845" column="23" selection-start-line="2845" selection-start-column="23" selection-end-line="2845" selection-end-column="23" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/framework/js_composer/vc_addons/designer_products.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/london/rtl.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-19.25" vertical-offset="609" max-vertical-offset="3822">
           <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
           <folding>
@@ -1160,6 +1207,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5694915" vertical-offset="231" max-vertical-offset="2415">
           <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+=======
+        <state vertical-scroll-proportion="0.88041" vertical-offset="8632" max-vertical-offset="10035">
+          <caret line="627" column="12" selection-start-line="627" selection-start-column="1" selection-end-line="627" selection-end-column="12" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>

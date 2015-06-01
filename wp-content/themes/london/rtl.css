@@ -94,6 +94,11 @@ select:not([multiple]){
 #woocommerce-nav-mobile > ul > li{
     float: right;
 }
+#woocommerce-nav > ul > li.wishlist-link span{
+    float: left;
+    margin-right: 3px;
+}
+
 .header-container #header.sticky #main-nav > ul > li.menu-logo{
     float: right;
 }
@@ -283,6 +288,12 @@ body .wpb_content_element .wpb_tabs_nav li{
     margin: 0 0 0 10px;
 }
 
+.layout-collection-2 .designer-collection-border{
+    left: auto;
+    right: 0;
+    border-left: 1px solid #CCC;
+    border-right: none;
+}
 
 
 /** ================================================
@@ -476,6 +487,9 @@ ul.product-categories > li > ul > li > a:after{
     margin-left: 10px;
     margin-right: 0;
 }
+.woof label{
+    direction: ltr;
+}
 
 .woocommerce span.onsale{
     right: auto;
@@ -586,7 +600,35 @@ ul.product-categories > li > ul > li > a:after{
 #woocommerce-nav-mobile > ul > li{
     float: none;
 }
+.woocommerce table.shop_table{
+    text-align: right;
+}
+.woocommerce table.shop_table td.product-thumbnail img,
+.woocommerce table.shop_table td .product-thumbnail img{
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+.woocommerce-checkout #payment div.form-row{
+    text-align: left;
+}
+.woocommerce-checkout #payment ul.payment_methods li{
+    text-align: right;
+}
+.woocommerce-checkout #payment ul.payment_methods li input{
+    margin: 0 0 0 1em;
+}
+.woocommerce-checkout #payment ul.payment_methods li img{
+    float: left;
+    margin: -2px 0.5em 0 0 ;
+}
+.woocommerce-checkout #payment .payment_method_paypal .about_paypal {
+    float: left;
+}
+.woocommerce .col2-set .col-1,
+.woocommerce-page .col2-set .col-1{
 
+}
 /** ================================================
     10. Responsive
 *** ================================================*/
