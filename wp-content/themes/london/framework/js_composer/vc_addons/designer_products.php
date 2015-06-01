@@ -5,6 +5,7 @@ if ( !defined('ABSPATH')) exit;
 
 class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
     protected function content($atts, $content = null) {
+
         extract( shortcode_atts( array(
             'title' => '',
             'posts' => '',
@@ -28,26 +29,27 @@ class WPBakeryShortCode_Designer_Products extends WPBakeryShortCode {
             'shortcode_custom' => vc_shortcode_custom_css_class( $css, ' ' )
         );
         $elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
-
+        ob_start();
+        $old_cont= ob_get_clean();
         ob_start();
         
-        echo '<div class="vc-designer-product-wrapper">';
-        echo '<div class="sidebar '.esc_attr($elementClass).'">';
-        the_widget( 'KT_WC_Designer', $atts,  array(
-            'before_widget' => '<section  class="widget-container woocommerce widget_designer">',
-            'after_widget' => '</section>',
-            'before_title' => '<h3 class="widget-title">',
-            'after_title' => '</h3>',
-            'widget_id' => ''
-        ) );
-        echo '</div>';
-        echo '</div>';
+        echo '<div class="vc-designer-product-wrapper">
+            <div class="sidebar '.esc_attr($elementClass).'">';
 
+            the_widget( 'KT_WC_Designer', $atts,  array(
+                'before_widget' => '<section  class="widget-container woocommerce widget_designer">',
+                'after_widget' => '</section>',
+                'before_title' => '<h3 class="widget-title">',
+                'after_title' => '</h3>',
+                'widget_id' => ''
+            ) );
+
+            echo '</div><!-- /.sidebar -->
+        </div><!-- /.vc-designer-product-wrapper --> ';
 
         $output = ob_get_clean();
+        echo $old_cont;
         return $output;
-
-
     }
 }
 
