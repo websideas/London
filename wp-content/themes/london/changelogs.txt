@@ -1,4 +1,7 @@
 == Changelog ==
+= 1.2 (Jun 1, 2015) =
+* New RTL support
+* Bugs fixed
 
 = 1.1 (May 23, 2015) =
 * New designer single page.

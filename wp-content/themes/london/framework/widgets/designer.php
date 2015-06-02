@@ -181,18 +181,17 @@ class KT_WC_Designer extends WC_Widget {
      * @return void
      */
     public function widget( $args, $instance ) {
-        if ( $this->get_cached_widget( $args ) ) {
-            return;
-        }
-
-        ob_start();
 
         if( !isset( $instance['collection_ids'] ) ){
-            return ;
+            return '';
         }
 
        $collection_ids = array_filter(explode( ',', $instance['collection_ids'] ));
-        $this->widget_start( $args, $instance );
+        echo $args['before_widget'];
+
+        if ( $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base ) ) {
+            echo $args['before_title'] . $title . $args['after_title'];
+        }
 
         $id = uniqid('dcw-');
         echo '<div id="widget-'.$id.'" class="widget-title des-labels">';
@@ -204,9 +203,9 @@ class KT_WC_Designer extends WC_Widget {
                     get_the_title(  $des_id ) ,
                     get_the_title(  $des_id )
                 );
-                echo '</div>';
+                echo '</div> <!-- designer-id-'.$collection_id.' --> ';
             }
-        echo '</div>';
+        echo '</div> <!-- /.widget-title -->';
 
         echo '<div class="owl-carousel kt-owl-carousel" id="'.$id.'" data-js-callback="designer_widget_cb" data-theme="style-navigation-bottom" data-autoheight="false" data-pagination="false">';
 
@@ -214,8 +213,6 @@ class KT_WC_Designer extends WC_Widget {
 
             echo '<div data-did="'.$collection_id.'" class="designer-items-ins">';
             if ( ( $products = $this->get_products( $collection_id , $instance ) ) && $products->have_posts() ) {
-
-
                 echo apply_filters( 'woocommerce_before_widget_product_list', '<ul class="product_list_widget">' );
 
                 while ( $products->have_posts() ) {
@@ -228,15 +225,15 @@ class KT_WC_Designer extends WC_Widget {
             }
 
             wp_reset_postdata();
-            echo '</div>';
+            echo '</div><!-- /.designer-items-ins -->';
 
         }
 
         echo '</div>'; // ./owl-carousel
 
-        $this->widget_end( $args );
+        echo $args['after_widget'];
 
-        echo $this->cache_widget( $args, ob_get_clean() );
+        //echo $this->cache_widget( $args, ob_get_clean() );
     }
 }
 
