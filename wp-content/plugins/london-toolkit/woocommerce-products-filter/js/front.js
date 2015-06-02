@@ -298,13 +298,11 @@ function woof_get_submit_link() {
         }
     });
 
-    /*
-    if( jQuery('.woocommerce-product-search input[name="s"]').length > 0 && jQuery('.woocommerce-product-search input[name="s"]').eq(0).val() != '' ){
-        woof_current_values.s = jQuery('.woocommerce-product-search input[name="s"]').eq(0).val();
+
+    if( jQuery('.woocommerce-product-search input[name="s"]').val() != '' ){
+        woof_current_values.s = jQuery('.woocommerce-product-search input[name="s"]').val();
         woof_current_values.post_type = 'product';
     }
-    */
-
 
     jQuery('.woof input.woof_checkbox_term').each(  function() {
         var is_check =  jQuery(this).is(':checked');
@@ -363,9 +361,11 @@ function woof_get_submit_link() {
             if (index == 'swoof') {
                 delete woof_current_values[index];
             }
+            /*
             if (index == 's') {
                 delete woof_current_values[index];
             }
+             */
         });
     }
 
