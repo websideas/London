@@ -114,10 +114,13 @@ select:not([multiple]){
     margin-right: 34px;
 }
 .header-layout2 #top-nav,
-.header-layout2 .header-contact{
+.header-layout2 .header-contact,
+.header-layout3 #top-nav,
+.header-layout3 .header-contact{
     float: right;
 }
-.header-layout2 #woocommerce-nav{
+.header-layout2 #top-nav,
+.header-layout3 #woocommerce-nav{
     float: left;
 }
 .header-layout2 #top-nav > ul > li:first-child,
@@ -128,7 +131,8 @@ select:not([multiple]){
 }
 .header-layout2 #top-nav > ul > li:last-child,
 .header-layout3 #top-nav > ul > li:last-child,
-.header-layout2 #woocommerce-nav > ul > li:last-child{
+.header-layout2 #woocommerce-nav > ul > li:last-child,
+.header-layout3 #woocommerce-nav > ul > li:last-child{
     padding-left: 0;
     padding-right: 10px;
 }

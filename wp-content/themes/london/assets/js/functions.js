@@ -46,7 +46,7 @@
 
         $('body.footer_fixed #footer').ktFooter();
 
-        if( typeof $.easyZoom == "function" ){
+        if( typeof ($.easyZoom) !== undefined ){
             var $easyzoom = $('.easyzoom').easyZoom();
         }
 
