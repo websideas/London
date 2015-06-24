@@ -118,7 +118,7 @@ function woocommerce_get_tool($id = 'woocommerce-nav'){
                         $count = YITH_WCWL()->count_products();
 
                         echo "<li class='wishlist-link'>";
-                        echo '<a href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist ", THEME_LANG).'<span>('.$count.')</span></a>';
+                        echo '<a href="'.$yith_wcwl->get_wishlist_url('').'">'.__("My Wishlist", THEME_LANG).'<span>('.$count.')</span></a>';
                         echo "</li>";
                     }
                 ?>
