@@ -1023,6 +1023,8 @@ ul.product-categories > li.cat-parent.current-cat > a{
     font-size: 0 !important;
     position: static!important;
     margin: 0!important;
+	padding: 0;
+	border: none;
 }
 .woocommerce.compare-button a:before{
     font-family: FontAwesome;
@@ -1209,16 +1211,20 @@ ul.product-categories > li.cat-parent.current-cat > a{
     color: #ffffff;
     font-size: 14px;
     font-weight: 300;
-    height: 38px;
-    line-height: 38px;
+    height: 35px;
+    line-height: 35px;
     margin: 0;
     position: absolute;
     right: 0;
     text-align: center;
     text-transform: lowercase;
     top: 0;
-    width: 38px;
+    width: 35px;
     z-index: 10;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 3px;
 }
 .woocommerce ul.products .product-image-container{
     border: 1px solid #ccc;
@@ -1501,9 +1507,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
 }
 .woocommerce ul.products.effect-bottom .product-item-tools-bottom .button,
 .woocommerce ul.products.effect-bottom .product-item-tools-bottom .yith-wcwl-add-to-wishlist,
-.woocommerce ul.products.effect-bottom .product-item-tools-bottom .compare-button{
+.woocommerce ul.products.effect-bottom .product-item-tools-bottom div.compare-button{
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 5px 5px;
     border: 1px solid #cccccc;
     background: #FFF;
     vertical-align: top;
@@ -1512,6 +1518,11 @@ ul.product-categories > li.cat-parent.current-cat > a{
     text-align: center;
     line-height: 36px;
     overflow: hidden;
+}
+.woocommerce ul.products.effect-bottom .product-item-tools-bottom div.compare-button .button{
+	padding: 0;
+	border: none;
+	display: block;
 }
 .woocommerce ul.products.effect-bottom .product-item-tools-bottom .button.loading:before{
     line-height: 38px;
@@ -1629,6 +1640,9 @@ ul.product-categories > li.cat-parent.current-cat > a{
     margin-bottom: 10px;
     padding: 0;
     width: 120px;
+}
+.woocommerce ul.products.lists .product-item-tools .compare-button .button{
+	width: 100%;
 }
 .woocommerce ul.products.lists h5{
     font-size: 18px;

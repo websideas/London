@@ -38,7 +38,7 @@ global $post, $woocommerce, $product;
 				$gallery = '';
 			}
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="easyzoom easyzoom--overlay"><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a></div>', $image_link, $image_caption, $image ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="easyzoom easyzoom--overlay"><a href="%s" itemprop="image" class="woocommerce-main-image" title="%s">%s</a></div>', $image_link, $image_caption, $image ), $post->ID );
             
             
             // Display Attachment Images as well
@@ -61,7 +61,7 @@ global $post, $woocommerce, $product;
 						) );
 
 					// Display other items
-					echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="easyzoom easyzoom--overlay"><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a></div>', $image_link, $image_title, $image ), $post->ID );
+					echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="easyzoom easyzoom--overlay"><a href="%s" itemprop="image" class="woocommerce-main-image" title="%s">%s</a></div>', $image_link, $image_title, $image ), $post->ID );
 				}
 
 			endif;

@@ -1292,7 +1292,6 @@ h2.widgettitle a.rsswidget:first-child,
 #woocommerce-nav > ul > li,
 #woocommerce-nav-mobile > ul > li{
     display: inline-block;
-    float: left;
 }
 #top-nav > ul > li > a,
 #woocommerce-nav > ul > li > a,
@@ -1652,7 +1651,7 @@ body.admin-bar #header.is-sticky.sticky{
 .header-layout3 #main-nav > ul > li > a{
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    color: #CCCCCC;
+    color: #ffffff;
     font-size: 18px;
     font-weight: normal;
     line-height: 28px;
