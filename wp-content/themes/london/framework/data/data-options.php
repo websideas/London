@@ -1231,24 +1231,46 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type'     => 'typography',
                         'title'    => __( 'Top Menu Level', THEME_LANG ),
                         'google'   => true,
-                        'output'      => array( '#main-nav > ul > li > a' )
+                        'text-align'      => false,
+                        'color'           => false,
+                        'line-height'     => false,
+                        'output'      => array( 'body .header-container #main-nav > ul > li > a' )
                     ),
                     array(
                         'id'       => 'typography_navigation_second',
                         'type'     => 'typography',
-                        'title'    => __( 'Top Menu Level', THEME_LANG ),
+                        'title'    => __( 'Dropdown menu item', THEME_LANG ),
                         'google'   => true,
-                        'output'      => array( '#main-nav > ul > li ul.sub-menu-dropdown > li > a' )
+                        'text-align'      => false,
+                        'color'           => false,
+                        'line-height'     => false,
+                        'output'      => array( 'body .header-container #main-nav > ul > li ul.sub-menu-dropdown > li > a' )
                     ),
                     array(
                         'id'       => 'typography_navigation_heading',
                         'type'     => 'typography',
                         'title'    => __( 'Heading title', THEME_LANG ),
                         'google'   => true,
+                        'text-align'      => false,
+                        'color'           => false,
+                        'line-height'     => false,
                         'output'      => array( 
-                            '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > a',
-                            '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > span',
-                            '#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li .widget-title' 
+                            'body .header-container #main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > a',
+                            'body .header-container #main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > span',
+                            'body .header-container #main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li .widget-title'
+                        ),
+                        'default'  => array( ),
+                    ),
+                    array(
+                        'id'       => 'typography_navigation_mega',
+                        'type'     => 'typography',
+                        'title'    => __( 'Mega menu item', THEME_LANG ),
+                        'google'   => true,
+                        'text-align'      => false,
+                        'color'           => false,
+                        'line-height'     => false,
+                        'output'      => array(
+                            'body .header-container #main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > .sub-menu-megamenu > li > a'
                         ),
                         'default'  => array( ),
                     )

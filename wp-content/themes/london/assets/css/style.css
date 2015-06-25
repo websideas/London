@@ -774,6 +774,11 @@ select:not([multiple]) {
     line-height: 38px;
     margin-top: -5px;
 }
+#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > a img,
+#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > span img,
+#main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li .widget-title img{
+    margin-bottom: 5px;
+}
 #main-nav > ul > li .kt-megamenu-wrapper > ul.kt-megamenu-ul > li > .sub-menu-megamenu{
     margin: 0;
     padding: 0;
