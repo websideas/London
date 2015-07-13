@@ -110,7 +110,7 @@ final class WOOF
     {
         if ($wp_query->is_main_query())
         {
-
+            $meta_query = array();
             if ( isset( $_GET['max_price'] ) || isset( $_GET['min_price'] ) ) {
 
                 $min              = isset( $_GET['min_price'] ) ? floatval( $_GET['min_price'] ) : 0;
@@ -122,17 +122,27 @@ final class WOOF
                 $wp_query->is_home = false;
                 $wp_query->is_single = false;
                 $wp_query->is_posts_page = false;
-
+                /*
                 $wp_query->set('meta_query', array(
                     'relation' => 'AND',
-                        array(
-                            'key' => '_price',
-                            'type'    => 'numeric',
-                            'value' =>  array($min,  $max ),
-                            'compare' => 'BETWEEN'
-                        )
+                    array(
+                        'key' => '_price',
+                        'type'    => 'numeric',
+                        'value' =>  array($min,  $max ),
+                        'compare' => 'BETWEEN'
+                    )
                     )
                 );
+                */
+
+                $meta_query['relation'] = 'AND';
+                $meta_query[] = array(
+                    'key' => '_price',
+                    'type'    => 'numeric',
+                    'value' =>  array($min,  $max ),
+                    'compare' => 'BETWEEN'
+                );
+
             }
 
             if (isset($_REQUEST['swoof']))
@@ -156,25 +166,52 @@ final class WOOF
 
                     if ($_REQUEST['stock'] == 'instock')
                     {
-                        $wp_query->set('meta_query', array(array(
+                        /*
+                        $wp_query->set('meta_query', array( array(
                                 'key' => '_stock_status',
                                 'value' => 'outofstock', //instock,outofstock
                                 'compare' => 'NOT IN'
                         )));
+                        */
+
+                        $meta_query[] = array(
+                            'key' => '_stock_status',
+                            'value' => 'outofstock', //instock,outofstock
+                            'compare' => 'NOT IN'
+                        );
                     }
 
                     if ($_REQUEST['stock'] == 'outofstock')
                     {
-                        $wp_query->set('meta_query', array(array(
-                                'key' => '_stock_status',
-                                'value' => 'outofstock', //instock,outofstock
-                                'compare' => 'IN'
-                        )));
+                        /*
+                        $wp_query->set('meta_query',
+                            array(
+                                array(
+                                    'key' => '_stock_status',
+                                    'value' => 'outofstock', //instock,outofstock
+                                    'compare' => 'IN'
+                                )
+                            )
+                        );
+                        */
+
+                        $meta_query[] = array(
+                            'key' => '_stock_status',
+                            'value' => 'outofstock', //instock,outofstock
+                            'compare' => 'IN'
+                        );
+
                     }
                 }
             }
 
-         //var_dump( $wp_query );
+            if ( count( $meta_query ) ) {
+                if ( !isset ( $meta_query['relation'] )  ) {
+                    $meta_query['relation'] = 'AND';
+                }
+                $wp_query->set( 'meta_query', $meta_query );
+            }
+
         }
 
 

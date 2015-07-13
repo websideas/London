@@ -4,7 +4,7 @@
   Plugin URI: http://kutethemes.ovicsoft.com/
   Description: A Toolkit for London theme
   Author: SaT(shrimp2t@gmail.com)
-  Version: 1.0
+  Version: 1.2
   Author URI: http://kutethemes.ovicsoft.com/
  */
 
