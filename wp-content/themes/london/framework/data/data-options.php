@@ -157,10 +157,10 @@ if ( ! class_exists( 'KT_config' ) ) {
         public function setSections() {
             
             $this->sections[] = array(
-                'id' 	=> 'general',
+                'id'    => 'general',
                 'title'  => __( 'General', THEME_LANG ),
                 'desc'   => __( '', THEME_LANG ),
-                'icon_class'	=> 'icon_cogs'
+                'icon_class' => 'icon_cogs'
             );
 
 
@@ -168,12 +168,11 @@ if ( ! class_exists( 'KT_config' ) ) {
             $sidebars = array();
 
             foreach ( $wp_registered_sidebars as $sidebar ){
-                $sidebars[  $sidebar['id'] ] =   $sidebar['name'];
+                $sidebars[  $sidebar['id'] ] = $sidebar['name'];
             }
-
-
+            
             $this->sections[] = array(
-                'id' 	=> 'general_layout',
+                'id'    => 'general_layout',
                 'title'  => __( 'General', THEME_LANG ),
                 'desc'   => __( '', THEME_LANG ),
                 'subsection' => true,
@@ -236,40 +235,38 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'clear' => false,
                     ),
                     array(
-                        'id'		=> 'page_loader',
-                        'type'		=> 'switch',
-                        'title'		=> __( 'Page loader', THEME_LANG ),
-                        'subtitle'	=> __( 'Enable page loader when start.', THEME_LANG),
-                        "default"	=> '1',
-                        'on'		=> __( 'On', THEME_LANG ),
-                        'off'		=> __( 'Off', THEME_LANG ),
+                        'id'        => 'page_loader',
+                        'type'      => 'switch',
+                        'title'     => __( 'Page loader', THEME_LANG ),
+                        'subtitle'  => __( 'Enable page loader when start.', THEME_LANG),
+                        "default"   => '1',
+                        'on'        => __( 'On', THEME_LANG ),
+                        'off'       => __( 'Off', THEME_LANG ),
                     ),
-
-
                 )
             );
 
-
             /**
-			 *	Logos
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'logos_favicon',
-				'title'			=> __( 'Logos & Favicon', THEME_LANG ),
-				'desc'			=> '',
-				'subsection' => true,
-				'fields'		=> array(
+             *  Logos
+             **/
+            $this->sections[] = array(
+                'id'            => 'logos_favicon',
+                'title'         => __( 'Logos & Favicon', THEME_LANG ),
+                'desc'          => __( '', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
-                        'id'   => 'logos_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Logos settings', THEME_LANG ),
+                        'id'       => 'logos_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Logos settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'logo',
                         'type'     => 'media',
                         'url'      => true,
                         'compiler' => true,
-                        'default' =>THEME_IMG.'logo.png',
+                        'default'  =>THEME_IMG.'logo.png',
                         'title'    => __( 'Logo', THEME_LANG ),
                     ),
                     array(
@@ -357,10 +354,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'favicon_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Favicon settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'favicon_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Favicon settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'custom_favicon',
@@ -407,23 +404,23 @@ if ( ! class_exists( 'KT_config' ) ) {
             
             
             /**
-			 *	Header
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'Header',
-				'title'			=> __( 'Header', THEME_LANG ),
-				'desc'			=> '',
-				'subsection' => true,
-				'fields'		=> array(
+             *  Header
+             **/
+            $this->sections[] = array(
+                'id'            => 'Header',
+                'title'         => __( 'Header', THEME_LANG ),
+                'desc'          => __( '', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
-						'id'		=> 'fixed_header',
-						'type'		=> 'switch',
-						'title'		=> __( 'Fixed Header on Scroll', THEME_LANG ),
-						'subtitle'	=> __( 'Toggle the fixed header when the user scrolls down the site on or off. Please note that for certain header (two and three) styles only the navigation will become fixed.', THEME_LANG),
-						"default"	=> '1',
-						'on'		=> __( 'On', THEME_LANG ),
-						'off'		=> __( 'Off', THEME_LANG ),
-					),
+                        'id'        => 'fixed_header',
+                        'type'      => 'switch',
+                        'title'     => __( 'Fixed Header on Scroll', THEME_LANG ),
+                        'subtitle'  => __( 'Toggle the fixed header when the user scrolls down the site on or off. Please note that for certain header (two and three) styles only the navigation will become fixed.', THEME_LANG),
+                        "default"   => '1',
+                        'on'        => __( 'On', THEME_LANG ),
+                        'off'       => __( 'Off', THEME_LANG ),
+                    ),
                     array(
                         'id'       => 'header',
                         'type'     => 'image_select',
@@ -443,10 +440,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'header_contact_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Header contact settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'header_contact_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Header contact settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id' => 'header_phone',
@@ -460,32 +457,31 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'title' => __('Email Address For Contact Info', THEME_LANG), 
                         'default' => __('demo@domain.com', THEME_LANG)
                     ),
+                    
                 )
             );
             
             /**
-			 *	Footer
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'footer',
-				'title'			=> __( 'Footer', THEME_LANG ),
-				'desc'			=> '',
-				'subsection' => true,
-				'fields'		=> array(
+             *  Footer
+             **/
+            $this->sections[] = array(
+                'id'            => 'footer',
+                'title'         => __( 'Footer', THEME_LANG ),
+                'desc'          => '',
+                'subsection' => true,
+                'fields'        => array(
                     // Footer settings
-                    
                     array(
                         'id'       => 'backtotop',
                         'type'     => 'switch',
                         'title'    => __( 'Back to top', THEME_LANG ),
                         'default'  => true,
                     ),
-
                     array(
-                        'id'   => 'footer_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer',
@@ -513,10 +509,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
                     // Footer Top settings
                     array(
-                        'id'   => 'footer_top_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer top settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_top_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer top settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_top',
@@ -542,10 +538,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'footer_widgets_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer widgets settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_widgets_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer widgets settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_widgets',
@@ -584,17 +580,16 @@ if ( ! class_exists( 'KT_config' ) ) {
                         ),
                         'default'  => '4-4-4'
                     ),
-                    
                     /* Footer bottom */
                     array(
                         'id'   => 'divide_id',
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'footer_bottom_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer bottom settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_bottom_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer bottom settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_bottom',
@@ -667,14 +662,14 @@ if ( ! class_exists( 'KT_config' ) ) {
 
 
             /**
-             *	Sidebar
+             *  Sidebar
              **/
             $this->sections[] = array(
-                'id'			=> 'csidebar',
-                'title'			=> __( 'Sidebar Widgets', THEME_LANG ),
-                'desc'			=> '',
+                'id'            => 'csidebar',
+                'title'         => __( 'Sidebar Widgets', THEME_LANG ),
+                'desc'          => '',
                 'subsection' => true,
-                'fields'		=> array(
+                'fields'        => array(
 
                     array(
                         'id'          => 'custom_sidebars',
@@ -701,22 +696,22 @@ if ( ! class_exists( 'KT_config' ) ) {
             
 
             /**
-			 *	Styling
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'styling',
-				'title'			=> __( 'Styling', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_camera_alt',
+             *  Styling
+             **/
+            $this->sections[] = array(
+                'id'            => 'styling',
+                'title'         => __( 'Styling', THEME_LANG ),
+                'desc'          => '',
+                'icon_class'    => 'icon_camera_alt',
             );
             /**
-			 *	Styling General
-			 **/
+             *  Styling General
+             **/
             $this->sections[] = array(
-				'id'			=> 'styling_general',
-				'title'			=> __( 'General', THEME_LANG ),
-				'subsection' => true,
-                'fields'		=> array(
+                'id'            => 'styling_general',
+                'title'         => __( 'General', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
                         'id'       => 'styling_accent',
                         'type'     => 'color',
@@ -754,13 +749,13 @@ if ( ! class_exists( 'KT_config' ) ) {
             
             
             /**
-			 *	Styling Background
-			 **/
+             *  Styling Background
+             **/
             $this->sections[] = array(
-				'id'			=> 'styling-background',
-				'title'			=> __( 'Background', THEME_LANG ),
-				'subsection' => true,
-                'fields'		=> array(
+                'id'            => 'styling-background',
+                'title'         => __( 'Background', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
                         'id'       => 'styling_body_background',
                         'type'     => 'background',
@@ -782,18 +777,18 @@ if ( ! class_exists( 'KT_config' ) ) {
             
             
             /**
-			 *	Styling Header
-			 **/
+             *  Styling Header
+             **/
             $this->sections[] = array(
-				'id'			=> 'styling_header',
-				'title'			=> __( 'Header', THEME_LANG ),
-				'subsection' => true,
-                'fields'		=> array(
+                'id'            => 'styling_header',
+                'title'         => __( 'Header', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
-                        'id'   => 'header_layout1_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Header layout 1 settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'header_layout1_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Header layout 1 settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'            => 'header-layout-opacity',
@@ -811,10 +806,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'header_sticky_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Header sticky settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'header_sticky_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Header sticky settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'            => 'header_sticky_opacity',
@@ -827,24 +822,22 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'resolution'    => 0.1,
                         'display_value' => 'text'
                     ),
-
-
                 )
             );
             
             /**
-			 *	Styling Footer
-			 **/
+             *  Styling Footer
+             **/
             $this->sections[] = array(
-				'id'			=> 'styling_footer',
-				'title'			=> __( 'Footer', THEME_LANG ),
-				'subsection' => true,
-                'fields'		=> array(
+                'id'            => 'styling_footer',
+                'title'         => __( 'Footer', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
-                        'id'   => 'footer_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_background',
@@ -869,17 +862,16 @@ if ( ! class_exists( 'KT_config' ) ) {
                             'border-top'    => '1px'
                         )
                     ),
-                    
                     // Footer top settings
                     array(
                         'id'   => 'divide-id',
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'footer_top_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer top settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_top_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer top settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_top_background',
@@ -908,10 +900,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'footer_widgets_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer widgets settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_widgets_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer widgets settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_widgets_border',
@@ -947,17 +939,16 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'top'      => false,
                         'default'  => array( )
                     ),
-                    
                     //Footer bottom settings
                     array(
                         'id'   => 'divide-id',
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'footer_bottom_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'Footer bottom settings', THEME_LANG ),
-                        'class'    => 'section-heading'
+                        'id'       => 'footer_bottom_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Footer bottom settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'footer_bottom_background',
@@ -966,29 +957,29 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'subtitle' => __( 'Footer Background with image, color, etc.', THEME_LANG ),
                         'default'   => array( ),
                         'output'      => array( '#footer' ),
-                    )
+                    ),
                 )
             );
-
+            
             
             /**
-			 *	Typography
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography',
-				'title'			=> __( 'Typography', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_tool',
+             *  Typography
+             **/
+            $this->sections[] = array(
+                'id'            => 'typography',
+                'title'         => __( 'Typography', THEME_LANG ),
+                'desc'          => '',
+                'icon_class'    => 'icon_tool',
             );
             
             /**
-			 *	Typography General
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography_general',
-				'title'			=> __( 'General', THEME_LANG ),
-				'subsection' => true,
-                'fields'		=> array(
+             *  Typography General
+             **/
+            $this->sections[] = array(
+                'id'            => 'typography_general',
+                'title'         => __( 'General', THEME_LANG ),
+                'subsection' => true,
+                'fields'        => array(
                     array(
                         'id'       => 'typography_body',
                         'type'     => 'typography',
@@ -1021,9 +1012,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'   => 'typography_heading',
-                        'type' => 'heading',
-                        'title'    => __( 'typography Heading settings', THEME_LANG ),
+                        'id'       => 'typography_heading',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Typography Heading settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'typography_heading1',
@@ -1094,14 +1086,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                 )
             );
             /**
-			 *	Typography header
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography_header',
-				'title'			=> __( 'Header', THEME_LANG ),
-				'desc'			=> '',
+             *  Typography header
+             **/
+            $this->sections[] = array(
+                'id'            => 'typography_header',
+                'title'         => __( 'Header', THEME_LANG ),
+                'desc'          => '',
                 'subsection' => true,
-				'fields'		=> array(
+                'fields'        => array(
                     array(
                         'id'       => 'typography_header_content',
                         'type'     => 'typography',
@@ -1114,14 +1106,14 @@ if ( ! class_exists( 'KT_config' ) ) {
             );
             
             /**
-			 *	Typography footer
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography_footer',
-				'title'			=> __( 'Footer', THEME_LANG ),
-				'desc'			=> '',
+             *  Typography footer
+             **/
+            $this->sections[] = array(
+                'id'            => 'typography_footer',
+                'title'         => __( 'Footer', THEME_LANG ),
+                'desc'          => '',
                 'subsection' => true,
-				'fields'		=> array(
+                'fields'        => array(
                     array(
                         'id'       => 'typography_footer_top',
                         'type'     => 'typography',
@@ -1181,14 +1173,14 @@ if ( ! class_exists( 'KT_config' ) ) {
                 )
             );
             /**
-			 *	Typography sidebar
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography_sidebar',
-				'title'			=> __( 'Sidebar', THEME_LANG ),
-				'desc'			=> '',
+             *  Typography sidebar
+             **/
+            $this->sections[] = array(
+                'id'            => 'typography_sidebar',
+                'title'         => __( 'Sidebar', THEME_LANG ),
+                'desc'          => '',
                 'subsection' => true,
-				'fields'		=> array(
+                'fields'        => array(
                     array(
                         'id'       => 'typography_sidebar_content',
                         'type'     => 'typography',
@@ -1216,16 +1208,15 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
                 )
             );
-            
             /**
-			 *	Typography sidebar
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'typography_navigation',
-				'title'			=> __( 'Main Navigation', THEME_LANG ),
-				'desc'			=> '',
+             *  Typography sidebar
+             **/
+            $this->sections[] = array(
+                'id'            => 'typography_navigation',
+                'title'         => __( 'Main Navigation', THEME_LANG ),
+                'desc'          => '',
                 'subsection' => true,
-				'fields'		=> array(
+                'fields'        => array(
                     array(
                         'id'       => 'typography-navigation_top',
                         'type'     => 'typography',
@@ -1278,33 +1269,33 @@ if ( ! class_exists( 'KT_config' ) ) {
             );
             
             /**
-			 *	Popup
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'popup',
-				'title'			=> __( 'Popup', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_desktop',
-				'fields'		=> array(
+             *  Popup
+             **/
+            $this->sections[] = array(
+                'id'            => 'popup',
+                'title'         => __( 'Popup', THEME_LANG ),
+                'desc'          => '',
+                'icon_class'    => 'icon_desktop',
+                'fields'        => array(
                     array(
-						'id'		=> 'enable_popup',
-						'type'		=> 'switch',
-						'title'		=> __( 'Enable Popup', THEME_LANG ),
-						'subtitle'	=> __( '', THEME_LANG),
-						"default"	=> true,
-						'on'		=> __( 'On', THEME_LANG ),
-						'off'		=> __( 'Off', THEME_LANG ),
-					),
+                        'id'        => 'enable_popup',
+                        'type'      => 'switch',
+                        'title'     => __( 'Enable Popup', THEME_LANG ),
+                        'subtitle'  => __( '', THEME_LANG),
+                        "default"   => true,
+                        'on'        => __( 'On', THEME_LANG ),
+                        'off'       => __( 'Off', THEME_LANG ),
+                    ),
                     array(
-						'id'		=> 'disable_popup_mobile',
-						'type'		=> 'switch',
-						'title'		=> __( 'Disable Popup on Mobile', THEME_LANG ),
-						'subtitle'	=> __( '', THEME_LANG),
-						"default"	=> false,
-						'on'		=> __( 'On', THEME_LANG ),
-						'off'		=> __( 'Off', THEME_LANG ),
+                        'id'        => 'disable_popup_mobile',
+                        'type'      => 'switch',
+                        'title'     => __( 'Disable Popup on Mobile', THEME_LANG ),
+                        'subtitle'  => __( '', THEME_LANG),
+                        "default"   => false,
+                        'on'        => __( 'On', THEME_LANG ),
+                        'off'       => __( 'Off', THEME_LANG ),
                         'required' => array('enable_popup','equals', 1)
-					),
+                    ),
                     array(
                         'id' => 'time_show',
                         'type' => 'text',
@@ -1346,21 +1337,20 @@ if ( ! class_exists( 'KT_config' ) ) {
                     ),
                 )
             );
-            
             /**
-			 *	Woocommerce
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'woocommerce',
-				'title'			=> __( 'Woocommerce', THEME_LANG ),
-				'desc'			=> '',
-				'icon_class'	=> 'icon_cart_alt',
-				'fields'		=> array(
+             *  Woocommerce
+             **/
+            $this->sections[] = array(
+                'id'            => 'woocommerce',
+                'title'         => __( 'Woocommerce', THEME_LANG ),
+                'desc'          => '',
+                'icon_class'    => 'icon_cart_alt',
+                'fields'        => array(
                     array(
-                        'id'     => 'shop_single_product',
-                        'type'     => 'heading',
-                        'title'    => __('Shop Products settings', THEME_LANG),
-                        'class'    => 'section-heading'
+                        'id'       => 'shop_single_product',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Shop Products settings', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'shop_sidebar',
@@ -1439,10 +1429,10 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'type' => 'divide'
                     ),
                     array(
-                        'id'     => 'shop_single_product',
-                        'type'     => 'heading',
-                        'title'    => __('Single Product Layout', THEME_LANG),
-                        'class'    => 'section-heading'
+                        'id'       => 'shop_product_layout',
+                        'type'     => 'raw',
+                        'content'  => '<div class="section-heading">'.__( 'Single Product Layout', THEME_LANG ).'</div>',
+                        'full_width' => true
                     ),
                     array(
                         'id'       => 'product_sidebar',
@@ -1480,11 +1470,11 @@ if ( ! class_exists( 'KT_config' ) ) {
                 )
             );
             $this->sections[] = array(
-				'id'			=> 'social',
-				'title'			=> __( 'Socials', THEME_LANG ),
-				'desc'			=> __('Social and share settings', THEME_LANG),
-				'icon_class'	=> 'social_facebook',
-				'fields'		=> array(
+                'id'            => 'social',
+                'title'         => __( 'Socials', THEME_LANG ),
+                'desc'          => __('Social and share settings', THEME_LANG),
+                'icon_class'    => 'social_facebook',
+                'fields'        => array(
 
                     array(
                         'id' => 'addthis_id',
@@ -1495,96 +1485,96 @@ if ( ! class_exists( 'KT_config' ) ) {
                         'default' => ''
                     ),
                     array(
-						'id' => 'twitter_username',
-						'type' => 'text',
-						'title' => __('Twitter', THEME_LANG),
-						'subtitle' => __("Your Twitter username (no @).", THEME_LANG),
-						'default' => ''
+                        'id' => 'twitter_username',
+                        'type' => 'text',
+                        'title' => __('Twitter', THEME_LANG),
+                        'subtitle' => __("Your Twitter username (no @).", THEME_LANG),
+                        'default' => ''
                     ),
                     array(
-						'id' => 'facebook_page_url',
-						'type' => 'text',
-						'title' => __('Facebook', THEME_LANG),
-						'subtitle' => __("Your Facebook page/profile url", THEME_LANG),
-						'default' => ''
+                        'id' => 'facebook_page_url',
+                        'type' => 'text',
+                        'title' => __('Facebook', THEME_LANG),
+                        'subtitle' => __("Your Facebook page/profile url", THEME_LANG),
+                        'default' => ''
                     ),
                     array(
-						'id' => 'pinterest_username',
-						'type' => 'text',
-						'title' => __('Pinterest', THEME_LANG),
-						'subtitle' => __("Your Pinterest username", THEME_LANG),
-						'default' => ''
+                        'id' => 'pinterest_username',
+                        'type' => 'text',
+                        'title' => __('Pinterest', THEME_LANG),
+                        'subtitle' => __("Your Pinterest username", THEME_LANG),
+                        'default' => ''
                     ),
                     array(
-						'id' => 'dribbble_username',
-						'type' => 'text',
-						'title' => __('Dribbble', THEME_LANG),
-						'subtitle' => __("Your Dribbble username", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-				    ),
-                    array(
-						'id' => 'vimeo_username',
-						'type' => 'text',
-						'title' => __('Vimeo', THEME_LANG),
-						'subtitle' => __("Your Vimeo username", THEME_LANG),
-						'desc' => '',
-						'default' => ''
+                        'id' => 'dribbble_username',
+                        'type' => 'text',
+                        'title' => __('Dribbble', THEME_LANG),
+                        'subtitle' => __("Your Dribbble username", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
                     ),
                     array(
-						'id' => 'tumblr_username',
-						'type' => 'text',
-						'title' => __('Tumblr', THEME_LANG),
-						'subtitle' => __("Your Tumblr username", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-				    ),
+                        'id' => 'vimeo_username',
+                        'type' => 'text',
+                        'title' => __('Vimeo', THEME_LANG),
+                        'subtitle' => __("Your Vimeo username", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
                     array(
-						'id' => 'skype_username',
-						'type' => 'text',
-						'title' => __('Skype', THEME_LANG),
-						'subtitle' => __("Your Skype username", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					),
+                        'id' => 'tumblr_username',
+                        'type' => 'text',
+                        'title' => __('Tumblr', THEME_LANG),
+                        'subtitle' => __("Your Tumblr username", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
                     array(
-						'id' => 'linkedin_page_url',
-						'type' => 'text',
-						'title' => __('LinkedIn', THEME_LANG),
-						'subtitle' => __("Your LinkedIn page/profile url", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					),
-					array(
-						'id' => 'googleplus_page_url',
-						'type' => 'text',
-						'title' => __('Google+', THEME_LANG),
-						'subtitle' => __("Your Google+ page/profile URL", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					),
-					array(
-						'id' => 'youtube_username',
-						'type' => 'text',
-						'title' => __('YouTube', THEME_LANG),
-						'subtitle' => __("Your YouTube username", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					),
-					array(
-						'id' => 'instagram_username',
-						'type' => 'text',
-						'title' => __('Instagram', THEME_LANG),
-						'subtitle' => __("Your Instagram username", THEME_LANG),
-						'desc' => '',
-						'default' => ''
-					)
+                        'id' => 'skype_username',
+                        'type' => 'text',
+                        'title' => __('Skype', THEME_LANG),
+                        'subtitle' => __("Your Skype username", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
+                    array(
+                        'id' => 'linkedin_page_url',
+                        'type' => 'text',
+                        'title' => __('LinkedIn', THEME_LANG),
+                        'subtitle' => __("Your LinkedIn page/profile url", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
+                    array(
+                        'id' => 'googleplus_page_url',
+                        'type' => 'text',
+                        'title' => __('Google+', THEME_LANG),
+                        'subtitle' => __("Your Google+ page/profile URL", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
+                    array(
+                        'id' => 'youtube_username',
+                        'type' => 'text',
+                        'title' => __('YouTube', THEME_LANG),
+                        'subtitle' => __("Your YouTube username", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    ),
+                    array(
+                        'id' => 'instagram_username',
+                        'type' => 'text',
+                        'title' => __('Instagram', THEME_LANG),
+                        'subtitle' => __("Your Instagram username", THEME_LANG),
+                        'desc' => '',
+                        'default' => ''
+                    )
                 )
             );
             
             /**
-			 *	Import Demo
-			 **/
+             *  Import Demo
+             **/
             $this->sections[] = array(
                  'id' => 'wbc_importer_section',
                  'title'  => esc_html__( 'Demo Content', 'framework' ),
@@ -1612,14 +1602,14 @@ if ( ! class_exists( 'KT_config' ) ) {
             
             
             /**
-			 *	Advanced Troubleshooting
-			 **/
-			$this->sections[] = array(
-				'id'			=> 'advanced_troubleshooting',
-				'title'			=> __( 'Troubleshooting', THEME_LANG ),
-				'desc'			=> '',
+             *  Advanced Troubleshooting
+             **/
+            $this->sections[] = array(
+                'id'            => 'advanced_troubleshooting',
+                'title'         => __( 'Troubleshooting', THEME_LANG ),
+                'desc'          => '',
                 'subsection' => true,
-				'fields'		=> array(
+                'fields'        => array(
                     array(
                         'id'       => 'opt-raw_info_4',
                         'type'     => 'raw',
