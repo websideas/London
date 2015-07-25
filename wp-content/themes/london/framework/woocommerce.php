@@ -561,7 +561,7 @@ if(defined( 'YITH_WOOCOMPARE' )){
 
 add_filter('yith_wcwl_positions', 'yith_wcwl_positions_callback');
 function yith_wcwl_positions_callback($positions){
-    unset($positions['add-to-cart']);
+    $positions['add-to-cart']['hook'] = '';
     return $positions;
 }
 
