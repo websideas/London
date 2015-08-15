@@ -2713,9 +2713,7 @@ class wpdb {
 			}
 
 			foreach ( array_keys( $data ) as $column ) {
-				if ( isset( $row["x_$column"] ) ) {
-					$data[ $column ]['value'] = $row["x_$column"];
-				}
+				$data[ $column ]['value'] = $row["x_$column"];
 			}
 		}
 
