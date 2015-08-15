@@ -349,6 +349,7 @@ blockquote.classic.blockquote-reverse:before{
 input[type=email],
 input[type=password],
 input[type=phone],
+input[type=tel],
 input[type=text],
 textarea{
     border-radius: 0;
