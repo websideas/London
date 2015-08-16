@@ -6,7 +6,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.4.0
+ * @version     1.6.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,28 +23,6 @@ if ( empty( $woocommerce_loop['loop'] ) )
 if ( empty( $woocommerce_loop['columns'] ) )
 	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 4 );
 
-// Store column count for displaying the grid
-if ( empty( $woocommerce_loop['columns_tablet'] ) )
-	$woocommerce_loop['columns_tablet'] = apply_filters( 'loop_shop_columns_tablet', 2 );
-
-// Extra post classes
-$classes = array('product-category');
-
-if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] )
-	$classes[] = 'first';
-if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
-	$classes[] = 'last';
-
-
-if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns_tablet'] || 1 == $woocommerce_loop['columns_tablet'] )
-	$classes[] = 'first-tablet';
-if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns_tablet'] )
-	$classes[] = 'last-tablet';
-
-
-
-$elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $classes ) );
-
 // Increase loop count
 $woocommerce_loop['loop']++;
 
@@ -53,7 +31,12 @@ $bootstrapColumn = round( 12 / $woocommerce_loop['columns'] );
 $classes = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColumn;
 
 ?>
-<li class="<?php echo $elementClass; ?>">
+<li class="product-category product<?php
+    if ( ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] == 0 || $woocommerce_loop['columns'] == 1 )
+        echo ' first';
+	if ( $woocommerce_loop['loop'] % $woocommerce_loop['columns'] == 0 )
+		echo ' last';
+	?> <?php echo $classes; ?>">
 
 	<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
     <div class="product-image-container">

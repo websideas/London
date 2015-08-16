@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  *        'section_general_settings_boxinfo'         => array(
- *            'name' => __( 'General information', 'yith-plugin-fw' ),
+ *            'name' => __( 'General information', 'yit' ),
  *            'type' => 'boxinfo',
  *            'default' => array(
- *                'plugin_name' => __( 'Plugin Name', 'yith-plugin-fw' ),
+ *                'plugin_name' => __( 'Plugin Name', 'yit' ),
  *                'buy_url' => 'http://www.yithemes.com',
  *                'demo_url' => 'http://plugins.yithemes.com/demo-url/'
  *            ),

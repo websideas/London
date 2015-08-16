@@ -1,10 +1,10 @@
 === YITH WooCommerce Compare ===
 
 Contributors: yithemes
-Tags: wc, shop, woocommerce, compare, compare products, product compare, widget, comparison, product comparison, compare table
+Tags: woocommerce, compare, compare products, product compare, widget
 Requires at least: 3.5.1
-Tested up to: 4.2.4
-Stable tag: 2.0.2
+Tested up to: 4.1
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ WooCommerce Compatible up to 2.2.x
 
 == Description ==
 
-YITH WooCommerce Compare plugin is an extension of WooCommerce plugin that allow your users to compare some products of your shop.
+YITH WooCommerce Compare plugin is an extension of Woocommerce plugin that allow your users to compare some products of your shop.
 All products are saved in one complete table where the user can see the difference between the products. Each product features can be
 set with the woocommerce attributes in the product configuration.
 You can also add a simple widget with the list of products the users have added, where you can manage them.
@@ -32,18 +32,37 @@ This plugin is 100% compatible with [WPML](http://wpml.org/?aid=24889&affiliate_
 
 = Installation =
 
-1. Unzip the downloaded zip file.
-2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
-3. Activate `YITH WooCommerce Compare` from Plugins page
+Once you have installed the plugin, you just need to activate the plugin in order to enable it.
 
 = Configuration =
 
 1. Add the features in each product by setting the attributes in prouct configuration;
-2. Configure the options in YIT Plugin -> Compare;
+2. Configure the options in Woocommerce -> Settings -> Products compare;
 3. The user of your shop will click in the "Compare" button located in the single product page;
 4. Will be open a popup with the compare table inside.
 
-You can also add the widget with the product list of compare table, in Appearance -> Widgets and adding the widget "YITH WooCommerce Compare Widget".
+You can also add the widget with the product list of compare table, in Appearance -> Widgets and adding the widget "YITH Woocommerce Compare Widget".
+
+= Developer =
+
+Are you a developer? Want to customize the templates or the style of the plugin? Read on the [documentation](http://yithemes.com/docs-plugins/yith-woocommerce-compare) and discover how to do that.
+
+= Support =
+
+Hi there, we have good news here: all our plugins are released for free. Wow!
+Already knew it, right?! Great, but maybe you do not know that: if you're looking for how to install the plugins or how to use them within your Wordpress installations, which is the right way to ask support?
+That's the way:
+
+* Register on http://yithemes.com
+* Go to Support > Get Support
+
+Here we provide support, not on wordpress.org were, usually we do not read topics. It's better to follow us or write on our forum!
+
+== Installation ==
+
+1. Unzip the downloaded zip file.
+2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
+3. Activate `YITH WooCommerce Compare` from Plugins page
 
 == Frequently Asked Questions ==
 
@@ -51,10 +70,10 @@ You can also add the widget with the product list of compare table, in Appearanc
 Yes, you can copy the template from the plugin folder and paste it inside the folder "woocommerce" of your theme folder.
 
 = Can I select what fields show inside the compare table? =
-Yes, you can choose what fields to show in the compare table. You can do it in YIT Plugins -> Compare.
+Yes, you can choose what fields to show in the compare table. You can do it in Woocommerce -> Settings -> Products Compare.
 
 = Can I order the fields in the compare table? =
-Yes, you can sort the fields in the compare table. You can do it in YIT Plugins -> Compare.
+Yes, you can sort the fields in the compare table. You can do it in Woocommerce -> Settings -> Products Compare.
 
 == Screenshots ==
 
@@ -63,26 +82,6 @@ Yes, you can sort the fields in the compare table. You can do it in YIT Plugins 
 3. The settings of plugin
 
 == Changelog ==
-
-= 2.0.2 =
-
-* Added: Compatibility with WooCommerce 2.4
-* Updated: Core plugin
-
-= 2.0.1 =
-
-* Fixed: Compare table layout
-* Fixed: undefined function unblock() in main js
-* Updated: Core plugin
-
-= 2.0.0 =
-
-* Added: Added new plugin core
-* Fixed: Error in class yith-woocompare-fontend
-* Fixed: Lightbox doesn't close after click view cart
-* Fixed: minor bug fix
-* Updated: Language files
-* Removed: old default.po catalog language file
 
 = 1.2.3 =
 
@@ -181,7 +180,6 @@ Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woo
 
 == Upgrade notice ==
 
-= 2.0.2 =
+= 1.0.0 =
 
-* Added: Compatibility with WooCommerce 2.4
-* Updated: Core plugin
+Initial release

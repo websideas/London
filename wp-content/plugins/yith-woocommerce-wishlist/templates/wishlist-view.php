@@ -8,11 +8,11 @@
  */
 ?>
 
-<?php do_action( 'yith_wcwl_before_wishlist_form', $wishlist_meta ); ?>
-
-<form id="yith-wcwl-form" action="<?php echo esc_url( YITH_WCWL()->get_wishlist_url( 'view' . ( $wishlist_meta['is_default'] != 1 ? '/' . $wishlist_meta['wishlist_token'] : '' ) ) ) ?>" method="post" class="woocommerce">
-
-    <?php wp_nonce_field( 'yith-wcwl-form', 'yith_wcwl_form_nonce' ) ?>
+<form
+	id="yith-wcwl-form"
+	action="<?php echo esc_url( YITH_WCWL()->get_wishlist_url( 'view' . ( $wishlist_meta['is_default'] != 1 ? '/' . $wishlist_meta['wishlist_token'] : '' ) ) ) ?>"
+	method="post"
+>
 
     <!-- TITLE -->
     <?php
@@ -48,7 +48,15 @@
      do_action( 'yith_wcwl_before_wishlist' ); ?>
 
     <!-- WISHLIST TABLE -->
-    <table class="shop_table cart wishlist_table" data-pagination="<?php echo esc_attr( $pagination )?>" data-per-page="<?php echo esc_attr( $per_page )?>" data-page="<?php echo esc_attr( $current_page )?>" data-id="<?php echo ( is_user_logged_in() ) ? esc_attr( $wishlist_meta['ID'] ) : '' ?>" data-token="<?php echo ( ! empty( $wishlist_meta['wishlist_token'] ) && is_user_logged_in() ) ? esc_attr( $wishlist_meta['wishlist_token'] ) : '' ?>">
+    <table
+	    class="shop_table cart wishlist_table"
+	    cellspacing="0"
+	    data-pagination="<?php echo esc_attr( $pagination )?>"
+	    data-per-page="<?php echo esc_attr( $per_page )?>"
+	    data-page="<?php echo esc_attr( $current_page )?>"
+	    data-id="<?php echo ( is_user_logged_in() ) ? esc_attr( $wishlist_meta['ID'] ) : '' ?>"
+	    data-token="<?php echo ( ! empty( $wishlist_meta['wishlist_token'] ) && is_user_logged_in() ) ? esc_attr( $wishlist_meta['wishlist_token'] ) : '' ?>"
+    >
 
 	    <?php $column_count = 2; ?>
 
@@ -274,15 +282,15 @@
 	        <td colspan="<?php echo esc_attr( $column_count ) ?>">
 	            <?php if( $show_cb ) : ?>
 		            <div class="custom-add-to-cart-button-cotaniner">
-		                <a href="<?php echo esc_url( add_query_arg( array( 'wishlist_products_to_add_to_cart' => '', 'wishlist_token' => $wishlist_meta['wishlist_token'] ) ) ) ?>" class="button alt" id="custom_add_to_cart"><?php echo apply_filters( 'yith_wcwl_custom_add_to_cart_text', __( 'Add the selected products to the cart', 'yit' ) ) ?></a>
+		                <a href="<?php echo esc_url( add_query_arg( array( 'wishlist_products_to_add_to_cart' => '', 'wishlist_token' => $wishlist_meta['wishlist_token'] ) ) ) ?>" class="button alt" id="custom_add_to_cart"><?php _e( 'Add the selected products to the cart', 'yit' ) ?></a>
 		            </div>
 	            <?php endif; ?>
 
-	            <?php if ( is_user_logged_in() && $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
+	            <?php if ( $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
 		            <div class="ask-an-estimate-button-container">
 	                    <a href="<?php echo ( $additional_info ) ? '#ask_an_estimate_popup' : $ask_estimate_url ?>" class="btn button ask-an-estimate-button" <?php echo ( $additional_info ) ? 'data-rel="prettyPhoto[ask_an_estimate]"' : '' ?> >
 	                    <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' )?>
-	                    <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', __( 'Ask for an estimate', 'yit' ) ) ?>
+	                    <?php _e( 'Ask for an estimate', 'yit' ) ?>
 	                </a>
 		            </div>
 	            <?php endif; ?>
@@ -290,7 +298,7 @@
 		        <?php
 		        do_action( 'yith_wcwl_before_wishlist_share' );
 
-		        if ( is_user_logged_in() && $is_user_owner && $wishlist_meta['wishlist_privacy'] != 2 && $share_enabled ){
+		        if ( $is_user_owner && $wishlist_meta['wishlist_privacy'] != 2 && $share_enabled ){
 			        yith_wcwl_get_template( 'share.php', $share_atts );
 		        }
 
@@ -311,8 +319,6 @@
     <?php do_action( 'yith_wcwl_after_wishlist' ); ?>
 
 </form>
-
-<?php do_action( 'yith_wcwl_after_wishlist_form', $wishlist_meta ); ?>
 
 <?php if( $additional_info ): ?>
 	<div id="ask_an_estimate_popup">

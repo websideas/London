@@ -75,13 +75,13 @@ class WP_Embed {
 		if ( ! $post || empty( $_GET['message'] ) )
 			return;
 
-		?>
-		<script type="text/javascript">
-			jQuery(document).ready(function($){
-				$.get("<?php echo admin_url( 'admin-ajax.php?action=oembed-cache&post=' . $post->ID, 'relative' ); ?>");
-			});
-		</script>
-		<?php
+?>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$.get("<?php echo admin_url( 'admin-ajax.php?action=oembed-cache&post=' . $post->ID, 'relative' ); ?>");
+	});
+</script>
+<?php
 	}
 
 	/**
